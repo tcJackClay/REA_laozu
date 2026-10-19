@@ -1,0 +1,47 @@
+/* Source coordinate space: 1080x1920; only the outer viewport scales. */
+#app[data-source-layout=true]{padding:0;position:relative;background:#e5dec9}
+#app[data-source-layout=true]>header,#app[data-source-layout=true]>.resources,#app[data-source-layout=true]>#home-nav{display:none!important}
+#app[data-source-layout=true] #scene{position:absolute;inset:0;padding:0;overflow:hidden;height:100%}
+.aligned-viewport{position:absolute;inset:0;overflow:hidden;touch-action:manipulation}
+.aligned-canvas{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:top left;overflow:hidden;font-family:KaiTi,STKaiti,'Microsoft YaHei',serif;color:#4a3826}
+.unity-prefab{position:absolute;inset:0;pointer-events:none}
+.unity-node{position:absolute;box-sizing:border-box;overflow:visible;pointer-events:none;padding:0;margin:0;border:0;border-radius:0;min-width:0;min-height:0;background:none;font:inherit;color:inherit;line-height:normal;box-shadow:none}
+.unity-node[hidden]{display:none!important}
+button.unity-node{pointer-events:auto;cursor:pointer}
+.unity-image,.unity-text,.unity-slot{position:absolute;inset:0;box-sizing:border-box;pointer-events:none;background-repeat:no-repeat}
+.unity-text{display:flex;align-items:center;white-space:pre-wrap;overflow:hidden;line-height:1.2;letter-spacing:0}
+.unity-slot{display:flex;align-items:center;justify-content:center}
+.unity-node button{pointer-events:auto}
+.unity-node:focus-visible{outline:6px solid #c79536;outline-offset:4px}
+.source-map-scroll{overflow:auto!important;pointer-events:auto!important;touch-action:pan-y;scrollbar-width:none}
+.source-map{position:relative;width:1080px;overflow:hidden}
+.source-map>img{position:absolute;pointer-events:none}
+.source-map .unity-prefab{width:1080px;height:100%;inset:0}
+.source-shade{position:absolute;inset:0;background:#0008;pointer-events:auto}
+.source-message{position:absolute;left:140px;right:140px;top:950px;padding:45px;background:#eee3cb;border:5px ridge #ae8c55;text-align:center;font:36px/1.7 'Microsoft YaHei',sans-serif;pointer-events:auto}
+.source-message button{border:2px solid #9a7c49;background:#d8c39a;padding:16px 35px;font:36px KaiTi,serif;color:#4a3826;cursor:pointer}
+.source-monster-preview{width:100%;height:100%;display:grid;place-items:center;gap:12px;font-size:32px;text-align:center}
+.source-monster-preview img{height:190px;width:190px;object-fit:contain}
+.source-team-list{display:flex;justify-content:center;gap:30px;font-size:35px;width:100%;height:100%;align-items:center}
+.source-team-list button{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#deccab;border:4px solid #bba476;width:190px;height:240px;font:32px KaiTi;pointer-events:auto}
+.source-team-list button[aria-pressed=true]{border-color:#ad672d;box-shadow:0 0 15px #b57f38}
+.source-team-list img{width:115px;height:115px;object-fit:contain}
+.source-conditions{position:absolute;inset:670px 180px auto;background:#f0e5d1;border:5px ridge #ad8f5c;padding:40px;font:36px/1.8 'Microsoft YaHei';pointer-events:auto}
+.source-ledger-items{display:flex;gap:24px;align-items:center;justify-content:center;font:35px KaiTi;flex-wrap:wrap}
+.source-ledger-item{display:flex;flex-direction:column;align-items:center;gap:10px;min-width:150px}
+.source-ledger-item img{width:110px;height:110px;object-fit:contain}
+.source-wait{position:absolute;left:0;right:0;top:1000px;text-align:center;font:38px/1.8 KaiTi;color:#4b3825;pointer-events:auto}
+.source-return{position:absolute;left:60px;bottom:75px;border:0;background:none;padding:0;pointer-events:auto;width:135px;height:135px;cursor:pointer}
+.source-return img{width:100%;height:100%}
+.source-evidence-badge{position:absolute;left:20px;top:20px;z-index:99;padding:10px;background:#fff6;color:#5d3227;font:26px sans-serif}
+.source-battle-actors{position:absolute;inset:550px 0 auto;height:600px;display:flex;align-items:center;justify-content:space-around;font:36px KaiTi}
+.source-battle-actors article{display:flex;flex-direction:column;align-items:center;gap:18px}
+.source-battle-actors img{width:240px;height:240px;object-fit:contain}
+.source-battle-actors progress{width:300px;height:22px;accent-color:#60874b}
+.source-battle-log{position:absolute;left:110px;right:110px;bottom:360px;font:34px/1.7 KaiTi;background:#ede1c7d9;padding:25px}
+
+#app[data-source-layout=true]{--home-width:min(100vw,460px,calc(100dvh * 1080 / 1920));--home-unit:calc(var(--home-width)/1080);min-width:0;min-height:0;flex-shrink:0;width:var(--home-width);height:calc(var(--home-width)*1920/1080)}
+.source-turtle{position:absolute;inset:0;background:url('assets/xuantiegui-idle-sheet.png') 0 0/1600% 100%;animation:source-turtle-idle 2s steps(16) infinite;transform:scaleX(-1)}
+@keyframes source-turtle-idle{to{background-position:106.666667% 0}}
+
+@media(max-height:600px){#app[data-source-layout=true]{--home-width:min(100vw,460px,calc((100dvh - 2px) * 1080 / 1920))}}

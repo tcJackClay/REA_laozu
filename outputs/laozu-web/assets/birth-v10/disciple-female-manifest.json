@@ -1,0 +1,90 @@
+{
+  "character": "disciple-female",
+  "animation": "idle",
+  "file": "disciple-female-idle-sheet.png",
+  "frames": 16,
+  "duration": 2,
+  "bounds": {
+    "minX": -120.69895935058594,
+    "minY": -294.1393737792969,
+    "maxX": 81.4721908569336,
+    "maxY": 14
+  },
+  "missingPaths": [],
+  "frameSize": [
+    320,
+    420
+  ],
+  "skinCombination": [
+    "body/body_bai",
+    "00chushinv",
+    "chen/suit_chen_hei",
+    "chen/mouth_chen_hei",
+    "wanzitou/hair_wanzitou_hong",
+    "wanzitou/eye_wanzitou_hui"
+  ],
+  "sourceSkeleton": "640_zhujue_body.skel",
+  "reference": "C:/Users/45186/AppData/Local/Temp/codex-clipboard-a8336112-3411-4cd6-801e-7beb33ebe587.png",
+  "rendering": "Original Spine mesh triangles, original atlas pixels, native animation; transparent RGBA output. No UI screenshot crops.",
+  "limitations": [
+    "Skin IDs are selected by direct visual matching to user reference, not an extracted source-account appearance payload.",
+    "CPU triangle renderer approximates Unity filtering and material; not asserted pixel-identical.",
+    "chen lite parser reports 369 trailing extension bytes; selected original suit and mouth meshes load and all active paths resolve."
+  ],
+  "sources": [
+    {
+      "name": "640_zhujue_body.skel",
+      "sha256": "b36ed5a3cde11206521be707508a66943444a3396d7a40419917aea65a93f97f"
+    },
+    {
+      "name": "442_zhujue_wanzitou_lite",
+      "sha256": "f05fcfd1c64ea9a733e8d5feb8e4d06eae3b70bc7cec43a7ee47a45a84cd4474"
+    },
+    {
+      "name": "442_zhujue_chen_lite",
+      "sha256": "1b42a45b400e78770e4dfffa035a2ba84829ef94e3849698fb50df894cda1cde"
+    },
+    {
+      "name": "442_zhujue_chushinv_lite",
+      "sha256": "7e69500af46cf54b03d0f9830b9c41950b3f625f3b9c0fac9f35281bf64e28a6"
+    },
+    {
+      "name": "1888_zhujue_wanzitou.atlas",
+      "sha256": "e4bcac2508f61702da4b466e3ae4f846164f0acb1a9d841761f7009631193119"
+    },
+    {
+      "name": "541_zhujue_chen.atlas",
+      "sha256": "f875a580acb0b8a327885cce856b22b55401ffcfd661e6669c3b28048678b3cc"
+    }
+  ],
+  "outputs": [
+    {
+      "file": "disciple-female-full.png",
+      "sha256": "7914ad4cbdf409617aa14610da7a9298b877e9a374d1d90a21db5619b9091d25",
+      "size": [
+        320,
+        420
+      ],
+      "alphaBounds": [
+        40,
+        22,
+        284,
+        405
+      ]
+    },
+    {
+      "file": "disciple-female-idle-sheet.png",
+      "sha256": "e0c0245d3fc2ec9c1e0c2bb50804f0697d68d3a95d037de4fb870e570ae1369b",
+      "size": [
+        5120,
+        420
+      ],
+      "alphaBounds": [
+        40,
+        17,
+        5081,
+        405
+      ]
+    }
+  ]
+}

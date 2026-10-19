@@ -1,0 +1,57 @@
+/* Main travel view, calibrated against the 480 x 852 video game area.
+   EquipSetting: ChessboardRow = 6, ChessboardCol = 7. */
+body:has(#app[data-view=wander]){align-items:center;background:#27302a}
+body:has(#app[data-view=wander]) .desktop-note{display:none}
+#app[data-view=wander]{--frame-width:min(100vw,460px,calc(100dvh * 9 / 16));width:var(--frame-width);height:calc(var(--frame-width)*16/9);min-height:0;max-height:100dvh;margin-block:auto;background:#545b43;box-shadow:0 0 40px #101c1670}
+#app[data-view=wander] #scene{height:100%;min-height:0;padding:0}
+.flow-shell{--world-height:calc(var(--frame-width)*.66);--board-width:calc(var(--frame-width)*.85);height:100%;background:linear-gradient(#555d44,#52563e);overflow:hidden;padding:0}
+.flow-shell #w-world{height:var(--world-height)}
+.flow-shell #w-world .expedition-scene,.flow-shell[data-reward=true] #w-world .expedition-scene,.flow-shell[data-combat=true] #w-world .expedition-scene{height:var(--world-height);border-bottom:0}
+.flow-shell .world-disciple,.flow-shell[data-reward=true] .world-disciple{--char-w:calc(var(--frame-width)*.33);left:10%;bottom:0}
+.flow-shell #w-status,.flow-shell .status-strip{height:calc(var(--frame-width)*.065);min-height:0;flex:none}
+.flow-shell .status-strip{padding:1px 5px;gap:4px;border-top:2px ridge #ac9c70;border-bottom:2px ridge #a79a6c;background:#70694e;font-size:9px}
+.flow-shell .status-strip .element-circle{width:16px;height:16px;font-size:9px}
+.flow-shell .status-name{max-width:58px;font-size:9px}
+.flow-shell .hp-mini{min-width:65px;border-radius:8px;font-size:8px;padding:0 3px;line-height:13px}
+.flow-shell .mini-stat{font-size:9px;gap:2px}.flow-shell .mini-stat img{width:12px;height:12px}
+.flow-shell #w-abilities{width:var(--board-width);height:calc(var(--frame-width)*.07);min-height:0;margin:0 auto;padding:2px 0 3px;gap:3px;border:0;background:#898264}
+.flow-shell #w-abilities .carried-slot{height:100%;background:#716c51;border:1px solid #a79b73;font-size:8px;gap:2px;color:#d8d1b1;justify-content:center}
+.flow-shell #w-abilities .carried-slot img{width:19px;height:19px}
+.flow-shell .board-caption,.flow-shell[data-reward=true] .board-caption,.flow-shell .w-log{display:none}
+.flow-shell .board-wrap,.flow-shell[data-reward=true] .board-wrap{width:var(--board-width);height:auto;max-width:none;flex:none;box-sizing:border-box;margin:0 auto;padding:3px;border:3px ridge #a3956b;background:#7c7558;box-shadow:inset 0 0 0 1px #b1a27a}
+.flow-shell .board-wrap canvas{width:100%;height:auto;aspect-ratio:7/6;display:block}
+#app[data-view=bag] #board{aspect-ratio:7/6;height:auto}
+.flow-shell .w-tools,.flow-shell[data-combat=true] .w-tools{display:none;position:absolute;bottom:calc(var(--frame-width)*.25);left:12%;width:76%;height:29px;max-width:none;margin:0;padding:2px;gap:3px;border:1px solid #b6a979;background:#5c634bf5;z-index:12;box-shadow:0 2px 8px #21352688}
+.flow-shell[data-selected=true]:not([data-story=true]):not([data-combat=true]) .w-tools,.flow-shell:not([data-story=true]):not([data-combat=true]) .w-tools.is-open{display:flex}
+.flow-shell .w-tools button{height:23px;min-height:0;font-size:10px;background:#737655;border-color:#b3aa80;padding:0}
+.flow-shell .w-actions{display:grid;grid-template-columns:1fr 1fr 1.7fr 1fr 1fr;grid-template-rows:1fr;align-items:center;justify-items:center;gap:0;flex:1;min-height:0;max-height:none;width:88%;height:auto;margin:0 auto;padding:0;border:0;background:none;position:relative}
+.flow-shell .w-actions [data-flow=leave]{grid-column:1;grid-row:1;order:0}
+.flow-shell .w-actions [data-flow=tools]{grid-column:2;grid-row:1;order:0}
+.flow-shell .w-actions #w-next{grid-column:3;grid-row:1;order:0;width:calc(var(--frame-width)*.27);height:calc(var(--frame-width)*.24);min-height:0;max-height:none;padding:0;margin:0;align-self:center}
+.flow-shell .w-actions [data-flow=help]{grid-column:4;grid-row:1;order:0}
+.flow-shell .w-actions [data-flow=stash]{grid-column:5;grid-row:1;order:0}
+.flow-shell .w-footer-side{width:100%;min-width:0;min-height:0;font-size:9px;gap:0;padding:0}
+.flow-shell .w-footer-side img{width:26px;height:25px;margin-bottom:2px;object-fit:contain}
+.flow-shell .w-actions #w-next-label{bottom:1px;font-size:8px}
+.flow-shell .w-route{top:calc(var(--frame-width)*.055);left:23%;right:23%}
+.flow-shell #w-route-progress{right:-60px;top:4px;font-size:8px}
+.flow-shell #w-path-markers>span{width:23px;height:23px;border-color:#b2a887;background:#777861}
+.flow-shell #w-path-markers img{width:17px;height:17px}
+.flow-shell .w-reward{top:calc(var(--frame-width)*.24);left:32%;right:8%;padding:0}
+.flow-shell .w-reward .w-pool-title{position:absolute;right:0;top:-16px;opacity:.85}
+.flow-shell .w-reward .w-pool-title span{font-size:8px}
+.flow-shell .w-stash{bottom:calc(var(--frame-width)*.25);background:#545e46}
+.flow-shell .w-event-log{top:calc(var(--world-height) + var(--frame-width)*.068);bottom:calc(var(--frame-width)*.25);left:10%;right:10%;padding-top:7px}
+.flow-shell .w-event-log-card{font-size:10px;line-height:1.5;padding:8px 9px;border-width:2px;margin-bottom:6px}
+.flow-shell .w-event-log-title{font-size:9px}
+.flow-shell .fighter.player{left:1%;bottom:0}.flow-shell .fighter .sprite-figure{--char-w:calc(var(--frame-width)*.36)}
+.flow-shell .fighter.enemy{right:0;bottom:0}.flow-shell .fighter.enemy .sprite-figure{--char-w:calc(var(--frame-width)*.38)}
+.flow-shell .fighter.enemy:has(.boss-figure){width:calc(var(--frame-width)*.61);right:-3%}.flow-shell .fighter.enemy .boss-figure{--char-w:calc(var(--frame-width)*.61)}
+.flow-shell #w-reforge-sink{bottom:calc(var(--frame-width)*.19);left:12%;font-size:11px}
+@media(max-width:350px){.flow-shell .status-name{max-width:45px}.flow-shell .mini-stat{font-size:8px}.flow-shell .status-strip{gap:3px}.flow-shell .w-footer-side img{width:23px;height:22px}}
+
+.flow-shell .world-disciple,.flow-shell[data-reward=true] .world-disciple{--char-w:calc(var(--frame-width)*.25);bottom:calc(var(--frame-width)*.075)}.flow-shell .fighter.player,.flow-shell .fighter.enemy{bottom:calc(var(--frame-width)*.07)}
+
+.flow-shell #w-next-label,.flow-shell #w-route-progress{display:none!important}
+.flow-shell[data-combat=true] .w-route{display:none}.flow-shell .fighter.player .sprite-figure{--char-w:calc(var(--frame-width)*.27)}.flow-shell .fighter.enemy .sprite-figure:not(.boss-figure){--char-w:calc(var(--frame-width)*.29)}
+.flow-shell .w-tools,.flow-shell[data-combat=true] .w-tools{top:calc(var(--world-height) - 33px);bottom:auto}

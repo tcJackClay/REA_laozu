@@ -1,0 +1,64 @@
+{
+  "file": "assets/birth-v10/closed-scroll/open-scroll-sheet.png",
+  "frameWidth": 1084,
+  "frameHeight": 1192,
+  "columns": 6,
+  "rows": 4,
+  "frames": 24,
+  "duration": 1.3333333730697632,
+  "sampleTimes": [
+    0,
+    0.057971016220424484,
+    0.11594203244084897,
+    0.17391304866127347,
+    0.23188406488169794,
+    0.28985508110212244,
+    0.34782609732254693,
+    0.40579711354297143,
+    0.4637681297633959,
+    0.5217391459838204,
+    0.5797101622042449,
+    0.6376811784246693,
+    0.6956521946450939,
+    0.7536232108655183,
+    0.8115942270859429,
+    0.8695652433063673,
+    0.9275362595267918,
+    0.9855072757472162,
+    1.0434782919676409,
+    1.1014493081880652,
+    1.1594203244084897,
+    1.217391340628914,
+    1.2753623568493386,
+    1.3333333730697632
+  ],
+  "origin1080x1920": {
+    "x": -3,
+    "y": 304
+  },
+  "bounds1080x1920": [
+    -3,
+    304,
+    1081,
+    1496
+  ],
+  "lastFrame": "assets/birth-v10/closed-scroll/open-scroll-last.png",
+  "sourceClip": {
+    "name": "fx_ui_rxwd_jz_purple_open",
+    "pathID": "2962446294841505186",
+    "source": "original-animation-curves.json",
+    "curveEvaluation": "streamed polynomial ((c0*dt+c1)*dt+c2)*dt+c3; constants use original clip indices"
+  },
+  "renderedPaths": [
+    "jz/jz_dz",
+    "jz/jz_bz/jz_bz",
+    "jz/jz_sm_1",
+    "jz/jz_xm_2"
+  ],
+  "limitations": [
+    "Cloud sprites are separate and not baked.",
+    "Original base scroll/paper/ornament transforms only; quality glow, shader dissolve and words shader are omitted.",
+    "No inferred curve or screenshot pixels."
+  ],
+  "sheetSha256": "e601c6ea777d685e30d8148b1acd549a1975f60199beed64430d7ad5059b2194"
+}

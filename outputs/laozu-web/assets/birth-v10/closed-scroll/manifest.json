@@ -1,0 +1,496 @@
+{
+  "bundle": "assets/data/2k6966p.bin",
+  "bundleSha256": "37b067ac7206b8f0c0164d8d94766e8a5bc26c9ebdece65790cb57732301463f",
+  "sourceImagePolicy": "All pixels derive from original Sprite atlas crops; no screenshot pixels.",
+  "sprites": [
+    {
+      "pathID": "7691151166319252133",
+      "name": "fx_ui_rxwd_red_01",
+      "sourceRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 829.0,
+        "height": 336.0
+      },
+      "textureRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 829.0,
+        "height": 336.0
+      },
+      "textureRectOffset": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "texture": {
+        "m_FileID": 0,
+        "m_PathID": -307781074619575643
+      },
+      "uvTransform": {
+        "x": 100.0,
+        "y": 414.5,
+        "z": 100.0,
+        "w": 168.0
+      },
+      "settingsRaw": 64,
+      "file": "assets/birth-v10/fx_ui_rxwd_red_01__7691151166319252133.png"
+    },
+    {
+      "pathID": "8923916328393465164",
+      "name": "fx_ui_rxwd_red_02",
+      "sourceRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 671.0,
+        "height": 456.0
+      },
+      "textureRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 671.0,
+        "height": 456.0
+      },
+      "textureRectOffset": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "texture": {
+        "m_FileID": 0,
+        "m_PathID": -433628651055719092
+      },
+      "uvTransform": {
+        "x": 100.0,
+        "y": 335.5,
+        "z": 100.0,
+        "w": 228.0
+      },
+      "settingsRaw": 64,
+      "file": "assets/birth-v10/fx_ui_rxwd_red_02__8923916328393465164.png"
+    },
+    {
+      "pathID": "6430210659382259248",
+      "name": "fx_ui_rxwd_red_03",
+      "sourceRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 439.0,
+        "height": 213.0
+      },
+      "textureRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 439.0,
+        "height": 213.0
+      },
+      "textureRectOffset": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "texture": {
+        "m_FileID": 0,
+        "m_PathID": -7100841258373419472
+      },
+      "uvTransform": {
+        "x": 100.0,
+        "y": 219.5,
+        "z": 100.0,
+        "w": 106.5
+      },
+      "settingsRaw": 64,
+      "file": "assets/birth-v10/fx_ui_rxwd_red_03__6430210659382259248.png"
+    },
+    {
+      "pathID": "4995459396584110495",
+      "name": "fx_ui_rxwd_red_04",
+      "sourceRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 65.0,
+        "height": 402.0
+      },
+      "textureRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 65.0,
+        "height": 402.0
+      },
+      "textureRectOffset": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "texture": {
+        "m_FileID": 0,
+        "m_PathID": 1414910946548349343
+      },
+      "uvTransform": {
+        "x": 100.0,
+        "y": 32.5,
+        "z": 100.0,
+        "w": 201.0
+      },
+      "settingsRaw": 64,
+      "file": "assets/birth-v10/fx_ui_rxwd_red_04__4995459396584110495.png"
+    },
+    {
+      "pathID": "581458772495969981",
+      "name": "fx_ui_rxwd_red_05",
+      "sourceRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1080.0,
+        "height": 129.0
+      },
+      "textureRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1080.0,
+        "height": 129.0
+      },
+      "textureRectOffset": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "texture": {
+        "m_FileID": 0,
+        "m_PathID": -2562370335806312771
+      },
+      "uvTransform": {
+        "x": 100.0,
+        "y": 540.0,
+        "z": 100.0,
+        "w": 64.5
+      },
+      "settingsRaw": 64,
+      "file": "assets/birth-v10/fx_ui_rxwd_red_05__581458772495969981.png"
+    },
+    {
+      "pathID": "-2421787772755623457",
+      "name": "fx_ui_rxwd_red_07",
+      "sourceRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 994.0,
+        "height": 113.0
+      },
+      "textureRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 994.0,
+        "height": 113.0
+      },
+      "textureRectOffset": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "texture": {
+        "m_FileID": 0,
+        "m_PathID": 6817015813569200607
+      },
+      "uvTransform": {
+        "x": 100.0,
+        "y": 497.0,
+        "z": 100.0,
+        "w": 56.5
+      },
+      "settingsRaw": 64,
+      "file": "assets/birth-v10/fx_ui_rxwd_red_07__-2421787772755623457.png"
+    },
+    {
+      "pathID": "-4829972896598299320",
+      "name": "fx_ui_rxwd_red_10",
+      "sourceRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 429.0,
+        "height": 514.0
+      },
+      "textureRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 429.0,
+        "height": 514.0
+      },
+      "textureRectOffset": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "texture": {
+        "m_FileID": 0,
+        "m_PathID": 318424113535085896
+      },
+      "uvTransform": {
+        "x": 100.0,
+        "y": 214.5,
+        "z": 100.0,
+        "w": 257.0
+      },
+      "settingsRaw": 64,
+      "file": "assets/birth-v10/fx_ui_rxwd_red_10__-4829972896598299320.png"
+    }
+  ],
+  "clouds1080x1920": [
+    {
+      "path": "yun1",
+      "width": 829,
+      "height": 336,
+      "matrix": [
+        1,
+        0,
+        0,
+        1,
+        202.5,
+        36
+      ],
+      "corners": [
+        {
+          "x": 202.5,
+          "y": 36
+        },
+        {
+          "x": 1031.5,
+          "y": 36
+        },
+        {
+          "x": 1031.5,
+          "y": 372
+        },
+        {
+          "x": 202.5,
+          "y": 372
+        }
+      ]
+    },
+    {
+      "path": "yun2",
+      "width": 671,
+      "height": 456,
+      "matrix": [
+        1,
+        0,
+        0,
+        1,
+        11.5,
+        491
+      ],
+      "corners": [
+        {
+          "x": 11.5,
+          "y": 491
+        },
+        {
+          "x": 682.5,
+          "y": 491
+        },
+        {
+          "x": 682.5,
+          "y": 947
+        },
+        {
+          "x": 11.5,
+          "y": 947
+        }
+      ]
+    },
+    {
+      "path": "yun3",
+      "width": 439,
+      "height": 213,
+      "matrix": [
+        1,
+        0,
+        0,
+        1,
+        623.7000122070312,
+        471.6999969482422
+      ],
+      "corners": [
+        {
+          "x": 623.7000122070312,
+          "y": 471.6999969482422
+        },
+        {
+          "x": 1062.7000122070312,
+          "y": 471.6999969482422
+        },
+        {
+          "x": 1062.7000122070312,
+          "y": 684.6999969482422
+        },
+        {
+          "x": 623.7000122070312,
+          "y": 684.6999969482422
+        }
+      ]
+    }
+  ],
+  "cloudGreyVariant": {
+    "kind": "runtime-reference calibration",
+    "brightness": 0.55,
+    "limitation": "Original custom distortion shader is not reproduced. Grey brightness is calibrated to reference, not a recovered material constant."
+  },
+  "closedScroll": {
+    "file": "assets/birth-v10/closed-scroll/closed-scroll.png",
+    "sheet": "assets/birth-v10/closed-scroll/closed-scroll-loop.png",
+    "frameWidth": 1105,
+    "frameHeight": 571,
+    "frames": 32,
+    "duration": 1.0333333015441895,
+    "bounds1080x1920": [
+      -13,
+      237,
+      1092,
+      808
+    ],
+    "renderedNodes": [
+      {
+        "path": "jz/jz_dz",
+        "sprite": "fx_ui_rxwd_red_04",
+        "spriteId": "4995459396584110495",
+        "matrix": [
+          0.9977520902177546,
+          0.05339810415376705,
+          -0.05339810415376705,
+          0.9977520902177546,
+          129.46010584200326,
+          381.3657527945244
+        ],
+        "width": 65,
+        "height": 402,
+        "corners": [
+          {
+            "x": 129.46010584200326,
+            "y": 381.3657527945244
+          },
+          {
+            "x": 194.3139917061573,
+            "y": 384.8366295645192
+          },
+          {
+            "x": 172.84795383634295,
+            "y": 785.9329698320566
+          },
+          {
+            "x": 107.9940679721889,
+            "y": 782.4620930620617
+          }
+        ]
+      },
+      {
+        "path": "jz/jz_bz/jz_bz",
+        "sprite": "fx_ui_rxwd_red_10",
+        "spriteId": "-4829972896598299320",
+        "matrix": [
+          1.973368473204525,
+          -0.0069071050809284456,
+          0.0010493068108585264,
+          0.29978825499331513,
+          116.32744727357237,
+          337.4822478452081
+        ],
+        "width": 429,
+        "height": 514,
+        "corners": [
+          {
+            "x": 116.32744727357237,
+            "y": 337.4822478452081
+          },
+          {
+            "x": 962.9025222783135,
+            "y": 334.51909976548984
+          },
+          {
+            "x": 963.4418659790948,
+            "y": 488.61026283205376
+          },
+          {
+            "x": 116.86679097435366,
+            "y": 491.5734109117721
+          }
+        ]
+      },
+      {
+        "path": "jz/jz_sm_1",
+        "sprite": "fx_ui_rxwd_red_05",
+        "spriteId": "581458772495969981",
+        "matrix": [
+          0.9991738388171698,
+          -0.003497268144563884,
+          0.003497268144563884,
+          0.9991738388171698,
+          -0.024456231000897333,
+          313.4423020143615
+        ],
+        "width": 1080,
+        "height": 129,
+        "corners": [
+          {
+            "x": -0.024456231000897333,
+            "y": 313.4423020143615
+          },
+          {
+            "x": 1079.0832896915426,
+            "y": 309.66525241823246
+          },
+          {
+            "x": 1079.5344372821914,
+            "y": 438.5586776256474
+          },
+          {
+            "x": 0.42669135964784366,
+            "y": 442.3357272217764
+          }
+        ]
+      },
+      {
+        "path": "jz/jz_xm_2",
+        "sprite": "fx_ui_rxwd_red_07",
+        "spriteId": "-2421787772755623457",
+        "matrix": [
+          0.9991738388171698,
+          -0.003497268144563884,
+          0.003497268144563884,
+          0.9991738388171698,
+          43.318010609714236,
+          421.284636609583
+        ],
+        "width": 994,
+        "height": 113,
+        "corners": [
+          {
+            "x": 43.318010609714236,
+            "y": 421.284636609583
+          },
+          {
+            "x": 1036.496806393981,
+            "y": 417.8083520738865
+          },
+          {
+            "x": 1036.8919976943166,
+            "y": 530.7149958602267
+          },
+          {
+            "x": 43.71320191004995,
+            "y": 534.1912803959232
+          }
+        ]
+      }
+    ],
+    "limitation": "No shader glow/distortion; base paper and axes use original recovered clip curves."
+  },
+  "animations": [
+    {
+      "name": "fx_ui_rxwd_jz_purple_open",
+      "pathID": "2962446294841505186",
+      "duration": 1.3333333730697632,
+      "curveValues": 72,
+      "unmappedPaths": []
+    },
+    {
+      "name": "fx_ui_rxwd_jz_purple_loop",
+      "pathID": "7912711316798274465",
+      "duration": 1.0333333015441895,
+      "curveValues": 34,
+      "unmappedPaths": []
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+/* Mountain-gate home, source UIMain 1080 x 2340. Other views keep their existing skin. */
+body:has(#app[data-view=sect]){align-items:center;background:#363e37}
+body:has(#app[data-view=sect]) .desktop-note{display:none}
+#app[data-view=sect]{--home-width:min(100vw,460px,calc(100dvh * 1080 / 2340));--home-unit:calc(var(--home-width) / 1080);width:var(--home-width);height:calc(var(--home-width) * 2340 / 1080);min-height:0;max-height:100dvh;margin-block:auto;padding:0;background:#e6e0cd;overflow:hidden;box-shadow:0 0 60px #16231c66}
+#app[data-view=sect]>header,#app[data-view=sect]>.resources,#app[data-view=sect]>nav{display:none}
+#app[data-view=sect] #scene{position:relative;height:100%;min-height:0;padding:0;background:none}
+#home-shell{position:relative;width:100%;height:100%;overflow:hidden;isolation:isolate;color:#fff1cb;font-family:KaiTi,STKaiti,'Microsoft YaHei',serif}
+#home-shell button{font-family:inherit;appearance:none;cursor:pointer}
+#home-shell button:focus-visible{outline:2px solid #fff1a6;outline-offset:2px;filter:drop-shadow(0 0 4px #92612c)}
+.home-background{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;z-index:-1;pointer-events:none}
+.home-layer{position:absolute;display:block;object-fit:fill;margin:0}
+.home-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.home-building{position:absolute;z-index:1;border:0;padding:0;background:transparent;min-width:0;min-height:0;transition:filter .12s}
+.home-building:hover{filter:brightness(1.2) drop-shadow(0 0 4px #fff0bb)}
+.home-building:active{filter:brightness(1.4)}
+.home-building img{width:100%;height:100%;display:block;object-fit:fill;pointer-events:none}
+.home-building-name{position:absolute;z-index:2;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;text-orientation:upright;color:#fff3d2;font-weight:bold;font-size:calc(var(--home-unit)*39);line-height:1.15;letter-spacing:calc(var(--home-unit)*3);white-space:nowrap;text-shadow:1px 1px 1px #473c28,-1px -1px 1px #665437;pointer-events:none}
+.home-profile{position:absolute;inset:0;pointer-events:none;z-index:3}
+.home-profile button{pointer-events:auto}
+.home-avatar{padding:0;border:calc(var(--home-unit)*7) ridge #c1ad7e;border-radius:50%;overflow:hidden;background:#b2a98b;box-shadow:0 1px 2px #4e483e77}
+.home-avatar img{width:100%;height:100%;object-fit:cover}
+.home-player-name{display:flex;align-items:center;color:#fff2ce;font-size:calc(var(--home-unit)*34);letter-spacing:1px;text-shadow:1px 1px #302b1f;white-space:nowrap;overflow:hidden}
+.home-power{display:flex;align-items:center;font-size:calc(var(--home-unit)*28);color:#eddfbd;white-space:nowrap;text-shadow:1px 1px #3d3827}
+.home-level{font-size:calc(var(--home-unit)*27);padding:0;border:0;background:url('assets/home/floor_ty_dengji.png') center/100% 100% no-repeat;color:#f7eccc;white-space:nowrap;text-shadow:1px 1px #443c25}
+.home-resources{position:absolute;right:1.8%;top:3%;width:46%;display:flex;gap:calc(var(--home-unit)*15);z-index:4}
+.home-resources button{display:flex;align-items:center;gap:calc(var(--home-unit)*5);border:0;padding:0 calc(var(--home-unit)*6);height:calc(var(--home-unit)*60);min-width:0;flex:1;background:url('assets/home/ty_ziyuandi.png') center/100% 100% no-repeat;color:#fff0c6}
+.home-resources img{width:calc(var(--home-unit)*59);height:calc(var(--home-unit)*59);object-fit:contain;margin-left:calc(var(--home-unit)*-10)}
+.home-resources b{font:calc(var(--home-unit)*29) 'Microsoft YaHei',sans-serif;flex:1;text-align:center;font-variant-numeric:tabular-nums;text-shadow:1px 1px #332f21}
+.home-resources button>span{font-size:calc(var(--home-unit)*30);color:#d7bd78}
+.home-help{position:absolute;right:2%;top:6.4%;width:7%;aspect-ratio:1;border:0;background:transparent;padding:0;z-index:4}
+.home-help img{width:100%;height:100%;object-fit:contain}
+.home-sect-task{z-index:3;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:calc(var(--home-unit)*7);border:0;padding:0 0 0 13%;background:url('assets/home/floor_main_zongmen.png') center/100% 100% no-repeat;text-shadow:1px 1px #413a25;color:#fff0c4;text-align:left}
+.home-sect-task>span{font-size:calc(var(--home-unit)*29)}
+.home-sect-task small{font-size:calc(var(--home-unit)*23);white-space:nowrap;color:#e9d9b3}
+.home-sect-task b{font-weight:normal}
+.home-ancestor{z-index:4;background:none;border:0;padding:0}
+.home-ancestor img{width:100%;height:100%;object-fit:contain}
+.home-sect-level{z-index:5;font-size:calc(var(--home-unit)*27);text-align:center;color:#fff1d0;text-shadow:1px 1px #342f22;pointer-events:none}
+.home-quest{z-index:3;display:flex;gap:calc(var(--home-unit)*10);align-items:center;border:0;padding:0 2%;background:url('assets/home/floor_main_renwu.png') center/100% 100% no-repeat;text-shadow:1px 1px #312e23;color:#f6e7c0}
+.home-quest img{width:13%;height:85%;object-fit:contain}
+.home-quest>span{white-space:nowrap;font-size:calc(var(--home-unit)*25)}
+.home-quest small{font-size:calc(var(--home-unit)*42);color:#f6d78e}
+.home-shortcuts{position:absolute;right:3%;top:77.5%;display:flex;gap:calc(var(--home-unit)*20);z-index:4}
+.home-shortcuts button{width:calc(var(--home-unit)*95);height:calc(var(--home-unit)*115);background:url('assets/home/ui_zjm_btn_011.png') center top/100% 80% no-repeat;border:0;padding:4px 0 0;display:flex;align-items:center;flex-direction:column;color:#fff2d4;text-shadow:1px 1px #3f3828;font-size:calc(var(--home-unit)*25)}
+.home-shortcuts img{width:72%;height:67%;object-fit:contain}
+.home-shortcuts span{margin-top:calc(var(--home-unit)*3)}
+.home-chat{z-index:3;display:flex;align-items:center;border:0;padding:0 0 0 2%;background:url('assets/home/floor_main_lt.png') center/100% 100% no-repeat;text-align:left;gap:calc(var(--home-unit)*12);color:#f1e2bd}
+.home-chat>span{background:#c1a365;color:#342e20;font-size:calc(var(--home-unit)*23);padding:1px calc(var(--home-unit)*5);white-space:nowrap}
+.home-chat small{font-size:calc(var(--home-unit)*23);white-space:nowrap;text-shadow:1px 1px #403a2b}
+.home-chat img{width:12%;height:90%;object-fit:contain;margin-left:auto}
+#home-nav{position:absolute;left:0;bottom:0;width:100%;max-width:none;height:9.66%;display:flex;align-items:flex-end;padding:0 0 1.6%;background:url('assets/home/floor_zjm_juanzhou.png') center/100% 100% no-repeat;border:0;backdrop-filter:none;z-index:6}
+#home-nav button{position:relative;height:100%;min-width:0;min-height:0;flex:1;padding:0;gap:0;background:none;border:0;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#513f2a}
+#home-nav button>span{position:relative;width:100%;height:76%;min-height:0;transform:none;border:0;border-radius:0;background:none;display:grid;place-items:center}
+#home-nav button>span img{position:relative;width:86%;height:100%;object-fit:contain;filter:drop-shadow(0 1px 1px #61503366)}
+#home-nav button>b{width:90%;padding:calc(var(--home-unit)*4) 0;font-size:calc(var(--home-unit)*31);line-height:1;font-weight:bold;position:relative;z-index:1}
+#home-nav button.active>span{background:url('assets/home/diwen.png') center/90% 110% no-repeat}
+#home-nav button.active>span img{transform:translateY(-5%);filter:drop-shadow(0 0 4px #ffeebf)}
+#home-nav button.active>b{background:url('assets/home/mingzidi.png') center/100% 100% no-repeat;color:#f9e5b3;text-shadow:1px 1px #4b2b20}
+#home-nav button:hover>span img{filter:brightness(1.12) drop-shadow(0 0 4px #ffeebf)}
+#app[data-view=sect]>dialog{max-width:min(380px,calc(var(--home-width)*.92));font-family:'Microsoft YaHei',sans-serif;padding:20px}
+#app[data-view=sect]>dialog .actions{flex-wrap:wrap}
+#app[data-view=sect]>dialog .actions button{font-size:12px;padding:9px 10px;white-space:nowrap}
+.home-feature-list{display:grid;gap:10px}
+.home-feature-list button{text-align:left;display:flex;justify-content:space-between}
+@media(prefers-reduced-motion:reduce){.home-building{transition:none}}
