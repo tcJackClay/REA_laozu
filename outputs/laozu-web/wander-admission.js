@@ -62,7 +62,7 @@ window.createWanderAdmission=function(B){
   if(birth){
    content(view,'/Auto_HeadIcon','<div class="admission-disciple" role="img" aria-label="新入学弟子"></div>');
    const bar=node(view,'/Auto_NameInputItem');if(bar)bar.insertAdjacentHTML('beforeend',`<span class="admission-quality">优</span>`);
-   content(view,'/floor_dz_bk',`<div class="admission-traits">${['稳重如龟','玄火灵体','商业奇才','竞技玄刃','商业天才','天赋不足'].map((name,i)=>`<span style="background-image:url('${art(i===5?'citiaodi_none':i>2?'citiaodi_zi':'citiaodi_lan')}')">${name}</span>`).join('')}</div>`);
+   content(view,'/floor_dz_bk',`<div class="admission-traits">${window.Cultivation.traitHTML(p)}</div>`);
    view.insertAdjacentHTML('beforeend',`<button class="admission-auto" disabled aria-label="一键游历未开放" style="background-image:url('${art('rxda_huang')}')">一键游历</button>`);
   }
   return view;
@@ -79,6 +79,7 @@ window.createWanderAdmission=function(B){
   if(popup){const panel=document.createElement('div');panel.className='admission-modal';panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','true');panel.setAttribute('aria-label',popup.title);panel.innerHTML=`<section><h2>${popup.title}</h2>${popup.rename?`<label>弟子姓名<input id="admission-name" maxlength="12" value="${B.escape(profile().name)}"></label>`:`<p>${B.escape(popup.text)}</p>`}<button data-original-action="admit:close">${popup.rename?'保存':'知道了'}</button></section>`;canvas.append(panel);panel.querySelector('input,button')?.focus();}
  }
  function setPoints(v){const a=current();a.points=v;const r=B.state().run;if(r?.config)r.config.points=[...v];save();draw();}
+ document.addEventListener('click',e=>{if(!canvas)return;const target=e.target.closest('[data-cultivation-trait]');if(target&&canvas.contains(target))window.Cultivation.tip(target,canvas);else canvas.querySelector('.cultivation-tooltip')?.remove();},{signal:listeners.signal});
  function action(name){const a=current();if(!canvas||!name.startsWith('admit:'))return;if(a.phase==='drawing')return;
   const [_,act,value,delta]=name.split(':');
   if(act==='back'){popup=null;return B.switchTab('sect');}
@@ -102,7 +103,7 @@ window.createWanderAdmission=function(B){
  }
  function reveal(){const a=current();if(a.phase!=='drawing')return;
   a.phase='birth';a.elapsed=2;a.points=[0,0,0,0];
-  a.profile={name:a.draws===1?'曹灵悦':B.randomName(),level:1,element:4,talent:'玄火灵体',quality:'优',localID:'local-wander-'+Date.now()+'-'+a.draws,pointTotal:20,birthBase:[...BASE],appearance:'wanzitou-chen-hei',isWanderFinish:false};
+  a.profile={...window.Cultivation.randomProfile(),level:1,element:4,talent:'玄火灵体',quality:'优',localID:'local-wander-'+Date.now()+'-'+a.draws,pointTotal:20,birthBase:[...BASE],appearance:'wanzitou-chen-hei',isWanderFinish:false};
   if(B.state().run?.phase==='prepare')B.state().run=null;
   B.begin(a.profile);const r=B.state().run;r.config.birthGains=[...GAINS];r.config.birthBase=[...BASE];save();draw();
  }

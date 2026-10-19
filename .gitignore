@@ -19,3 +19,9 @@
 **/.env*
 **/*.log
 **/.DS_Store
+!/outputs/录取与功法对齐第十一版.md
+!/work/alignment-v11/
+/work/alignment-v11/*
+!/work/alignment-v11/test-seed.cjs
+!/work/alignment-v11/build-data.py
+!/work/alignment-v11/extract-seed.py
