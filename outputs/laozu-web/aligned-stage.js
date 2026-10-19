@@ -30,10 +30,10 @@ window.createAlignedStage=function(B){
    if(p.includes('/auto_TopResBar/')&&p.endsWith('/Num')){const i=+(p.match(/Res \((\d+)\)/)?.[1]||1);return {text:String(s.wallet[[2,1,3][i-1]]??0)};}
    if(/auto_SectTask(?:Progress)?$/.test(p)||p.includes('/auto_MainTaskEntry/'))return {visible:false};
    if(/\/(auto_ZhandouBtn)$/.test(p))return {action:'nav:story',label:'主线'};
-   if(p.endsWith('/auto_WanderDBtn'))return {action:'nav:wander',label:'游历'};
+   if(p.endsWith('/auto_WanderDBtn'))return {action:'nav:wander',label:B.wanderActive?.()?'游历中':'游历'};
    if(p.endsWith('/auto_SeedingBtn')||p.endsWith('/auto_TeacherBtn'))return {action:'nav:wish',label:'祈愿'};
    if(p.endsWith('/auto_warehouseBtn'))return {action:'nav:bag',label:'仓库'};
-   if(p.includes('/Auto_WanderD/lop_Label/Text'))return {text:'游历'};
+   if(p.includes('/Auto_WanderD/lop_Label/Text'))return {text:B.wanderActive?.()?'游历中':'游历',...(B.wanderActive?.()?{color:{r:1,g:.8,b:.3,a:1}}:{})};
    if(p.endsWith('/Auto_Zhandou')||p.endsWith('/Auto_CombatSimulator')||p.endsWith('/Auto_EquipIllus')||p.endsWith('/Auto_SectFormation')||p.endsWith('/Auto_Guild')||p.endsWith('/Auto_gem')||/Auto_PannelMask/.test(p))return {visible:false};
    return {};
   });canvas.append(h,renderNav());
