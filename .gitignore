@@ -70,3 +70,7 @@
 !/outputs/laozu-web/assets/tools-v16/ui_ls_jbd__-6022883825225696476.png
 !/outputs/laozu-web/assets/tools-v16/ui_pfl_huidi__-8796503812318352236.png
 !/outputs/laozu-web/assets/tools-v16/equipment/
+!/tools/
+/tools/*
+!/tools/rea-pipeline/
+/tools/rea-pipeline/__pycache__/

@@ -1,0 +1,7 @@
+{
+  "name": "disciple-detail-return-wander",
+  "precondition": "Original disciple detail opened from wander storage; back arrow visible bottom left.",
+  "steps": [
+    {"action": "tap", "x": 0.107, "y": 0.955, "settle": 1, "label": "close-storage", "expected": "Return to the existing wander event log"}
+  ]
+}

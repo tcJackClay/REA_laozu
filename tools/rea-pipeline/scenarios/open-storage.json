@@ -1,0 +1,7 @@
+{
+  "name": "wander-event-open-storage",
+  "precondition": "Original game is on the wander event log, with storage button at bottom right, 1080:1920 portrait.",
+  "steps": [
+    {"action": "tap", "x": 0.891, "y": 0.949, "settle": 1, "label": "open-storage", "expected": "Storage overlay opens; event progression is unchanged"}
+  ]
+}
