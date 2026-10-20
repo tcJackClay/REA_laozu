@@ -4,3 +4,4 @@
 
 /* Event-log return belongs to its footer, never the equipment board edge. */
 .wt-return[hidden]{display:none!important}.flow-shell[data-story=true] .wt-return{bottom:18px;left:20px;width:46px;height:46px;z-index:30}.flow-shell[data-story=true] .w-actions [data-flow=reforge],.flow-shell[data-story=true] .w-actions [data-flow=open-grid],.flow-shell[data-story=true] .w-actions [data-flow=book]{visibility:hidden}
+.wt-bag-board{position:relative;display:grid;grid-template-columns:repeat(7,1fr);grid-template-rows:repeat(6,1fr);aspect-ratio:7/6;border:3px ridge #c5b47b;background:#73735a;margin:12px 0}.wt-bag-cell{border:1px solid #b6ac7e;display:grid;place-items:center;color:#b8af89}.wt-bag-cell.locked{background:#555746}.wt-bag-board .wt-bag-equip{position:absolute;padding:0;margin:0!important;border:0;background:none;min-height:0;width:auto;border-radius:0}.wt-bag-equip .shape-art{width:100%;height:100%}.wt-bag-stats{padding:10px;background:#d8c9ab;color:#5d4c33}

@@ -116,7 +116,7 @@
   const plain=s=>String(s||'').replace(/<[^>]*>/g,'');
   function flowStats(s){const r=flowRun();if(!r||tab!=='wander')return s;const c=r.config,seed=r.prepare==='birth'?null:W.seeds.find(x=>x.id===c.seed),sub=r.prepare==='birth'?null:W.seeds.find(x=>x.id===c.sub);const sb=c.sourceSeedSelection&&r.prepare!=='birth'?Cultivation.combined(c,state.seedStars||{}):{atk:(seed?.attack||0)+Math.floor((sub?.attack||0)/2),def:(seed?.defense||0)+Math.floor((sub?.defense||0)/2),hp:(seed?.hp||0)+Math.floor((sub?.hp||0)/2)};s.atk+=(c.points[0]||0)*(c.birthGains?.[0]||2)+sb.atk;s.def+=(c.points[1]||0)*(c.birthGains?.[1]||2)+sb.def;s.hp+=(c.points[2]||0)*(c.birthGains?.[2]||25)+sb.hp;for(const id of r.abilities){const a=W.abilities.find(x=>x.id===id);for(let i=0;a&&i<a.effects.length;i+=2){const k=a.effects[i],v=a.effects[i+1];if(k===2001)s.atk+=v;if(k===2002)s.def+=v;if(k===2003)s.hp+=v;if(k===2004)s.atk=Math.round(s.atk*(1+v/10000));if(k===2005)s.def=Math.round(s.def*(1+v/10000));if(k===2006)s.hp=Math.round(s.hp*(1+v/10000));}}s.atk=Math.round(s.atk*(1+(r.breakthrough||0)*.03+(r.blessing||0)));s.def=Math.round(s.def*(1+(r.breakthrough||0)*.03));s.hp=Math.round(s.hp*(1+(r.breakthrough||0)*.03));s.atk=Math.max(1,s.atk);s.def=Math.max(0,s.def);s.hp=Math.max(1,s.hp);s.power=s.atk*12+s.def*8+Math.round(s.hp/4);return s;}
   const WT=window.WanderTools;
-  let gridMode=false,bookTab='equipment',bookFilter=0;
+  let gridMode=false,bookTab='equipment',bookFilter=1;
   function toolsReady(){const r=flowRun();return !!r&&!r.settled&&r.phase!=='prepare'&&!battle&&!flowBusy()&&!flowDrag?.active;}
   function earlyReady(){const r=flowRun();return toolsReady()&&!r.reward&&!r.popup&&['node-done','node-ready','battle-ready'].includes(r.phase);}
   function offerItem(i){const r=flowRun();if(!r||r.settled)return;i.x=i.y=null;if(!r.reward){r.reward={token:r.token+'-extra-'+(++uid),batch:0,total:1,title:'待选法宝',supplemental:true,resumePhase:r.phase};}i.offer=r.reward.token;}
@@ -133,34 +133,31 @@
     const r=flowRun();if(!toolsReady())return true;
     if(a==='early'){if(!earlyReady())return true;flowConfirm={type:'early'};}
     if(a==='early-confirm'){if(flowConfirm?.type!=='early'||!earlyReady())return true;flowConfirm=null;r.early=true;finishWander(false);return true;}
-    if(a==='reforge'){if(WT.data(state).reforge>=WT.need(state)){const i=WT.reforge(state,++uid);offerItem(i);chosen=i.uid;flowConfirm=null;toast('重铸成功！请选择新法宝');}else{flowConfirm={type:'reforge'};}}
+    if(a==='reforge'){if(WT.data(state).reforge>=WT.need(state)){const i=WT.reforge(state,++uid);offerItem(i);chosen=i.uid;flowConfirm=null;toast('重铸成功！请选择新法宝');}else{toast('重铸未完成！');return true;}}
     if(a==='recycle'){if(!state.inventory.some(i=>i.uid===+v))return true;flowConfirm={type:'recycle',uid:+v};}
-    if(a==='recycle-confirm'){if(flowConfirm?.type!=='recycle')return true;WT.recycle(state,flowConfirm.uid);chosen=null;flowConfirm={type:'reforge'};}
+    if(a==='recycle-confirm'){if(flowConfirm?.type!=='recycle')return true;WT.recycle(state,flowConfirm.uid);chosen=null;flowConfirm=null;}
     if(a==='open-grid'){if(WT.data(state).opened.length>=WT.maxOpen){toast('本轮开启次数已达上限');return true;}gridMode=!gridMode;chosen=null;flowConfirm=null;toast(gridMode?'点击棋盘上标有＋的相邻格子':'已取消开格');}
-    if(a==='grid-confirm'){if(flowConfirm?.type!=='grid')return true;const err=WT.unlock(state,flowConfirm.x,flowConfirm.y);if(err){toast(err);return true;}flowConfirm=null;gridMode=false;toast('开格成功');}
-    if(a==='book'){bookTab=TR.carried(state).length?'recipes':'equipment';flowConfirm={type:'book'};}
-    if(a==='book-tab'){bookTab=v;flowConfirm={type:'book'};}
+    if(a==='grid-confirm'){if(flowConfirm?.type!=='grid')return true;const err=WT.unlock(state,flowConfirm.x,flowConfirm.y);if(err){toast(err);return true;}flowConfirm=null;gridMode=true;toast('开格成功');}
+    if(a==='book'){gridMode=false;bookFilter=1;bookTab=TR.carried(state).length?'recipes':'equipment';flowConfirm={type:'book'};}
+    if(a==='book-tab'){if(v==='recipes'&&!TR.carried(state).length){toast('当前弟子未携带长老进入游历！');return true;}if(v==='awake'){toast('当前弟子携带长老未觉醒！');return true;}bookTab=v||'equipment';flowConfirm={type:'book'};}
     if(a==='book-filter'){bookFilter=+v;flowConfirm={type:'book'};}
     if(a==='book-item')flowConfirm={type:'book-item',id:+v};
-    if(a==='bag-info'||a==='bag-back')flowConfirm={type:'bag-info',section:'profile'};
-    if(a==='bag-tab')flowConfirm={type:'bag-info',section:v};
+    if(a==='bag-info'||a==='bag-back'){gridMode=false;flowConfirm={type:'bag-info'};}
+    if(a==='bag-tab')flowConfirm={type:'bag-info'};
     if(a==='bag-view')flowConfirm={type:'book-item',id:+v,returnTo:'bag'};
     save();refreshFlow();syncFlowDialog(true);return true;
   }
   function toolDialog(p,btn){const r=flowRun(),t=WT.data(state);let title='',body='',footer=btn('cancel-confirm','返回');const cards=(items,action)=>`<div class="wt-catalog">${items.map(d=>`<button data-flow="${action}" data-value="${d.id}" class="quality-${d.quality}"><img src="${d.icon}" alt=""><span>${escape(d.name)}</span></button>`).join('')}</div>`;
     if(p.type==='early'){title='系统提示';body='<p>是否确定以当前进度、评分<br>提前毕业弟子？</p><p>已至第 '+(r.step+1)+' 关，保留当前弟子培养成果。</p>';footer=btn('cancel-confirm','取消','','secondary')+btn('early-confirm','确定');}
     else if(p.type==='grid'){title='开启背包格子';body='<p>解锁选中的相邻格子</p><p>消耗仙玉 '+WT.cost(state).iCostVal+'　持有 '+(state.crystal||0)+'</p>';footer=btn('cancel-confirm','取消','','secondary')+btn('grid-confirm','确定');}
-    else if(p.type==='reforge'){title='重铸';body='<p>重铸进度 '+t.reforge+'/'+WT.need(state)+'。将不需要的法宝拖到重铸炉，或在下方选择投入。</p><div class="wt-catalog">'+state.inventory.map(i=>{const d=itemById.get(i.id);return `<button data-flow="recycle" data-value="${i.uid}"><img src="${d.icon}" alt=""><span>${escape(d.name)}</span></button>`;}).join('')+'</div>';if(t.reforge>=WT.need(state))footer+=btn('reforge','领取重铸法宝');}
     else if(p.type==='recycle'){title='投入重铸';const d=itemById.get(state.inventory.find(i=>i.uid===p.uid)?.id);body='<p>确定将 '+escape(d?.name||'法宝')+' 投入重铸？</p><p>投入后消耗该法宝，累积重铸进度。</p>';footer=btn('cancel-confirm','取消','','secondary')+btn('recycle-confirm','投入');}
-    else if(p.type==='book'){title='游历图鉴';body='<div class="wt-tabs">'+[['equipment','法宝'],['recipes','长老配方'],['abilities','神通']].map(([id,n])=>btn('book-tab',n,id,bookTab===id?'primary':'secondary')).join('')+'</div>';
-      if(bookTab==='equipment'){body+='<div class="wt-tabs">'+[0,1,2,3,4,5,6,7,8].map(n=>btn('book-filter',n?E[n]||'体':'全部',n,bookFilter===n?'primary':'quiet')).join('')+'</div>'+cards(TR.items.filter(d=>!bookFilter||d.element===bookFilter),'book-item');}
+    else if(p.type==='book'){title='游历图鉴';body='<div class="wt-tabs">'+[['equipment','法宝图鉴'],['recipes','合成图鉴'],['awake','觉醒图鉴']].map(([id,n])=>btn('book-tab',n,id,bookTab===id?'primary':'secondary')).join('')+'</div>';
+      if(bookTab==='equipment'){body+='<div class="wt-tabs">'+[1,2,3,4,5,6,7,8].map(n=>btn('book-filter',n?E[n]||'体':'全部',n,bookFilter===n?'primary':'quiet')).join('')+'</div>'+cards(TR.items.filter(d=>WANDER_TOOLS_DATA.catalogueIds.includes(d.id)&&d.element===bookFilter),'book-item');}
       else if(bookTab==='recipes'){body+=TR.catalogue(state).map(x=>`<section class="wt-recipe"><b>${escape(x.recipe.szName)}</b><p>${TR.recipe(x.recipe.iFormID)&&[0,1,2,3,4].map(n=>x.recipe['iMaterial'+n]).filter(Boolean).map(id=>escape(itemById.get(id)?.name||id)).join(' ＋ ')} → ${x.recipe.arrProductID.map(id=>escape(itemById.get(id)?.name||id)).join(' / ')}</p><button data-flow="craft" data-value="${x.recipe.iFormID}" ${x.canCompose?'':'disabled'}>${x.canCompose?'合成':escape(x.reason)}</button></section>`).join('')||'<p>携带长老后开放对应红装配方。</p>';}
       else body+=W.abilities.map(d=>`<section class="wt-recipe"><b>${escape(d.name)}</b><p>${escape(plain(d.description))}</p></section>`).join('');
     }
     else if(p.type==='book-item'){const d=itemById.get(p.id);if(!d)return null;title=d.name;body=`<img class="wt-item-hero" src="${d.icon}" alt=""><p>${E[d.element]||'体'}系 · ${d.shape.length}格</p><p>${escape(plain(d.description))}</p><p>${Object.entries(d.stats).map(([k,v])=>({'2001':'攻击','2002':'防御','2003':'生命'}[k]||'属性')+' +'+v).join('　')}</p>`;footer=p.returnTo==='bag'?btn('bag-tab','返回储物袋','items'):btn('book-tab','返回图鉴','equipment');}
-    else if(p.type==='bag-info'){title='储物袋';body='<div class="wt-tabs">'+btn('bag-tab','弟子','profile',p.section==='profile'?'primary':'secondary')+btn('bag-tab','法宝','items',p.section==='items'?'primary':'secondary')+'</div>';
-      if(p.section==='profile'){const s=stats();body+=profile()+`<p>攻击 ${s.atk}　防御 ${s.def}　生命 ${Math.ceil(r.hp||s.hp)}/${s.hp}</p><p>主修：${escape(W.seeds.find(x=>x.id===r.config.seed)?.name||'未携带')}　辅修：${escape(W.seeds.find(x=>x.id===r.config.sub)?.name||'未携带')}</p><p>长老：${TR.carried(state).map(id=>escape(TR.teacher(id).szName)).join('、')||'未携带'}</p><p>神通：${r.abilities.map(id=>escape(W.abilities.find(a=>a.id===id)?.name||id)).join('、')||'未领悟'}</p>`;}
-      else body+='<div class="wt-inventory">'+state.inventory.filter(i=>!i.offer).map(i=>{const d=itemById.get(i.id);return `<section><img src="${d.icon}" alt=""><span>${escape(d.name)}<small>${'已入包'}</small></span><button data-flow="bag-view" data-value="${i.id}">查看</button><button data-flow="recycle" data-value="${i.uid}">重铸</button></section>`;}).join('')+'</div>';}
+    else if(p.type==='bag-info'){title='储物袋';const st=stats();body=profile()+`<div class="wt-bag-stats">攻击 ${st.atk}　防御 ${st.def}　生命 ${Math.ceil(r.hp??st.hp)}/${st.hp}</div><p>主修：${escape(W.seeds.find(x=>x.id===r.config.seed)?.name||'未携带')}　辅修：${escape(W.seeds.find(x=>x.id===r.config.sub)?.name||'未携带')}</p><p>长老：${TR.carried(state).map(id=>escape(TR.teacher(id).szName)).join('、')||'未携带'}</p><p>神通：${r.abilities.map(id=>escape(W.abilities.find(a=>a.id===id)?.name||id)).join('、')||'未领悟'}</p><div class="wt-bag-board" aria-label="已装备法宝">${Array.from({length:42},(_,n)=>`<span class="wt-bag-cell ${WT.open(state,n%7,Math.floor(n/7))?'':'locked'}">${WT.open(state,n%7,Math.floor(n/7))?'':'锁'}</span>`).join('')}${state.inventory.filter(i=>i.x!==null).map(i=>{const d=itemById.get(i.id),fp=flowFootprint(d,i.rotation);return `<button class="wt-bag-equip" data-flow="bag-view" data-value="${i.id}" aria-label="${escape(d.name)}" style="left:${i.x/7*100}%;top:${i.y/6*100}%;width:${fp.w/7*100}%;height:${fp.h/6*100}%">${flowShapeArt(d,i.rotation)}</button>`;}).join('')}</div>`;}
     else return null;return {title,body,footer};
   }
 
