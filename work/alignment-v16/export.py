@@ -14,4 +14,3 @@ exec(compile(Path('work/alignment-v9/decode-patch.py').read_text(encoding='utf8'
 data={n:json.loads((root/'configs'/(n+'.json')).read_text(encoding='utf8')) for n in names}
 Path('outputs/laozu-web/awakening-data.js').write_text('window.AWAKENING_DATA='+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf8')
 print({k:len(v) for k,v in data.items()})
-
