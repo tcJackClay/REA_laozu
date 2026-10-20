@@ -17,7 +17,7 @@ window.TeacherRuntime=(()=>{
   return {recipe:r,materials:used,teacherId:r.bExternal?owner(s,r):0};
  }
  function product(r,random=Math.random){const weights=r.arrProductProb;if(weights.length!==r.arrProductID.length||!weights.some(x=>x>0))return null;let n=random()*weights.reduce((a,b)=>a+Math.max(0,b),0);for(let i=0;i<weights.length;i++){n-=Math.max(0,weights[i]);if(n<0)return r.arrProductID[i];}return r.arrProductID.at(-1);}
- function equipStats(s,inst,data){let rate=0;if(inst.teacherId){const t=teacher(inst.teacherId);if(t){const a=t.arrStarAffect1;for(let i=0;i<a.length-1;i+=2){if(star(s,t.iID)<a[i])break;rate=a[i+1];}}}return Object.fromEntries(Object.entries(data.stats).map(([k,v])=>[k,Math.trunc(v*(1+rate/10000))]));}
+ function equipStats(s,inst,data){let rate=0;if(inst.teacherId){const t=teacher(inst.teacherId);if(t){const a=t.arrStarAffect1;for(let i=0;i<a.length-1;i+=2){if(star(s,t.iID)<a[i])break;rate=a[i+1];}}}const base=Object.fromEntries(Object.entries(data.stats).map(([k,v])=>[k,Math.trunc(v*(1+rate/10000))]));return window.WanderAwakening?WanderAwakening.stats(s,inst,base):base;}
  function attributes(s){const out={};for(const id of carried(s)){const t=teacher(id);for(const a of [t.arrSecondAttribute1,t.arrSecondAttribute2])if(a.length>1)out[a[0]]=(out[a[0]]||0)+a[Math.min(star(s,id)+1,a.length-1)];}return out;}
  // Apply only to the attack's element, not to the defender's affiliation.
  // Unknown attack elements remain neutral. No guessed PVE correction is applied.
