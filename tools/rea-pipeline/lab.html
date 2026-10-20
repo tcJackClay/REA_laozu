@@ -3,10 +3,12 @@
 <title>原版分析工作台</title><link rel="stylesheet" href="/lab.css"></head>
 <body><header><h1>原版分析工作台</h1><p>原始资源预览 · 静态索引 · 模拟器采集记录</p></header>
 <main><aside>
+<button id="analyze">自动分析原版</button><p id="analysis-status" role="status"></p>
+<details open><summary>自动分析概况</summary><pre id="analysis-summary"></pre></details>
 <label>逻辑检索<input id="query" value="UISelectEquip"></label><button id="search">查询</button>
 <label>窗口资源<select id="windows"></select></label><button id="open">打开原始窗口</button>
 <button id="back">关闭顶层窗口</button>
-<label>显式绑定（JSON；不会执行代码）<textarea id="bindings" rows="8">{}</textarea></label>
+<label>自动识别的按钮绑定（可编辑）<textarea id="bindings" rows="8">{}</textarea></label>
 <button id="apply">应用绑定</button>
 <label>数据状态（JSON）<textarea id="state" rows="5">{}</textarea></label><button id="update">更新数据</button>
 <p id="status" role="status"></p><details><summary>覆盖情况</summary><pre id="coverage"></pre></details>

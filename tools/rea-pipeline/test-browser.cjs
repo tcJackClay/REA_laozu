@@ -10,6 +10,11 @@ const fs = require('node:fs');
     page.on('response', r => {if(r.status() >= 400 && !r.url().endsWith('/favicon.ico')) errors.push(`${r.status()} ${r.url()}`);});
     await page.goto('http://127.0.0.1:5180/');
     await page.waitForFunction(() => window.sourceHost?.stack.length === 1);
+    const generatedBindings = await page.evaluate(() => JSON.parse(document.getElementById('bindings').value));
+    assert.ok(Object.values(generatedBindings).some(b => b.action === 'UIBuyGridConfirm.OnBtn_ConfirmClicked'));
+    await page.click('#analyze');
+    await page.waitForFunction(() => !document.getElementById('analyze').disabled, null, {timeout:60000});
+    assert.match(await page.locator('#analysis-status').textContent(), /complete/);
     const result = await page.evaluate(async () => {
       const h = window.sourceHost, original = h.stack[0].payload;
       const row = original.layout.nodes.find(n => n.components.some(c => 'm_text' in c));

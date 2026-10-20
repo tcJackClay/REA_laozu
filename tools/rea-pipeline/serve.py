@@ -5,6 +5,8 @@ import json
 import mimetypes
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs, unquote
+import threading
+from analyze import analyze, DEFAULT_OUT
 from pipeline import ROOT, DEFAULT_DB, connect, summary, query
 
 APP = ROOT / "outputs/laozu-web"
@@ -12,6 +14,26 @@ HERE = Path(__file__).resolve().parent
 
 
 class Handler(BaseHTTPRequestHandler):
+    def do_POST(self):
+        if self.path != '/api/analyze':
+            return self.send_error(404)
+        # A local webpage may trigger only this fixed job, never arbitrary commands.
+        if self.headers.get('Origin') not in (None, 'http://' + self.headers.get('Host', '')):
+            return self.send_error(403)
+        if not self.server.job_lock.acquire(blocking=False):
+            return self.send_json(self.server.job)
+        self.server.job = {'status':'running'}
+        def run():
+            try:
+                report = analyze(self.server.dbpath)
+                self.server.job = {'status':'complete', 'counts':report['counts'], 'generatedAt':report['generatedAt']}
+            except Exception as exc:
+                self.server.job = {'status':'failed','error':str(exc)}
+            finally:
+                self.server.job_lock.release()
+        threading.Thread(target=run,daemon=True).start()
+        return self.send_json(self.server.job)
+
     def log_message(self, format, *args):
         # Keep successful asset requests from overwhelming the terminal.
         if len(args) > 1 and str(args[1]) != "200":
@@ -21,6 +43,16 @@ class Handler(BaseHTTPRequestHandler):
         url = urlparse(self.path)
         args = parse_qs(url.query)
         try:
+            if url.path == '/api/analysis/status':
+                return self.send_json(self.server.job)
+            if url.path in ['/api/analysis', '/api/analysis/window']:
+                path = DEFAULT_OUT / 'report.json'
+                if not path.exists():
+                    return self.send_json({'status':'not-run'})
+                report = json.loads(path.read_text(encoding='utf-8'))
+                if url.path.endswith('/window'):
+                    return self.send_json([w for w in report['windows'] if w['name'].lower() == args.get('name',[''])[0].lower()])
+                return self.send_json({k:v for k,v in report.items() if k not in ('windows','artifacts')})
             with connect(self.server.dbpath) as db:
                 if url.path == "/api/summary":
                     return self.send_json(summary(db))
@@ -75,5 +107,7 @@ if __name__ == "__main__":
     args = p.parse_args()
     server = ThreadingHTTPServer(("127.0.0.1", args.port), Handler)
     server.dbpath = args.db
+    server.job_lock = threading.Lock()
+    server.job = {'status':'idle'}
     print(f"Source lab: http://127.0.0.1:{args.port}", flush=True)
     server.serve_forever()
