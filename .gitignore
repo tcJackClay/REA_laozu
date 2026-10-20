@@ -42,3 +42,9 @@
 /work/alignment-v14/*
 !/work/alignment-v14/export-bullets.py
 !/work/alignment-v14/test-damage-types.cjs
+!/outputs/游历工具栏玩法第十五版.md
+!/work/alignment-v15/
+/work/alignment-v15/*
+!/work/alignment-v15/export.py
+!/work/alignment-v15/test-tools.cjs
+!/work/alignment-v15/test-model.cjs
