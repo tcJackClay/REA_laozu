@@ -22,7 +22,19 @@ window.TeacherRuntime=(()=>{
  // Apply only to the attack's element, not to the defender's affiliation.
  // Unknown attack elements remain neutral. No guessed PVE correction is applied.
  const increases={1:2053,2:2055,3:2057,4:2059,5:2061,6:2051,7:2073,8:2075};
+ // EnBulletDamageType differs from iTechnique. BSBulletHitAct resolves the
+ // individual bullet's cfg_BattleBullet.iDamageType, never the main seed.
+ const damageElements={3:6,4:1,5:2,6:3,7:4,8:5,9:7,10:8};
+ function attackContext({bulletId,damageType,element}={}){
+  const fromBullet=window.BATTLE_DAMAGE_TYPES?.bullets[bulletId];
+  const type=fromBullet??damageType;
+  if(type!==undefined&&type!==null)return {element:damageElements[type]||0,damageType:type,elementSource:fromBullet!==undefined?'cfg_BattleBullet.iDamageType':'explicit-damage-type'};
+  return {element:Object.hasOwn(increases,element)?Number(element):0,damageType:null,elementSource:Object.hasOwn(increases,element)?'explicit-attack-element':'unknown'};
+ }
+ // Preserve raw PVE fields for comparison. Their addition/order is not proved
+ // by client loading code or by one battle with multiple concurrent buffs.
+ function audit(s){return {formulaVerified:false,stacking:'unverified',pveApplication:'unverified',rounding:'unverified',teachers:carried(s).map(id=>{const t=teacher(id),level=star(s,id),read=a=>a?.length>1?{attributeId:a[0],value:a[Math.min(level+1,a.length-1)]}:null;return {id,star:level,display:[read(t.arrSecondAttribute1),read(t.arrSecondAttribute2)],pveRaw:[read(t.arrSecondAttribute1PVE),read(t.arrSecondAttribute2PVE)]};})};}
  function damage(s,base,{outgoing,element=0,kind='normal'}={}){const attrs=attributes(s),key=increases[element],value=outgoing?(attrs[key]||0):(attrs[key+1]||0),equipmentReduction=!outgoing&&kind==='equipment'?(attrs[2038]||0):0,factor=Math.max(0,1+(outgoing?value:-value-equipmentReduction)/10000);return {base,damage:Math.max(1,Math.round(base*factor)),factor,element,attributeId:outgoing?key:key+1,value,equipmentReduction,provenance:'source-values/local-damage-adapter'};}
  function catalogue(s){return carried(s).flatMap(id=>teacher(id).arrComposeID.map(rid=>{const r=recipe(rid),p=plan(s,rid);return {teacherId:id,recipe:r,limit:limit(s,id),count:s.inventory.filter(i=>i.id===recipe(teacher(id).arrComposeID[0])?.arrProductID[0]).length,canCompose:!p.error,reason:p.error||''};}));}
- return {items:R.items,teacher,recipe,carried,star,limit,allowed,candidates,plan,product,equipStats,attributes,damage,catalogue};
+ return {items:R.items,teacher,recipe,carried,star,limit,allowed,candidates,plan,product,equipStats,attributes,attackContext,audit,damage,catalogue};
 })();

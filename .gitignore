@@ -37,3 +37,8 @@
 /work/alignment-v13/*
 !/work/alignment-v13/build-data.py
 !/work/alignment-v13/test-runtime.cjs
+!/outputs/游历战报第十四版.md
+!/work/alignment-v14/
+/work/alignment-v14/*
+!/work/alignment-v14/export-bullets.py
+!/work/alignment-v14/test-damage-types.cjs
