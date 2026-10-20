@@ -27,7 +27,7 @@ window.createSeedSelection=function(B){
  slot(root,'/RoleIcon','<div class="seed-portrait"></div>');
  node(root,'/Auto_Name')?.insertAdjacentHTML('beforeend','<span class="seed-quality">优</span>');
  slot(root,'/DisciplePropInfo/Image',`<div class="seed-traits">${C.traitHTML(p)}</div>`);
- slot(root,'/Auto_TeacherList','<div class="seed-teachers"><span class="seed-empty">未携带</span><span class="seed-empty">未携带</span></div>');
+ slot(root,'/Auto_TeacherList',`<div class="seed-teachers">${[0,1].map(i=>{const t=window.TeacherRules?.get(r.config.teachers[i]);return t?`<span class="teacher-mini"><img src="${t.icon}" alt="${C.esc(t.szName)}"></span>`:'<span class="seed-empty">未携带</span>';}).join('')}</div>`);
  slot(root,'/SeedlingHeadList',`<div class="seed-equipped"><div>${button(r.config.seed,true)}</div><div>${button(r.config.sub,true)}</div></div>`);
  slot(root,'/Auto_DesScroll',`<div class="seed-skill-description">${C.rich(sk?.szDesc)}</div>`);
  const list=window.CULTIVATION_DATA.seeds.filter(x=>x.icon&&(!Array.isArray(state().seedUnlockedIds)||state().seedUnlockedIds.includes(x.iID))&&(!filter||x.iTechnique===filter)).sort((a,b)=>b.iQuality-a.iQuality||(stars()[b.iID]||0)-(stars()[a.iID]||0)||a.iTechnique-b.iTechnique||b.iID-a.iID);

@@ -25,3 +25,10 @@
 !/work/alignment-v11/test-seed.cjs
 !/work/alignment-v11/build-data.py
 !/work/alignment-v11/extract-seed.py
+!/outputs/长老选择对齐第十二版.md
+!/work/alignment-v12/
+/work/alignment-v12/*
+!/work/alignment-v12/test-teacher.cjs
+!/work/alignment-v12/build-data.py
+!/work/alignment-v12/extract-teacher.py
+!/work/alignment-v12/export-equipment.py
