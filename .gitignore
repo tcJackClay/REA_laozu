@@ -32,3 +32,8 @@
 !/work/alignment-v12/build-data.py
 !/work/alignment-v12/extract-teacher.py
 !/work/alignment-v12/export-equipment.py
+!/outputs/长老战斗与红装第十三版.md
+!/work/alignment-v13/
+/work/alignment-v13/*
+!/work/alignment-v13/build-data.py
+!/work/alignment-v13/test-runtime.cjs
