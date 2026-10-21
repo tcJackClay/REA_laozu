@@ -80,7 +80,7 @@
   }
   scene.addEventListener('click',e=>{const b=e.target.closest('[data-home-action]');if(b)homeAction(b.dataset.homeAction);});
   $('#modal-content').addEventListener('click',e=>{const b=e.target.closest('[data-home-action]');if(b)homeAction(b.dataset.homeAction);});
-  const DiscipleRoster=createDiscipleRoster({state:()=>state,save,modal,toast,close:()=>$('#modal').close()});
+  const DiscipleRoster=createDiscipleRoster({state:()=>state,save,modal,toast,stats,close:()=>$('#modal').close()});
   function renderDisciples(){DiscipleRoster.mount(scene);}
   function renderBag() {
     const s=stats(),selected=state.inventory.find(i=>i.uid===chosen),d=selected&&itemById.get(selected.id);
@@ -259,7 +259,7 @@
     if(action==='godexam'){if(r.popup?.type!=='godexam')return;r.popup.type='godexam-running';r.examElapsed=0;save();syncFlowDialog(true);return;}
     if(action==='wheel'){if(r.popup?.type!=='wheel'||r.popup.rolled)return;r.popup.rolled=true;r.blessing=(r.blessing||0)+.05;r.popup.text='老祖赐福，攻击提升 5%';save();syncFlowDialog(true);return;}
     if(action==='finish-result'){if(!r.settled)return;r.popup={type:'end-detail'};save();syncFlowDialog(true);return;}
-    if(action==='finish-run'){if(!r.settled)return;if(r.phase==='complete'&&!r.early)state.cleared++;state.run=null;chosen=null;flowConfirm=null;save();refreshFlow();return;}
+    if(action==='finish-run'){if(!r.settled)return;const graduate=state.disciples[r.config.disciple];graduate.journey=JSON.parse(JSON.stringify({config:r.config,abilities:r.abilities,inventory:state.inventory,openCells:[...WanderTools.data(state).baseCells,...WanderTools.data(state).opened],stats:stats(),report:r.lastBattleReport,result:r.phase==='complete'?'通关':'未通关'}));graduate.sourcePower=stats().power;graduate.isWanderFinish=true;if(r.phase==='complete'&&!r.early)state.cleared++;state.run=null;chosen=null;flowConfirm=null;save();refreshFlow();return;}
     if(action==='battle-arrange'){r.popup=null;r.phase='battle-ready';save();refreshFlow();return;}
     if(action==='resume-battle'){r.popup=null;startBattle();return;}
   }

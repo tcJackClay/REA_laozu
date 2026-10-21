@@ -1,0 +1,195 @@
+{
+  "rendered": 759,
+  "missing": [
+    140309,
+    140509
+  ],
+  "sources": [
+    {
+      "file": "115_zhujue_tunan.atlas",
+      "sha256": "6e8f01cb16bfa348126f1f8354ad53414c3808fb68263530803474b41d179d04"
+    },
+    {
+      "file": "1427_zhujue.atlas",
+      "sha256": "00cd8c907c970a892a3baeea934c62bcf1e64a1cf444ec55dbc98358f6167431"
+    },
+    {
+      "file": "14_zhujue_chushinv.atlas",
+      "sha256": "b6cee8f21defe1269ce6df0491921eb8eb895e26f1c6fd0c0b61d5a080621da0"
+    },
+    {
+      "file": "1506_zhujue_lixiaoyao.atlas",
+      "sha256": "8dc32bf7d9b79fe0a2efd8351b96d34d3d713145b468b7e8cd2844174051bd59"
+    },
+    {
+      "file": "1536_zhujue_lianggong.atlas",
+      "sha256": "cc80e6d5b5f2db18fbf28e610acdc60ce99a85a1fceda0f220c4d05713ea7f43"
+    },
+    {
+      "file": "1585_zhujue_chushinan.atlas",
+      "sha256": "7dc67ef3e512b5f137eeab678b53504ab51aa27991a62c441061bb17c82e0b04"
+    },
+    {
+      "file": "1717_zhujue_hanfunv.atlas",
+      "sha256": "17c106ca078f723067b4f1fde6b3cab15dcb660e7027f86ae2d8260baf5d1d59"
+    },
+    {
+      "file": "1888_zhujue_wanzitou.atlas",
+      "sha256": "e4bcac2508f61702da4b466e3ae4f846164f0acb1a9d841761f7009631193119"
+    },
+    {
+      "file": "2073_zhujue_xiaogong.atlas",
+      "sha256": "208995833cebd30f0ae1c4f6b5659fd755c8bc8586fe0765a7eea874814e29df"
+    },
+    {
+      "file": "2097_zhujue_shusheng.atlas",
+      "sha256": "d2aebcc538d378ff419256b6fad18d1397cc90857e223ed8030f5e148482fa8d"
+    },
+    {
+      "file": "2298_zhujue_longnv.atlas",
+      "sha256": "73c9e6fb77dc36ac2e632be286854a0e735c51ccfb323e6642a437dfd061ce55"
+    },
+    {
+      "file": "2556_zhujue_tunv.atlas",
+      "sha256": "23ec3cdbad6f8a2a596a3bbff964e57fc6ce441ee3c7b435568974baab6e1b96"
+    },
+    {
+      "file": "2585_zhujue_daoshi.atlas",
+      "sha256": "0da207fc3c04d4aab871f1ce13eb75508ee5be27af9113ed8af7c9c567785736"
+    },
+    {
+      "file": "258_zhujue_toufa.atlas",
+      "sha256": "7320f2a0fced7b5bacf9389caee826a068b8bdd12bcf822e9e85ee2a6b2ee24c"
+    },
+    {
+      "file": "2722_zhujue_xiao.atlas",
+      "sha256": "6a7f1dc22bfce8cecc1935784f7db76d0bf784f025ce38568e105ea8a374e22a"
+    },
+    {
+      "file": "2940_zhujue_huowang.atlas",
+      "sha256": "56d5ecb1544f07fe44c7a35ebe11f69f010f1c3403e2b11a23b5a04994523e33"
+    },
+    {
+      "file": "298_zhujue_xiaohongmao.atlas",
+      "sha256": "3831cca3e82a7cd173f3de479ea5255445a8ffce39a01ffab56d5bfde058dc49"
+    },
+    {
+      "file": "442_zhujue_chen_lite",
+      "sha256": "1b42a45b400e78770e4dfffa035a2ba84829ef94e3849698fb50df894cda1cde"
+    },
+    {
+      "file": "442_zhujue_chushinan_lite",
+      "sha256": "c45e62ea890b73491582340e7de264c936478cbda1ac6e7a8b3b48a8129c2a19"
+    },
+    {
+      "file": "442_zhujue_chushinv_lite",
+      "sha256": "7e69500af46cf54b03d0f9830b9c41950b3f625f3b9c0fac9f35281bf64e28a6"
+    },
+    {
+      "file": "442_zhujue_daoshi_lite",
+      "sha256": "3174de8868c9e889c53ae0bfbacc141b7a42fa0a0540b22843e1cb9bb94c6124"
+    },
+    {
+      "file": "442_zhujue_hanfunv_lite",
+      "sha256": "97bbb5e85d0b1d2d1c27764ca19e27e323a889b1effda56908e08958256b68c6"
+    },
+    {
+      "file": "442_zhujue_huowang_lite",
+      "sha256": "69996c34c5f727c89ed11787a0940707aab7b81de6a3236f51737223c1bb8a67"
+    },
+    {
+      "file": "442_zhujue_lianggong_lite",
+      "sha256": "3fe43b77fd97b3f5dcf7445d48c3af0c5faf0995895e77c03b2bb0d252e14e49"
+    },
+    {
+      "file": "442_zhujue_lixiaoyao_lite",
+      "sha256": "8bdbaeb40bf5c69e6134f7e36a3af0abf0d3f2b90af868ee7af7a2b71740aabf"
+    },
+    {
+      "file": "442_zhujue_longnv_lite",
+      "sha256": "51a26e909113f4bd9c31aa1f95587e592e1a8b03764fae835470f001fd6651a8"
+    },
+    {
+      "file": "442_zhujue_qiaocuinan_lite",
+      "sha256": "a6b52b4f387a4858839e725d606d6a6df55b21e45c1444810379b85479f1d133"
+    },
+    {
+      "file": "442_zhujue_shusheng_lite",
+      "sha256": "87d8c5f341b5e56a5c076b66f5405b6ddd37bc4bb7738d6737033f20b79fdfc4"
+    },
+    {
+      "file": "442_zhujue_toufa_lite",
+      "sha256": "9fcb1e08e81066f33508047c81b6952be202519ad2d5d4d580ebaf366b6144da"
+    },
+    {
+      "file": "442_zhujue_tunan_lite",
+      "sha256": "3eebdbec765275dd197fcd05553fffa8b19bcbb70aa205a4694f747286a832dd"
+    },
+    {
+      "file": "442_zhujue_tunv_lite",
+      "sha256": "f2cec1afced17ec53bcbdbe037351275b989b7e7a8c285ca559e91f9b7088b0f"
+    },
+    {
+      "file": "442_zhujue_wanzitou_lite",
+      "sha256": "f05fcfd1c64ea9a733e8d5feb8e4d06eae3b70bc7cec43a7ee47a45a84cd4474"
+    },
+    {
+      "file": "442_zhujue_wuzhe_lite",
+      "sha256": "cabe056dbe9cfaa6d54f1a75f5d5abb7a12157b9dec471c66f2a22b98e19ee5e"
+    },
+    {
+      "file": "442_zhujue_xiao_lite",
+      "sha256": "8a574a1a042070c5d162d600d17a9db1c29dbe213b10694114b0575a3cb10e75"
+    },
+    {
+      "file": "442_zhujue_xiaogong_lite",
+      "sha256": "7e3e6516e4d4c067d77faeee7a08b18e6ff20fe26a9db3ce7e64f27cdfeccba8"
+    },
+    {
+      "file": "442_zhujue_xiaohongmao_lite",
+      "sha256": "da7dd049830162f5f0dbe87734b47b43ba67962dad1d9df68d37c1289cb2e025"
+    },
+    {
+      "file": "442_zhujue_yueru_lite",
+      "sha256": "0b66005ddccfdae524ef19acc1ee27a6e6eae88c374345addbe072c75e32b072"
+    },
+    {
+      "file": "442_zhujue_zhongxing_lite",
+      "sha256": "5946f099d76bc825ce5f9e0f9a18e5a8ac16dbc83594904b3f4192d3b2aaf1ca"
+    },
+    {
+      "file": "526_zhujue_qiaocuinan.atlas",
+      "sha256": "5d85678d8b030bc452dc19ac4cc79472274761771420c6ce78557ddd3584c58d"
+    },
+    {
+      "file": "541_zhujue_chen.atlas",
+      "sha256": "f875a580acb0b8a327885cce856b22b55401ffcfd661e6669c3b28048678b3cc"
+    },
+    {
+      "file": "554_zhujue_yueru.atlas",
+      "sha256": "f6e9102b00e0303746508b2a3bcb2d9b4cfa1aa42708df0118e0c986ce1aa29f"
+    },
+    {
+      "file": "640_zhujue_body.atlas",
+      "sha256": "f4026ef94b501c66bf72102aa46359a1cd847e0da4ec46dba19339b4be4ba71b"
+    },
+    {
+      "file": "640_zhujue_body.skel",
+      "sha256": "b36ed5a3cde11206521be707508a66943444a3396d7a40419917aea65a93f97f"
+    },
+    {
+      "file": "677_zhujue_zhongxing.atlas",
+      "sha256": "863a6536658c558b2abf996c828d919c23c1f6d658737749c33c40d69e2c42e2"
+    },
+    {
+      "file": "943_zhujue_wuzhe.atlas",
+      "sha256": "43a173942bc9a8d8ccf31588eda9b103af924d1c96fee18af2e4b2bfd992089f"
+    }
+  ],
+  "assemblySha256": "c0c9533b719ae312542d6e9fda26f0f7627fb828c474681a20986bba7ccfb2b8",
+  "rendering": "Original Spine 3.8 attachments at idle t=0, RegionAttachment.updateOffset, original packed UV atlas pixels, separate transparent parts composited by part order. Static preview, not complete Spine animation.",
+  "limitations": [
+    "Two decoded special whole skins have missing geometry/textures. CreatureID-only skins need a separate creature renderer.",
+    "Lite parser trailing extensions are not interpreted. Fixed pose and part draw order approximate the native material/slot pipeline."
+  ]
+}
