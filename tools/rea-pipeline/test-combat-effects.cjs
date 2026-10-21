@@ -1,6 +1,6 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const c={window:null,console,Math};c.window=c;vm.createContext(c);
-for(const f of ['game-data','wander-data','teacher-data','teacher-runtime-data','battle-damage-types','teacher-runtime','pet-battle-data','combat-effects-data','combat-effects','pet-battle'])vm.runInContext(fs.readFileSync(`outputs/laozu-web/${f}.js`,'utf8'),c);
+for(const f of ['game-data','wander-data','teacher-data','teacher-runtime-data','battle-damage-types','teacher-runtime','pet-battle-data','combat-effects-data','status-chains','equipment-passives','combat-effects','pet-battle'])vm.runInContext(fs.readFileSync(`outputs/laozu-web/${f}.js`,'utf8'),c);
 const E=c.CombatEffects,P=c.PetBattle,checks=[];
 const ck=(n,v)=>{assert.ok(v,n);checks.push(n);};
 const state=(attrs={},petId)=>({selected:0,disciples:[{traitIds:[]}],run:{config:{teachers:[],points:[0,0,0,0],petId},abilities:[],eventBonuses:attrs},inventory:[],pets:[]});
@@ -26,6 +26,6 @@ const ids=new Set(events.flatMap(e=>Array.from({length:11},(_,i)=>e['arrAction'+
 for(const id of ids)ck('source prize resolves '+id,prizes.some(p=>p.iPrizeID===id));
 const rows=Object.values(c.COMBAT_EFFECTS_DATA.abilities),talent=rows.find(a=>a.arrEffect.includes(2008));s=state();s.disciples[0].traitIds=[talent.iID];ck('source talent speed enters actual attributes',(E.attributes(s)[2008]||0)!==0);
 // Source resonance gate: collecting alone is insufficient; equipped water resonance enables Tide Counter.
-s=state();s.run.abilities=[4049];ck('source resonance gate keeps unqualified skill inactive',!E.has(s,4049));s.inventory=Array.from({length:5},(_,i)=>({id:120301,uid:i+1,x:i,y:0,rotation:0}));ck('equipped resonance activates source learned ability',E.has(s,4049));b=fight();ck('activated counter skill changes actual damage',E.counter(s,b,()=>0)?.damage>0);s.inventory[0].x=null;ck('removing equipment recalculates activation',!E.has(s,4049));
+s=state();s.run.abilities=[4049];ck('source resonance gate keeps unqualified skill inactive',!E.has(s,4049));s.inventory=Array.from({length:3},(_,i)=>({id:120301,uid:i+1,x:i,y:0,rotation:0}));ck('equipped resonance activates source learned ability',E.has(s,4049));b=fight();ck('activated counter skill changes actual damage',E.counter(s,b,()=>0)?.damage>0);s.inventory[0].x=null;ck('removing equipment recalculates activation',!E.has(s,4049));
 for(const id of [42702,43702]){s=state({},id);b=fight();P.apply(s,b,()=>.99);ck('source blood curse on pet '+id,b.enemyBloodCurseUntil===2);}
 const report={passed:true,count:checks.length,checks};fs.mkdirSync('work/rea-pipeline/verification/combat-effects',{recursive:true});fs.writeFileSync('work/rea-pipeline/verification/combat-effects/model.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report));

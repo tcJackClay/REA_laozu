@@ -1,6 +1,9 @@
 {
   "sourceAssemblySha256": "c0c9533b719ae312542d6e9fda26f0f7627fb828c474681a20986bba7ccfb2b8",
   "sourceEvidence": [
+    "cfg_WanderingEquip.iProvideSkill/iReson/arrTechnique/arrWeaponForm",
+    "cfg_BattleSkill.iCoolDownFirst/iCoolDown",
+    "cfg_BattleBuffer status descriptions",
     "cfg_Attribute",
     "cfg_Ability",
     "cfg_PrizeMain",
@@ -33,10 +36,25 @@
     "used equipment refresh by instance uid and persisted cooldown",
     "rage suppression stacks and expires; shield defense exists only with shield"
   ],
+  "equipment": {
+    "sourceRows": 385,
+    "combatRows": 375,
+    "skillBinding": "iProvideSkill",
+    "resonance": "source iReson with arrTechnique/arrWeaponForm",
+    "passives": [
+      "matching-element rotated-cell adjacency",
+      "damage/critical/heal/shield/drain and item-stat adjacency bonuses",
+      "opening capped resistance bonuses",
+      "first cast and repeat cooldown by instance",
+      "poison/cold/burn/blessing/thunder/body and other explicit status applications",
+      "refresh/replay used equipment only"
+    ],
+    "validation": "375 source combat rows smoke tested; explicit status and adjacency behavior assertions. Not 375 original-runtime equivalence proofs."
+  },
   "abilities": {
     "total": 97,
-    "adapted": 35,
-    "deferred": 62,
+    "adapted": 97,
+    "deferred": 0,
     "rows": [
       {
         "id": 4001,
@@ -56,17 +74,17 @@
       {
         "id": 4013,
         "name": "裂甲",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4017,
         "name": "趁虚",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4021,
         "name": "饮煞",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4025,
@@ -86,17 +104,17 @@
       {
         "id": 4037,
         "name": "侵蚀",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4041,
         "name": "烈毒",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4045,
         "name": "吸髓",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4049,
@@ -116,17 +134,17 @@
       {
         "id": 4061,
         "name": "霜降",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4065,
         "name": "刺骨",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4069,
         "name": "寒流",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4073,
@@ -146,17 +164,17 @@
       {
         "id": 4085,
         "name": "灼击",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4089,
         "name": "流火",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4093,
         "name": "炎爆",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4097,
@@ -166,57 +184,57 @@
       {
         "id": 4101,
         "name": "崩斧",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4105,
         "name": "撼锤",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4109,
         "name": "龟息",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4113,
         "name": "磐石",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4117,
         "name": "山崩",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4121,
         "name": "感电",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4125,
         "name": "雷伐",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4129,
         "name": "天诏",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4133,
         "name": "余震",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4137,
         "name": "积雷",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4141,
         "name": "震慑",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4145,
@@ -236,17 +254,17 @@
       {
         "id": 4157,
         "name": "剑意",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4161,
         "name": "剑心",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4165,
         "name": "剑势",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4169,
@@ -296,42 +314,42 @@
       {
         "id": 4205,
         "name": "蓄意",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4209,
         "name": "斩命",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4213,
         "name": "真形",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4217,
         "name": "积势",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4221,
         "name": "崩裂",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4225,
         "name": "护身",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4229,
         "name": "招魂",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4233,
         "name": "倾泻",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 4237,
@@ -341,22 +359,22 @@
       {
         "id": 4241,
         "name": "斗势",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 41071,
         "name": "噬命",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 41081,
         "name": "殒锋",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 41091,
         "name": "凝罡",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 42071,
@@ -381,27 +399,27 @@
       {
         "id": 43081,
         "name": "朔风",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 43091,
         "name": "凌厉",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 44071,
         "name": "祭生",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 44081,
         "name": "浴火",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 44091,
         "name": "燃尽",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 45071,
@@ -416,22 +434,22 @@
       {
         "id": 45091,
         "name": "碎脉",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 46071,
         "name": "雷相",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 46081,
         "name": "天威",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 46091,
         "name": "裁决",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 47011,
@@ -446,42 +464,42 @@
       {
         "id": 47031,
         "name": "昭命",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 47041,
         "name": "猎魇",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 47051,
         "name": "涤煞",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 47061,
         "name": "舍魄",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 47071,
         "name": "炼魂",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 47081,
         "name": "狂躁",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 47091,
         "name": "增生",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 48011,
         "name": "炼体",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 48021,
@@ -491,37 +509,37 @@
       {
         "id": 48031,
         "name": "极限",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 48041,
         "name": "金身",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 48051,
         "name": "庇护",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 48061,
         "name": "化身",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 48071,
         "name": "觉醒",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 48081,
         "name": "吸引",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       },
       {
         "id": 48091,
         "name": "贯通",
-        "status": "deferred-special-status-chain"
+        "status": "local-trigger-adapter"
       }
     ]
   },
@@ -1068,9 +1086,10 @@
   ],
   "limitations": [
     "No server formula or original emulator playthrough claim.",
-    "Resonance accumulation, triggered skill magnitudes, equipment cast magnitudes and branch reward rolls are offline approximations.",
-    "Deferred learned abilities remain stored but their special status chains do not execute; this inventory prevents classifying them as complete.",
-    "Not all equipment passive/buff bullets have handlers; unmapped buff casts emit an explicit combat trace instead of invented damage.",
-    "Other-mode economy attributes are not applied to wander. Enemy resistance/healing opportunities depend on the encounter; controlled tests do not prove natural encounter coverage."
+    "All 97 learned families have local adapters, including 62 status-chain adapters; probabilities, damage magnitudes and level scaling remain approximations.",
+    "Equipment neighbor matching uses rotated occupied-cell adjacency, not an emulation of all Unity absorb/emit slot masks.",
+    "Equipment descriptions drive common operations. Unique red/awakened multi-stage bullet behaviors, every linked projectile and buff sub-skill are not fully emulated.",
+    "Spore and frostbite use local status approximations; bloodline types use a bounded local bonus instead of exact original random bloodline pool.",
+    "Other-mode economy attributes are not applied to wander. Controlled battle fixtures and durable full-route runs do not prove original balance or natural occurrence of every random branch."
   ]
 }

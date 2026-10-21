@@ -8,7 +8,9 @@ abilities=read('work/alignment-v11/configs/Ability.json')
 skills=read('work/alignment-v11/configs/BattleSkill.json')
 bullets=read('work/alignment-v14/configs/BattleBullet.json')
 buffers=read('work/alignment-v20/configs/BattleBuffer.json')
-data={'attributes':{x['iAtrributeID']:x['szAttrName'] for x in attrs},'abilities':{x['iID']:x for x in abilities},'equipmentSkills':{x['iSkillID']:{k:x[k] for k in ['iCoolDown','arrSkillBulletList']} for x in skills},'buffs':{x['iID']:{k:x[k] for k in ['name','des','iBenefitial','bNoDismissal']} for x in buffers if x['iID'] in [114,282001010]}}
+data={'attributes':{x['iAtrributeID']:x['szAttrName'] for x in attrs},'abilities':{x['iID']:x for x in abilities},'equipmentSkills':{x['iSkillID']:{k:x[k] for k in ['iCoolDown','iCoolDownFirst','arrSkillBulletList','szDesc']} for x in skills},'buffs':{x['iID']:{k:x[k] for k in ['name','des','iBenefitial','bNoDismissal']} for x in buffers if x['iID'] in [114,282001010]}}
+data['statusReferences']={x['name']:x['des'] for x in reversed(buffers) if x['iID']<200 and x['name'].startswith('【')}
+data['equipment']={x['iID']:x for x in read('work/alignment-v21/configs/WanderingEquip.json')}
 data['bullets']={x['iBulletID']:{k:x[k] for k in ['iDamageType','szDesc']} for x in bullets}
 (ROOT/'outputs/laozu-web/combat-effects-data.js').write_text('window.COMBAT_EFFECTS_DATA='+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf8')
 print('attributes',len(attrs),'abilities',len(abilities),'skills',len(skills),'buffs',data['buffs'])
