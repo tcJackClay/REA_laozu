@@ -10,3 +10,7 @@
 
 .we-price{position:absolute;bottom:-17px;left:50%;transform:translateX(-50%);white-space:nowrap;background:#4c452cdd;color:#ffe49a;padding:2px 5px;border-radius:4px;font-size:11px;line-height:14px;z-index:3}
 #wander-dialog[data-type=ability] .w-dialog-actions{flex-wrap:wrap;justify-content:center;align-items:center}#wander-dialog[data-type=ability] .w-dialog-actions .w-ability-counter{width:100%;flex-basis:100%}#wander-dialog[data-type=ability] .w-dialog-actions button{flex:0 1 140px;width:auto;min-width:100px;padding:8px}
+
+.we-dig{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.we-dig button{padding:20px 8px;background:#d4b87c;color:#594121;border:2px ridge #ad8655}.we-dig button:disabled{opacity:.4}#we-alchemy{width:100%;height:32px;accent-color:#c69242}#we-combat-pet{position:absolute;left:3%;bottom:12%;display:flex;align-items:center;gap:4px;background:#253426db;color:#ffe8ad;padding:3px 8px;border:1px solid #b79b5d;border-radius:5px;z-index:15;font-size:12px}#we-combat-pet img{width:44px;height:44px}#we-combat-pet small{display:block;font-size:10px}
+
+#we-combat-pet{top:27%;bottom:auto}#wander-dialog[data-type^="source-"] .w-dialog-content{padding:16px 24px;box-sizing:border-box}#wander-dialog[data-type^="source-"] .w-dialog-content p{white-space:pre-line}

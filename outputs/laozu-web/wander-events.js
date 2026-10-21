@@ -5,6 +5,7 @@ window.WanderEvents=(()=>{
   const text=(s,name)=>clean(s).replaceAll('{name}',name);
   const actions=e=>Array.from({length:11},(_,i)=>e['arrAction'+i]).filter(a=>a?.length&&a[0]);
   function tasks(id,name,depth=0){
+    if(window.EventLibrary?.data.events[id])return [{type:'source-dispatch',sourceId:id}];
     if(depth>16)throw Error('Event chain exceeds limit');
     const e=D.events[id];if(!e)throw Error('Unknown source event '+id);
     const t={sourceId:id,title:'游历奇遇',text:text(e.szDesc,name)};
@@ -23,8 +24,8 @@ window.WanderEvents=(()=>{
   function options(p,power,name){
     const e=D.events[p.sourceId];let offset=0;
     return Array.from({length:11},(_,i)=>i).filter(i=>e['arrAction'+i]?.length).map(i=>{
-      let required=0;if(e.iEventType===18){const type=e.arrParam[offset++]||0;if(type===1)required=e.arrParam[offset++]||0;}
-      return {id:i,label:text(e['szActionTxt'+i],name),required,enabled:power>=required};
+      let required=0;if(e.iEventType===18){const type=(e.arrParam||[])[offset++]||0;if(type===1)required=(e.arrParam||[])[offset++]||0;}
+      return {id:i,label:text(e['szActionTxt'+i]||window.EventLibrary?.data.texts[(e['arrActionTxtId'+i]||[])[0]]||('选择 '+(i+1)),name),required,enabled:power>=required};
     });
   }
   function draw(pool,count,exclude=[]){

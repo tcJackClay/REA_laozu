@@ -1,0 +1,49 @@
+{
+  "sourceRows": 9752,
+  "nonPlaceholder": 5818,
+  "runtimeRecords": 5808,
+  "typeCounts": {
+    "1": 1,
+    "19": 1,
+    "20": 1,
+    "24": 2,
+    "7": 120,
+    "25": 18,
+    "2": 2219,
+    "26": 2,
+    "27": 2,
+    "3": 330,
+    "4": 254,
+    "8": 159,
+    "15": 2,
+    "14": 2,
+    "12": 65,
+    "9": 1164,
+    "18": 191,
+    "23": 10,
+    "11": 98,
+    "16": 14,
+    "5": 874,
+    "17": 1,
+    "6": 191,
+    "10": 87
+  },
+  "excluded": {
+    "999998": "external-mode",
+    "999997": "external-mode",
+    "612020": "missing-or-placeholder",
+    "119030": "missing-or-placeholder",
+    "127210": "missing-or-placeholder",
+    "128210": "missing-or-placeholder",
+    "129210": "missing-or-placeholder",
+    "133210": "missing-or-placeholder",
+    "134210": "missing-or-placeholder",
+    "135210": "missing-or-placeholder"
+  },
+  "pets": 73,
+  "limitations": [
+    "Static coverage is not browser or emulator coverage.",
+    "Server event selection weights and conditions are approximated locally.",
+    "External modes, cycles, missing references are excluded rather than silently treated as success."
+  ]
+}
