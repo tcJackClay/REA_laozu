@@ -1,0 +1,31 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const c={window:null,console,Math};c.window=c;vm.createContext(c);
+for(const f of ['game-data','wander-data','teacher-data','teacher-runtime-data','battle-damage-types','teacher-runtime','pet-battle-data','combat-effects-data','combat-effects','pet-battle'])vm.runInContext(fs.readFileSync(`outputs/laozu-web/${f}.js`,'utf8'),c);
+const E=c.CombatEffects,P=c.PetBattle,checks=[];
+const ck=(n,v)=>{assert.ok(v,n);checks.push(n);};
+const state=(attrs={},petId)=>({selected:0,disciples:[{traitIds:[]}],run:{config:{teachers:[],points:[0,0,0,0],petId},abilities:[],eventBonuses:attrs},inventory:[],pets:[]});
+const fight=()=>({round:1,playerAtk:100,playerDef:20,playerHp:500,playerMax:1000,enemyHp:10000,enemyMax:10000,enemyAtk:100,damageTrace:[]});
+let s=state({2009:10000,2027:5000}),b=fight();let hit=E.deal(s,b,100,{random:()=>0});ck('critical and critical damage applied',hit.critical&&hit.damage===200);
+s=state({2017:10000});b=fight();hit=E.deal(s,b,100,{outgoing:false,random:()=>0});ck('dodge prevents real hp loss',hit.dodge&&b.playerHp===500);
+s=state({2049:2000,2025:1000,2041:1000,5005:1000});b=fight();hit=E.deal(s,b,100,{random:()=>.99});ck('generic pve wander increase stacks',hit.damage===130);ck('drain heals based on actual damage',b.playerHp===526);
+s=state({2069:5000,2045:5000});b=fight();ck('shield efficiency changes shield',E.shield(s,b,100)===150);ck('healing efficiency changes healing',E.heal(s,b,100)===150);
+b.enemyHp=500;b.enemyBloodCurseUntil=2;ck('source blood curse reduces heal 20 percent',E.heal(s,b,100,'enemy')===80);b.round=3;ck('blood curse expires after two rounds',E.heal(s,b,100,'enemy')===100);
+s=state({},44702);b=fight();P.apply(s,b,()=>.99);ck('bat applies source curse not invented dot',b.enemyBloodCurseUntil===2&&!b.petBloodCurse);
+s=state({},44301);b=fight();P.apply(s,b,()=>.99);let hp=b.enemyHp;ck('counter buff does not create counter chance',E.counter(s,b,()=>0)===null&&b.enemyHp===hp);s.run.eventBonuses[2021]=10000;hit=E.counter(s,b,()=>0);ck('triggered counter consumes one buff charge',hit.damage===160&&b.petCounters===2);b.round=2;hit=E.counter(s,b,()=>0);ck('counter damage buff expires',hit.damage===100);
+s=state({},44501);b=fight();P.apply(s,b,()=>.99);ck('rhino grants stun damage not disarm multiplier',b.petStunDamage===.1);b.enemyStunnedUntil=1;hit=E.deal(s,b,100,{random:()=>.99});ck('stun damage applies to actual stunned target',hit.damage===110);
+s=state({},44402);b=fight();P.apply(s,b,()=>.99);ck('fox lowers actual enemy rage gain',E.rage(s,b,20,'enemy')===14);b.enemyAttributes={2009:10000};hit=E.deal(s,b,100,{outgoing:false,random:()=>0});ck('fox reduces critical multiplier not rage skill damage',hit.critical&&hit.damage===100);b.round=2;ck('fox debuff expires next round',E.rage(s,b,20,'enemy')===20);
+s=state({},44801);b=fight();for(let i=1;i<=7;i++){b.round=i;P.apply(s,b,()=>.99);}ck('bear rage suppression stacks with cap',b.enemyRageReduction===.5&&E.rage(s,b,20,'enemy')===10);
+s=state({},44703);s.inventory=[{id:110101,uid:7,x:0,y:0,rotation:0}];b=fight();ck('refresh cannot invent an unused equipment cast',E.refreshEquipment(s,b,()=>0)===null);E.equipment(s,b,()=>.99);const casts=b.equipmentState[7].casts;P.apply(s,b,()=>0);ck('snake refresh targets used equipment uid',b.petTrace.some(x=>x.kind==='refresh-equipment'&&x.value===7));E.equipment(s,b,()=>.99);ck('refreshed equipment actually casts again',b.equipmentState[7].casts===casts+1);const snapshot=JSON.parse(JSON.stringify(b));P.apply(s,snapshot,()=>0);ck('restored pet turn does not repeat refresh',snapshot.equipmentState[7].casts===b.equipmentState[7].casts&&snapshot.petCasts===b.petCasts);
+s=state({2008:30,2007:20,2072:5000});b=fight();ck('speed reaches actual stat',E.basic(s,{atk:100,def:20,hp:1000}).speed===60);E.rage(s,b,20);ck('rage efficiency and threshold',b.playerRage===30&&!E.readyRage(s,b));b.playerRage=120;ck('custom rage threshold reached',E.readyRage(s,b));
+s=state({2070:10000});b=fight();b.enemyShield=200;hit=E.deal(s,b,100,{random:()=>.99});ck('shield break consumes doubled shield without hp leak',b.enemyShield===0&&hit.damage===0);
+s=state({2085:10000});b=fight();hit=E.deal(s,b,100,{outgoing:false,random:()=>0});ck('block reduces hp damage',hit.blocked&&hit.damage===70);
+s=state({2019:10000,2081:100});b=fight();b.enemyDef=100;hit=E.deal(s,b,100,{random:()=>0,ignoreDefense:false});ck('armor penetration and stun execute',hit.damage===100&&b.enemyStunnedUntil===1);
+// Every source event property reward is resolvable; additional special attributes come from traits/abilities.
+const read=n=>JSON.parse(fs.readFileSync(n,'utf8')),events=read('work/alignment-v18/configs/WanderEvent.json'),prizes=read('work/alignment-v19/configs/PrizeMain.json');
+const ids=new Set(events.flatMap(e=>Array.from({length:11},(_,i)=>e['arrAction'+i]).filter(a=>a?.[0]===3).map(a=>a[1])));
+for(const id of ids)ck('source prize resolves '+id,prizes.some(p=>p.iPrizeID===id));
+const rows=Object.values(c.COMBAT_EFFECTS_DATA.abilities),talent=rows.find(a=>a.arrEffect.includes(2008));s=state();s.disciples[0].traitIds=[talent.iID];ck('source talent speed enters actual attributes',(E.attributes(s)[2008]||0)!==0);
+// Source resonance gate: collecting alone is insufficient; equipped water resonance enables Tide Counter.
+s=state();s.run.abilities=[4049];ck('source resonance gate keeps unqualified skill inactive',!E.has(s,4049));s.inventory=Array.from({length:5},(_,i)=>({id:120301,uid:i+1,x:i,y:0,rotation:0}));ck('equipped resonance activates source learned ability',E.has(s,4049));b=fight();ck('activated counter skill changes actual damage',E.counter(s,b,()=>0)?.damage>0);s.inventory[0].x=null;ck('removing equipment recalculates activation',!E.has(s,4049));
+for(const id of [42702,43702]){s=state({},id);b=fight();P.apply(s,b,()=>.99);ck('source blood curse on pet '+id,b.enemyBloodCurseUntil===2);}
+const report={passed:true,count:checks.length,checks};fs.mkdirSync('work/rea-pipeline/verification/combat-effects',{recursive:true});fs.writeFileSync('work/rea-pipeline/verification/combat-effects/model.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report));

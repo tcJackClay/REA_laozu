@@ -4,6 +4,7 @@ const out='work/rea-pipeline/verification/library-browser';fs.mkdirSync(out,{rec
 (async()=>{const browser=await chromium.launch();const errors=[],checks=[];
  const ck=(name,value)=>{assert.ok(value,name);checks.push(name);};
  try{const page=await browser.newPage({viewport:{width:390,height:844}});
+ await page.addInitScript(()=>{const raf=window.requestAnimationFrame.bind(window);window.requestAnimationFrame=fn=>fn.name==='loop'?0:raf(fn);});
  page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url());});
  const original=a=>page.locator(`[data-original-action="${a}"]`).click();
  const act=a=>page.locator(`[data-flow="${a}"]`).last().click();
@@ -14,7 +15,7 @@ const out='work/rea-pipeline/verification/library-browser';fs.mkdirSync(out,{rec
 
 
  let s,base=await read();base.gold=1000;base.crystal=100;base.run.pathId=1001;base.run.eventLibraryVersion=19;base.inventory=[{id:110101,uid:9801,x:2,y:1,rotation:0}];
- const load=async s=>{await page.evaluate(s=>localStorage.setItem('laozu-web-v9',JSON.stringify(s)),s);await page.reload();await original('nav:wander');};
+ const load=async s=>{await Promise.all([page.waitForNavigation(),page.evaluate(s=>{localStorage.setItem('laozu-web-v9',JSON.stringify(s));location.reload();},s)]);await original('nav:wander');};
  const entry=async id=>{const s=structuredClone(base);Object.assign(s.run,{step:10,phase:'event',popup:{type:'story',text:'遇到机缘',title:'游历'},queue:[{type:'source-dispatch',sourceId:id}],reward:null,pending:null,sourceSteps:0,hp:1000,records:[],abilities:[]});await load(s);await act('next');};
  const readRuntime=()=>page.evaluate(()=>JSON.parse(render_game_to_text()));
  const drainStory=async()=>{for(let i=0;i<40&&(await read()).run.popup?.type==='story';i++)await act('next');};
@@ -31,7 +32,7 @@ const out='work/rea-pipeline/verification/library-browser';fs.mkdirSync(out,{rec
  // Direct encounter snapshots test actual game tick, not just the independent pet model.
  const fight=async petId=>{const s=structuredClone(base);s.inventory=[];s.pets=[{id:petId,uid:9999,level:1}];Object.assign(s.run.config,{petId,petUid:9999});Object.assign(s.run,{step:3,phase:'battle-ready',popup:null,queue:[],reward:null,pending:null,hp:1000});await load(s);await act('next');await drainStory();return await readRuntime();};
  await fight(42303);await page.evaluate(()=>advanceTime(350));let rt=await readRuntime();ck('pet creates real combat shield',rt.battle?.petTrace.some(x=>x.kind==='shield'));await page.screenshot({path:out+'/pet-shield.png'});let saved=await read();const casts=saved.run.battleSnapshot.petCasts;await load(saved);rt=await readRuntime();ck('battle pet snapshot restored',rt.battle.petTrace.length>0);await page.evaluate(()=>advanceTime(50));ck('restore does not recast round',(await read()).run.battleSnapshot.petCasts===casts);
- await fight(42202);await page.evaluate(()=>advanceTime(350));rt=await readRuntime();ck('pet heals player in actual battle',rt.battle?.petTrace.some(x=>x.kind==='heal'&&x.value>0));
+ await fight(42202);await page.evaluate(()=>advanceTime(350));rt=await readRuntime();s=await read();ck('pet heals player in actual battle',(rt.battle?.petTrace||s.run.lastBattleReport?.pet)?.some(x=>x.kind==='heal'&&x.value>0));
  await fight(42101);await page.evaluate(()=>advanceTime(1500));s=await read();rt=await readRuntime();const trace=s.run.lastBattleReport?.pet||rt.battle?.petTrace;ck('pet attack changes enemy health',trace?.some(x=>x.kind==='damage'&&x.value>0));
 
  // Full path through normal UI decisions, with a durable combat fixture to focus on flow continuity.

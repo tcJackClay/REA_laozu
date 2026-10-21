@@ -1,0 +1,1076 @@
+{
+  "sourceAssemblySha256": "c0c9533b719ae312542d6e9fda26f0f7627fb828c474681a20986bba7ccfb2b8",
+  "sourceEvidence": [
+    "cfg_Attribute",
+    "cfg_Ability",
+    "cfg_PrizeMain",
+    "cfg_BattleBuffer[114,282001010]",
+    "WanderWheelEventManager.TryShowSectWheelPrize (all.cs:522984)"
+  ],
+  "propertyRewards": {
+    "references": 37,
+    "unresolved": [],
+    "attributeIds": [
+      2004,
+      2005,
+      2006
+    ]
+  },
+  "implementedAttributeFamilies": [
+    "base/final stats and speed",
+    "critical/dodge/stun/counter/combo and resistances",
+    "normal/equipment/rage/pet/element/PVE/wander damage",
+    "healing/drain/shield/shield-break",
+    "rage limit/recovery",
+    "armor penetration/block",
+    "wander reward gold/crystal"
+  ],
+  "petCorrections": [
+    "counter bonus requires independently triggered counter",
+    "blood curse is -20% healing for two rounds, not damage over time",
+    "stun bonus checks stun, not disarm",
+    "disarm blocks normal attacks, not rage skills",
+    "used equipment refresh by instance uid and persisted cooldown",
+    "rage suppression stacks and expires; shield defense exists only with shield"
+  ],
+  "abilities": {
+    "total": 97,
+    "adapted": 35,
+    "deferred": 62,
+    "rows": [
+      {
+        "id": 4001,
+        "name": "锋芒",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4005,
+        "name": "锐意",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4009,
+        "name": "怒魂",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4013,
+        "name": "裂甲",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4017,
+        "name": "趁虚",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4021,
+        "name": "饮煞",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4025,
+        "name": "无影",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4029,
+        "name": "蛰伏",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4033,
+        "name": "回春",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4037,
+        "name": "侵蚀",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4041,
+        "name": "烈毒",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4045,
+        "name": "吸髓",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4049,
+        "name": "潮反",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4053,
+        "name": "汲取",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4057,
+        "name": "守势",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4061,
+        "name": "霜降",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4065,
+        "name": "刺骨",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4069,
+        "name": "寒流",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4073,
+        "name": "炎舞",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4077,
+        "name": "炽刃",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4081,
+        "name": "狂热",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4085,
+        "name": "灼击",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4089,
+        "name": "流火",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4093,
+        "name": "炎爆",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4097,
+        "name": "千钧",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4101,
+        "name": "崩斧",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4105,
+        "name": "撼锤",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4109,
+        "name": "龟息",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4113,
+        "name": "磐石",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4117,
+        "name": "山崩",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4121,
+        "name": "感电",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4125,
+        "name": "雷伐",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4129,
+        "name": "天诏",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4133,
+        "name": "余震",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4137,
+        "name": "积雷",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4141,
+        "name": "震慑",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4145,
+        "name": "豪情",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4149,
+        "name": "饮血",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4153,
+        "name": "殒命",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4157,
+        "name": "剑意",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4161,
+        "name": "剑心",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4165,
+        "name": "剑势",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4169,
+        "name": "乐涌",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4173,
+        "name": "咏殇",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4177,
+        "name": "喧天",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4181,
+        "name": "润物",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4185,
+        "name": "聚势",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4189,
+        "name": "混元",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4193,
+        "name": "玄甲",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4197,
+        "name": "固本",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4201,
+        "name": "天罡",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4205,
+        "name": "蓄意",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4209,
+        "name": "斩命",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4213,
+        "name": "真形",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4217,
+        "name": "积势",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4221,
+        "name": "崩裂",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4225,
+        "name": "护身",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4229,
+        "name": "招魂",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4233,
+        "name": "倾泻",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 4237,
+        "name": "循环",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 4241,
+        "name": "斗势",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 41071,
+        "name": "噬命",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 41081,
+        "name": "殒锋",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 41091,
+        "name": "凝罡",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 42071,
+        "name": "生机",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 42081,
+        "name": "韧性",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 42091,
+        "name": "进化",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 43071,
+        "name": "封冻",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 43081,
+        "name": "朔风",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 43091,
+        "name": "凌厉",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 44071,
+        "name": "祭生",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 44081,
+        "name": "浴火",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 44091,
+        "name": "燃尽",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 45071,
+        "name": "排山",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 45081,
+        "name": "破壁",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 45091,
+        "name": "碎脉",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 46071,
+        "name": "雷相",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 46081,
+        "name": "天威",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 46091,
+        "name": "裁决",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 47011,
+        "name": "血怒",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 47021,
+        "name": "祭愈",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 47031,
+        "name": "昭命",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 47041,
+        "name": "猎魇",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 47051,
+        "name": "涤煞",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 47061,
+        "name": "舍魄",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 47071,
+        "name": "炼魂",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 47081,
+        "name": "狂躁",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 47091,
+        "name": "增生",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 48011,
+        "name": "炼体",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 48021,
+        "name": "强健",
+        "status": "local-trigger-adapter"
+      },
+      {
+        "id": 48031,
+        "name": "极限",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 48041,
+        "name": "金身",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 48051,
+        "name": "庇护",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 48061,
+        "name": "化身",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 48071,
+        "name": "觉醒",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 48081,
+        "name": "吸引",
+        "status": "deferred-special-status-chain"
+      },
+      {
+        "id": 48091,
+        "name": "贯通",
+        "status": "deferred-special-status-chain"
+      }
+    ]
+  },
+  "wheels": [
+    {
+      "id": 101,
+      "name": "通用属性转盘1",
+      "status": "source-property-prize"
+    },
+    {
+      "id": 102,
+      "name": "通用属性转盘2",
+      "status": "source-property-prize"
+    },
+    {
+      "id": 301,
+      "name": "老祖等级30",
+      "status": "source-property-prize"
+    },
+    {
+      "id": 201,
+      "name": "战力属性转盘1（事件）",
+      "status": "local-attribute-result"
+    },
+    {
+      "id": 202,
+      "name": "战力属性转盘2（事件）",
+      "status": "local-attribute-result"
+    },
+    {
+      "id": 3001,
+      "name": "通用-战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3002,
+      "name": "通用-战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3011,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3012,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3021,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3022,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3031,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3032,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3041,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3042,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3051,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3052,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3061,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3062,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3071,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3072,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3081,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3082,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3091,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3092,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3101,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3102,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3111,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3112,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3121,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3122,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3131,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3132,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3141,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3142,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3151,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3152,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3161,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3162,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3171,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3172,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3181,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3182,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3191,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3192,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3201,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3202,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3211,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3212,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3221,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3222,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3231,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3232,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3241,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3242,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3251,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3252,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3261,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3262,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3271,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3272,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3281,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3282,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3291,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3292,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3301,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3302,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3311,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3312,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3321,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3322,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3331,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3332,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3341,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3342,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3351,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3352,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3361,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3362,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3371,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3372,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3381,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3382,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3421,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3422,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3431,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3432,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3441,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3442,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3481,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3482,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3491,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3492,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3501,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3502,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3511,
+      "status": "missing"
+    },
+    {
+      "id": 3512,
+      "status": "missing"
+    },
+    {
+      "id": 3521,
+      "status": "missing"
+    },
+    {
+      "id": 3522,
+      "status": "missing"
+    },
+    {
+      "id": 3531,
+      "status": "missing"
+    },
+    {
+      "id": 3532,
+      "status": "missing"
+    },
+    {
+      "id": 3541,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3542,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3551,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3552,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3561,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3562,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3601,
+      "name": "战力装备转盘1",
+      "status": "local-equipment-result"
+    },
+    {
+      "id": 3602,
+      "name": "战力装备转盘2（战力要求）",
+      "status": "local-equipment-result"
+    }
+  ],
+  "limitations": [
+    "No server formula or original emulator playthrough claim.",
+    "Resonance accumulation, triggered skill magnitudes, equipment cast magnitudes and branch reward rolls are offline approximations.",
+    "Deferred learned abilities remain stored but their special status chains do not execute; this inventory prevents classifying them as complete.",
+    "Not all equipment passive/buff bullets have handlers; unmapped buff casts emit an explicit combat trace instead of invented damage.",
+    "Other-mode economy attributes are not applied to wander. Enemy resistance/healing opportunities depend on the encounter; controlled tests do not prove natural encounter coverage."
+  ]
+}
