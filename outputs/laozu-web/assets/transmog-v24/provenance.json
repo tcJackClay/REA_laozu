@@ -1,0 +1,851 @@
+{
+  "sourceAssemblySHA256": "c0c9533b719ae312542d6e9fda26f0f7627fb828c474681a20986bba7ccfb2b8",
+  "resourceVersion": "2610131532",
+  "renderer": "Spine 3.8 CPU, original atlas and split main/dynamic skeleton",
+  "poses": [
+    {
+      "character": "transmog-402001",
+      "animation": "idle",
+      "file": "transmog-402001-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -187.61016845703125,
+        "minY": -351.1325378417969,
+        "maxX": 75.96648406982422,
+        "maxY": 14
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402002",
+      "animation": "idle",
+      "file": "transmog-402002-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -131.59214782714844,
+        "minY": -283.84063720703125,
+        "maxX": 72.30133819580078,
+        "maxY": 14.000007629394531
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402003",
+      "animation": "idle",
+      "file": "transmog-402003-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -242.20196533203125,
+        "minY": -330.338623046875,
+        "maxX": 112.46817016601562,
+        "maxY": 14.000007629394531
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402004",
+      "animation": "idle",
+      "file": "transmog-402004-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -177.93673706054688,
+        "minY": -367.3558349609375,
+        "maxX": 114.83187866210938,
+        "maxY": 14.000007629394531
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402101",
+      "animation": "idle",
+      "file": "transmog-402101-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -161.48643493652344,
+        "minY": -306.59197998046875,
+        "maxX": 130.2344207763672,
+        "maxY": 23.260526657104492
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402102",
+      "animation": "idle",
+      "file": "transmog-402102-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -168.80152893066406,
+        "minY": -340.4609069824219,
+        "maxX": 149.03228759765625,
+        "maxY": 14.18934154510498
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402103",
+      "animation": "idle",
+      "file": "transmog-402103-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -100.12252807617188,
+        "minY": -254.48074340820312,
+        "maxX": 81.96959686279297,
+        "maxY": 14
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402104",
+      "animation": "idle",
+      "file": "transmog-402104-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -136.9971923828125,
+        "minY": -304.2467346191406,
+        "maxX": 111.67021179199219,
+        "maxY": 14.000007629394531
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402201",
+      "animation": "idle",
+      "file": "transmog-402201-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -143.13755798339844,
+        "minY": -304.1687316894531,
+        "maxX": 96.58928680419922,
+        "maxY": 27.648557662963867
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402202",
+      "animation": "idle",
+      "file": "transmog-402202-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -137.57742309570312,
+        "minY": -314.0428466796875,
+        "maxX": 130.8306121826172,
+        "maxY": 14.658578872680664
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402203",
+      "animation": "idle",
+      "file": "transmog-402203-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -134.0740509033203,
+        "minY": -311.8949279785156,
+        "maxX": 100.41473388671875,
+        "maxY": 15.05447006225586
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402204",
+      "animation": "idle",
+      "file": "transmog-402204-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -149.84323120117188,
+        "minY": -296.0198059082031,
+        "maxX": 172.7877655029297,
+        "maxY": 15.073638916015625
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402205",
+      "animation": "idle",
+      "file": "transmog-402205-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -149.84323120117188,
+        "minY": -296.0198059082031,
+        "maxX": 172.7877655029297,
+        "maxY": 15.073638916015625
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402301",
+      "animation": "idle",
+      "file": "transmog-402301-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -135.18199157714844,
+        "minY": -275.60888671875,
+        "maxX": 97.16378021240234,
+        "maxY": 12.429512023925781
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402303",
+      "animation": "idle",
+      "file": "transmog-402303-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -134.99867248535156,
+        "minY": -316.849365234375,
+        "maxX": 77.79241180419922,
+        "maxY": 10.98159122467041
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402304",
+      "animation": "idle",
+      "file": "transmog-402304-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -176.3240509033203,
+        "minY": -305.9432067871094,
+        "maxX": 126.22686004638672,
+        "maxY": 14.28431224822998
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402401",
+      "animation": "idle",
+      "file": "transmog-402401-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -160.4737548828125,
+        "minY": -322.7169189453125,
+        "maxX": 128.5177764892578,
+        "maxY": 14.18934154510498
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402402",
+      "animation": "idle",
+      "file": "transmog-402402-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -108.28938293457031,
+        "minY": -355.31939697265625,
+        "maxX": 232.59756469726562,
+        "maxY": 12.429512023925781
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402404",
+      "animation": "idle",
+      "file": "transmog-402404-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -192.593994140625,
+        "minY": -345.775146484375,
+        "maxX": 393.2719421386719,
+        "maxY": 242.70932006835938
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402501",
+      "animation": "idle",
+      "file": "transmog-402501-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -124.14579010009766,
+        "minY": -304.6565246582031,
+        "maxX": 183.52761840820312,
+        "maxY": 14.363998413085938
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402503",
+      "animation": "idle",
+      "file": "transmog-402503-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -169.23971557617188,
+        "minY": -329.2924499511719,
+        "maxX": 159.6195068359375,
+        "maxY": 14
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402504",
+      "animation": "idle",
+      "file": "transmog-402504-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -116.91018676757812,
+        "minY": -309.3929443359375,
+        "maxX": 175.4086151123047,
+        "maxY": 14.000007629394531
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402601",
+      "animation": "idle",
+      "file": "transmog-402601-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -114.18537139892578,
+        "minY": -363.7624816894531,
+        "maxX": 116.5694351196289,
+        "maxY": 14
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402602",
+      "animation": "idle",
+      "file": "transmog-402602-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -128.130126953125,
+        "minY": -290.1015930175781,
+        "maxX": 68.7657470703125,
+        "maxY": 13.635825157165527
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402603",
+      "animation": "idle",
+      "file": "transmog-402603-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -225.3845977783203,
+        "minY": -388.2826843261719,
+        "maxX": 121.30502319335938,
+        "maxY": 14
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402701",
+      "animation": "idle",
+      "file": "transmog-402701-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -211.38104248046875,
+        "minY": -342.33282470703125,
+        "maxX": 151.29685974121094,
+        "maxY": 11.980828285217285
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402702",
+      "animation": "idle",
+      "file": "transmog-402702-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -173.1754913330078,
+        "minY": -320.87750244140625,
+        "maxX": 102.09628295898438,
+        "maxY": 14.000001907348633
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402703",
+      "animation": "idle",
+      "file": "transmog-402703-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -196.45022583007812,
+        "minY": -318.8033752441406,
+        "maxX": 125.28306579589844,
+        "maxY": 13.522552490234375
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-402704",
+      "animation": "idle",
+      "file": "transmog-402704-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -144.69180297851562,
+        "minY": -301.9910583496094,
+        "maxX": 108.97974395751953,
+        "maxY": 16.69002342224121
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-403001",
+      "animation": "idle",
+      "file": "transmog-403001-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -218.7687530517578,
+        "minY": -360.3143005371094,
+        "maxX": 158.79359436035156,
+        "maxY": 14.000007629394531
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-403002",
+      "animation": "idle",
+      "file": "transmog-403002-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -152.1653594970703,
+        "minY": -291.8078918457031,
+        "maxX": 107.97718048095703,
+        "maxY": 14.000007629394531
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-403102",
+      "animation": "idle",
+      "file": "transmog-403102-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -123.05094146728516,
+        "minY": -331.71160888671875,
+        "maxX": 87.05286407470703,
+        "maxY": 14.612573623657227
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-403104",
+      "animation": "idle",
+      "file": "transmog-403104-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -170.1874542236328,
+        "minY": -342.4555358886719,
+        "maxX": 151.36099243164062,
+        "maxY": 14
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-403202",
+      "animation": "idle",
+      "file": "transmog-403202-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -169.66136169433594,
+        "minY": -288.31463623046875,
+        "maxX": 87.1475601196289,
+        "maxY": 14
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-403204",
+      "animation": "idle",
+      "file": "transmog-403204-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -191.22479248046875,
+        "minY": -329.8458251953125,
+        "maxX": 104.42282104492188,
+        "maxY": 14.24584674835205
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-403205",
+      "animation": "idle",
+      "file": "transmog-403205-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -191.22479248046875,
+        "minY": -329.8458251953125,
+        "maxX": 88.65679931640625,
+        "maxY": 14.24584674835205
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-403302",
+      "animation": "idle",
+      "file": "transmog-403302-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -124.70034790039062,
+        "minY": -280.5041809082031,
+        "maxX": 90.03490447998047,
+        "maxY": 14
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-403304",
+      "animation": "idle",
+      "file": "transmog-403304-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -170.99261474609375,
+        "minY": -302.37939453125,
+        "maxX": 165.20120239257812,
+        "maxY": 13.429512023925781
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-403401",
+      "animation": "idle",
+      "file": "transmog-403401-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -124.99640655517578,
+        "minY": -288.6122741699219,
+        "maxX": 92.94794464111328,
+        "maxY": 14.254244804382324
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-403503",
+      "animation": "idle",
+      "file": "transmog-403503-idle-sheet.png",
+      "frames": 16,
+      "duration": 1,
+      "bounds": {
+        "minX": -527.9393920898438,
+        "minY": -333.82281494140625,
+        "maxX": 149.23556518554688,
+        "maxY": 262.47418212890625
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-403504",
+      "animation": "idle",
+      "file": "transmog-403504-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -527.9393920898438,
+        "minY": -270.1368103027344,
+        "maxX": 473.5599670410156,
+        "maxY": 306.52801513671875
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-403601",
+      "animation": "idle",
+      "file": "transmog-403601-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -157.7516326904297,
+        "minY": -356.4779052734375,
+        "maxX": 186.86033630371094,
+        "maxY": 14.000007629394531
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-403701",
+      "animation": "idle",
+      "file": "transmog-403701-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -152.184326171875,
+        "minY": -324.6930236816406,
+        "maxX": 94.61984252929688,
+        "maxY": 14
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-403702",
+      "animation": "idle",
+      "file": "transmog-403702-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -192.20860290527344,
+        "minY": -366.4322814941406,
+        "maxX": 79.10669708251953,
+        "maxY": 14.000007629394531
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-410001",
+      "animation": "idle",
+      "file": "transmog-410001-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -171.2452392578125,
+        "minY": -332.8298645019531,
+        "maxX": 125.05425262451172,
+        "maxY": 17.26382827758789
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-410006",
+      "animation": "idle",
+      "file": "transmog-410006-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -159.9958953857422,
+        "minY": -325.96697998046875,
+        "maxX": 93.59868621826172,
+        "maxY": 14.66990852355957
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-420003",
+      "animation": "idle",
+      "file": "transmog-420003-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -218.48280334472656,
+        "minY": -296.6353759765625,
+        "maxX": 152.68080139160156,
+        "maxY": 14.000007629394531
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-420004",
+      "animation": "idle",
+      "file": "transmog-420004-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -152.46897888183594,
+        "minY": -293.5838623046875,
+        "maxX": 79.1182861328125,
+        "maxY": 16.69391441345215
+      },
+      "missingPaths": []
+    },
+    {
+      "character": "transmog-420005",
+      "animation": "idle",
+      "file": "transmog-420005-idle-sheet.png",
+      "frames": 16,
+      "duration": 2,
+      "bounds": {
+        "minX": -124.66221618652344,
+        "minY": -350.4332580566406,
+        "maxX": 94.11943054199219,
+        "maxY": 14.18934154510498
+      },
+      "missingPaths": []
+    }
+  ],
+  "unavailablePrefabs": [
+    [
+      402302,
+      "riyouxian",
+      "no prefab"
+    ],
+    [
+      402403,
+      "tuxinsun",
+      "no prefab"
+    ],
+    [
+      402502,
+      "biixaoxianzi",
+      "no prefab"
+    ],
+    [
+      403003,
+      "baihu",
+      "no prefab"
+    ],
+    [
+      403004,
+      "sunwukong",
+      "no prefab"
+    ],
+    [
+      403101,
+      "goumang",
+      "no prefab"
+    ],
+    [
+      403103,
+      "gushen",
+      "no prefab"
+    ],
+    [
+      403201,
+      "change",
+      "no prefab"
+    ],
+    [
+      403203,
+      "xuanming",
+      "no prefab"
+    ],
+    [
+      403301,
+      "daji",
+      "no prefab"
+    ],
+    [
+      403303,
+      "zhurong",
+      "no prefab"
+    ],
+    [
+      403402,
+      "nvwa",
+      "no prefab"
+    ],
+    [
+      403403,
+      "xiangyu",
+      "no prefab"
+    ],
+    [
+      403404,
+      "houtu_2",
+      "no prefab"
+    ],
+    [
+      403501,
+      "shengongbao",
+      "no prefab"
+    ],
+    [
+      403502,
+      "dianmu",
+      "no prefab"
+    ],
+    [
+      403602,
+      "xihe_wangshu",
+      "no prefab"
+    ],
+    [
+      403603,
+      "beiyin",
+      "no prefab"
+    ],
+    [
+      403703,
+      "xinjuling",
+      "no prefab"
+    ],
+    [
+      403704,
+      "shitieshou",
+      "no prefab"
+    ],
+    [
+      410002,
+      "nianshou",
+      "no prefab"
+    ],
+    [
+      410003,
+      "gonggong_xinchun",
+      "no prefab"
+    ],
+    [
+      410004,
+      "qiuyu",
+      "no prefab"
+    ],
+    [
+      410005,
+      "huanglin",
+      "no prefab"
+    ],
+    [
+      410007,
+      "yingyu",
+      "no prefab"
+    ],
+    [
+      410008,
+      "wuleishenji",
+      "no prefab"
+    ],
+    [
+      420001,
+      "jinguangxianzun",
+      "no prefab"
+    ],
+    [
+      420002,
+      "yujingfeihong",
+      "no prefab"
+    ],
+    [
+      420006,
+      "bihaiyinsha",
+      "no prefab"
+    ],
+    [
+      420007,
+      "shangao",
+      "no prefab"
+    ],
+    [
+      420008,
+      "zhongqiuchange",
+      "no prefab"
+    ]
+  ],
+  "delivery": "full.png uses idle frame zero; animation sheets retained in local work directory, not shipped"
+}

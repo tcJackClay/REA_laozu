@@ -29,7 +29,7 @@ window.createWanderAdmission=function(B){
    if(leaf==='Auto_Difficulty'||leaf==='Tip'&&path.includes('/Auto_DifficultyRoot'))return {visible:false};
    if(leaf==='Auto_Next')return {action:'admit:difficulty:1',label:'提高游历难度',className:a.difficulty>=a.maxDifficulty?'admit-disabled':'admit-enabled'};
    if(leaf==='Auto_Last')return {action:'admit:difficulty:-1',label:'降低游历难度',className:a.difficulty<=1?'admit-disabled':'admit-enabled'};
-   if(leaf==='Auto_Open')return {action:'admit:draw',label:'招生',visible:a.phase==='recruit'};
+   if(leaf==='Auto_Open')return {action:'admit:draw',label:B.state().rebirth?'重生':'招生',visible:a.phase==='recruit'};
    if(leaf==='Auto_PowerValue')return {text:a.stamina+'/'+a.cost};
    if(leaf==='Auto_CommonBackBtn')return {action:'admit:back',label:'返回山门'};
    if(leaf==='Auto_Strategy')return {action:'admit:help',label:'游历攻略'};
@@ -82,15 +82,15 @@ window.createWanderAdmission=function(B){
  document.addEventListener('click',e=>{if(!canvas)return;const target=e.target.closest('[data-cultivation-trait]');if(target&&canvas.contains(target))window.Cultivation.tip(target,canvas);else canvas.querySelector('.cultivation-tooltip')?.remove();},{signal:listeners.signal});
  function action(name){const a=current();if(!canvas||!name.startsWith('admit:'))return;if(a.phase==='drawing')return;
   const [_,act,value,delta]=name.split(':');
-  if(act==='back'){popup=null;return B.switchTab('sect');}
+  if(act==='back'){if(B.state().rebirth?.stage==='ready'){delete B.state().rebirth;save();}popup=null;return B.switchTab('sect');}
   if(act==='close'){if(popup?.rename){const name=canvas.querySelector('input')?.value.trim();if(!name)return;profile().name=name;B.state().disciples[B.state().run.config.disciple].name=name;save();}popup=null;draw();return;}
   if(act==='help')popup={title:'游历攻略',text:'招生获得一名培养中的弟子。分配属性，选择主辅功法和随行长老后启程。游历中的法宝、神通和奇遇会持续培养这名弟子。'};
   if(act==='rename'&&profile())popup={title:'修改姓名',rename:true};
   if(act==='tip')popup={title:LABELS[+value]+'加点',text:'每点增加'+GAINS[+value]+'点'+LABELS[+value]+'。加点的百分比加成在进入游历后生效。'};
   if(act==='difficulty'){a.difficulty=Math.max(1,Math.min(a.maxDifficulty,a.difficulty+(+value)));save();}
-  if(act==='draw'){
+  if(act==='draw'){if(a.phase!=='recruit')return;
    if(a.stamina<a.cost){popup={title:'体力不足',text:'当前体力不足，暂时无法招生。'};draw();return;}
-   a.stamina-=a.cost;a.phase='drawing';a.elapsed=0;a.draws++;save();draw();return;
+   if(B.state().rebirth?.stage==='ready'){try{a.rebirthProfile=DiscipleAdvanced.drawRebirth(B.state());}catch(e){popup={title:'无法重生',text:e.message};draw();return;}}a.stamina-=a.cost;a.phase='drawing';a.elapsed=0;a.draws++;save();draw();return;
   }
   if(act==='point'){const axis=+value,d=+delta;if(d>0&&left()<=0)return;if(d<0&&!points()[axis])return;const v=[...points()];v[axis]+=d;return setPoints(v);}
   if(act==='reset')return setPoints([0,0,0,0]);
@@ -103,7 +103,7 @@ window.createWanderAdmission=function(B){
  }
  function reveal(){const a=current();if(a.phase!=='drawing')return;
   a.phase='birth';a.elapsed=2;a.points=[0,0,0,0];
-  a.profile={...window.Cultivation.randomProfile(),level:1,element:4,talent:'玄火灵体',quality:'优',localID:'local-wander-'+Date.now()+'-'+a.draws,pointTotal:20,birthBase:[...BASE],appearance:'wanzitou-chen-hei',isWanderFinish:false};
+  a.profile=a.rebirthProfile?{...a.rebirthProfile,pointTotal:20}:{...window.Cultivation.randomProfile(),level:1,element:4,talent:'玄火灵体',quality:'优',localID:'local-wander-'+Date.now()+'-'+a.draws,pointTotal:20,birthBase:[...BASE],appearance:'wanzitou-chen-hei',isWanderFinish:false};
   if(B.state().run?.phase==='prepare')B.state().run=null;
   B.begin(a.profile);const r=B.state().run;r.config.birthGains=[...GAINS];r.config.birthBase=[...BASE];save();draw();
  }

@@ -87,7 +87,7 @@ window.StatusChains=(()=>{
   if(side==='enemy'){add(2026,-(b.hammerRend||0)*300);add(2004,-(b.crushRend||0)*100);add(2005,-(b.crushRend||0)*100);return a;}
   for(const row of E().active(s))R[E().family(row)]?.attrs?.(s,b,a);return a;
  }
- function dots(s,b){for(const [k,el] of [['poison',2],['venom',2],['burn',4],['spore',2]]){const n=count(b,k,'enemy');if(n)extra(s,b,b.playerAtk*n*(k==='venom'?.25:k==='burn'?.15:.05),el);}}
+ function dots(s,b){for(const [k,el] of [['poison',2],['venom',2],['burn',4],['spore',2]]){const n=count(b,k,'enemy');if(n){const a=E().attrs(s,b);extra(s,b,b.playerAtk*n*(k==='venom'?.25:k==='burn'?.15:.05)*(1+(a[el===4?2128:2126]||0)/10000),el);}}}
  function begin(s,b){if(b.chainBegin===b.round)return;b.chainBegin=b.round;for(const side of ['player','enemy'])for(const [k,x] of Object.entries(b.statuses?.[side]||{}))if(x.until!=null&&x.until<b.round)clear(b,k,side);dispatch('begin',s,b);const max=b.bodyBaseMax??=b.playerMax,bonus=Math.round(max*count(b,'body')*.005);b.playerMax+=bonus-(b.bodyMaxBonus||0);b.bodyMaxBonus=bonus;dots(s,b);}
  function end(s,b){if(b.chainEnd===b.round)return;b.chainEnd=b.round;dispatch('end',s,b);const kings=count(b,'king');if(kings)extra(s,b,kings*(b.playerAtk*1.5+(b.enemyMax-b.enemyHp)*.05),7);}
  function hit(s,b,h){if(h.secondary)return;if(h.side==='player'&&h.damage>0)dispatch('hit',s,b,h);}

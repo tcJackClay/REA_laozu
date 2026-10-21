@@ -7,16 +7,17 @@ window.CombatEffects=(()=>{
  const add=(out,id,v)=>{out[id]=(out[id]||0)+Number(v||0);};
  function resonance(s,a){return equipped(s).reduce((n,i)=>{const d=D.equipment[i.id];return n+(d&&(a.iTechnique?d.arrTechnique.includes(a.iTechnique):d.arrWeaponForm.includes(a.iWeaponForm))?d.iReson:0);},0);}
  function learned(s){return (s.run?.abilities||[]).map(id=>{const base=D.abilities[id];if(!base)return null;const value=resonance(s,base);return groups.get(base.iAbilityID).filter(a=>a.iReson<=value).sort((a,b)=>b.iLevel-a.iLevel)[0]||base;}).filter(Boolean);}
- function attributes(s,{equipment=true,teachers=true}={}){
+ function attributes(s,{equipment=true,teachers=true,advanced=true}={}){
   const out={...(s.run?.eventBonuses||{})},hero=s.disciples?.[s.selected||0];
   const rows=[...(hero?.traitIds||[]).map(id=>D.abilities[id]),...learned(s)];
   for(const a of rows)for(let i=0;i<(a?.arrEffect||[]).length;i+=2)add(out,a.arrEffect[i],a.arrEffect[i+1]);
   if(equipment)for(const i of equipped(s)){const d=items().get(i.id);if(d)for(const [k,v] of Object.entries(TeacherRuntime.equipStats(s,i,d)))if(+k>2003)add(out,k,v);}
   if(teachers)for(const [k,v] of Object.entries(TeacherRuntime.attributes(s)))add(out,k,v);
   if(equipment)for(const [k,v] of Object.entries(EquipmentPassives.statBonuses(s)))add(out,k,v);
+  if(advanced&&window.DiscipleAdvanced)for(const [k,v] of Object.entries(DiscipleAdvanced.attrs(s,hero,s.inventory)))add(out,k,v);
   return out;
  }
- function basic(s,base){const a=attributes(s);for(const [k,id] of [['atk',2001],['def',2002],['hp',2003]])base[k]=Math.max(k==='def'?0:1,Math.round((base[k]+(a[id]||0))*(1+(a[id+3]||0)/10000)*(1+(a[id+62]||0)/10000)));base.speed=Math.max(1,30+(s.run?.config?.points?.[3]||0)*2+(a[2008]||0));return base;}
+ function basic(s,base,advanced=true){const a=attributes(s,{advanced});for(const [k,id] of [['atk',2001],['def',2002],['hp',2003]])base[k]=Math.max(k==='def'?0:1,Math.round((base[k]+(a[id]||0))*(1+(a[id+3]||0)/10000)*(1+(a[id+62]||0)/10000)));base.speed=Math.max(1,30+(s.run?.config?.points?.[3]||0)*2+(a[2008]||0));return base;}
  const supportedAbilities=new Set([4001,4005,4009,4025,4029,4033,4049,4053,4057,4073,4077,4081,4097,4145,4149,4153,4169,4173,4177,4181,4185,4189,4193,4197,4201,4237,42071,42081,42091,43071,45071,45081,47011,47021,48021]);
  for(const id of Object.keys(StatusChains.registry))supportedAbilities.add(+id);
  const family=a=>groups.get(a.iAbilityID)?.find(x=>x.iLevel===0)?.iID||a.iID;
@@ -24,7 +25,7 @@ window.CombatEffects=(()=>{
  const has=(s,id)=>active(s).some(a=>family(a)===id);
  function trace(b,kind,value,extra={}){const e={round:b.round,kind,value,...extra};(b.effectTrace??=[]).push(e);return e;}
  function attrs(s,b,side='player'){
-  const a=side==='player'?attributes(s):{...(b.enemyAttributes||{})};if(side==='enemy')return StatusChains.attrs(s,b,a,side);
+  const a=side==='player'?attributes(s):{...(b.enemyAttributes||{})};window.DiscipleAdvanced?.combat(s,b,a,side);if(side==='enemy')return StatusChains.attrs(s,b,a,side);
   for(const [id,v] of Object.entries(b.equipmentBonuses||{}))add(a,id,v);
   const ids=new Set(active(s).map(family)),n=b.round||0,put=(k,v)=>add(a,k,v);
   if(ids.has(4001))put(n<=3?2009:2025,n<=3?3000:-2000);
@@ -46,7 +47,7 @@ window.CombatEffects=(()=>{
   const a=attrs(s,b,side),other=attrs(s,b,side==='player'?'enemy':'player');
   const curse=side==='enemy'&&b.enemyBloodCurseUntil>=b.round?.2:0;
   const value=Math.min(b[side+'Max']-b[side+'Hp'],Math.max(0,Math.round(n*Math.max(0,1+((a[2045]||0)+(a[2121]||0)-(other[2046]||0))/10000-curse))));
-  b[side+'Hp']+=value;trace(b,reason,value,{side});return value;
+  if(side==='player'&&value>0)b.gemHeals=(b.gemHeals||0)+1;b[side+'Hp']+=value;trace(b,reason,value,{side});return value;
  }
  function shield(s,b,n){const value=Math.max(0,Math.round(n*(1+(attrs(s,b)[2069]||0)/10000)));b.playerShield=(b.playerShield||0)+value;trace(b,'shield',value);return value;}
  function rage(s,b,n,side='player',raw=false){const a=attrs(s,b,side);let rate=1+(a[2072]||0)/10000;if(side==='enemy')rate-= (b.enemyRageReduction||0)+(b.petWeakenUntil>=b.round?(b.petRageWeakness||.3):0);const value=Math.max(0,n*(raw?1:Math.max(0,rate)));b[side+'Rage']=Math.min(Math.max(1,100+(a[2007]||0)),(b[side+'Rage']||0)+value);trace(b,'rage',value,{side});return value;}

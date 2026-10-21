@@ -4,7 +4,7 @@ window.createDiscipleRoster=function(B){
  const Pages=createDisciplePages({...B,back:()=>draw(),deletion:i=>{opened=i;deletion([i]);}});
  const state=()=>B.state(),node=(r,s)=>[...r.querySelectorAll('[data-source-path]')].find(e=>e.dataset.sourcePath.endsWith(s)),art=n=>Object.values(D.sprites).find(x=>x.name===n)?.file||'';
  const busy=i=>!!state().run&&i===(state().run.config?.disciple??state().selected);
- const power=h=>h.sourcePower??Math.round((h.birthBase?.[0]||60)*(h.level||1)*4+(h.birthBase?.[2]||500));
+ const power=h=>DiscipleAdvanced.power(state(),h);
  const maximum=()=>DISCIPLE_RULES_DATA.DiscipleMaximum.find(x=>x.iLevel===(state().discipleCapacityLevel||1));
  function list(){return state().disciples.map((h,i)=>({h,i})).filter(x=>!filter||x.h.element===filter).sort((a,b)=>Number(busy(a.i))-Number(busy(b.i))||Number(!!b.h.follow)-Number(!!a.h.follow)||((ascending?1:-1)*((sort===0?power(a.h):sort===1?a.h.level||1:a.h.createdAt||a.i)-(sort===0?power(b.h):sort===1?b.h.level||1:b.h.createdAt||b.i))));}
  function card(h,i){const prefix='/UIAllDisciple/Auto_ListRoot/Auto_Disciple/Viewport/Content/ListItem',nodes=L.nodes.filter(n=>n.path===prefix||n.path.startsWith(prefix+'/')).map(n=>({...n,parentID:n.path===prefix?null:n.parentID}));const r=U.render({nodes},D.sprites,{width:315,height:456,node:n=>{const p=n.path,leaf=p.split('/').at(-1);
