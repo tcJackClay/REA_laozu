@@ -11,7 +11,7 @@ window.TeacherRuntime=(()=>{
  function allowed(s,r){return !!r&&(!r.bExternal||!!owner(s,r));}
  const materials=r=>[0,1,2,3,4].map(i=>r['iMaterial'+i]).filter(x=>x>0);
  function candidates(s,a,b){if(a===b||!s.inventory.includes(a)||!s.inventory.includes(b))return [];return D.recipes.filter(r=>materials(r).length===2&&allowed(s,r)&&((r.iMaterial0===a.id&&r.iMaterial1===b.id)||(r.iMaterial1===a.id&&r.iMaterial0===b.id)));}
- function plan(s,id,uids){const r=recipe(id);if(!allowed(s,r))return {error:'未携带对应长老，或红装持有数量已达上限'};const pool=uids?uids.map(uid=>s.inventory.find(i=>i.uid===uid)):s.inventory.filter(i=>!i.offer),used=[];
+ function plan(s,id,uids){const r=recipe(id);if(!allowed(s,r))return {error:'未携带对应长老，或红装持有数量已达上限'};const pool=uids?uids.map(uid=>s.inventory.find(i=>i.uid===uid&&i.salePrice==null)):s.inventory.filter(i=>!i.offer),used=[];
   for(const id of materials(r)){const i=pool.find(i=>i&&i.id===id&&!used.includes(i));if(!i)return {error:'合成材料不足'};used.push(i);}
   if(uids&&(new Set(uids).size!==uids.length||used.length!==uids.length))return {error:'材料实例不匹配'};
   return {recipe:r,materials:used,teacherId:r.bExternal?owner(s,r):0};
