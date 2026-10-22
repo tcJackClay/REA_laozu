@@ -1,0 +1,30 @@
+{
+  "checks": [
+    "only top row initially reachable",
+    "pickaxe damages without premature reward",
+    "planning does not mutate authoritative state",
+    "destroyed ore recorded once",
+    "destroy opens neighboring lower cell",
+    "exact tool consumption",
+    "captain required",
+    "negative captain rejected",
+    "tool required",
+    "animation blocks repeat",
+    "unreachable ore rejected",
+    "pickaxe rejects empty",
+    "drill rejects solid",
+    "bomb rejects solid",
+    "bomb center covers 13 cells",
+    "bomb corner clips to six cells",
+    "drill source column and bottom neighbors",
+    "drill edge has eight cells",
+    "deep board preserves server visibility",
+    "seat bounds rejected",
+    "captain slot available",
+    "base pickaxe capacity uses source 60",
+    "all 144 tool scopes stay in board without duplicates",
+    "last effect replaces capacity bonus rather than stacking",
+    "first capacity entry per effect wins",
+    "missing recovery config returns zero"
+  ]
+}
