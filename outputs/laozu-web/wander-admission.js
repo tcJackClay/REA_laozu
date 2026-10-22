@@ -90,7 +90,7 @@ window.createWanderAdmission=function(B){
   if(act==='difficulty'){a.difficulty=Math.max(1,Math.min(a.maxDifficulty,a.difficulty+(+value)));save();}
   if(act==='draw'){if(a.phase!=='recruit')return;
    if(a.stamina<a.cost){popup={title:'体力不足',text:'当前体力不足，暂时无法招生。'};draw();return;}
-   if(B.state().rebirth?.stage==='ready'){try{a.rebirthProfile=DiscipleAdvanced.drawRebirth(B.state());}catch(e){popup={title:'无法重生',text:e.message};draw();return;}}if(B.state().homeV26){B.state().homeV26.staminaSpent=(B.state().homeV26.staminaSpent??a.draws*a.cost)+a.cost;if(a.stamina>=(window.HOME_MANAGEMENT_DATA?.Stamina.find(x=>x.iSect===B.state().sect)?.iStaminaLimit||40))B.state().homeV26.staminaAt=Date.now();}a.stamina-=a.cost;a.phase='drawing';a.elapsed=0;a.draws++;save();draw();return;
+   if(B.state().rebirth?.stage==='ready'){try{a.rebirthProfile=DiscipleAdvanced.drawRebirth(B.state());}catch(e){popup={title:'无法重生',text:e.message};draw();return;}}if(B.state().homeV26){B.state().homeV26.staminaSpent=(B.state().homeV26.staminaSpent??a.draws*a.cost)+a.cost;if(a.stamina>=(window.HOME_MANAGEMENT_DATA?.Stamina.find(x=>x.iSect===B.state().sect)?.iStaminaLimit||40)+(window.MonthCardRules?.bonus(B.state(),3)||0))B.state().homeV26.staminaAt=Date.now();}a.stamina-=a.cost;a.phase='drawing';a.elapsed=0;a.draws++;save();draw();return;
   }
   if(act==='point'){const axis=+value,d=+delta;if(d>0&&left()<=0)return;if(d<0&&!points()[axis])return;const v=[...points()];v[axis]+=d;return setPoints(v);}
   if(act==='reset')return setPoints([0,0,0,0]);

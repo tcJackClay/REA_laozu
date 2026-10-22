@@ -90,3 +90,5 @@
 .home-native-skins.home-source-skin-pool{height:400px;gap:10px;padding:0;align-items:start;justify-content:center;overflow:visible}.home-source-skin-pool>.home-source-skin-card{position:relative;flex:none}.home-native-skins.home-source-skin-pool button{display:block;flex:none;padding:0;border:0;background:transparent;box-shadow:none;color:inherit;font:inherit}.home-source-skin-pool [data-source-path$="/xauto_frameMask"]>.unity-image{filter:brightness(0)}
 
 .ancestor-native-attributes{display:grid;grid-template-columns:repeat(2,345px);gap:21px 100px;width:790px;margin:0 auto}.ancestor-skill-description{font-size:36px;line-height:45px;text-align:left;white-space:pre-wrap}.ancestor-native-preview [data-source-path$="/floor_lz_yldi"]{pointer-events:auto}
+
+.month-card-native .month-privilege-description{font-size:30px;line-height:38px;color:inherit;white-space:nowrap}.month-card-native [data-month-reward] [data-home26]{cursor:pointer}.month-card-native [data-month-reward] .unity-node{pointer-events:none}.month-card-native [data-month-reward] [data-home26]{pointer-events:auto}

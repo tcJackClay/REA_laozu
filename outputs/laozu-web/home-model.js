@@ -3,11 +3,12 @@
 window.createHomeModel=function(B){
  const D=HOME_MANAGEMENT_DATA,s=B.state,find=(a,id,key='iID')=>a.find(x=>x[key]===+id);
  const data=()=>{const v=s().homeV26??={name:'无名老祖',avatar:1,claims:{},mainIndex:0,staminaAt:Date.now(),purchases:{},settings:{},messages:[]};return v;};
+ const staminaLimit=()=>cfgStamina().iStaminaLimit+(window.MonthCardRules?.bonus(s(),3)||0);
  const cfgStamina=()=>D.Stamina.find(x=>x.iSect===(s().sect||1))||D.Stamina[1];
- function stamina(){if(!s().admission)s().admission={version:1,phase:'recruit',difficulty:1,maxDifficulty:1,stamina:cfgStamina().iStaminaLimit,cost:5,elapsed:0,points:[0,0,0,0],draws:0,profile:null};return s().admission;}
+ function stamina(){if(!s().admission)s().admission={version:1,phase:'recruit',difficulty:1,maxDifficulty:1,stamina:staminaLimit(),cost:5,elapsed:0,points:[0,0,0,0],draws:0,profile:null};return s().admission;}
  function restore(){const a=stamina(),h=data(),c=cfgStamina(),now=Date.now(),interval=c.iRestoreTime*1000;
-  if(a.stamina>=c.iStaminaLimit){h.staminaAt=now;return;}
-  const n=Math.floor(Math.max(0,now-h.staminaAt)/interval);if(n){a.stamina=Math.min(c.iStaminaLimit,a.stamina+n*c.iRestore);h.staminaAt+=n*interval;B.save();}
+  if(a.stamina>=staminaLimit()){h.staminaAt=now;return;}
+  const n=Math.floor(Math.max(0,now-h.staminaAt)/interval);if(n){a.stamina=Math.min(staminaLimit(),a.stamina+n*c.iRestore);h.staminaAt+=n*interval;B.save();}
  }
  function balance(id){id=+id;if(id===1)return s().gold||0;if(id===3)return stamina().stamina;return (id===2?s().crystal||0:0)+(s().portalV8?.wallet?.[id]||0)+(s().goods?.[id]||0);}
  function add(id,n){id=+id;if(id===1)s().gold=Math.max(0,(s().gold||0)+n);else if(id===3)stamina().stamina=Math.max(0,stamina().stamina+n);else if(id===2&&n>=0){s().crystal=(s().crystal||0)+n;}else if(n>=0){s().goods??={};s().goods[id]=(s().goods[id]||0)+n;}else{let rest=-n;if(id===2){const v=Math.min(rest,s().crystal||0);s().crystal=(s().crystal||0)-v;rest-=v;}for(const bag of [s().portalV8?.wallet,s().goods])if(bag){const v=Math.min(rest,bag[id]||0);bag[id]=(bag[id]||0)-v;rest-=v;}}}
@@ -29,8 +30,9 @@ window.createHomeModel=function(B){
  const group=str=>!str||str.split(';').filter(Boolean).every(condition);
  function gate(id){if(!id)return true;if(id>=105&&id<=112&&window.CollectionOwnership)return CollectionOwnership.elementOpen(s(),id-104);const f=find(D.FunctionOpen,id);if(!f)return false;
   if(s().functionOpen?.[id]!==undefined)return !!s().functionOpen[id];
-  if(f.arrPlatforms.length&&!f.arrPlatforms.includes(s().platformID))return false;
-  if(f.arrPlatformVers.length&&!f.arrPlatformVers.includes(s().platformVersion))return false;
+  const code=s().platformVersion,platform=s().platformID??(code>=100?Math.floor(code/100):0),version=code>=100?platform*100+code%100:platform*100+(code||1);
+  if(f.arrPlatforms.length&&!f.arrPlatforms.includes(platform))return false;
+  const platformVersions=f.arrPlatformVers.filter(v=>Math.floor(v/100)===platform);if(platformVersions.length&&!platformVersions.includes(version))return false;
   if(f.iCeleId&&!s().activeCelebrations?.includes(f.iCeleId))return false;
   return group(f.arrOpenCond)||!!f.arrForceOpen&&f.arrForceOpen.split(';').filter(Boolean).some(condition)||!!f.arrForceOpen2&&group(f.arrForceOpen2);
  }
@@ -52,7 +54,7 @@ window.createHomeModel=function(B){
  }
  function avatarUnlocked(a){if(a.iType!==1)return false;const p=a.arrUnlockParams;if(!p.length)return true;if(p[0]===1)return (s().sect||1)>=p[1];if(p[0]===2)return level('teacher',p[1])>=0;return s().ownedAvatarIds?.includes(a.iID)||false;}
  function rename(name){name=name.trim();if(!name||name.length>8)throw Error('昵称长度为1—8个字符');data().name=name;B.save();}
- function profile(){restore();const h=data();return {name:h.name,avatar:find(D.PlayerAvatar,h.avatar)||D.PlayerAvatar[0],level:s().sect||1,power:s().disciples.reduce((n,d)=>n+(window.ClanProgress&&window.DiscipleAdvanced?DiscipleAdvanced.power(s(),d):d.sourcePower??B.stats(d).power??0),0)+(window.ClanProgress?ClanProgress.totals(s()).extraPower:0),resources:[2,1,3].map(id=>({id,n:balance(id)})),staminaLimit:cfgStamina().iStaminaLimit};}
+ function profile(){restore();const h=data();return {name:h.name,avatar:find(D.PlayerAvatar,h.avatar)||D.PlayerAvatar[0],level:s().sect||1,power:s().disciples.reduce((n,d)=>n+(window.ClanProgress&&window.DiscipleAdvanced?DiscipleAdvanced.power(s(),d):d.sourcePower??B.stats(d).power??0),0)+(window.ClanProgress?ClanProgress.totals(s()).extraPower:0),resources:[2,1,3].map(id=>({id,n:balance(id)})),staminaLimit:staminaLimit()};}
  function rawProgress(t,kind='sect'){const q=s(),h=data(),params=t.arrCondParams||[];if(kind==='main'){if(t.iType===18)return q.sect||1;if(t.iType===20)return h.stageAttempts||0;if(t.iType===21)return Object.entries(q.portalV8?.draws||{}).filter(([id])=>+id<12000).reduce((n,[,v])=>n+v,0);if(t.iType===999)return 0;}switch(t.iType){
   case 1:return q.admission?.draws||0;case 2:return completed();case 3:return q.blessingLevel||0;
   case 4:return h.antiqueUpgrades||0;case 5:return q.portalV8?.modes?.tower?.wins||0;case 6:return q.portalV8?.modes?.ladder?.attempts||0;case 7:return h.formationUpgrades||0;case 8:return h.blessingUpgrades||0;case 9:return q.disciples.filter(d=>d.isWanderFinish).length;case 10:return q.portalV8?.modes?.tower?.wins||0;case 11:return h.formationLevel||0;case 12:return h.maxWanderDifficulty||0;case 13:return h.seedUpgrades||0;case 14:return q.disciples.filter(d=>d.element===params[1]).length;case 17:return q.disciples.filter(d=>d.isWanderFinish&&(d.sourcePower||0)>=params[2]).length;case 18:return q.disciples.filter(d=>d.element===params[1]&&(d.sourcePower||0)>=params[2]).length;case 29:return q.portalV8?.stage?.wins?.[params[1]]?1:0;

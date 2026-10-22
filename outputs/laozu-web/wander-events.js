@@ -41,13 +41,14 @@ window.WanderEvents=(()=>{
     if(p.type==='ability'&&!p.options){p.options=draw(WANDER_DATA.abilities.map(x=>x.id),3,r.abilities);p.selected=null;p.selectCount=p.selectCount||1;}
     r.eventResources??={abilityUsed:0,itemUsed:0};
   }
+  const freeRefresh=state=>D.refresh.free+(window.MonthCardRules?.bonus(state,11)||0);
   function refreshAbility(p,r,state,index,confirmed=false){
     if(p.type!=='ability'||r.pending||!Number.isInteger(index)||index<0||index>=p.options.length||p.canRefresh===false)return '当前不能刷新';
     const pool=WANDER_DATA.abilities.map(x=>x.id).filter(id=>!p.options.includes(id)&&!r.abilities.includes(id));
     if(!pool.length)return '当前无合适神通可供刷新';
-    const res=r.eventResources,paid=res.abilityUsed>=D.refresh.free;
+    const res=r.eventResources,paid=res.abilityUsed>=freeRefresh(state);
     if(paid){if(res.itemUsed>=D.refresh.maxItems)return '道具刷新次数已用完';if(!(state.goods?.[D.refresh.goodsId]>0))return '刷新道具不足';if(!confirmed)return 'confirm';state.goods[D.refresh.goodsId]--;res.itemUsed++;}
     res.abilityUsed++;const previous=p.options[index];p.options[index]=draw(pool,1)[0];p.selected=null;p.selectedIds=(p.selectedIds||[]).filter(id=>id!==previous);return null;
   }
-  return {data:D,clean,text,tasks,options,actionTasks,draw,init,refreshAbility};
+  return {data:D,clean,text,tasks,options,actionTasks,draw,init,freeRefresh,refreshAbility};
 })();

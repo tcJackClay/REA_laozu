@@ -14,8 +14,9 @@ window.WanderTools=(()=>{
  const open=(s,x,y)=>{const d=data(s);return !d||d.baseCells.includes(key(x,y))||d.opened.includes(key(x,y));};
  const canOpen=(s,x,y)=>x>=0&&x<7&&y>=0&&y<6&&!open(s,x,y)&&[[1,0],[-1,0],[0,1],[0,-1]].some(([dx,dy])=>open(s,x+dx,y+dy));
  const cost=s=>D.WanderPackageOpen.find(x=>x.iOpenCount===data(s).opened.length+1);
- function unlock(s,x,y){const d=data(s),c=cost(s);if(d.opened.length>=D.maxOpen)return '本轮开启次数已达上限';if(!canOpen(s,x,y))return '请选择与已开格相邻的格子';if(!c)return '暂无开格配置';if((s.crystal||0)<c.iCostVal)return '仙玉不足';s.crystal-=c.iCostVal;d.opened.push(key(x,y));d.transactions.push({type:'open',cell:key(x,y),cost:c.iCostVal});return null;}
+ const maxOpenFor=s=>D.maxOpen+(window.MonthCardRules?.bonus(s,10)||0);
+ function unlock(s,x,y){const d=data(s),c=cost(s);if(d.opened.length>=maxOpenFor(s))return '本轮开启次数已达上限';if(!canOpen(s,x,y))return '请选择与已开格相邻的格子';if(!c)return '暂无开格配置';if((s.crystal||0)<c.iCostVal)return '仙玉不足';s.crystal-=c.iCostVal;d.opened.push(key(x,y));d.transactions.push({type:'open',cell:key(x,y),cost:c.iCostVal});return null;}
  function recycle(s,uid){const d=data(s),i=s.inventory.find(x=>x.uid===uid);if(!d||!i||i.salePrice!=null)return false;s.inventory=s.inventory.filter(x=>x!==i);d.reforge++;d.transactions.push({type:'recycle',uid,id:i.id});return true;}
  function reforge(s,newUid,random=Math.random){const d=data(s),n=need(s);if(d.reforge<n)return null;const pool=window.TeacherRuntime.items.filter(x=>x.quality>=2&&x.quality<=4);const item=pool[Math.min(pool.length-1,Math.floor(random()*pool.length))];if(!item)return null;d.reforge-=n;const inst={uid:newUid,id:item.id,x:null,y:null,rotation:0};s.inventory.push(inst);d.transactions.push({type:'reforge',uid:newUid,id:item.id,cost:n});return inst;}
- return {data,need,open,canOpen,cost,unlock,recycle,reforge,maxOpen:D.maxOpen};
+ return {data,need,open,canOpen,cost,unlock,recycle,reforge,maxOpenFor,maxOpen:D.maxOpen};
 })();

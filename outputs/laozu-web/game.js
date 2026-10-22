@@ -126,7 +126,7 @@
   function toolRefresh(){const r=flowRun(),t=r&&WT.data(state);if(!t)return;
     const b=$('[data-flow=early]');if(b)b.disabled=!earlyReady();
     $('#w-reforge-count').textContent=t.reforge+'/'+WT.need(state);
-    $('#w-grid-count').textContent=t.opened.length+'/'+WT.maxOpen;
+    $('#w-grid-count').textContent=t.opened.length+'/'+WT.maxOpenFor(state);
     $('#w-grid-label').textContent=gridMode?'取消':'开格';
     $('#wander-shell').dataset.grid=String(gridMode);$('#w-awake-shortcuts').innerHTML=TR.carried(state).filter(id=>WanderAwakening.pairs(state,id).length).map(id=>`<button data-flow="awake-shortcut" data-value="${id}">${escape(TR.teacher(id).szName)} · 觉醒</button>`).join('');
     for(const b of document.querySelectorAll('.w-actions [data-flow]'))if(b.id!=='w-next')b.disabled=b.dataset.flow==='bag-info'?!toolsReady():!equipmentReady();
@@ -139,7 +139,7 @@
     if(a==='reforge'){if(WT.data(state).reforge>=WT.need(state)){const i=WT.reforge(state,++uid);if(!i)return true;offerItem(i);chosen=i.uid;flowConfirm=null;WanderSession.log(r,'reforge',{uid:i.uid,batch:r.reward.batch});toast('重铸成功！请选择新法宝');}else{toast('重铸未完成！');return true;}}
     if(a==='recycle'){if(!state.inventory.some(i=>i.uid===+v))return true;flowConfirm={type:'recycle',uid:+v};}
     if(a==='recycle-confirm'){if(flowConfirm?.type!=='recycle')return true;WT.recycle(state,flowConfirm.uid);chosen=null;flowConfirm=null;}
-    if(a==='open-grid'){if(WT.data(state).opened.length>=WT.maxOpen){toast('本轮开启次数已达上限');return true;}gridMode=!gridMode;chosen=null;flowConfirm=null;toast(gridMode?'点击棋盘上标有＋的相邻格子':'已取消开格');}
+    if(a==='open-grid'){if(WT.data(state).opened.length>=WT.maxOpenFor(state)){toast('本轮开启次数已达上限');return true;}gridMode=!gridMode;chosen=null;flowConfirm=null;toast(gridMode?'点击棋盘上标有＋的相邻格子':'已取消开格');}
     if(a==='grid-confirm'){if(flowConfirm?.type!=='grid')return true;const cell=[flowConfirm.x,flowConfirm.y],err=WT.unlock(state,...cell);if(err){toast(err);return true;}WanderSession.log(r,'grid-unlock',{cell});flowConfirm=null;gridMode=true;toast('开格成功');}
     if(a==='book'){gridMode=false;bookFilter=1;bookTab=TR.carried(state).length?'recipes':'equipment';flowConfirm={type:'book'};}
     if(a==='book-tab'){if(v==='recipes'&&!TR.carried(state).length){toast('当前弟子未携带长老进入游历！');return true;}if(v==='awake'&&!WanderAwakening.slots(state).length){toast('当前弟子携带长老未觉醒！');return true;}bookTab=v||'equipment';flowConfirm={type:'book'};}
@@ -352,7 +352,7 @@
     else if(p.type==='no-teacher'){title='确认出发';body='<p>当前未选择任何长老进入游历，是否确定进入游历？</p>';footer=btn('cancel-confirm','返回选择','','secondary')+btn('depart-anyway','确定出发');}
     else if(p.type==='discard'){title='本批尚有未入包法宝';body=`<p>还有 ${p.count} 件待选法宝。继续会将未入包法宝投入重铸、累积进度，已入包的法宝会保留。</p>`;footer=btn('cancel-confirm','继续整理','','secondary')+btn('discard-confirm','投入重铸并继续');}
     else if(p.type==='item'){const inst=state.inventory.find(i=>i.uid===p.uid),d=inst&&itemById.get(inst.id);title=d?.name||'法宝详情';body=d?`<img class="w-detail-icon" src="${d.icon}" alt=""><p>${d.shape.length} 格 · ${E[d.element]||'体'}系</p><p>${escape(d.description||'将法宝置入棋盘，获得属性与连携加成。')}</p>${flowAdjacencyDetails(inst)}`:'';footer=btn('cancel-confirm','返回整理');}
-    else if(p.type==='ability'){title='选择神通';body='<p class="w-ability-tip">神通效果随共鸣值提升而变强</p><div class="w-ability-options '+(r.pending?'collecting':'')+'">'+p.options.map((id,i)=>'<div class="we-ability-row">'+flowAbilityCard(id)+`<button class="quiet" data-flow="ability-refresh" data-value="${i}" ${r.pending||p.canRefresh===false?'disabled':''}>刷新此项</button></div>`).join('')+'</div>';footer=`<span class="w-ability-counter">免费刷新 ${Math.max(0,EV.data.refresh.free-(r.eventResources?.abilityUsed||0))} · 道具 ${state.goods?.[EV.data.refresh.goodsId]||0}</span>`+btn('bag-info','储物袋','','quiet')+((p.selectCount||1)>1?btn('ability-confirm','确认选择'): '');}
+    else if(p.type==='ability'){title='选择神通';body='<p class="w-ability-tip">神通效果随共鸣值提升而变强</p><div class="w-ability-options '+(r.pending?'collecting':'')+'">'+p.options.map((id,i)=>'<div class="we-ability-row">'+flowAbilityCard(id)+`<button class="quiet" data-flow="ability-refresh" data-value="${i}" ${r.pending||p.canRefresh===false?'disabled':''}>刷新此项</button></div>`).join('')+'</div>';footer=`<span class="w-ability-counter">免费刷新 ${Math.max(0,EV.freeRefresh(state)-(r.eventResources?.abilityUsed||0))} · 道具 ${state.goods?.[EV.data.refresh.goodsId]||0}</span>`+btn('bag-info','储物袋','','quiet')+((p.selectCount||1)>1?btn('ability-confirm','确认选择'): '');}
     else if(p.type==='choice'){title='抉择';body='<div class="w-event-illustration"><p>山路忽现古老石匣。献出一缕气血，便可取走其中法宝。</p></div><div class="w-event-choices">'+btn('choice','以血换宝<span>【减少当前生命，获取法宝】</span>','risk','secondary')+btn('choice','谨慎离开<span>【保持当前生命】</span>','leave','secondary')+'</div><p class="w-event-health">生命 <b>'+Math.ceil(r.hp)+' / '+stats().hp+'</b></p>';footer='';}
     else if(p.type==='godexam'||p.type==='godexam-running'){title='渡劫突破';body=`<div class="w-exam-stage ${p.type==='godexam-running'?'running':''}"><div class="w-exam-clouds"></div><i class="w-lightning"></i><div class="sprite-figure special-actor w-exam-disciple">${DiscipleAppearance.html(hero())}</div><div class="w-exam-rock"></div></div><p>当前境界　胎息期<br>雷劫等级　小劫</p>`;footer=p.type==='godexam-running'?'<span class="w-exam-progress">雷劫降临，凝神守心……</span>':btn('godexam','引雷渡劫');}
     else if(p.type==='source-judge'){title='机缘考验';body=`<p>${escape(p.text)}</p><p>当前战力 ${stats().power} · 要求 ${p.required}</p>`;footer=btn('source-judge','接受考验')+btn('bag-info','储物袋','','quiet');}
@@ -409,7 +409,7 @@
   const Portal=window.createPortalUI({state:()=>state,tab:()=>tab,save,render,stats,statsFor:index=>stats(state.disciples[index]||hero()),toast,modal,escape,fmt,closeModal:()=>$('#modal').close()});
   const HomeManagement=window.createHomeManagement({state:()=>state,save,render,switchTab,stats,toast,openWish:(id,back)=>{Portal.openWish(id,()=>{switchTab('sect');back();});switchTab('wish');}});
   const SourceSlice=window.createAlignedStage({switchTab,escape,wanderActive:()=>!!state.run,home:HomeManagement});
-  const Preparation=window.createWanderPreparation({state:()=>state,save,render,depart});
+  const Preparation=window.createWanderPreparation({state:()=>state,save,render,depart,toast});
   const TeacherSelection=window.createTeacherSelection({state:()=>state,save,render,preparation:Preparation});
   const SeedSelection=window.createSeedSelection({state:()=>state,save,render});
   const Admission=window.createWanderAdmission({state:()=>state,save,render,switchTab,escape,begin:newRun,randomName:()=>{const a=D.names[Math.floor(Math.random()*D.names.length)],b=D.names[Math.floor(Math.random()*D.names.length)];return a.szLasttName+b.szFirstName;}});
