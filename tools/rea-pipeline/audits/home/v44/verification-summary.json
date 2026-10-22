@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "browser.json": 26,
+    "combo-regression.json": 24,
+    "details-regression.json": 48,
+    "model.json": 3141,
+    "pet-motion-regression.json": 29,
+    "pet-preview-regression.json": 26,
+    "strategy-browser-regression.json": 19,
+    "strategy-model-regression.json": 306
+  },
+  "total": 3619,
+  "reviewer": "strategy_review",
+  "liveOriginalDeviceAvailable": false
+}

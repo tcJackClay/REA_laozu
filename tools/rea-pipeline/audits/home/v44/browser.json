@@ -1,0 +1,31 @@
+{
+  "checks": [
+    "source header is display only",
+    "seed uses original UISeedlingInfo",
+    "max24 original anger skill only",
+    "preview has no upgrade or acquisition controls",
+    "seed returns selected genre",
+    "ability uses original UICommonDesc",
+    "type3 level0 not displayed",
+    "future ability tiers grey",
+    "teacher uses original brief window47 nodes",
+    "three actual original formula slots clickable",
+    "source30 percent attributes",
+    "recipe opens original UIEquipInfo",
+    "formula equipment is not worn",
+    "recipe retains teacher and strategy underneath",
+    "recipe returns same teacher",
+    "bag equipment uses original detail",
+    "recommendation item marked worn",
+    "lock and account awakening hidden",
+    "original paired properties cloned",
+    "equipment tiers match source current star",
+    "all equipment star effects remain reachable",
+    "equipment returns same strategy",
+    "low-star fixture leaves future tiers grey",
+    "all previews and recipe never mutate account",
+    "strategy returns original source detail",
+    "no browser or asset errors"
+  ],
+  "errors": []
+}
