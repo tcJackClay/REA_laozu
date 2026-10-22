@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "failed resource jump preserves selected node",
+    "source mineral route order",
+    "locked jump retains tips",
+    "escape returns to clan",
+    "wander route opens admission",
+    "unlocked story closes resource tips",
+    "story actual target",
+    "money includes market last",
+    "fairyland creation-day alternative unlock",
+    "source UTC8 midnight unlocks without 24 hour wait",
+    "resource cancel preserves gold",
+    "no browser errors"
+  ],
+  "errors": []
+}

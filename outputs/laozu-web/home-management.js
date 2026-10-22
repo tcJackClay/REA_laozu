@@ -1,6 +1,6 @@
 window.createHomeManagement=function(B){
  const M=createHomeModel(B),D=HOME_MANAGEMENT_DATA,L=HOME_MANAGEMENT_LAYOUTS,U=UnityRect,esc=Cultivation.esc,rich=Cultivation.rich;
- const Clan=createClanPage({...B,back:()=>{page=null;detail=null;B.render();}});
+ const Clan=createClanPage({...B,resourceBridge:{balance:M.balance,gate:M.gate,lockText:M.lockText,jump:resourceJump},back:()=>{page=null;detail=null;B.render();}});
  const events=new AbortController();
  let currentProfile=null;
  let canvas=null,page=null,detail=null,filter=0,sort=5,reverse=false,combo=false,expanded=false,leftFold=false,rightFold=false;
@@ -178,7 +178,8 @@ window.createHomeManagement=function(B){
    if(leaf==='ZuoZuoZuoZuoZuoZuoZuoZuo')return {action:'home26:close',label:'关闭体力购买'};
    return {};});root.classList.add('home-source-dialog');root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-label','确认购买');canvas.append(root);
  }
- function renderDialog(){if(detail.type==='item')return sourceItem();if(detail.type==='skill')return sourceSkill();if(detail.type==='stamina')return sourceStamina();let title='',body='';
+ function resourceJump(j){if(j.szParam1==='UIDiscipleBirth'){page=null;detail=null;B.switchTab('wander');return true;}if(j.iMode===102&&j.szParam1==='3'){page=null;detail=null;B.switchTab('story');return true;}B.toast('该目的页尚未接入，资源与当前进度保持不变');return false;}
+ function renderDialog(){if(detail.type==='resource'&&[1,21].includes(detail.id))return ResourceTips.render(canvas,detail.id,{balance:M.balance,gate:M.gate,lockText:M.lockText,jump:resourceJump,toast:B.toast,close:()=>action('close')});if(detail.type==='item')return sourceItem();if(detail.type==='skill')return sourceSkill();if(detail.type==='stamina')return sourceStamina();let title='',body='';
   if(detail.type==='item'){title=page==='teacher'?'长老养成':'功法养成';body=itemBody();}
   if(detail.type==='universal'){title='使用通用碎片';const p=M.payment(page,detail.id);body=`<p>专属碎片不足，消耗 ${p.universal} 个通用碎片补足后升星。</p>${btn('upgrade-confirm','确认升星')}`;}
   if(detail.type==='avatar'){title='头像';body=`<div class="home-avatar-list">${D.PlayerAvatar.filter(a=>a.iType===1&&M.avatarUnlocked(a)).map(a=>`<button data-home26="avatar-set:${a.iID}" aria-label="头像${a.iID}"><img src="${icon(a.iIcon)}" alt="">${M.data().avatar===a.iID?'使用中':'使用'}</button>`).join('')}</div>`;}

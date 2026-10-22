@@ -19,6 +19,7 @@ window.createHomeModel=function(B){
  function condition(rule){const [type,...p]=rule.split('#'),a=+p[0];switch(+type){
   case 1:return completed()>=a;case 5:return (s().sect||1)>=a;
   case 6:return Math.floor((Date.now()-(s().createdAt||Date.now()))/86400000)+1>=a;
+  case 14:return !!s().createdAt&&Math.max(1,Math.floor((Date.now()+28800000)/86400000)-Math.floor((s().createdAt+28800000)/86400000)+1)>=a;
   case 4:return (s().homeV26?.maxWanderDifficulty||0)>=a;
   case 11:return (s().homeV26?.maxWanderDifficulty||0)>=(+p[1]||a);
   case 1001:return p.every(k=>s().serverFlags?.[k]===true);
