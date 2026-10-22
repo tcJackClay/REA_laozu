@@ -1,0 +1,26 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');global.window=global;
+for(const f of ['home-management-data','portal-data','cultivation-data','teacher-data','home-model'])vm.runInThisContext(fs.readFileSync('outputs/laozu-web/'+f+'.js','utf8'));
+const checks=[],check=(n,fn)=>{fn();checks.push(n);};let saves=0;
+const fresh=()=>({sect:1,gold:10000,crystal:1000,cleared:0,wanderCompleted:0,disciples:[{name:'甲',level:1}],goods:{},createdAt:Date.now()});
+let s=fresh();const m=()=>createHomeModel({state:()=>s,save:()=>saves++,stats:()=>({power:100})});let M=m();M.profile();
+check('original 40 stamina capacity and resource order',()=>assert.deepEqual(M.profile().resources.map(x=>[x.id,x.n]),[[2,1000],[1,10000],[3,40]]));
+check('name validation leaves old value untouched',()=>{assert.throws(()=>M.rename('123456789'));assert.equal(M.data().name,'无名老祖');assert.throws(()=>M.rename('  '));});
+check('source unlock thresholds use completed journeys, not victories only',()=>{assert.equal(M.gate(2),false);s.wanderCompleted=1;assert.equal(M.gate(2),true);assert.equal(M.gate(15),false);s.sect=7;assert.equal(M.gate(15),true);});
+check('unknown platform activity flags fail closed',()=>{s.wanderCompleted=100;assert.equal(M.gate(30),false);assert(!M.sideIcons().some(x=>x.nID===7));});
+check('source daily stamina price sequence and exhaustion',()=>{const start=M.balance(3);for(let i=0;i<6;i++)M.buyStamina();assert.equal(M.balance(2),580);assert.equal(M.balance(3),start+30);assert.throws(()=>M.buyStamina());assert.equal(M.balance(2),580);});
+check('insufficient money has no partial stamina purchase',()=>{M.data().purchases={};s.crystal=0;const before=M.balance(3);assert.throws(()=>M.buyStamina());assert.equal(M.balance(3),before);assert.equal(M.purchase().count,0);});
+check('restore below cap uses configured interval and clamps',()=>{s.admission.stamina=37;M.data().staminaAt=Date.now()-M.cfgStamina().iRestoreTime*1000*5;M.restore();assert.equal(M.balance(3),M.cfgStamina().iStaminaLimit);});
+for(const kind of ['seed','teacher']){const x=M.list(kind).find(x=>x.icon&&x.iOmniShard&&x.arrCost1?.length>2);s[kind+'UnlockedIds']=[];s[kind+'Stars']={};s.goods={[x.iOmniShard]:1000};s.gold=10000;
+ check(kind+' cannot compose with universal fragments',()=>{assert.equal(M.payment(kind,x.iID).enough,false);assert.throws(()=>M.upgrade(kind,x.iID,true));assert.equal(M.level(kind,x.iID),-1);});
+ check(kind+' compose consumes source-specific fragments',()=>{s.goods[x.arrCost1[0]]=x.arrCost1[1];M.upgrade(kind,x.iID);assert.equal(M.level(kind,x.iID),0);assert.equal(s.goods[x.arrCost1[0]],0);assert(s[kind+'UnlockedIds'].includes(x.iID));});
+ check(kind+' universal upgrade requires confirmation and debits only once',()=>{const oldGold=s.gold,oldUniversal=s.goods[x.iOmniShard];assert.throws(()=>M.upgrade(kind,x.iID));assert.equal(s.gold,oldGold);M.upgrade(kind,x.iID,true);assert.equal(M.level(kind,x.iID),1);assert.equal(s.goods[x.iOmniShard],oldUniversal-x.arrCost1[2]);assert.equal(s.gold,oldGold-x.arrCost2[2]);});
+ check(kind+' max level rejects without debit',()=>{s[kind+'Stars'][x.iID]=kind==='seed'?24:30;const old=JSON.stringify(s);assert.throws(()=>M.upgrade(kind,x.iID,true));assert.equal(JSON.stringify(s),old);});
+}
+s=fresh();M=m();M.profile();s.wanderCompleted=1;
+check('main reward is idempotent and advances to level task',()=>{const t=M.mainTask();M.claim('main',t.iID);assert.equal(M.mainTask().iType,18);const old=JSON.stringify(s);assert.throws(()=>M.claim('main',t.iID));assert.equal(JSON.stringify(s),old);});
+check('next sequential journey task does not reuse old completion',()=>{s.sect=2;M.claim('main',M.mainTask().iID);assert.equal(M.mainTask().iType,2);assert.equal(M.mainTask().progress,0);s.wanderCompleted++;assert.equal(M.mainTask().progress,1);});
+s=fresh();M=m();M.profile();s.homeV26.staminaSpent=5;s.disciples[0].isWanderFinish=true;
+check('ancestor level requires all task rewards, not gold purchase',()=>{assert.throws(()=>M.levelUp());const before=s.gold;for(const t of M.sectTasks())M.claim('sect',t.iID);M.levelUp();assert.equal(s.sect,2);assert(s.gold>=before);assert.equal(M.sectTasks().find(t=>t.iType===31).progress,0);});
+check('only unlocked avatars selectable',()=>{assert(M.avatarUnlocked(HOME_MANAGEMENT_DATA.PlayerAvatar[0]));assert(!M.avatarUnlocked(HOME_MANAGEMENT_DATA.PlayerAvatar.find(x=>x.arrUnlockParams?.[0]===1&&x.arrUnlockParams[1]>2)));});
+check('combined legacy wallet spend never creates a negative balance',()=>{s.crystal=3;s.portalV8={wallet:{2:4}};s.goods={2:5};assert.equal(M.balance(2),12);M.add(2,-10);assert.equal(M.balance(2),2);assert(s.crystal>=0&&s.portalV8.wallet[2]>=0&&s.goods[2]>=0);});
+fs.mkdirSync('work/rea-pipeline/verification/home-v26',{recursive:true});fs.writeFileSync('work/rea-pipeline/verification/home-v26/model-checks.json',JSON.stringify({checks,saves},null,2));console.log(checks.length+' model transaction checks passed');

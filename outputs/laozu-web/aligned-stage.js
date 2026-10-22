@@ -15,10 +15,10 @@ window.createAlignedStage=function(B){
  function locate(root,part){return [...root.querySelectorAll('[data-source-path]')].find(el=>el.dataset.sourcePath.endsWith(part));}
  function replaceSlot(root,part,content){const el=locate(root,part);if(!el)return;el.replaceChildren();const slot=document.createElement('div');slot.className='unity-slot';slot.innerHTML=content;el.append(slot);}
  function blockMessage(text){tip={type:'message',text};draw();}
- function navigate(tab){tip=null;if(tab==='sect')s.phase='chapter';save();B.switchTab(tab);}
+ function navigate(tab){tip=null;B.home?.reset();if(tab==='sect')s.phase='chapter';save();B.switchTab(tab);}
  function renderNav(){const ids=['disciples','wish','sect','story','activities','guild'],labels=['弟子','祈愿','山门','主线','玩法','仙盟'],icons=['dizi','zhaomu','zhucheng','zhuxian','wanfa','xianmeng'];return prefab('uimainnavs',r=>{const m=r.path.match(/auto_NavButtons\/(ToggleButton(?: \((\d+)\))?)(?:\/|$)/);if(!m)return {};const i=+(m[2]||0),leaf=r.path.split('/').at(-1);if(r.path.endsWith(m[1]))return {action:'nav:'+ids[i],label:labels[i]};if(leaf==='diwen'||leaf.startsWith('mingzidi'))return {visible:activeTab===ids[i]};if(leaf==='ZuoZuo')return {text:labels[i]};if(r.components.some(c=>c.sprite)&&!['diwen'].includes(leaf)&&!leaf.startsWith('mingzidi'))return {image:art(icons[i])};return {};});}
- function renderHome(){
-  const h=prefab('uimain',r=>{const p=r.path;
+ function renderHome(){B.home?.begin();
+  const h=prefab('uimain',r=>{const p=r.path;const override=B.home?.node(r);if(override)return override;
    if(/\/(LeftDownRoot|LeftBtnGroup|IconGroupLeft|auto_rTopRoot)$/.test(p)||/lop_BuildingReddot|WanderDifficulty|auto_redPrivate/.test(p))return {visible:false};
    if(p.endsWith('/Auto_Photo')||p.endsWith('/auto_PlayerHead/touxiang'))return {image:false};
    if(p.endsWith('/Auto_Name'))return {text:s.profile?.name||'—'};
@@ -36,7 +36,7 @@ window.createAlignedStage=function(B){
    if(p.includes('/Auto_WanderD/lop_Label/Text'))return {text:B.wanderActive?.()?'游历中':'游历',...(B.wanderActive?.()?{color:{r:1,g:.8,b:.3,a:1}}:{})};
    if(p.endsWith('/Auto_Zhandou')||p.endsWith('/Auto_CombatSimulator')||p.endsWith('/Auto_EquipIllus')||p.endsWith('/Auto_SectFormation')||p.endsWith('/Auto_Guild')||p.endsWith('/Auto_gem')||/Auto_PannelMask/.test(p))return {visible:false};
    return {};
-  });canvas.append(h,renderNav());
+  });canvas.append(h,renderNav());B.home?.after(h,canvas);
  }
  function renderChapter(){
   const total=Object.values(s.wins).reduce((a,b)=>a+b,0);let item=0;
@@ -156,7 +156,7 @@ window.createAlignedStage=function(B){
   if(s.snapshotProvenance?.kind==='controlled-fixture')canvas.insertAdjacentHTML('beforeend','<span class="source-evidence-badge">受控测试数据</span>');
   if(tip){const text=tip.type==='stars'?starConf().szCondTip1+'<br>'+starConf().szCondTip2+'<br>'+starConf().szCondTip3:esc(tip.text);canvas.insertAdjacentHTML('beforeend',`<div class="source-shade"></div><div class="source-conditions" role="dialog" aria-modal="true">${text}<p><button data-original-action="close-tip">关闭</button></p></div>`);}
  }
- function action(a){if(a.startsWith('nav:'))return navigate(a.slice(4));if(a.startsWith('node:')){const n=by(D.nodes,+a.slice(5));if(!n||!unlocked(n))return;s.nodeID=n.iID;s.phase='detail';trace('UIStageNodeInfoKunNanBoss',{nodeID:n.iID});}
+ function action(a){if(a.startsWith('home26:'))return B.home?.action(a.slice(7));if(a.startsWith('nav:'))return navigate(a.slice(4));if(a.startsWith('node:')){const n=by(D.nodes,+a.slice(5));if(!n||!unlocked(n))return;s.nodeID=n.iID;s.phase='detail';trace('UIStageNodeInfoKunNanBoss',{nodeID:n.iID});}
   else if(a==='prepare'){s.phase='formation';trace('UITowerStageSelect');}
   else if(a==='close-detail')s.phase='chapter';else if(a==='close-formation')s.phase='detail';
   else if(a.startsWith('select:')){const id=a.slice(7);if(!s.roster.some(x=>x.id===id))return;if(s.formation.includes(id))s.formation=s.formation.filter(x=>x!==id);else if(s.formation.length<node().iDiscipleNumMax)s.formation.push(id);}
@@ -209,8 +209,8 @@ window.createAlignedStage=function(B){
  }
 
  function applyDelta(event){const p=event.payload;if(!p.id||!Array.isArray(p.goods))throw Error('Missing unique transaction ID');if(s.applied[p.id]){if(JSON.stringify(s.applied[p.id])!==JSON.stringify(p.goods))throw Error('Conflicting transaction replay');return;}const sums={};for(const x of p.goods){if(!Number.isSafeInteger(x.id)||!Number.isSafeInteger(x.num))throw Error('Invalid goods delta');sums[x.id]=(sums[x.id]||0)+x.num;}for(const [id,num]of Object.entries(sums))if(!Number.isSafeInteger((s.wallet[id]||0)+num)||(s.wallet[id]||0)+num<0)throw Error('Invalid balance');for(const[id,num]of Object.entries(sums))s.wallet[id]=(s.wallet[id]||0)+num;s.applied[p.id]=structuredClone(p.goods);s.journal.push({id:p.id,requestID:event.requestID,goods:structuredClone(p.goods)});}
- function text(){return {coordinateSystem:'1080x1920 reference viewport, top-left origin, +x right, +y down',phase:s.phase,nodeID:s.nodeID,enemy:enemy(),pending:s.pending,battle:s.battle,result:s.result,wallet:s.wallet,formation:s.formation,roster:s.roster,journal:s.journal,trace:s.trace,provenance:s.snapshotProvenance};}
- const api={mount(tab,target){activeTab=tab;scene=target;const enabled=['sect','story'].includes(tab);document.querySelector('#app').dataset.sourceLayout=String(enabled);if(!enabled){canvas=null;return false;}scene.innerHTML='<section class="aligned-viewport" aria-label="原始布局场景"><div class="aligned-canvas"></div></section>';canvas=scene.querySelector('.aligned-canvas');const scale=()=>{if(canvas)canvas.style.transform=`scale(${scene.clientWidth/1080})`;};scale();draw();return true;},tick(){},busy:()=>false,text,receive,connect(fn){transport=fn;},loadSnapshot(snapshot){if(!['controlled-fixture','original-runtime-snapshot'].includes(snapshot.provenance?.kind))throw Error('Explicit snapshot provenance is required');
+ function text(){return {home:activeTab==='sect'?B.home?.text():null,coordinateSystem:'1080x1920 reference viewport, top-left origin, +x right, +y down',phase:s.phase,nodeID:s.nodeID,enemy:enemy(),pending:s.pending,battle:s.battle,result:s.result,wallet:s.wallet,formation:s.formation,roster:s.roster,journal:s.journal,trace:s.trace,provenance:s.snapshotProvenance};}
+ const api={mount(tab,target){activeTab=tab;scene=target;const enabled=['sect','story'].includes(tab);if(tab!=='sect')B.home?.reset();document.querySelector('#app').dataset.sourceLayout=String(enabled);if(!enabled){canvas=null;return false;}scene.innerHTML='<section class="aligned-viewport" aria-label="原始布局场景"><div class="aligned-canvas"></div></section>';canvas=scene.querySelector('.aligned-canvas');const scale=()=>{if(canvas)canvas.style.transform=`scale(${scene.clientWidth/1080})`;};scale();draw();return true;},tick(){},busy:()=>false,text,receive,connect(fn){transport=fn;},loadSnapshot(snapshot){if(!['controlled-fixture','original-runtime-snapshot'].includes(snapshot.provenance?.kind))throw Error('Explicit snapshot provenance is required');
  const v=snapshot.state||{},n=by(D.nodes,v.nodeID||10101);
  if(!n||!['chapter','detail','formation'].includes(v.phase||'chapter'))throw Error('Import requires a known idle stage');
  if(!Array.isArray(v.roster)||!Array.isArray(v.formation)||new Set(v.roster.map(x=>String(x.id))).size!==v.roster.length||v.roster.some(x=>!x.id||typeof x.name!=='string'))throw Error('Invalid roster');

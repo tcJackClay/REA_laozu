@@ -7,7 +7,7 @@
 |I01|`/UIMain/LeftDownRoot/Auto_ActivityWander`|82,83,84,85,86,87,88,89,90,91|否|—|隐藏且无绑定，需核对显示条件|
 |I02|`/UIMain/LeftDownRoot/IconGroupLeftDown/ScrollView/Button`|—|否|—|隐藏且无绑定，需核对显示条件|
 |I03|`/UIMain/Auto_GameScene/Auto_NoType_Map/Viewport/Auto_Content/Auto_Scene/Auto_Layer_Buildings/Auto_Buildings/Auto_wenwu/auto_wenwuBtn`|3|否|—|隐藏且无绑定，需核对显示条件|
-|I04|`/UIMain/Auto_GameScene/Auto_NoType_Map/Viewport/Auto_Content/Auto_Scene/Auto_Layer_Buildings/Auto_Buildings/Auto_Seeding/auto_SeedingBtn`|2|是|nav:wish|已确认误连祈愿|
+|I04|`/UIMain/Auto_GameScene/Auto_NoType_Map/Viewport/Auto_Content/Auto_Scene/Auto_Layer_Buildings/Auto_Buildings/Auto_Seeding/auto_SeedingBtn`|2|是|home26:seed|已有绑定，仍需验证功能闭环|
 |I05|`/UIMain/Auto_GameScene/Auto_NoType_Map/Viewport/Auto_Content/Auto_Scene/Auto_Layer_Buildings/Auto_Buildings/Auto_Clan/auto_ClanBtn`|4|是|—|可见但无绑定|
 |I06|`/UIMain/Auto_GameScene/Auto_NoType_Map/Viewport/Auto_Content/Auto_Scene/Auto_Layer_Buildings/Auto_Buildings/Auto_EquipIllus/auto_EquipIllusBtn`|—|否|—|隐藏且无绑定，需核对显示条件|
 |I07|`/UIMain/Auto_GameScene/Auto_NoType_Map/Viewport/Auto_Content/Auto_Scene/Auto_Layer_Buildings/Auto_Buildings/Auto_WanderD/auto_WanderDBtn`|—|是|nav:wander|已有绑定，仍需验证功能闭环|
@@ -15,34 +15,34 @@
 |I09|`/UIMain/Auto_GameScene/Auto_NoType_Map/Viewport/Auto_Content/Auto_Scene/Auto_Layer_Buildings/Auto_Buildings/Auto_Zhandou/auto_ZhandouBtn`|—|否|nav:story|有绑定但隐藏，需核对显示条件|
 |I10|`/UIMain/Auto_GameScene/Auto_NoType_Map/Viewport/Auto_Content/Auto_Scene/Auto_Layer_Buildings/Auto_Buildings/Auto_SectFormation/auto_SectFormation`|1|否|—|隐藏且无绑定，需核对显示条件|
 |I11|`/UIMain/Auto_GameScene/Auto_NoType_Map/Viewport/Auto_Content/Auto_Scene/Auto_Layer_Buildings/Auto_Buildings/Auto_UIMarket/auto_UIMarket`|13|是|—|可见但无绑定|
-|I12|`/UIMain/Auto_GameScene/Auto_NoType_Map/Viewport/Auto_Content/Auto_Scene/Auto_Layer_Buildings/Auto_Buildings/Auto_Teacher/auto_TeacherBtn`|15|是|nav:wish|已确认误连祈愿|
+|I12|`/UIMain/Auto_GameScene/Auto_NoType_Map/Viewport/Auto_Content/Auto_Scene/Auto_Layer_Buildings/Auto_Buildings/Auto_Teacher/auto_TeacherBtn`|15|是|home26:teacher|已有绑定，仍需验证功能闭环|
 |I13|`/UIMain/Auto_GameScene/Auto_NoType_Map/Viewport/Auto_Content/Auto_Scene/Auto_Layer_Buildings/Auto_Buildings/Auto_Fairyland/auto_FairylandBtn`|25|是|—|可见但无绑定|
 |I14|`/UIMain/Auto_GameScene/Auto_NoType_Map/Viewport/Auto_Content/Auto_Scene/Auto_Layer_Buildings/Auto_Buildings/Auto_pet/auto_petBtn`|52|否|—|隐藏且无绑定，需核对显示条件|
 |I15|`/UIMain/Auto_GameScene/Auto_NoType_Map/Viewport/Auto_Content/Auto_Scene/Auto_Layer_Buildings/Auto_Buildings/Auto_Guild/auto_guildBtn`|46|否|—|隐藏且无绑定，需核对显示条件|
 |I16|`/UIMain/Auto_GameScene/Auto_NoType_Map/Viewport/Auto_Content/Auto_Scene/Auto_Layer_Buildings/Auto_Buildings/Auto_CombatSimulator/auto_CombatSimulator`|—|否|—|隐藏且无绑定，需核对显示条件|
 |I17|`/UIMain/Auto_GameScene/Auto_NoType_Map/Viewport/Auto_Content/Auto_Scene/Auto_Layer_Buildings/Auto_Buildings/Auto_gem/auto_gemBtn`|150|否|—|隐藏且无绑定，需核对显示条件|
-|I18|`/UIMain/auto_TopResBar/Bar/Res (1)/Icon`|—|是|—|可见但无绑定|
-|I19|`/UIMain/auto_TopResBar/Bar/Res (1)/Add`|—|是|—|可见但无绑定|
-|I20|`/UIMain/auto_TopResBar/Bar/Res (2)/Icon`|—|是|—|可见但无绑定|
-|I21|`/UIMain/auto_TopResBar/Bar/Res (2)/Add (2)`|—|是|—|可见但无绑定|
-|I22|`/UIMain/auto_TopResBar/Bar/Res (3)/Icon`|—|是|—|可见但无绑定|
-|I23|`/UIMain/auto_TopResBar/Bar/Res (3)/Add (1)`|—|是|—|可见但无绑定|
+|I18|`/UIMain/auto_TopResBar/Bar/Res (1)/Icon`|—|是|home26:resource:2|已有绑定，仍需验证功能闭环|
+|I19|`/UIMain/auto_TopResBar/Bar/Res (1)/Add`|—|是|home26:recharge|已有绑定，仍需验证功能闭环|
+|I20|`/UIMain/auto_TopResBar/Bar/Res (2)/Icon`|—|是|home26:resource:1|已有绑定，仍需验证功能闭环|
+|I21|`/UIMain/auto_TopResBar/Bar/Res (2)/Add (2)`|—|是|home26:resource:1|已有绑定，仍需验证功能闭环|
+|I22|`/UIMain/auto_TopResBar/Bar/Res (3)/Icon`|—|是|home26:resource:3|已有绑定，仍需验证功能闭环|
+|I23|`/UIMain/auto_TopResBar/Bar/Res (3)/Add (1)`|—|是|home26:stamina|已有绑定，仍需验证功能闭环|
 |I24|`/UIMain/auto_TopResBar/Bar/Res (4)/Icon`|—|否|—|隐藏且无绑定，需核对显示条件|
 |I25|`/UIMain/auto_TopResBar/Bar/Res (4)/Add (1)`|—|否|—|隐藏且无绑定，需核对显示条件|
-|I26|`/UIMain/shang/wanjiatouxiang/auto_PlayerHead`|—|是|—|可见但无绑定|
-|I27|`/UIMain/shang/wanjiatouxiang/Auto_NameEdit`|—|是|—|可见但无绑定|
-|I28|`/UIMain/xia/zhong (1)/auto_MainTaskEntry/click_area`|—|否|—|隐藏且无绑定，需核对显示条件|
+|I26|`/UIMain/shang/wanjiatouxiang/auto_PlayerHead`|—|是|home26:avatar|已有绑定，仍需验证功能闭环|
+|I27|`/UIMain/shang/wanjiatouxiang/Auto_NameEdit`|—|是|home26:rename|已有绑定，仍需验证功能闭环|
+|I28|`/UIMain/xia/zhong (1)/auto_MainTaskEntry/click_area`|—|是|—|可见但无绑定|
 |I29|`/UIMain/xia/zhong (1)/auto_MainTaskEntry/click_area/floor_main_renwu/SideQuest`|—|否|—|隐藏且无绑定，需核对显示条件|
 |I30|`/UIMain/xia/zhong (1)/btn/auto_NoviceHandbook`|—|否|—|隐藏且无绑定，需核对显示条件|
 |I31|`/UIMain/xia/zhong (1)/btn/open/Auto_IconGroupRightDown/ui_zjm_btnkk/Content/ShowItem`|—|否|—|隐藏且无绑定，需核对显示条件|
 |I32|`/UIMain/xia/zhong (1)/btn/open/Auto_FixBtn/auto_mailBtn`|—|否|—|隐藏且无绑定，需核对显示条件|
-|I33|`/UIMain/xia/zhong (1)/btn/open/Auto_FixBtn/auto_warehouseBtn`|—|否|nav:bag|有绑定但隐藏，需核对显示条件|
+|I33|`/UIMain/xia/zhong (1)/btn/open/Auto_FixBtn/auto_warehouseBtn`|—|否|—|隐藏且无绑定，需核对显示条件|
 |I34|`/UIMain/xia/zhong (1)/btn/open/Auto_PannelMask/Auto_Pannel/auto_settingBtn`|—|否|—|隐藏且无绑定，需核对显示条件|
 |I35|`/UIMain/xia/zhong (1)/btn/open/Auto_PannelMask/Auto_Pannel/auto_taskBtn`|—|否|—|隐藏且无绑定，需核对显示条件|
 |I36|`/UIMain/xia/zhong (1)/btn/open/Auto_PannelMask/Auto_Pannel/auto_shequBtn`|—|否|—|隐藏且无绑定，需核对显示条件|
 |I37|`/UIMain/xia/zhong (1)/btn/open/Auto_PannelMask1/Auto_Pannel1/auto_friend`|69|否|—|隐藏且无绑定，需核对显示条件|
 |I38|`/UIMain/SectV2`|10|是|—|可见但无绑定|
-|I39|`/UIMain/SectV2/auto_SectTask`|—|否|—|隐藏且无绑定，需核对显示条件|
+|I39|`/UIMain/SectV2/auto_SectTask`|—|是|home26:sect-task|已有绑定，仍需验证功能闭环|
 |I40|`/UIMain/IconGroupLeft/ScrollView/Button`|—|否|—|隐藏且无绑定，需核对显示条件|
 |I41|`/UIMain/ChatBar`|16|是|—|可见但无绑定|
 |I42|`/UIMain/LeftBtnGroup/Auto_Download`|—|否|—|隐藏且无绑定，需核对显示条件|

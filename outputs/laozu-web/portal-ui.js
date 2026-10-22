@@ -5,12 +5,12 @@ window.createPortalUI=function(B){
   const empty={version:1,wallet:{},owned:{},draws:{},pity:{},wish:{},results:null,newPlayer:{offers:[],claimed:false},stage:{wins:{},rewards:{},formation:[],idleAt:null},modes:{},records:[],combat:null,skip:false};
   empty.startedAt=Date.now();const read=()=>B.state().portalV8||empty,write=()=>{const p=B.state().portalV8||(B.state().portalV8=structuredClone(empty));p.startedAt??=Date.now();return p;};
   let category=1,poolID=11002,chapterID=101,modeID=null,roundTime=0;
-  const art=n=>D.assets[n]||window.HOME_DATA.assets[n]||'',img=(n,cls='')=>`<img class="${cls}" src="${art(n)}" alt="">`,plain=s=>String(s||'').replace(/<[^>]*>/g,''),gname=id=>goods.get(+id)?.szName||'道具 '+id,balance=id=>+id===1?B.state().gold:(read().wallet[id]||0);
+  const art=n=>D.assets[n]||window.HOME_DATA.assets[n]||'',img=(n,cls='')=>`<img class="${cls}" src="${art(n)}" alt="">`,plain=s=>String(s||'').replace(/<[^>]*>/g,''),gname=id=>goods.get(+id)?.szName||'道具 '+id,balance=id=>+id===1?B.state().gold:(read().wallet[id]||0)+(B.state().goods?.[id]||0)+(+id===2?B.state().crystal||0:0);
   const good=id=>goods.get(+id)||{iGoodsID:+id,szName:gname(id),image:'assets/prop_mu.png',iQuality:2};
   const icon=(id,cls='')=>`<img class="${cls}" src="${good(id).image}" alt="${esc(gname(id))}">`;
   const card=(id,num=1)=>`<div class="portal-item quality-${good(id).iQuality}">${icon(id)}<small>${esc(gname(id))}</small><b>×${num}</b></div>`;
   const commit=()=>B.save(),refresh=()=>B.render();
-  function addGood(id,n){if(!n)return;if(+id===1)B.state().gold+=n;else {const p=write();p.wallet[id]=(p.wallet[id]||0)+n;}}
+  function addGood(id,n){if(!n)return;if(+id===1)B.state().gold+=n;else if(n>=0){const p=write();p.wallet[id]=(p.wallet[id]||0)+n;}else {let remaining=-n;if(+id===2){const take=Math.min(remaining,B.state().crystal||0);B.state().crystal=(B.state().crystal||0)-take;remaining-=take;}for(const bag of [write().wallet,B.state().goods])if(bag){const take=Math.min(remaining,bag[id]||0);bag[id]=(bag[id]||0)-take;remaining-=take;}}}
   function spend(id,n){if(balance(id)<n)return false;addGood(id,-n);return true;}
   const head=(title,extra='')=>`<div class="portal-head"><h1>${title}</h1><span>${icon(2)}${fmt(balance(2))}</span><button data-portal="wallet" aria-label="查看资源">${icon(1)}${fmt(balance(1))}</button>${extra}</div>`;
   function show(title,body){B.modal(title,body);}

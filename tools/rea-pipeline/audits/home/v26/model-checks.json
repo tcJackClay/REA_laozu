@@ -1,0 +1,25 @@
+{
+  "checks": [
+    "original 40 stamina capacity and resource order",
+    "name validation leaves old value untouched",
+    "source unlock thresholds use completed journeys, not victories only",
+    "unknown platform activity flags fail closed",
+    "source daily stamina price sequence and exhaustion",
+    "insufficient money has no partial stamina purchase",
+    "restore below cap uses configured interval and clamps",
+    "seed cannot compose with universal fragments",
+    "seed compose consumes source-specific fragments",
+    "seed universal upgrade requires confirmation and debits only once",
+    "seed max level rejects without debit",
+    "teacher cannot compose with universal fragments",
+    "teacher compose consumes source-specific fragments",
+    "teacher universal upgrade requires confirmation and debits only once",
+    "teacher max level rejects without debit",
+    "main reward is idempotent and advances to level task",
+    "next sequential journey task does not reuse old completion",
+    "ancestor level requires all task rewards, not gold purchase",
+    "only unlocked avatars selectable",
+    "combined legacy wallet spend never creates a negative balance"
+  ],
+  "saves": 17
+}

@@ -3,7 +3,29 @@
     "width": 390,
     "height": 844
   },
-  "text": "功法\n赐福\n游历\n坊市\n长老\n福地\n0\n0\n0\n—\n宗门：—级\n战力：—\n收起\n—级\n系统\n弟子\n祈愿\n山门\n主线\n玩法\n仙盟",
+  "text": "功法\n赐福\n游历\n坊市\n长老\n福地\n0\n300\n40/40\n无名老祖\n老祖：1级\n战力：914\n新手\n完成1次游历\n（0/1）\n消耗5点体力\n（0/5）\n1级\n系统\n弟子\n祈愿\n山门\n主线\n玩法\n仙盟\n邮件\n仓库\n展开",
+  "extraInteractions": [
+    {
+      "action": "main-task",
+      "text": "新手完成1次游历（0/1）",
+      "visible": true
+    },
+    {
+      "action": "mail",
+      "text": "邮件",
+      "visible": true
+    },
+    {
+      "action": "warehouse",
+      "text": "仓库",
+      "visible": true
+    },
+    {
+      "action": "expand",
+      "text": "展开",
+      "visible": true
+    }
+  ],
   "rows": [
     {
       "layout": "uimain",
@@ -1789,8 +1811,8 @@
       ],
       "rendered": true,
       "visible": true,
-      "action": "nav:wish",
-      "label": "祈愿",
+      "action": "home26:seed",
+      "label": "功法管理（完成1次游历开启）",
       "rect": {
         "x": 55,
         "y": 361,
@@ -3381,8 +3403,8 @@
       ],
       "rendered": true,
       "visible": true,
-      "action": "nav:wish",
-      "label": "祈愿",
+      "action": "home26:teacher",
+      "label": "长老管理（老祖7级开启）",
       "rect": {
         "x": 60,
         "y": 219,
@@ -6255,8 +6277,8 @@
       ],
       "rendered": true,
       "visible": true,
-      "action": null,
-      "label": null,
+      "action": "home26:resource:2",
+      "label": "仙玉",
       "rect": {
         "x": 175,
         "y": 101,
@@ -6291,8 +6313,8 @@
       "sprites": [],
       "rendered": true,
       "visible": true,
-      "action": null,
-      "label": null,
+      "action": "home26:recharge",
+      "label": "获取仙玉",
       "rect": {
         "x": 197,
         "y": 106,
@@ -6351,8 +6373,8 @@
       ],
       "rendered": true,
       "visible": true,
-      "action": null,
-      "label": null,
+      "action": "home26:resource:1",
+      "label": "灵石",
       "rect": {
         "x": 246,
         "y": 101,
@@ -6387,8 +6409,8 @@
       "sprites": [],
       "rendered": true,
       "visible": true,
-      "action": null,
-      "label": null,
+      "action": "home26:resource:1",
+      "label": "获取灵石",
       "rect": {
         "x": 268,
         "y": 106,
@@ -6447,8 +6469,8 @@
       ],
       "rendered": true,
       "visible": true,
-      "action": null,
-      "label": null,
+      "action": "home26:resource:3",
+      "label": "体力",
       "rect": {
         "x": 317,
         "y": 101,
@@ -6483,8 +6505,8 @@
       "sprites": [],
       "rendered": true,
       "visible": true,
-      "action": null,
-      "label": null,
+      "action": "home26:stamina",
+      "label": "购买体力",
       "rect": {
         "x": 339,
         "y": 106,
@@ -6731,8 +6753,8 @@
       ],
       "rendered": true,
       "visible": true,
-      "action": null,
-      "label": null,
+      "action": "home26:avatar",
+      "label": "更换老祖头像",
       "rect": {
         "x": 9,
         "y": 90,
@@ -6859,8 +6881,8 @@
       "sprites": [],
       "rendered": true,
       "visible": true,
-      "action": null,
-      "label": null,
+      "action": "home26:rename",
+      "label": "修改姓名",
       "rect": {
         "x": 63,
         "y": 98,
@@ -6930,14 +6952,14 @@
       "funcIDs": [],
       "sprites": [],
       "rendered": true,
-      "visible": false,
+      "visible": true,
       "action": null,
       "label": null,
       "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "x": 4,
+        "y": 585,
+        "width": 166,
+        "height": 30
       }
     },
     {
@@ -6949,16 +6971,11 @@
       "sprites": [
         "floor_main_renwu"
       ],
-      "rendered": true,
+      "rendered": false,
       "visible": false,
       "action": null,
       "label": null,
-      "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
-      }
+      "rect": null
     },
     {
       "layout": "uimain",
@@ -6967,16 +6984,11 @@
       "interactive": false,
       "funcIDs": [],
       "sprites": [],
-      "rendered": true,
+      "rendered": false,
       "visible": false,
       "action": null,
       "label": null,
-      "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
-      }
+      "rect": null
     },
     {
       "layout": "uimain",
@@ -6985,16 +6997,11 @@
       "interactive": false,
       "funcIDs": [],
       "sprites": [],
-      "rendered": true,
+      "rendered": false,
       "visible": false,
       "action": null,
       "label": null,
-      "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
-      }
+      "rect": null
     },
     {
       "layout": "uimain",
@@ -7003,16 +7010,11 @@
       "interactive": false,
       "funcIDs": [],
       "sprites": [],
-      "rendered": true,
+      "rendered": false,
       "visible": false,
       "action": null,
       "label": null,
-      "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
-      }
+      "rect": null
     },
     {
       "layout": "uimain",
@@ -7021,16 +7023,11 @@
       "interactive": false,
       "funcIDs": [],
       "sprites": [],
-      "rendered": true,
+      "rendered": false,
       "visible": false,
       "action": null,
       "label": null,
-      "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
-      }
+      "rect": null
     },
     {
       "layout": "uimain",
@@ -7039,16 +7036,11 @@
       "interactive": false,
       "funcIDs": [],
       "sprites": [],
-      "rendered": true,
+      "rendered": false,
       "visible": false,
       "action": null,
       "label": null,
-      "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
-      }
+      "rect": null
     },
     {
       "layout": "uimain",
@@ -7057,16 +7049,11 @@
       "interactive": false,
       "funcIDs": [],
       "sprites": [],
-      "rendered": true,
+      "rendered": false,
       "visible": false,
       "action": null,
       "label": null,
-      "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
-      }
+      "rect": null
     },
     {
       "layout": "uimain",
@@ -7075,16 +7062,11 @@
       "interactive": false,
       "funcIDs": [],
       "sprites": [],
-      "rendered": true,
+      "rendered": false,
       "visible": false,
       "action": null,
       "label": null,
-      "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
-      }
+      "rect": null
     },
     {
       "layout": "uimain",
@@ -7093,16 +7075,11 @@
       "interactive": false,
       "funcIDs": [],
       "sprites": [],
-      "rendered": true,
+      "rendered": false,
       "visible": false,
       "action": null,
       "label": null,
-      "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
-      }
+      "rect": null
     },
     {
       "layout": "uimain",
@@ -7111,16 +7088,11 @@
       "interactive": false,
       "funcIDs": [],
       "sprites": [],
-      "rendered": true,
+      "rendered": false,
       "visible": false,
       "action": null,
       "label": null,
-      "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
-      }
+      "rect": null
     },
     {
       "layout": "uimain",
@@ -7129,16 +7101,11 @@
       "interactive": false,
       "funcIDs": [],
       "sprites": [],
-      "rendered": true,
+      "rendered": false,
       "visible": false,
       "action": null,
       "label": null,
-      "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
-      }
+      "rect": null
     },
     {
       "layout": "uimain",
@@ -7149,16 +7116,11 @@
       "sprites": [
         "icon_main_renwu"
       ],
-      "rendered": true,
+      "rendered": false,
       "visible": false,
       "action": null,
       "label": null,
-      "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
-      }
+      "rect": null
     },
     {
       "layout": "uimain",
@@ -7169,16 +7131,11 @@
       "sprites": [
         "lee_010_xianyu"
       ],
-      "rendered": true,
+      "rendered": false,
       "visible": false,
       "action": null,
       "label": null,
-      "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
-      }
+      "rect": null
     },
     {
       "layout": "uimain",
@@ -7187,16 +7144,11 @@
       "interactive": false,
       "funcIDs": [],
       "sprites": [],
-      "rendered": true,
+      "rendered": false,
       "visible": false,
       "action": null,
       "label": null,
-      "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
-      }
+      "rect": null
     },
     {
       "layout": "uimain",
@@ -7207,16 +7159,11 @@
       "sprites": [
         "tanhao"
       ],
-      "rendered": true,
+      "rendered": false,
       "visible": false,
       "action": null,
       "label": null,
-      "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
-      }
+      "rect": null
     },
     {
       "layout": "uimain",
@@ -7225,16 +7172,11 @@
       "interactive": false,
       "funcIDs": [],
       "sprites": [],
-      "rendered": true,
+      "rendered": false,
       "visible": false,
       "action": null,
       "label": null,
-      "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
-      }
+      "rect": null
     },
     {
       "layout": "uimain",
@@ -7244,14 +7186,14 @@
       "funcIDs": [],
       "sprites": [],
       "rendered": true,
-      "visible": true,
+      "visible": false,
       "action": null,
       "label": null,
       "rect": {
-        "x": 177,
-        "y": 359,
-        "width": 36,
-        "height": 36
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
       }
     },
     {
@@ -7340,14 +7282,14 @@
       "funcIDs": [],
       "sprites": [],
       "rendered": true,
-      "visible": true,
+      "visible": false,
       "action": null,
       "label": null,
       "rect": {
-        "x": 177,
-        "y": 359,
-        "width": 36,
-        "height": 36
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
       }
     },
     {
@@ -7362,9 +7304,9 @@
       "action": null,
       "label": null,
       "rect": {
-        "x": 259,
-        "y": 666,
-        "width": 125,
+        "x": 0,
+        "y": 0,
+        "width": 0,
         "height": 0
       }
     },
@@ -7380,9 +7322,9 @@
       "action": null,
       "label": null,
       "rect": {
-        "x": 259,
-        "y": 666,
-        "width": 125,
+        "x": 0,
+        "y": 0,
+        "width": 0,
         "height": 0
       }
     },
@@ -7400,8 +7342,8 @@
       "action": null,
       "label": null,
       "rect": {
-        "x": 259,
-        "y": 659,
+        "x": 0,
+        "y": 0,
         "width": 0,
         "height": 0
       }
@@ -7418,9 +7360,9 @@
       "action": null,
       "label": null,
       "rect": {
-        "x": 259,
-        "y": 659,
-        "width": 125,
+        "x": 0,
+        "y": 0,
+        "width": 0,
         "height": 0
       }
     },
@@ -7438,8 +7380,8 @@
       "action": null,
       "label": null,
       "rect": {
-        "x": 259,
-        "y": 659,
+        "x": 0,
+        "y": 0,
         "width": 0,
         "height": 0
       }
@@ -7454,14 +7396,14 @@
         "ui_zjm_kuozhan"
       ],
       "rendered": true,
-      "visible": true,
+      "visible": false,
       "action": null,
       "label": null,
       "rect": {
-        "x": 248,
-        "y": 663,
-        "width": 21,
-        "height": 21
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
       }
     },
     {
@@ -7472,14 +7414,14 @@
       "funcIDs": [],
       "sprites": [],
       "rendered": true,
-      "visible": true,
+      "visible": false,
       "action": null,
       "label": null,
       "rect": {
-        "x": 244,
-        "y": 648,
-        "width": 30,
-        "height": 10
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
       }
     },
     {
@@ -7569,8 +7511,8 @@
       ],
       "rendered": true,
       "visible": false,
-      "action": "nav:bag",
-      "label": "仓库",
+      "action": null,
+      "label": null,
       "rect": {
         "x": 0,
         "y": 0,
@@ -7922,14 +7864,14 @@
       "funcIDs": [],
       "sprites": [],
       "rendered": true,
-      "visible": false,
-      "action": null,
-      "label": null,
+      "visible": true,
+      "action": "home26:sect-task",
+      "label": "老祖任务",
       "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "x": 31,
+        "y": 547,
+        "width": 147,
+        "height": 35
       }
     },
     {
@@ -7942,14 +7884,14 @@
         "floor_main_zongmen"
       ],
       "rendered": true,
-      "visible": false,
+      "visible": true,
       "action": null,
       "label": null,
       "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "x": 31,
+        "y": 547,
+        "width": 147,
+        "height": 35
       }
     },
     {
@@ -8106,14 +8048,14 @@
       "funcIDs": [],
       "sprites": [],
       "rendered": true,
-      "visible": false,
-      "action": null,
-      "label": null,
+      "visible": true,
+      "action": "home26:sect-task",
+      "label": "老祖任务",
       "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "x": 53,
+        "y": 553,
+        "width": 75,
+        "height": 10
       }
     },
     {
@@ -8124,14 +8066,14 @@
       "funcIDs": [],
       "sprites": [],
       "rendered": true,
-      "visible": false,
+      "visible": true,
       "action": null,
       "label": null,
       "rect": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "x": 48,
+        "y": 566,
+        "width": 37,
+        "height": 10
       }
     },
     {
