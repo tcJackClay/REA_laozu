@@ -1,0 +1,14 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const c={console,structuredClone};c.window=c;vm.createContext(c);for(const f of ['teacher-data.js','home-detail-data.js','disciple-skin-data.js','teacher-skin.js'])vm.runInContext(fs.readFileSync('outputs/laozu-web/'+f,'utf8'),c);
+const checks=[],ck=(n,v)=>{assert.ok(v,n);checks.push(n);};
+function fixture(){const s={goods:{},ownedSkinIds:[],skinLevel:0,teacherUnlockedIds:[],disciples:[]};let gate=true,saves=0;const B={state:()=>s,level:(k,id)=>s.teacherUnlockedIds.includes(id)?0:-1,gate:()=>gate,lockText:()=> '未解锁',balance:id=>s.goods[id]||0,add:(id,n)=>s.goods[id]=(s.goods[id]||0)+n,good:()=>({szName:'仙玉'}),save:()=>saves++};return {s,m:c.createTeacherDiscipleSkinModel(B),gate:v=>gate=v,saves:()=>saves};}
+for(const t of c.TEACHER_DATA.teachers){const {s,m,gate,saves}=fixture(),p=m.info(t.iID);if(!t.arrStarAffect3.length){ck('no invented sale '+t.iID,!p.valid&&!p.canBuy);continue;}
+ ck('source preview and skin '+t.iID,p.valid&&p.skin.nID===t.arrStarAffect3[1]);ck('locked teacher cannot buy '+t.iID,!p.canBuy);
+ const expected={skin:p.skin.nID,currency:p.currency,cost:p.cost};s.goods[p.currency]=p.cost;let before=JSON.stringify(s);assert.throws(()=>m.purchase(t.iID,expected));ck('locked atomic '+t.iID,before===JSON.stringify(s));
+ s.teacherUnlockedIds=[t.iID];ck('zero star unlocked is eligible '+t.iID,m.info(t.iID).canBuy);s.goods[p.currency]--;before=JSON.stringify(s);assert.throws(()=>m.purchase(t.iID,expected));ck('shortage atomic '+t.iID,before===JSON.stringify(s));s.goods[p.currency]++;
+ before=JSON.stringify(s);assert.throws(()=>m.purchase(t.iID,{...expected,cost:0}));ck('stale cost atomic '+t.iID,before===JSON.stringify(s));gate(false);assert.throws(()=>m.purchase(t.iID,expected));ck('gate rechecked '+t.iID,before===JSON.stringify(s));gate(true);
+ m.purchase(t.iID,expected);ck('exact cost and actual disciple skin '+t.iID,s.goods[p.currency]===0&&s.ownedSkinIds.includes(p.skin.nID)&&!s.teacherSkins);ck('no automatic skin level '+t.iID,s.skinLevel===0);before=JSON.stringify(s);assert.throws(()=>m.purchase(t.iID,expected));ck('duplicate atomic '+t.iID,before===JSON.stringify(s)&&saves()===1);ck('persisted marker '+t.iID,c.createTeacherDiscipleSkinModel({...{state:()=>s},level:()=>0}).info(t.iID).purchased);
+}
+{const {s,m}=fixture(),p=m.info(23101);s.teacherUnlockedIds=[23101];s.goods[p.currency]=p.cost;s.skinValue=100;m.purchase(23101,{skin:p.skin.nID,currency:p.currency,cost:p.cost});ck('cached skin value gains once',s.skinValue===120&&s.skinLevel===0);}
+{const {s,m}=fixture(),p=m.info(23101);s.teacherUnlockedIds=[23101];s.goods[p.currency]=p.cost;s.skinValue=100;s.ownedSkinIds=[3001];m.purchase(23101,{skin:p.skin.nID,currency:p.currency,cost:p.cost});ck('existing ownership does not add value twice',s.skinValue===100&&s.ownedSkinIds.length===1);}
+console.log(checks.length+' teacher skin model checks passed');
