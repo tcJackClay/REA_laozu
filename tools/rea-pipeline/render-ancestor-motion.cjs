@@ -1,0 +1,54 @@
+// Run from repository root; optional Pet IDs filter the output manifest. Requires extracted Spine workspace.
+const root=require('node:path').resolve(__dirname,'../..');process.chdir(root+'/work/spine-tools');require('node:fs').mkdirSync(root+'/outputs/laozu-web/assets/ancestor-motion-v57',{recursive:true});const spineRequire=require('node:module').createRequire(root+'/work/spine-tools/render-transmog-v25.cjs');
+const fs=require('fs'),path=require('path');const S=spineRequire('@pixi-spine/runtime-3.8');const {loadImage,createCanvas}=require('C:/Users/45186/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/@napi-rs/canvas');
+spineRequire('@pixi-spine/base').settings.yDown=false; // Unity uses Y-up; the Pixi runtime defaults to Y-down.
+
+(async()=>{
+ const manifest=[];const {chromium}=require('C:/Users/45186/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'),browser=await chromium.launch({args:['--enable-webgl','--use-angle=swiftshader','--enable-unsafe-swiftshader']}),raster=require(root+'/tools/rea-pipeline/ancestor-webgl-raster.cjs');
+ try{
+ for(const spec of JSON.parse(fs.readFileSync('../alignment-v57-motion/specs.json')).filter(s=>!process.argv[2]||process.argv.slice(2).map(Number).includes(s.actorId))){
+ if(spec.initialFlipX||spec.initialFlipY||spec.transformChain.some(t=>Object.values(t.m_LocalPosition).some(v=>v!==0)||Object.values(t.m_LocalScale).some(v=>v!==1)||t.m_LocalRotation.x||t.m_LocalRotation.y||t.m_LocalRotation.z||t.m_LocalRotation.w!==1))throw Error('Unapplied prefab transform '+spec.actorId);
+ const dir='../alignment-v57-motion/regions',regions=JSON.parse(fs.readFileSync(dir+'/'+spec.map));
+ function region(p){return {u:0,v:0,u2:1,v2:1,width:100,height:100,originalWidth:100,originalHeight:100,offsetX:0,offsetY:0,rotate:false,degrees:0,texture:{},...regions[p]};}
+ const loader={newRegionAttachment:(s,n,p)=>{const a=new S.RegionAttachment(n);a.setRegion(region(p));return a;},newMeshAttachment:(s,n,p)=>{const a=new S.MeshAttachment(n);a.region=region(p);return a;},newBoundingBoxAttachment:(s,n)=>new S.BoundingBoxAttachment(n),newPathAttachment:(s,n)=>new S.PathAttachment(n),newPointAttachment:(s,n)=>new S.PointAttachment(n),newClippingAttachment:(s,n)=>new S.ClippingAttachment(n)};
+ const data=new S.SkeletonBinary(loader).readSkeletonData(new Uint8Array(fs.readFileSync('../alignment-v57-motion/text-assets/'+spec.mainFile)));
+ if(spec.dynamicFile){const B=spineRequire('@pixi-spine/base').BinaryInput;const raw=new Uint8Array(fs.readFileSync('../alignment-v57-motion/text-assets/'+spec.mainFile));const main=new B(raw);main.readString();main.readString();for(let k=0;k<4;k++)main.readFloat();const ne=main.readBoolean();if(ne){main.readFloat();main.readString();main.readString();}const strings=[];for(let k=0,n=main.readInt(true);k<n;k++)strings.push(main.readString());const file=spec.dynamicFile;const dynamic=new B(new Uint8Array(fs.readFileSync('../alignment-v57-motion/text-assets/'+file)),strings);const binary=new S.SkeletonBinary(loader);for(let k=0,n=dynamic.readInt(true);k<n;k++){const name=dynamic.readString();data.animations.push(binary.readAnimation(dynamic,name,data));}}
+ for(const sk of data.skins)for(const e of sk.getAttachments())if(e.attachment instanceof S.RegionAttachment)e.attachment.updateOffset();
+ let skin=data.defaultSkin||data.skins[0];
+ const skeleton=new S.Skeleton(data);skeleton.setSkin(skin);skeleton.setSlotsToSetupPose();
+ const images={};for(const e of skin.getAttachments()){const p=e.attachment.path;if(p&&regions[p]&&!images[p])images[p]=await loadImage(path.join(dir,regions[p].file));}
+ console.log(spec.id,data.animations.length);
+ if(!data.findAnimation('idle'))throw Error('Missing source idle '+spec.actorId);const chosen=[['idle','idle']];
+ function pose(name,time){skeleton.setToSetupPose();data.findAnimation(name).apply(skeleton,0,time,false,null,1,2,0);skeleton.updateWorldTransform();}
+ function verts(slot,a){const v=new Float32Array(a instanceof S.MeshAttachment?a.worldVerticesLength:8);if(a instanceof S.MeshAttachment)a.computeWorldVertices(slot,0,v.length,v,0,2);else if(a instanceof S.RegionAttachment)a.computeWorldVertices(slot.bone,v,0,2);else return null;return v;}
+ const absent=new Set(),width=320,height=420,frames=data.findAnimation('idle').duration>0?Math.min(512,Math.max(16,Math.ceil(data.findAnimation('idle').duration*24))):1,columns=Math.min(16,frames),rows=Math.ceil(frames/columns);
+ function bounds(name){let minX=Infinity,minY=Infinity,maxX=-Infinity,maxY=-Infinity;
+ for(let i=0;i<frames;i++){pose(name,data.findAnimation(name).duration*i/frames);for(const slot of skeleton.drawOrder){const a=slot.attachment;if(!a?.path||slot.color.a*(a.color?.a??1)<.001)continue;if(!images[a.path]){absent.add(a.path);continue;}const v=verts(slot,a);if(!v)continue;for(let q=0;q<v.length;q+=2){minX=Math.min(minX,v[q]);maxX=Math.max(maxX,v[q]);minY=Math.min(minY,v[q+1]);maxY=Math.max(maxY,v[q+1]);}}}
+ return {minX,minY,maxX,maxY};}
+ for(const [id,name] of chosen){
+ const {minX,minY,maxX,maxY}=bounds(name),factor=Math.min(300/(maxX-minX),390/(maxY-minY));
+ const duration=data.findAnimation(name).duration,draws=[],tx=160-(minX+maxX)/2*factor,ty=405+minY*factor;
+ if(skin.getAttachments().some(e=>e.attachment instanceof S.ClippingAttachment))throw Error('Clipping must be implemented for '+spec.actorId);
+ const file=spec.id+'-'+id+'-sheet.webp',sheetPath='../../outputs/laozu-web/assets/ancestor-motion-v57/'+file,singlePath='../../outputs/laozu-web/assets/ancestor-motion-v57/'+spec.id+'-full.png';
+ let cached=false;if(fs.existsSync(sheetPath)&&fs.existsSync(singlePath)){const old=await loadImage(sheetPath),single=await loadImage(singlePath);cached=old.width===width*columns&&old.height===height*rows&&single.width===width&&single.height===height;}
+ if(!cached){
+ const sheet=createCanvas(width*columns,height*rows),ctx=sheet.getContext('2d'),imageData=Object.fromEntries(Object.keys(images).map(p=>[p,'data:image/png;base64,'+fs.readFileSync(path.join(dir,regions[p].file)).toString('base64')]));
+ for(let row=0;row<rows;row++){
+  const batch=[];
+  for(let i=row*columns;i<Math.min(frames,(row+1)*columns);i++){
+   pose(name,duration*i/frames);const cx=i%columns*width;
+   for(const slot of skeleton.drawOrder){const a=slot.attachment,im=a&&images[a.path];if(!im)continue;const v=verts(slot,a);if(!v)continue;batch.push({image:a.path,vertices:Array.from(v,(p,k)=>k%2?ty-p*factor:tx+p*factor+cx),uv:Array.from(a instanceof S.MeshAttachment?a.regionUVs:[0,1,0,0,1,0,1,1]),triangles:Array.from(a instanceof S.MeshAttachment?a.triangles:[0,1,2,0,2,3]),color:['r','g','b','a'].map(k=>slot.color[k]*(a.color?.[k]??1)),blend:slot.data.blendMode});}
+  }
+  const page=await browser.newPage();let result;try{result=await page.evaluate(raster,{width:width*columns,height,images:imageData,draws:batch});}finally{await page.close();}
+  const im=await loadImage(Buffer.from(result.sheet,'base64'));ctx.drawImage(im,0,row*height);console.log(spec.id,'row',row+1,'/',rows);
+ }
+ fs.writeFileSync(sheetPath,sheet.toBuffer('image/webp',85));const single=createCanvas(width,height);single.getContext('2d').drawImage(sheet,0,0,width,height,0,0,width,height);fs.writeFileSync(singlePath,single.toBuffer('image/png'));
+ }
+
+ manifest.push({actorId:spec.actorId,creatureId:spec.creatureId,skeletonScale:spec.skeletonScale,canvasReferencePixelsPerUnit:100,contextScale:.85,frameWidth:width,frameHeight:height,columns,rows,availableAnimations:data.animations.map(a=>a.name),character:spec.id,animation:name,file,frames,duration,factor,tx,ty,bounds:{minX,minY,maxX,maxY},missingPaths:[...absent],renderer:'webgl-indexed-mesh',mainSha256:spec.mainSha256,prefab:spec.prefab,prefabBundle:spec.prefabBundle,origin:spec.origin,skeletonPath:spec.skeletonPath,mainSource:spec.mainSource,atlasSource:spec.atlasSource,skeletonDataRef:spec.skeletonDataRef});}
+
+ fs.writeFileSync('../alignment-v57-motion/render-progress.json',JSON.stringify(manifest,null,2));global.gc?.();
+ }
+ const filtered=process.argv.length>2;fs.writeFileSync('../alignment-v57-motion/'+(filtered?'manifest-selected.json':'manifest.json'),JSON.stringify(manifest,null,2));if(!filtered){if(manifest.length!==12)throw Error('Refusing incomplete pet motion publication');const exportData={actors:Object.fromEntries(manifest.map(m=>[m.actorId,{...m,file:'assets/ancestor-motion-v57/'+m.file}]))};fs.writeFileSync('../../outputs/laozu-web/ancestor-motion-data.js','window.ANCESTOR_MOTION_DATA='+JSON.stringify(exportData)+';\n');}
+ }finally{await browser.close();}
+})();
