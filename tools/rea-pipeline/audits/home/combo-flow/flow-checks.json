@@ -1,0 +1,21 @@
+{
+  "checks": [
+    "seed uses original suit window",
+    "seed secondary returns group context",
+    "seed cycles within group 1",
+    "seed cycles within group 2",
+    "seed cycles within group 3",
+    "seed upgrade retains group context",
+    "teacher uses original suit window",
+    "teacher secondary returns group context",
+    "teacher cycles within group 1",
+    "teacher cycles within group 2",
+    "teacher cycles within group 3",
+    "teacher upgrade retains group context",
+    "source all-members star threshold activates on actual upgrade",
+    "stale confirmation cannot pay again",
+    "transaction rechecks feature unlock",
+    "no browser exceptions"
+  ],
+  "errors": []
+}

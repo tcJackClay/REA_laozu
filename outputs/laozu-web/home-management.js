@@ -68,7 +68,7 @@ window.createHomeManagement=function(B){
   return `<button class="home-card quality-${x.iQuality} ${lv<0?'unowned':''}" data-home26="item:${x.iID}" aria-label="${esc(x.szName)}"><img src="${x.icon}" alt=""><span>${esc(x.szName)}</span><small>${levelText(lv)}</small>${cost?`<small>${M.balance(cost.id)}/${cost.n} 碎片</small>`:''}${can?'<i class="home-red-dot">!</i>':''}</button>`;
  }
  function renderPage(){if(page==='fairy'){Fairy.render(canvas);return;}if(page==='market'){Market.render(canvas);if(detail)renderDialog();return;}if(page==='clan'){Clan.render(canvas);return;}if(page==='sect-task'){renderSect();return;}
-  const teacher=page==='teacher',name=teacher?'uiteacher':'uiallseedling',root=layout(name,r=>{const p=r.path,leaf=p.split('/').at(-1);
+  const teacher=page==='teacher',name=combo?(teacher?'uiteachersuit':'uiseedlingsuit'):(teacher?'uiteacher':'uiallseedling'),root=layout(name,r=>{const p=r.path,leaf=p.split('/').at(-1);
    if(p.includes('/SortTypeList')||leaf==='Auto_Return'||leaf==='ListRoot'||/Awake|Resonance/.test(p))return {visible:false};
    if(leaf==='Auto_SortByOrder')return {action:'home26:reverse',label:'切换排序方向'};
    if(leaf==='Auto_SortOrderName')return {text:reverse?'倒序':'正序'};
@@ -77,7 +77,7 @@ window.createHomeManagement=function(B){
    if(leaf==='TitleDesBtn')return {action:'home26:help',label:'查看说明'};
    return {};
   });canvas.append(root);
-  const viewport=teacher?'/Auto_Teacher/Viewport':'/Auto_Seedling/Viewport';
+  const viewport=combo?'/Scroll View/Viewport':teacher?'/Auto_Teacher/Viewport':'/Auto_Seedling/Viewport';
   const rows=M.list(page).filter(x=>x.icon&&(!filter||x.iTechnique===filter)&&CollectionOwnership.elementOpen(B.state(),x.iTechnique)).sort((a,b)=>{const up=x=>M.level(page,x.iID)<(teacher?30:24)&&M.payment(page,x.iID).enough;const power=x=>{let n=0;for(let i=0;i<(x.arrPower?.length||0);i+=2)if(M.level(page,x.iID)>=x.arrPower[i])n=x.arrPower[i+1];return n;};const value=x=>({1:M.level(page,x.iID),2:+up(x),3:x.iQuality,4:-x.iTechnique,5:(M.level(page,x.iID)>=0?1e9:0)+power(x)})[sort];return (reverse?-1:1)*(Number(up(b))-Number(up(a))||value(b)-value(a)||a.iID-b.iID);});
   slot(root,viewport,`<div class="home-catalog">${combo?comboHTML():rows.map(x=>card(page,x)).join('')}</div>`);
   const selector=el(root,'/auto_ClassSelector');if(selector)selector.innerHTML=`<div class="home-filters">${['全部','金','木','水','火','土','雷','邪','体'].map((x,i)=>`<button data-home26="filter:${i}" aria-pressed="${i===filter}">${x}</button>`).join('')}</div>`;
@@ -85,7 +85,7 @@ window.createHomeManagement=function(B){
   if(!el(nav,'/auto_Back'))canvas.insertAdjacentHTML('beforeend',`<button class="home-page-back" data-home26="back"><img src="assets/btn_fanhui.png" alt="返回山门"></button>`);
   if(detail)renderDialog();
  }
- function comboHTML(){return CollectionBonuses.groups(B.state(),page).map(g=>`<section class="home-combo"><h3>${esc(g.name)}</h3><div>${g.ids.map(id=>{const x=row(id);return x?card(page,x):'';}).join('')}</div>${g.tiers.map(t=>`<p class="${t.active?'active':''}">${t.threshold===0?'集齐整组':`全组达到${t.threshold/6}星`}：${attr(t.id,t.value)} ${t.active?'已激活':'未激活'}</p>`).join('')}</section>`).join('');}
+ function comboHTML(){return CollectionBonuses.groups(B.state(),page).map(g=>`<section class="home-combo"><h3>${esc(g.name)}</h3><div>${g.ids.map(id=>{const x=row(id);return x?card(page,x).replace(`data-home26="item:${id}"`,`data-home26="combo-item:${id}:${g.id}"`):'';}).join('')}</div>${g.tiers.map(t=>`<p class="${t.active?'active':''}">${t.threshold===0?'集齐整组':`全组达到${t.threshold/6}星`}：${attr(t.id,t.value)} ${t.active?'已激活':'未激活'}</p>`).join('')}</section>`).join('');}
  function attr(id,v){const a=TEACHER_DATA.attributes.find(x=>x.iAtrributeID===id);return esc(a?.szAttrName||'属性 '+id)+' +'+([2001,2002,2003,2007].includes(id)?v:v/100+'%');}
  function itemBody(){const x=row(detail.id),lv=M.level(page,x.iID),next=lv+1,pay=M.payment(page,x.iID),teacher=page==='teacher',attributes=[x.arrSecondAttribute1,x.arrSecondAttribute2,x.arrSecondAttribute3].filter(a=>a?.length>1);
   const skill=!teacher?Cultivation.skill(x.iID,Math.max(0,lv)):null;
@@ -252,14 +252,15 @@ window.createHomeManagement=function(B){
  const rewardHTML=id=>`<div class="home-rewards">${M.rewards(id).map(x=>`<span>${esc(M.good(x.id).szName)} ×${x.n}</span>`).join('')}</div>`;
  function renderSect(){const tasks=M.sectTasks(),root=layout('uisectv2',r=>{const p=r.path,leaf=p.split('/').at(-1);if(p.includes('/Auto_AncestorRoot')||leaf==='Auto_Ancestor'||leaf==='Auto_Preview'||leaf==='Auto_HighPropRoot'||leaf==='Auto_Prop'||leaf==='Auto_Detail')return {visible:false};if(leaf==='Auto_Close')return {action:'home26:back',label:'返回山门'};if(leaf==='Auto_CurLevelTxt')return {text:'老祖 '+B.state().sect+'级'};if(leaf==='Auto_NextLevelTxt')return {text:'老祖 '+(B.state().sect+1)+'级'};if(leaf==='Auto_LevelDes')return {text:D.SectV2.find(x=>x.iLevel===B.state().sect+1)?.szDesc.replace(/<[^>]*>/g,'')||'已满级'};if(leaf==='Auto_LevelUpButton')return {action:'home26:level-up',label:'老祖升级'};if(p.includes('/auto_TopResBar/'))return node(r)||{};return {};});canvas.append(root);slot(root,'/Auto_Tasks',`<div class="home-task-list">${tasks.map(t=>`<section><p>${esc(t.szDesc)}（${t.progress}/${t.iComdition}）</p>${rewardHTML(t.iPrize)}${btn('claim-sect:'+t.iID,t.claimed?'已领取':t.progress>=t.iComdition?'领取':'前往',t.claimed)}</section>`).join('')}</div>`);if(detail)renderDialog();}
  function jump(id){const j=D.FunctionJump.find(x=>x.iID===id);if(j?.szParam1==='UIDiscipleBirth'){page=null;detail=null;B.switchTab('wander');return;}if(j?.szParam1==='UISectV2'){open('sect-task');return;}if(j?.szParam1==='UISeedligNavs'){open('seed');return;}if(j?.szParam1==='UITeacherNavs'){open('teacher');return;}B.toast('该任务目标页面尚未接入，进度与奖励保持不变');}
- function action(a){const [key,value]=a.split(':'),id=+value;try{
+ function action(a){const [key,value,context]=a.split(':'),id=+value;try{
   if(key==='recharge'&&!M.gate(13))return B.toast(M.lockText(13));
   if(['seed','teacher','sect-task','clan','market','fairy'].includes(key))return open(key);
   if(key==='back'){page=null;detail=null;return redraw();}
   if(key==='close'){if(detail?.type==='item'&&(detail.skins||detail.fullbody)){detail.skins=false;detail.fullbody=false;delete detail.skin;return redraw();}detail=detail?.parent||(['universal','skill','story','recipe','strategy'].includes(detail?.type)?{type:'item',id:detail.id}:null);return redraw();}
   if(key==='item')detail={type:'item',id};
-  else if(key==='neighbor'){const rows=M.list(page).filter(x=>x.icon&&(!filter||x.iTechnique===filter)&&CollectionOwnership.elementOpen(B.state(),x.iTechnique)),i=rows.findIndex(x=>x.iID===detail.id);detail={type:'item',id:rows[(i+id+rows.length)%rows.length].iID};}
-  else if(['story','recipe','skill','strategy'].includes(key)){detail={type:key,id:detail.id};}
+  else if(key==='combo-item'){const g=CollectionBonuses.groups(B.state(),page).find(g=>g.id===+context);if(!g?.ids.includes(id))return;detail={type:'item',id,memberIds:g.ids};}
+  else if(key==='neighbor'){const rows=detail.memberIds?detail.memberIds.map(row).filter(Boolean):M.list(page).filter(x=>x.icon&&(!filter||x.iTechnique===filter)&&CollectionOwnership.elementOpen(B.state(),x.iTechnique)),i=rows.findIndex(x=>x.iID===detail.id);if(!rows.length)return;detail={type:'item',id:rows[(i+id+rows.length)%rows.length].iID,memberIds:detail.memberIds};}
+  else if(['story','recipe','skill','strategy'].includes(key)){detail={type:key,id:detail.id,parent:{...detail}};}
   else if(key==='skins'){detail.skins=true;detail.skin=B.state().teacherSkins?.[detail.id]||row(detail.id).iDefaultSkin;}
   else if(key==='skins-close'){detail.skins=false;detail.fullbody=false;delete detail.skin;}
   else if(key==='skin-neighbor'){const rows=HOME_DETAIL_DATA.TeacherSkin.filter(t=>t.iTeacherID===detail.id),i=rows.findIndex(t=>t.iID===detail.skin);detail.skin=rows[Math.max(0,Math.min(rows.length-1,i+id))].iID;}
@@ -277,7 +278,7 @@ window.createHomeManagement=function(B){
   else if(key==='expand')expanded=!expanded;
   else if(key==='fold-left')leftFold=!leftFold;
   else if(key==='fold-right')rightFold=!rightFold;
-  else if(key==='upgrade'||key==='upgrade-confirm'){const p=M.payment(page,detail.id);if(key==='upgrade'&&p.universal){detail={type:'universal',id:detail.id};}else {M.upgrade(page,detail.id,key==='upgrade-confirm');detail={type:'item',id:detail.id};B.toast('养成成功，携带属性已更新');}}
+  else if(key==='upgrade'||key==='upgrade-confirm'){const p=M.payment(page,detail.id);if(key==='upgrade'&&p.universal){detail={type:'universal',id:detail.id,parent:{...detail},expectedLevel:M.level(page,detail.id)};}else {M.upgrade(page,detail.id,key==='upgrade-confirm',detail.expectedLevel);detail=detail.parent||{...detail,type:'item'};B.toast('养成成功，携带属性已更新');}}
   else if(key==='obtain'){const pool=page==='teacher'?12002:11002,previousPage=page,previousDetail={...detail};page=null;detail=null;B.openWish(pool,()=>{page=previousPage;detail=previousDetail;redraw();});return;}
   else if(key==='rename-save'){M.rename(document.getElementById('home-name').value);detail=null;}
   else if(key==='avatar-set'){const x=D.PlayerAvatar.find(x=>x.iID===id);if(!x||!M.avatarUnlocked(x))throw Error('头像尚未解锁');M.data().avatar=id;B.save();}
