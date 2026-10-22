@@ -1,0 +1,1 @@
+window.MONTH_CARD_HINTS={"reddot":{"iID":370,"szName":"月卡/永久卡","arrChildren":[],"enShowLimit":1,"iPriority":0,"arrStyleParams":[0,7,0,0],"bUseSubID":1,"enFinishMode":0,"szFinishParams":"","iFunctionID":0,"arrSubFunctionID":[]}};
