@@ -1,0 +1,3 @@
+.source-message-content{font:46px/1.2 KaiTi,serif;color:#674d2f;text-align:center;white-space:normal;overflow-wrap:anywhere}
+.source-message-box [data-source-path$="/kuangti"]{pointer-events:auto}
+.source-message-box [role="checkbox"]:focus-visible{outline:3px solid #674d2f;outline-offset:5px}

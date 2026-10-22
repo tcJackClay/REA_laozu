@@ -1,0 +1,21 @@
+{
+  "checks": [
+    "source30-node prefab with underlying seed retained",
+    "original title and upgrade message",
+    "open prompt does not consume",
+    "single click saves disabled preference once",
+    "original checkmark active and accessible state",
+    "cancel keeps saved preference but no spend",
+    "preference survives reload",
+    "background cancel restores same detail",
+    "ESC cancels only confirm",
+    "confirmed action consumes once and returns same detail",
+    "awake original default title and parent retained",
+    "awake names actual second material",
+    "awake preference independent",
+    "source buttons remain in narrow viewport",
+    "awake actual transaction and success popup",
+    "no script or resource failures"
+  ],
+  "errors": []
+}

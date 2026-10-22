@@ -14,7 +14,7 @@ const out='work/rea-pipeline/verification/detail-native-rows';fs.mkdirSync(out,{
  await page.screenshot({path:out+'/seed-detail.png'});
  const before=await state();await act('upgrade');ck('universal material confirmation opens',(await runtime()).dialog.type==='universal');ck('opening confirmation does not consume',JSON.stringify(await state())===JSON.stringify(before));
  await act('close');ck('cancel returns selected seed',(await runtime()).dialog.id===fixture.seed.iID&&(await runtime()).dialog.type==='item');ck('cancel leaves materials unchanged',JSON.stringify(await state())===JSON.stringify(before));
- await act('upgrade');await page.locator('[data-home26="universal-disable-confirm"]').check();await act('upgrade-confirm');let s=await state();ck('confirmed upgrade consumes exact universal deficit',s.seedStars[fixture.seed.iID]===1&&s.goods[fixture.seed.iOmniShard]===10000-fixture.seed.arrCost1[2]);
+ await act('upgrade');await page.locator('[data-home26="universal-disable-confirm"]').click();await act('upgrade-confirm');let s=await state();ck('confirmed upgrade consumes exact universal deficit',s.seedStars[fixture.seed.iID]===1&&s.goods[fixture.seed.iOmniShard]===10000-fixture.seed.arrCost1[2]);
  await act('close');await act('back');await act('teacher');await act('item:'+fixture.teacher.iID);
  ck('five original teacher star cards',await page.locator('.home-source-star-card').count()===5);ck('locked source star badges visible',await page.locator('.home-source-star-card [data-source-path$="/xauto_locker"]:visible').count()===5);
  await act('upgrade');ck('disable-tip setting shared with teacher', (await runtime()).dialog.type==='item'&&(await state()).teacherStars[fixture.teacher.iID]===1);
