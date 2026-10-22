@@ -1,0 +1,28 @@
+{
+  "checks": [
+    "original general gate318 opens day18 and ancestor7",
+    "zero-star owned teacher can awaken",
+    "preferred material consumes20 then10 universal",
+    "unconfirmed universal leaves state untouched",
+    "source total cost deducted once",
+    "stale confirmation cannot debit again",
+    "one awakened teacher contributes current config exp10",
+    "level2 replaces exp with20 not sum30",
+    "level4 gate320 blocks before day46",
+    "max awakened teacher cannot consume again",
+    "max teacher contributes only current iExp",
+    "manual resonance grants original basic multiplier",
+    "stale resonance submit cannot repeat upgrade",
+    "teacher upgrade alone does not enhance unevolved artifact",
+    "source carried teacher and material form swallow pair",
+    "swallow start locks pending transaction",
+    "swallow consumes material and marks artifact",
+    "awakened artifact actual attack20percent boost",
+    "source first-star reward configuration is resolved",
+    "reward increases actual material balance",
+    "reward cannot be replayed",
+    "missing teacher ownership blocks transaction",
+    "same-shape aura does not buff same-element wrong form",
+    "same-shape aura buffs correct form across elements"
+  ]
+}

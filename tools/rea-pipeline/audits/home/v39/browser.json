@@ -1,0 +1,30 @@
+{
+  "checks": [
+    "original awakening window renders",
+    "material detail preserves awakening scene behind dialog",
+    "material returns same awakening window",
+    "unopened stage hides description and shows day46 gate",
+    "universal material requires confirmation",
+    "disable reminder preference is saved",
+    "cancel has no awakening or deduction",
+    "source ordered debit and level persisted",
+    "success shows actual new level1",
+    "success only shows unlocked effect",
+    "success returns awakening",
+    "original star rewards window renders",
+    "star reward actually grants awakening shards",
+    "claimed reward is disabled",
+    "awakening closes to same teacher detail",
+    "original resonance window renders",
+    "manual resonance persists level1",
+    "resonance increases production combat calculator attack",
+    "resonance attributes are in visible table",
+    "source resonance preview renders",
+    "third resonance preview includes cumulative attack defense and hp",
+    "quality exp explanation uses original config table",
+    "resonance returns teacher list",
+    "refresh preserves account awakening and resonance",
+    "no runtime or asset errors"
+  ],
+  "errors": []
+}
