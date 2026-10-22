@@ -238,8 +238,29 @@ window.createHomeManagement=function(B){
   }else{
    sourceDetailRows(root,name,x,lv,max,false);
    slot(root,'/Auto_Skill/skillDes',`<div class="home-source-skill-description">${rich(skill?.szDesc||'')}</div>`);
-   slot(root,'/Auto_LevelUp',`<div class="home-native-effects">${[1,2,3,4].map(n=>`<p class="${lv>=n*6?'active':''}"><b>${n}★</b> ${rich(x['szStar'+n+'Des'])}</p>`).join('')}</div>`);
+   sourceSeedTiers(root,name,x,lv);
   }
+ }
+ // Keep native sprites/spacing; browser text measurement supplies preferred height.
+ function sourceSeedTiers(root,name,x,lv){
+  const source=L.layouts[name],prefix='/Auto_LevelUp/ListItem',find=suffix=>source.nodes.find(n=>n.path.endsWith(prefix+suffix));
+  const meta=find('').components.find(c=>c.fields?.Size),group=find('').components.find(c=>c.m_Padding),pad=group.m_Padding;
+  const textNode=find('/xauto_upDes'),textConfig=textNode.components.find(c=>'m_text' in c),colors=textNode.components.find(c=>c.fields?.colors).fields.colors;
+  const starNode=find('/Star/xauto_Star'),sw=starNode.components.find(c=>c.fields?.SpriteList).fields;
+  const holder=slot(root,'/Auto_LevelUp','<div class="home-source-seed-tiers"></div>').firstElementChild,owner=detail;
+  holder.addEventListener('scroll',()=>{owner.seedTierScroll=holder.scrollTop;});
+  for(let index=0;index<4;index++){const active=index<Math.floor(Math.max(0,lv)/6),spriteIndex=index*2+(active?1:0),sprite=L.sprites[sw.SpriteList[spriteIndex].m_PathID],text=x['szStar'+(index+1)+'Des']||'',color=colors[active?0:1];
+   const description=document.createElement('div');description.className='home-source-seed-tier-description';description.innerHTML=rich(text);description.style.fontSize=textConfig.m_fontSize+'px';description.style.color=`rgba(${Math.round(color.r*255)},${Math.round(color.g*255)},${Math.round(color.b*255)},${color.a})`;
+   const probe=description.cloneNode(true);Object.assign(probe.style,{position:'fixed',left:'-10000px',top:'0',width:'600px',visibility:'hidden',fontFamily:getComputedStyle(root).fontFamily});document.body.append(probe);const textHeight=Math.ceil(probe.getBoundingClientRect().height);probe.remove();
+   const h=Math.max(meta.fields.Size.y,Math.max(sprite.size[1],textHeight)+pad.m_Top+pad.m_Bottom),inner=h-pad.m_Top-pad.m_Bottom;
+   const row=sourceSubtree(name,prefix,meta.fields.Size.x,h,n=>{const leaf=n.path.split('/').at(-1);
+    if(leaf==='Star')return {rect:{m_SizeDelta:{x:200,y:inner}}};
+    if(leaf==='xauto_Star')return {image:sprite.file,rect:{m_SizeDelta:{x:sprite.size[0],y:sprite.size[1]}}};
+    if(leaf==='xauto_upDes')return {text:'',rect:{m_SizeDelta:{x:600,y:textHeight}}};
+    if(leaf==='xauto_Slider')return {visible:index<3};return {};
+   });row.classList.add('home-source-seed-tier');row.dataset.sourceTier=index+1;row.dataset.active=String(active);row.dataset.sourceSpriteIndex=spriteIndex;slot(row,'/xauto_upDes','').append(description);holder.append(row);
+  }
+  holder.scrollTop=owner.seedTierScroll||0;
  }
  function sourceMaterials(root,name,x,lv,max){
   const holder=slot(root,'/Auto_UpgradeList','<div class="home-source-materials"></div>').firstElementChild;

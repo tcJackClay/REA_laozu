@@ -40,3 +40,8 @@
 .home-source-skill-description{height:100%;overflow:auto;font-size:33px;line-height:1.3;color:#9c7445}
 .home-skill-level-tip .home-skill-scroll{padding:10px 20px;box-sizing:border-box}.home-skill-level-tip article{margin-bottom:24px}.home-skill-level-tip h3{font-size:45px;font-weight:400;color:#a69336;margin:0 0 8px}
 .home-source-materials{height:100%;display:flex;align-items:center;gap:33px}.home-source-materials>.unity-prefab{position:relative;inset:auto;flex:0 0 112px}.home-source-material .unity-text{white-space:nowrap}
+
+/* Flex_LevelUpItem: source stars, colors and separator with measured web text. */
+.home-source-seed-tiers{height:100%;overflow:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:15px;padding-bottom:22px;box-sizing:border-box;pointer-events:auto}
+.home-source-seed-tiers>.unity-prefab{position:relative;inset:auto;flex:none}
+.home-source-seed-tier-description{font-size:33px;line-height:1.3;white-space:pre-wrap;overflow-wrap:break-word}
