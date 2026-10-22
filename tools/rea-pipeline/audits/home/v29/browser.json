@@ -1,0 +1,25 @@
+{
+  "checks": [
+    "fresh account blocked by original function four",
+    "two journeys open source clan prefab",
+    "virtualized source nodes are bounded",
+    "future node cannot activate",
+    "first activation deducts mineral and saves separately",
+    "one click stops at insufficient resource",
+    "repeat click cannot overspend",
+    "overview has visible usable dimensions",
+    "overview shows cumulative actual attributes",
+    "Escape closes overview before leaving clan",
+    "return restores home",
+    "reload preserves level and cost",
+    "attribute-point node increases spendable admission budget",
+    "clan flat stats enter production battle once",
+    "real enemy loses more hp with blessing",
+    "graduated no-clan baseline replays new blessings once",
+    "production graduation archives no-clan stats",
+    "post-graduation upgrade adds attack once",
+    "reload does not double archived bonus",
+    "no browser errors"
+  ],
+  "errors": []
+}

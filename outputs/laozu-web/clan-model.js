@@ -1,0 +1,15 @@
+/* cfg_Sect progression, separate from the ancestor's SectV2 level.
+ * Batch iteration is an offline reconstruction of request flag 1. */
+window.ClanProgress=(()=>{
+ const rows=window.CLAN_DATA.Sect,byID=new Map(rows.map(r=>[r.iID,r]));
+ const level=s=>Math.max(0,Math.min(rows.at(-1).iID,Math.floor(s.clan?.level||0)));
+ function totals(s){const attributes={};let extraPower=0,quality=null;for(const r of rows){if(r.iID>level(s))break;if(r.arrDiscipleEnhance.length===2){const [id,n]=r.arrDiscipleEnhance;attributes[id]=(attributes[id]||0)+n;}if(!r.arrDiscipleEnhance.length)quality=r.arrDiscipleQualityProb.length===5?[...r.arrDiscipleQualityProb]:null;extraPower+=r.iPower;}return {attributes,extraPower,quality};}
+ const balance=(s,id)=>id===1?s.gold||0:(id===2?s.crystal||0:0)+(s.goods?.[id]||0)+(s.portalV8?.wallet?.[id]||0);
+ function spend(s,id,n){if(id===1){s.gold-=n;return;}if(id===2){const a=Math.min(s.crystal||0,n);s.crystal=(s.crystal||0)-a;n-=a;}for(const bag of [s.goods,s.portalV8?.wallet])if(bag){const a=Math.min(bag[id]||0,n);bag[id]=(bag[id]||0)-a;n-=a;}}
+ function power(s,n,powerOf=d=>window.DiscipleAdvanced?DiscipleAdvanced.power(s,d):d.sourcePower||d.journey?.stats?.power||0){return (s.disciples||[]).filter(d=>d.isWanderFinish!==false).map(powerOf).sort((a,b)=>b-a).slice(0,n).reduce((a,b)=>a+b,0);}
+ function check(s,id=level(s)+1,powerOf){const row=byID.get(id);if(!row)return {ok:false,reason:'已全部激活',costs:[]};const costs=[];for(let i=0;i<row.arrCost.length;i+=2)costs.push({id:row.arrCost[i],n:row.arrCost[i+1],have:balance(s,row.arrCost[i])});const [n,need]=row.arrPointPowerNeed.length>=2?row.arrPointPowerNeed:[0,0],have=power(s,n,powerOf);const reason=id<=level(s)?'已激活':id!==level(s)+1?'请先激活前置节点':have<need?'弟子战力未达标':costs.some(c=>c.have<c.n)?'资源不足':'';return {ok:!reason,reason,row,costs,power:{count:n,need,have}};}
+ function activate(s,{id=level(s)+1,batch=false,powerOf}={}){const first=check(s,id,powerOf);if(!first.ok)throw Error(first.reason);const applied=[],spent={};do{const c=check(s,level(s)+1,powerOf);if(!c.ok)break;for(const cost of c.costs){spend(s,cost.id,cost.n);spent[cost.id]=(spent[cost.id]||0)+cost.n;}s.clan??={version:1,level:0};s.clan.level=c.row.iID;applied.push(c.row.iID);}while(batch&&applied.length<rows.length);s.homeV26??={};s.homeV26.blessingUpgrades=(s.homeV26.blessingUpgrades||0)+applied.length;return {applied,spent,level:level(s),totals:totals(s)};}
+ let x=0,y=200;const positions=rows.map(row=>{x+=row.arrPos[0]??50;y+=row.arrPos[1]??50;return {id:row.iID,x,y,pointLevel:row.iPointLevel};});
+ function adjust(s,base,before={}){const a=totals(s).attributes,out={...base};for(const [key,id] of [['atk',2001],['def',2002],['hp',2003]]){const raw=(out[key]||0)/(1+(before[id+3]||0)/10000)-(before[id]||0);out[key]=Math.max(key==='def'?0:1,Math.round((raw+(a[id]||0))*(1+(a[id+3]||0)/10000)));}out.power=out.atk*12+out.def*8+Math.round(out.hp/4);return out;}
+ return {rows,level,totals,balance,power,check,activate,positions,adjust,height:y+400};
+})();

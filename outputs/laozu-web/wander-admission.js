@@ -103,7 +103,7 @@ window.createWanderAdmission=function(B){
  }
  function reveal(){const a=current();if(a.phase!=='drawing')return;
   a.phase='birth';a.elapsed=2;a.points=[0,0,0,0];
-  a.profile=a.rebirthProfile?{...a.rebirthProfile,pointTotal:20}:{...window.Cultivation.randomProfile(),level:1,element:4,talent:'玄火灵体',quality:'优',localID:'local-wander-'+Date.now()+'-'+a.draws,pointTotal:20,birthBase:[...BASE],appearance:'wanzitou-chen-hei',isWanderFinish:false};
+  a.profile=a.rebirthProfile?{...a.rebirthProfile,pointTotal:20+(window.ClanProgress?.totals(B.state()).attributes[1007]||0)}:{...window.Cultivation.randomProfile(),level:1,element:4,talent:'玄火灵体',quality:'优',localID:'local-wander-'+Date.now()+'-'+a.draws,pointTotal:20+(window.ClanProgress?.totals(B.state()).attributes[1007]||0),birthBase:[...BASE],appearance:'wanzitou-chen-hei',isWanderFinish:false};
   if(B.state().run?.phase==='prepare')B.state().run=null;
   B.begin(a.profile);const r=B.state().run;r.config.birthGains=[...GAINS];r.config.birthBase=[...BASE];save();draw();
  }
