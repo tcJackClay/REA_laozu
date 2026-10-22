@@ -1,0 +1,902 @@
+{
+  "sources": [
+    {
+      "id": "teacher-122101",
+      "file": "496_dapeng_skel_main",
+      "map": "122101.json",
+      "bundle": "assets/data/3fub5vk.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/dapeng/dapeng_skel_main.bytes",
+      "skinIds": [
+        2210101
+      ],
+      "sha256": "34148f87f818d3bb99d19cc50290dfdac398bda32d02c9a77587d36350bb7452"
+    },
+    {
+      "id": "teacher-122102",
+      "file": "2293_kangjinlong_skel_main",
+      "map": "122102.json",
+      "bundle": "assets/data/3tc2g5r.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/kangjinlong/kangjinlong_skel_main.bytes",
+      "skinIds": [
+        2210201
+      ],
+      "sha256": "bd517e9d23a2798248fb97d752a84c611ff3e9990d6225e4615a4885b4e93d69"
+    },
+    {
+      "id": "teacher-122201",
+      "file": "1285_muzha_skel_main",
+      "map": "122201.json",
+      "bundle": "assets/data/36cmctc.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/muzha/muzha_skel_main.bytes",
+      "skinIds": [
+        2220101
+      ],
+      "sha256": "583edaf13b454e4bbe495874f17e39c426ca893280f4c7ad890052756c6571cb"
+    },
+    {
+      "id": "teacher-122202",
+      "file": "1714_hanxiangzi_skel_main",
+      "map": "122202.json",
+      "bundle": "assets/data/13138as.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/hanxiangzi/hanxiangzi_skel_main.bytes",
+      "skinIds": [
+        2220201
+      ],
+      "sha256": "7453077c762f03dc785dc9dbcee44f505cfbbac6e8035cc3b940b27301230736"
+    },
+    {
+      "id": "teacher-122301",
+      "file": "2791_ditin_skel_main",
+      "map": "122301.json",
+      "bundle": "assets/data/2nre7j3.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/ditin/ditin_skel_main.bytes",
+      "skinIds": [
+        2230101
+      ],
+      "sha256": "7fe0056b0af13451676580bd32615beac6c75a7b12c6c3895e49168978f552d6"
+    },
+    {
+      "id": "teacher-122302",
+      "file": "2091_bingyi_skel_main",
+      "map": "122302.json",
+      "bundle": "assets/data/2x2k6vf.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/bingyi/bingyi_skel_main.bytes",
+      "skinIds": [
+        2230201
+      ],
+      "sha256": "cc847645b6d0cda7ed5a742be6d6fbd59ef1a71958de70e78ace764206a0f480"
+    },
+    {
+      "id": "teacher-122401",
+      "file": "873_chiyanju_skel_main",
+      "map": "122401.json",
+      "bundle": "assets/data/39r7hgi.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/chiyanju/chiyanju_skel_main.bytes",
+      "skinIds": [
+        2240101
+      ],
+      "sha256": "da85aff40154f58c97f8b01948a4c76a1f7802db74f340dcb31be7ff9fca99af"
+    },
+    {
+      "id": "teacher-122402",
+      "file": "706_tianzhao_skel_main",
+      "map": "122402.json",
+      "bundle": "assets/data/3q7gea1.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/tianzhao/tianzhao_skel_main.bytes",
+      "skinIds": [
+        2240201
+      ],
+      "sha256": "c8de5f49c884c9a53ccadf829ec7ccd35c22c80c75e9c2c99346f19f287d1616"
+    },
+    {
+      "id": "teacher-122501",
+      "file": "2752_julingshen_skel_main",
+      "map": "122501.json",
+      "bundle": "assets/data/2j073jp.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/xinjuling/julingshen_skel_main.bytes",
+      "skinIds": [
+        2250101
+      ],
+      "sha256": "dabcd41b28002bdb8b583c10227f3404b2e796f2fb3f74d3407faa88991aa23b"
+    },
+    {
+      "id": "teacher-122502",
+      "file": "236_shigandang_skel_main",
+      "map": "122502.json",
+      "bundle": "assets/data/3rtju79.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/shigandang/shigandang_skel_main.bytes",
+      "skinIds": [
+        2250201
+      ],
+      "sha256": "ccabacbd1dfeddbdfa535b22214593057dbd69d5e5aff00492fed33ce39337c3"
+    },
+    {
+      "id": "teacher-122601",
+      "file": "861_zhousi_skel_main",
+      "map": "122601.json",
+      "bundle": "assets/data/1qmum0x.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/zhousi/zhousi_skel_main.bytes",
+      "skinIds": [
+        2260101
+      ],
+      "sha256": "d097366a409066714b4a9fc9fae326f6d1082c43687dcdc6f0ae4271f503d486"
+    },
+    {
+      "id": "teacher-122602",
+      "file": "495_miaoyintian_skel_main",
+      "map": "122602.json",
+      "bundle": "assets/data/s1h5j1.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/miaoyintian/miaoyintian_skel_main.bytes",
+      "skinIds": [
+        2260201
+      ],
+      "sha256": "113e596ebbea156cfe4482a27d5284334d41cf5fa1841ff07a7bae50a27ca1d3"
+    },
+    {
+      "id": "teacher-122701",
+      "file": "445_luocha_skel_main",
+      "map": "122701.json",
+      "bundle": "assets/data/gsdm59.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/luocha/luocha_skel_main.bytes",
+      "skinIds": [
+        2270101
+      ],
+      "sha256": "ca395bf18c841c9174a9b1421a6d138a516de4c536dc6f458d4957586d930151"
+    },
+    {
+      "id": "teacher-122702",
+      "file": "1805_taoyao_skel_main",
+      "map": "122702.json",
+      "bundle": "assets/data/1be394q.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/taoyao/taoyao_skel_main.bytes",
+      "skinIds": [
+        2270201
+      ],
+      "sha256": "4890e74c510f07e08359670c0d7d87205bb37413004049dc1dd5fcb53b210e1b"
+    },
+    {
+      "id": "teacher-122801",
+      "file": "71_hajiang_skel_main",
+      "map": "122801.json",
+      "bundle": "assets/data/3n9bvdx.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/hajiang/hajiang_skel_main.bytes",
+      "skinIds": [
+        2280101
+      ],
+      "sha256": "40f40be0032ae7cf0028e6b9a9601f218f5a4951a009dbf8a81f3f6546bcd513"
+    },
+    {
+      "id": "teacher-122802",
+      "file": "2603_hengjiang_skel_main",
+      "map": "122802.json",
+      "bundle": "assets/data/qnjspi.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/hengjiang/hengjiang_skel_main.bytes",
+      "skinIds": [
+        2280201
+      ],
+      "sha256": "37ba5391eb39e6deee8630e6faa1740ebd001bdd12e6ddc830b3c91c264bc806"
+    },
+    {
+      "id": "teacher-123101",
+      "file": "1032_saite_skel_main",
+      "map": "123101.json",
+      "bundle": "assets/data/1f456eb.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/saite/saite_skel_main.bytes",
+      "skinIds": [
+        2310101
+      ],
+      "sha256": "4a170b8954758caf4cbfd36fb124ccd52cfe6c2c19d5ea4b512193c856a26609"
+    },
+    {
+      "id": "teacher-123102",
+      "file": "2249_jingke_skel_main",
+      "map": "123102.json",
+      "bundle": "assets/data/2yg6rd.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/jingke/jingke_skel_main.bytes",
+      "skinIds": [
+        2310201
+      ],
+      "sha256": "c7856b67a77c14108cb91eacd95afc05cbdd63fa0c7b8fc705b892bd0d2ff6b8"
+    },
+    {
+      "id": "teacher-123103",
+      "file": "1887_huamulan_skel_main",
+      "map": "123103.json",
+      "bundle": "assets/data/1i3pjd2.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/huamulan/huamulan_skel_main.bytes",
+      "skinIds": [
+        2310301
+      ],
+      "sha256": "ebeeaedfbf81f0173766e83f5b00ced8c937212312dd14ffe3198dced3c2efb2"
+    },
+    {
+      "id": "teacher-123104",
+      "file": "2273_doumuyuanjun_skel_main",
+      "map": "123104.json",
+      "bundle": "assets/data/70crin.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/doumuyuanjun/doumuyuanjun_skel_main.bytes",
+      "skinIds": [
+        2310401
+      ],
+      "sha256": "ffdcea0f22b6762eba9c8ae1ac0b9a02f839dc23ef5c6f9537983722d1ac0043"
+    },
+    {
+      "id": "teacher-123201",
+      "file": "1870_xingtian_skel_main",
+      "map": "123201.json",
+      "bundle": "assets/data/3bsp6vj.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/xingtian/xingtian_skel_main.bytes",
+      "skinIds": [
+        2320101
+      ],
+      "sha256": "56636fde61603dbd72e239012be132bef13c15af0d35ffa4f82b0c5388a32941"
+    },
+    {
+      "id": "teacher-123202",
+      "file": "1855_qiselu_skel_main",
+      "map": "123202.json",
+      "bundle": "assets/data/2gxg2fc.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/qiselu/qiselu_skel_main.bytes",
+      "skinIds": [
+        2320201
+      ],
+      "sha256": "6dc78a56fcb959c2c9cd2cd29f12dd2cb793c52423fb4d0172741cd469bf307a"
+    },
+    {
+      "id": "teacher-123204",
+      "file": "1431_ruomu_skel_main",
+      "map": "123204.json",
+      "bundle": "assets/data/318pqp3.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/ruomu/ruomu_skel_main.bytes",
+      "skinIds": [
+        2320401,
+        2320501
+      ],
+      "sha256": "55dd379e43d57ff902f53f7ae7215d11f515c6635fbbfa36a7e1860f398e6176"
+    },
+    {
+      "id": "teacher-123301",
+      "file": "947_luoshen_skel_main",
+      "map": "123301.json",
+      "bundle": "assets/data/sdua4j.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/luoshen/luoshen_skel_main.bytes",
+      "skinIds": [
+        2330101
+      ],
+      "sha256": "d24f74ff3b258537833a164e10c34565008c0f4f3ae55ca54665998a705a8689"
+    },
+    {
+      "id": "teacher-123302",
+      "file": "1643_jiutianxuannv_skel_main",
+      "map": "123302.json",
+      "bundle": "assets/data/375f2vd.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/jiutianxuannv/jiutianxuannv_skel_main.bytes",
+      "skinIds": [
+        2330201
+      ],
+      "sha256": "55632ba02c9e29c334f7b260a895bde72f5a0ce1c4a0274966b18209a83e9b16"
+    },
+    {
+      "id": "teacher-123303",
+      "file": "2009_longnv_skel_main",
+      "map": "123303.json",
+      "bundle": "assets/data/v9y6br.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/longnv/longnv_skel_main.bytes",
+      "skinIds": [
+        2330301
+      ],
+      "sha256": "d9c315485c6453f56295b5c473847586bfb3e389f6f4c7e92129c847543ab297"
+    },
+    {
+      "id": "teacher-123304",
+      "file": "2447_kun_skel_main",
+      "map": "123304.json",
+      "bundle": "assets/data/17a3i8j.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/kun/kun_skel_main.bytes",
+      "skinIds": [
+        2330401
+      ],
+      "sha256": "03b4c3552aef48149501153f13b95fbadba024f671ddc3f395c32d22cddf2ea6"
+    },
+    {
+      "id": "teacher-123305",
+      "file": "990_kun_jian_skel_main",
+      "map": "123305.json",
+      "bundle": "assets/data/6tma8y.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/kun_jian/kun_jian_skel_main.bytes",
+      "skinIds": [
+        2330501
+      ],
+      "sha256": "0e21ffba546f71484865c52024df285830767522c928a3fd72388673042a9a23"
+    },
+    {
+      "id": "teacher-123401",
+      "file": "1315_suirenshi_skel_main",
+      "map": "123401.json",
+      "bundle": "assets/data/1bu0ssn.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/suirenshi/suirenshi_skel_main.bytes",
+      "skinIds": [
+        2340101
+      ],
+      "sha256": "22d64a74644260a9eeeb8abf31a815fa599d29957f4e6b0ad726c1b7310f4da3"
+    },
+    {
+      "id": "teacher-123402",
+      "file": "1457_riyouxian_skel_main",
+      "map": "123402.json",
+      "bundle": "assets/data/26kngdh.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/riyouxian/riyouxian_skel_main.bytes",
+      "skinIds": [
+        2340201
+      ],
+      "sha256": "a67fe39814dae4450e5a9565afc513f42c05171f03cecd0a30070f4dd1f14589"
+    },
+    {
+      "id": "teacher-123403",
+      "file": "711_huodexingjun_skel_main",
+      "map": "123403.json",
+      "bundle": "assets/data/22u5ny9.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/huodexingjun/huodexingjun_skel_main.bytes",
+      "skinIds": [
+        2340301
+      ],
+      "sha256": "0bbc25a05c154b94f584ec836a171603adb4d86b9bc6a49b09cd0e44ae1e75ba"
+    },
+    {
+      "id": "teacher-123404",
+      "file": "2799_zaoshen_skel_main",
+      "map": "123404.json",
+      "bundle": "assets/data/2xp8bhh.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/zaoshen/zaoshen_skel_main.bytes",
+      "skinIds": [
+        2340401
+      ],
+      "sha256": "c58f4bb47f3056dfeff609b128ea9064daa447433dc9234a817c46cf0f56f64b"
+    },
+    {
+      "id": "teacher-123501",
+      "file": "1703_liutuzhang_skel_main",
+      "map": "123501.json",
+      "bundle": "assets/data/1n3n47c.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/liutuzhang/liutuzhang_skel_main.bytes",
+      "skinIds": [
+        2350101
+      ],
+      "sha256": "d9f8cfd091fd2dc24e9d33f02264b47676f5f157b68e1d452d57cf8160734c39"
+    },
+    {
+      "id": "teacher-123502",
+      "file": "2740_kuafu_skel_main",
+      "map": "123502.json",
+      "bundle": "assets/data/2rtj9eh.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/kuafu/kuafu_skel_main.bytes",
+      "skinIds": [
+        2350201
+      ],
+      "sha256": "fabfb74830c00571f436e728b143cf46f9e2a9aade959b048b3ce93891d62eac"
+    },
+    {
+      "id": "teacher-123503",
+      "file": "3026_tuxingsun_skel_main",
+      "map": "123503.json",
+      "bundle": "assets/data/2x5cc1m.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/tuxingsun/tuxingsun_skel_main.bytes",
+      "skinIds": [
+        2350301
+      ],
+      "sha256": "2d07b885580bf62e0aa7141d9ba501c9bec52f1f79109348a55e105efdce7846"
+    },
+    {
+      "id": "teacher-123504",
+      "file": "2418_dayu_skel_main",
+      "map": "123504.json",
+      "bundle": "assets/data/2xchb26.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/dayu/dayu_skel_main.bytes",
+      "skinIds": [
+        2350401
+      ],
+      "sha256": "d205419d2b42459f11d24a827fbea75e1ce4c3ca162571dc72a027cf3ce061ac"
+    },
+    {
+      "id": "teacher-123601",
+      "file": "1417_leishou_skel_main",
+      "map": "123601.json",
+      "bundle": "assets/data/1xsvmvc.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/leishou/leishou_skel_main.bytes",
+      "skinIds": [
+        2360101
+      ],
+      "sha256": "b614ef682bbe9ad8492514c60a9190a2463d0121ae2b86504c1e8ddb81faa73b"
+    },
+    {
+      "id": "teacher-123602",
+      "file": "2459_bixiaoxianzi_skel_main",
+      "map": "123602.json",
+      "bundle": "assets/data/29bg6xc.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/bixiaoxianzi/bixiaoxianzi_skel_main.bytes",
+      "skinIds": [
+        2360201
+      ],
+      "sha256": "8de0d662fb095f1f11853df4162f8d007de94649742421b6076818aa4c70c632"
+    },
+    {
+      "id": "teacher-123603",
+      "file": "2697_litianwang_skel_main",
+      "map": "123603.json",
+      "bundle": "assets/data/290nsyt.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/litianwang/litianwang_skel_main.bytes",
+      "skinIds": [
+        2360301
+      ],
+      "sha256": "6e4f1cc2073bbba26c077ea0a9b5f98712e3f6010c4fd3dc2862b6445b702613"
+    },
+    {
+      "id": "teacher-123604",
+      "file": "2934_wanglingguan_skel_main",
+      "map": "123604.json",
+      "bundle": "assets/data/2e61b1b.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/wanglingguan/wanglingguan_skel_main.bytes",
+      "skinIds": [
+        2360401
+      ],
+      "sha256": "b370fd12eb49b275271ae3887061cb9e9b73c90e13e18cdde9776175e0fbf122"
+    },
+    {
+      "id": "teacher-123701",
+      "file": "1014_yecha_skel_main",
+      "map": "123701.json",
+      "bundle": "assets/data/1rfrm67.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/yecha/yecha_skel_main.bytes",
+      "skinIds": [
+        2370101
+      ],
+      "sha256": "eb8f79c4271421b72eb9663ceede271017c0bd4839944a174292b20a2540b2dd"
+    },
+    {
+      "id": "teacher-123702",
+      "file": "2695_huapi_skel_main",
+      "map": "123702.json",
+      "bundle": "assets/data/3ut36a.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/huapi/huapi_skel_main.bytes",
+      "skinIds": [
+        2370201
+      ],
+      "sha256": "59a6811b97be81a6a3ce36d4060df513754851836b79c2bb8ed9e4628f7dd0bc"
+    },
+    {
+      "id": "teacher-123703",
+      "file": "1993_wuchang_skel_main",
+      "map": "123703.json",
+      "bundle": "assets/data/tyu6i0.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/wuchang/wuchang_skel_main.bytes",
+      "skinIds": [
+        2370301
+      ],
+      "sha256": "9853a9da262ec4b77aeafd72dc0e152d11058d1a18de8ed88d2a71880675c736"
+    },
+    {
+      "id": "teacher-123801",
+      "file": "2686_dahan_skel_main",
+      "map": "123801.json",
+      "bundle": "assets/data/3b5s96v.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/dahan/dahan_skel_main.bytes",
+      "skinIds": [
+        2380101
+      ],
+      "sha256": "68c88ba1436333ed30892ecd2671163985abebdded31d7882959e1aa32bf228f"
+    },
+    {
+      "id": "teacher-123802",
+      "file": "2089_dukang_skel_main",
+      "map": "123802.json",
+      "bundle": "assets/data/r8xcsv.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/dukang/dukang_skel_main.bytes",
+      "skinIds": [
+        2380201
+      ],
+      "sha256": "d7a684e9e7d25d5f2d93838dea5325a0885a15f9b0ae4e9cd3929a0e5348e149"
+    },
+    {
+      "id": "teacher-123803",
+      "file": "2568_zhongwuyan_skel_main",
+      "map": "123803.json",
+      "bundle": "assets/data/28r2jvh.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/zhongwuyan/zhongwuyan_skel_main.bytes",
+      "skinIds": [
+        2380301
+      ],
+      "sha256": "2c6686e92cf81e1d32ddaeb552100cacc18a210e2f3fbb1266a89fbe8e3f0ccf"
+    },
+    {
+      "id": "teacher-123804",
+      "file": "1405_wuluo_skel_main",
+      "map": "123804.json",
+      "bundle": "assets/data/35bmdrf.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/wuluo/wuluo_skel_main.bytes",
+      "skinIds": [
+        2380401
+      ],
+      "sha256": "a34c3e22e1c5ef8166961c1bdffcd0445f9c2a3612fcf9484505e0f8ff4119b9"
+    },
+    {
+      "id": "teacher-124101",
+      "file": "1322_yangjian_skel_main",
+      "map": "124101.json",
+      "bundle": "assets/data/3v5bhhi.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/yangjian/yangjian_skel_main.bytes",
+      "skinIds": [
+        2410101
+      ],
+      "sha256": "c335c95c7dc39adbeebd9b376711f0dc1ed6480a42f8f4531c3265055328802e"
+    },
+    {
+      "id": "teacher-124102",
+      "file": "2145_libai_skel_main",
+      "map": "124102.json",
+      "bundle": "assets/data/101qsaa.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/libai/libai_skel_main.bytes",
+      "skinIds": [
+        2410201
+      ],
+      "sha256": "1e38fea019f9fb4f63f50d682c6f6b1b4e9a1cb3cae9effc729f8e7e121d8f93"
+    },
+    {
+      "id": "teacher-124103",
+      "file": "921_baihu_skel_main",
+      "map": "124103.json",
+      "bundle": "assets/data/2y8hpf0.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/baihu/baihu_skel_main.bytes",
+      "skinIds": [
+        2410301
+      ],
+      "sha256": "1089b51ba846415a86e495d377d83c51b53aeb60229a4a47cddd60711bb0e338"
+    },
+    {
+      "id": "teacher-124104",
+      "file": "915_sunwukong_skel_main",
+      "map": "124104.json",
+      "bundle": "assets/data/36st29g.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/sunwukong/sunwukong_skel_main.bytes",
+      "skinIds": [
+        2410401
+      ],
+      "sha256": "196eb782e48c72e3495bd3634e051ea4e63a44b6adfeef2f4a22e8b618f410dc"
+    },
+    {
+      "id": "teacher-124201",
+      "file": "2905_goumang_skel_main",
+      "map": "124201.json",
+      "bundle": "assets/data/2m00s9t.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/goumang/goumang_skel_main.bytes",
+      "skinIds": [
+        2420101
+      ],
+      "sha256": "b22970688033fc2cb53772dd5c5be5ada5a76e50e178945704c44021958ec437"
+    },
+    {
+      "id": "teacher-124202",
+      "file": "1098_saman_skel_main",
+      "map": "124202.json",
+      "bundle": "assets/data/1rju58b.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/saman/saman_skel_main.bytes",
+      "skinIds": [
+        2420201
+      ],
+      "sha256": "d3a651cf8ccef5f820f806065dfaf1c557d8ede81c12a2f3b24ad73d5b45f7a3"
+    },
+    {
+      "id": "teacher-124203",
+      "file": "2899_gushen_skel_main",
+      "map": "124203.json",
+      "bundle": "assets/data/3rr8rgj.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/gushen/gushen_skel_main.bytes",
+      "skinIds": [
+        2420301
+      ],
+      "sha256": "b7d7515d524a5eff24ccfc76740bf7a2c24ffdccbd3b0fdb3a53f941ff0d40d0"
+    },
+    {
+      "id": "teacher-124204",
+      "file": "2059_qingdi_skel_main",
+      "map": "124204.json",
+      "bundle": "assets/data/39xt5b9.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/qingdi/qingdi_skel_main.bytes",
+      "skinIds": [
+        2420401
+      ],
+      "sha256": "f2547cfcc9072f5c34f782fc517bdb95eab1c3db863148c6626af8fc2880ded6"
+    },
+    {
+      "id": "teacher-124301",
+      "file": "1529_change_skel_main",
+      "map": "124301.json",
+      "bundle": "assets/data/1p4k68c.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/change/change_skel_main.bytes",
+      "skinIds": [
+        2430101
+      ],
+      "sha256": "4c7a0733e7c8c4853b1306fb2503bc7bcb079c8b9544011fde25fe0d94a87e67"
+    },
+    {
+      "id": "teacher-124302",
+      "file": "2691_jiangziya_skel_main",
+      "map": "124302.json",
+      "bundle": "assets/data/3jubpj5.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/jiangziya/jiangziya_skel_main.bytes",
+      "skinIds": [
+        2430201
+      ],
+      "sha256": "2ae940562aafba84b6aaa9177d7a70faa59cdac13572f97d2a4dbb8013e4fd23"
+    },
+    {
+      "id": "teacher-124303",
+      "file": "1271_xuanming_skel_main",
+      "map": "124303.json",
+      "bundle": "assets/data/29cnpt0.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/xuanming/xuanming_skel_main.bytes",
+      "skinIds": [
+        2430301
+      ],
+      "sha256": "71c84e91a8ff741268e0fd75a59f5d544eeb3b25957cd9f47377716d2e44a834"
+    },
+    {
+      "id": "teacher-124304",
+      "file": "2493_gonggong_skel_main",
+      "map": "124304.json",
+      "bundle": "assets/data/1mc33ht.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/gonggong/gonggong_skel_main.bytes",
+      "skinIds": [
+        2430401
+      ],
+      "sha256": "29af881ea7a18034cce4ca34dd5808f5bdf0d01f3cb9e88c3f5c42fa5b398950"
+    },
+    {
+      "id": "teacher-124305",
+      "file": "2631_gonggong_jian_skel_main",
+      "map": "124305.json",
+      "bundle": "assets/data/1enk3he.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/gonggong_jian/gonggong_jian_skel_main.bytes",
+      "skinIds": [
+        2430501
+      ],
+      "sha256": "98bd8a342ed7241004ff859fa296f95e38ab627292456499d2bc5e8949f6c593"
+    },
+    {
+      "id": "teacher-124401",
+      "file": "1159_daji_skel_main",
+      "map": "124401.json",
+      "bundle": "assets/data/1acf2i3.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/daji/daji_skel_main.bytes",
+      "skinIds": [
+        2440101
+      ],
+      "sha256": "024a7f49aa6a2d20cbd3b50d69b67f8a19b017c6d626f9ea26ad623485f1e280"
+    },
+    {
+      "id": "teacher-124402",
+      "file": "769_zhuque_skel_main",
+      "map": "124402.json",
+      "bundle": "assets/data/33xy9x5.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/zhuque/zhuque_skel_main.bytes",
+      "skinIds": [
+        2440201
+      ],
+      "sha256": "dd2d1c30f957371339ba2aabd4731d9770fda222c7a05975b0262f7bfba0cd71"
+    },
+    {
+      "id": "teacher-124403",
+      "file": "1355_zhurong_skel_main",
+      "map": "124403.json",
+      "bundle": "assets/data/kpigbq.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/zhurong/zhurong_skel_main.bytes",
+      "skinIds": [
+        2440301
+      ],
+      "sha256": "13dc0b2b575fa1dab4007616a7c42ace1e36a7237e508094ff0e312eb094ec8a"
+    },
+    {
+      "id": "teacher-124404",
+      "file": "2840_nezha_skel_main",
+      "map": "124404.json",
+      "bundle": "assets/data/8acrbr.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/nezha/nezha_skel_main.bytes",
+      "skinIds": [
+        2440401
+      ],
+      "sha256": "b00cbd27ec4cf786c10b1309bdf06da5d53e8c62ae26226fb3a878bade0523b1"
+    },
+    {
+      "id": "teacher-124501",
+      "file": "995_houtu_skel_main",
+      "map": "124501.json",
+      "bundle": "assets/data/2k7rah8.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/houtu/houtu_skel_main.bytes",
+      "skinIds": [
+        2450101
+      ],
+      "sha256": "2f33b2f4c606e99404cf46ab0358f1ae336477c31a8ee238308760c2e7305034"
+    },
+    {
+      "id": "teacher-124502",
+      "file": "1810_nvwa_skel_main",
+      "map": "124502.json",
+      "bundle": "assets/data/uqap3d.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/nvwa/nvwa_skel_main.bytes",
+      "skinIds": [
+        2450201
+      ],
+      "sha256": "1fcfc019ea40675080740651687fff8a1848f28d2f977c65014f82aa141a64ed"
+    },
+    {
+      "id": "teacher-124503",
+      "file": "2271_xiangyu_skel_main",
+      "map": "124503.json",
+      "bundle": "assets/data/23bcyki.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/xiangyu/xiangyu_skel_main.bytes",
+      "skinIds": [
+        2450301
+      ],
+      "sha256": "db35af5cd8c1252703b3193b843b2b134930a1c5a0eff7da04fbe98efdc23a27"
+    },
+    {
+      "id": "teacher-124504",
+      "file": "1054_dadimu_skel_main",
+      "map": "124504.json",
+      "bundle": "assets/data/3sn2nax.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/houtu_2/dadimu_skel_main.bytes",
+      "skinIds": [
+        2450401
+      ],
+      "sha256": "a01660db4625093b093c6bef0df14e6eaaf0fdfe7ea5314f11c82b1d9a7b4355"
+    },
+    {
+      "id": "teacher-124601",
+      "file": "2968_xingongbao_skel_main",
+      "map": "124601.json",
+      "bundle": "assets/data/1vra0n6.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/xin_shengongbao/xingongbao_skel_main.bytes",
+      "skinIds": [
+        2460101
+      ],
+      "sha256": "0dcef21a1e392d117be69521e954d2a44349e6a65f5afe96dc7626bf6d6a260c"
+    },
+    {
+      "id": "teacher-124602",
+      "file": "2410_dianmu_skel_main",
+      "map": "124602.json",
+      "bundle": "assets/data/b9iq35.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/dianmu/dianmu_skel_main.bytes",
+      "skinIds": [
+        2460201
+      ],
+      "sha256": "38bc5753f16c091fa63ea7b375550ee4c03d020df6433df0eebf5ca27f111a82"
+    },
+    {
+      "id": "teacher-124603",
+      "file": "1101_leishengtianzun_skel_main",
+      "map": "124603.json",
+      "bundle": "assets/data/6kbpqv.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/leishengtianzun/leishengtianzun_skel_main.bytes",
+      "skinIds": [
+        2460301
+      ],
+      "sha256": "6164d069212de357d6076fcef8f5a41e46ef38fd81ee38e1308eebc180b42a49"
+    },
+    {
+      "id": "teacher-124701",
+      "file": "2197_luohou_skel_main",
+      "map": "124701.json",
+      "bundle": "assets/data/2x93ydn.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/luohou/luohou_skel_main.bytes",
+      "skinIds": [
+        2470101
+      ],
+      "sha256": "15c1ef18fa0ed0b8b53de38037a00b5a8b35aedea97444ccb113d793daeff80d"
+    },
+    {
+      "id": "teacher-124702",
+      "file": "2263_xihe_wangshu_skel_main",
+      "map": "124702.json",
+      "bundle": "assets/data/1c4nvjj.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/xihe_wangshu/xihe_wangshu_skel_main.bytes",
+      "skinIds": [
+        2470201
+      ],
+      "sha256": "3a877150c8c59beca506ffb0bf72a56a873a739099208d15e705544e551bcc45"
+    },
+    {
+      "id": "teacher-124703",
+      "file": "2025_beiyindadi_skel_main",
+      "map": "124703.json",
+      "bundle": "assets/data/20a4215.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/beiyindadi/beiyindadi_skel_main.bytes",
+      "skinIds": [
+        2470301
+      ],
+      "sha256": "32d6f660fbe4f4d7c4536e3280dc822f086b83035dab0c17fd3eb3b9acedd52b"
+    },
+    {
+      "id": "teacher-124801",
+      "file": "2331_xuanwu_skel_main",
+      "map": "124801.json",
+      "bundle": "assets/data/13t6pvn.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/xuanwu/xuanwu_skel_main.bytes",
+      "skinIds": [
+        2480101
+      ],
+      "sha256": "737a0f78be12a20374f7e0c4c85ce802c6a2aa4497c23431f27a08a293b2a636"
+    },
+    {
+      "id": "teacher-124802",
+      "file": "2604_jingangshou_skel_main",
+      "map": "124802.json",
+      "bundle": "assets/data/3t5vugq.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/jingangshou/jingangshou_skel_main.bytes",
+      "skinIds": [
+        2480201
+      ],
+      "sha256": "21c3286c41c870aaa480d3cc8cd339b5eda9bc913b34045f75ab5091d0446a0e"
+    },
+    {
+      "id": "teacher-124803",
+      "file": "2752_julingshen_skel_main",
+      "map": "124803.json",
+      "bundle": "assets/data/2j073jp.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/xinjuling/julingshen_skel_main.bytes",
+      "skinIds": [
+        2480301
+      ],
+      "sha256": "dabcd41b28002bdb8b583c10227f3404b2e796f2fb3f74d3407faa88991aa23b"
+    },
+    {
+      "id": "teacher-124804",
+      "file": "1544_shitieshou_skel_main",
+      "map": "124804.json",
+      "bundle": "assets/data/1apcpk8.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/shitieshou/shitieshou_skel_main.bytes",
+      "skinIds": [
+        2480401
+      ],
+      "sha256": "a66ba83a27dc234e17f35aaa876ad3e95db4745fd9f94a4c9065d6221aa5a424"
+    },
+    {
+      "id": "teacher-430001",
+      "file": "2443_yzbaihu_skel_main",
+      "map": "430001.json",
+      "bundle": "assets/data/2sj1a60.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacher/bihaiyinsha/yzbaihu_skel_main.bytes",
+      "skinIds": [
+        2410302
+      ],
+      "sha256": "bef5b8e8a171c78b1a845bf0e6abdbefc41e0dc5124cda7a322a92295740112b"
+    },
+    {
+      "id": "teacher-123203",
+      "file": "1301_pingling_skel_main",
+      "map": "123203.json",
+      "bundle": "assets/data/1hv6a9a.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacherzhujue/pingling/pingling_skel_main.bytes",
+      "skinIds": [
+        2320301
+      ],
+      "sha256": "7e678cdafb92008f94caaf9db1122da7fb7c0b1a2ab80624f9c57efa612f5768"
+    },
+    {
+      "id": "teacher-124604",
+      "file": "876_yushulei_skel_main",
+      "map": "124604.json",
+      "bundle": "assets/data/32s53t6.bin",
+      "skeletonPath": "G_Artist/Spine/Role/Teacherzhujue/yushulei/yushulei_skel_main.bytes",
+      "skinIds": [
+        2460401
+      ],
+      "sha256": "301bcd44bdba84644547b4253a669b1c5debc7948a7ea16de8df8540b68418f8"
+    }
+  ],
+  "unresolved": [
+    2340501,
+    2420501,
+    2430102,
+    2440501
+  ]
+}

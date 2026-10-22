@@ -9,6 +9,7 @@ window.CombatEffects=(()=>{
  function learned(s){return (s.run?.abilities||[]).map(id=>{const base=D.abilities[id];if(!base)return null;const value=resonance(s,base);return groups.get(base.iAbilityID).filter(a=>a.iReson<=value).sort((a,b)=>b.iLevel-a.iLevel)[0]||base;}).filter(Boolean);}
  function attributes(s,{equipment=true,teachers=true,advanced=true}={}){
   const out={...(s.run?.eventBonuses||{})},hero=s.disciples?.[s.selected||0];
+  if(window.CollectionBonuses)for(const [k,v] of Object.entries(CollectionBonuses.attributes(s)))add(out,k,v);
   const rows=[...(hero?.traitIds||[]).map(id=>D.abilities[id]),...learned(s)];
   for(const a of rows)for(let i=0;i<(a?.arrEffect||[]).length;i+=2)add(out,a.arrEffect[i],a.arrEffect[i+1]);
   if(equipment)for(const i of equipped(s)){const d=items().get(i.id);if(d)for(const [k,v] of Object.entries(TeacherRuntime.equipStats(s,i,d)))if(+k>2003)add(out,k,v);}

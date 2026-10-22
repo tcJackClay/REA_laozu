@@ -25,7 +25,7 @@
    if(group){
     // MonoScript identities are APK-local. The horizontal group identity is recovered from UIMainNavs.
     const horizontal=group.scriptName==='HorizontalLayoutGroup'||group.scriptID==='-3229211799126679632',axis=horizontal?'x':'y';
-    const sizes=kids.filter(x=>(overrides.get(x.id)?.visible??x.active)).map(x=>{const tr=x.components.find(c=>c.type==='RectTransform')||{};return {row:x,tr,width:tr.m_SizeDelta?.x||0,height:tr.m_SizeDelta?.y||0};});
+    const sizes=kids.filter(x=>(overrides.get(x.id)?.visible??x.active)).map(x=>{const tr={...(x.components.find(c=>c.type==='RectTransform')||{}),...(overrides.get(x.id)?.rect||{})};return {row:x,tr,width:tr.m_SizeDelta?.x||0,height:tr.m_SizeDelta?.y||0};});
     const pad=group.m_Padding||{},spacing=group.m_Spacing||0,align=group.m_ChildAlignment||0,pl=pad.m_Left||0,pr=pad.m_Right||0,pt=pad.m_Top||0,pb=pad.m_Bottom||0;
     const main=horizontal?rect.width-pl-pr:rect.height-pt-pb,total=sizes.reduce((v,x)=>v+(horizontal?x.width:x.height),0)+Math.max(0,sizes.length-1)*spacing;
     const factor=horizontal?(align%3)/2:Math.floor(align/3)/2;let position=(horizontal?pl:pt)+(main-total)*factor;
