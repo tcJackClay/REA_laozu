@@ -1,0 +1,21 @@
+{
+  "checks": [
+    "offline tools granted once",
+    "read does not repeat starter tools",
+    "no captain leaves state intact",
+    "same disciple cannot occupy two seats",
+    "unknown member rejected",
+    "cost and reward credited together",
+    "stale action cannot duplicate reward",
+    "empty pick rejected",
+    "gate checked on action",
+    "clear top row shifts one row",
+    "deep row still reveals next cell",
+    "offline recovery adds elapsed units",
+    "recovery cannot be repeated",
+    "recovery capped",
+    "offline recovery requires captain",
+    "new captain cannot recover unstaffed time",
+    "removing captain settles previous staffed time"
+  ]
+}

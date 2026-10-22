@@ -1,0 +1,19 @@
+{
+  "checks": [
+    "new account blocked",
+    "source mine opens",
+    "48 cells visible",
+    "no captain no cost",
+    "Escape selection returns team",
+    "pick cost real",
+    "empty tile cannot consume",
+    "ore destruction grants real crystal",
+    "log committed",
+    "mine returns fairy",
+    "fairy returns home",
+    "reload keeps spend",
+    "reload does not duplicate ore reward",
+    "no browser errors"
+  ],
+  "errors": []
+}

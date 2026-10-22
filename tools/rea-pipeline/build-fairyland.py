@@ -66,6 +66,11 @@ for name in targets:
     g=obs.get(tr.read().m_GameObject.path_id)
     if g:walk(g,path,str(go.path_id))
  walk(obs[rid],''); layouts[name]={'bundle':b,'nodes':rows}; print(name,len(rows),flush=True)
+icons=json.loads((runtime/'configs/Icon.json').read_text(encoding='utf8'))
+ore_ids={n for r in data['CaveGrid'] for n in [r['iIconID'],r['iBreakIconID']] if n}
+ore_names={r['strIconName'] for r in icons if r['nID'] in ore_ids}
+for spr in sprites.values():
+ if spr['name'] in ore_names:refs[(spr['bundle'],spr['path_id'])]=spr
 manifest=[]
 for b in sorted({k[0] for k in refs}):
  e=UnityPy.load(raw_bundle(b)[4:])
