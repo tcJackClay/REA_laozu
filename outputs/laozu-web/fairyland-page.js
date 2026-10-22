@@ -20,7 +20,7 @@ window.createFairylandPage=function(B){
   return {};
  }});root.classList.add('fairy-page',mine?'fairy-mine':'fairy-home');target.append(root);
  if(mine){const zone=find(root,'/Auto_GameBoard');zone.replaceChildren();zone.classList.add('fairy-grid');d.board.forEach((c,i)=>{const cfg=FAIRYLAND_DATA.CaveGrid.find(x=>x.iType===c.type),b=document.createElement('button');b.dataset.fairy='dig:'+i;b.dataset.revision=d.revision;b.className='fairy-cell'+(!c.available?' fog':'')+(hit===i?' struck':'');b.setAttribute('aria-label',`${i+1}号${cfg?.szName||'空地'}${c.available?'':'未到达'}`);const src=cfg?icon(c.durability<cfg.iDurability&&cfg.iBreakIconID?cfg.iBreakIconID:cfg.iIconID):'';b.innerHTML=(src?`<img src="${src}" alt="">`:'')+(cfg&&c.durability<cfg.iDurability?`<small>${c.durability}/${cfg.iDurability}</small>`:'');zone.append(b);});
- const hud=document.createElement('div');hud.className='fairy-hud';hud.innerHTML=`<span>灵石 ${B.balance(1)} · 晶矿 ${B.balance(21)}</span>${button('team','派遣')}<strong>${['镐','钻头','炸药'][tool-1]}</strong>`;root.append(hud);
+ const hud=document.createElement('div');hud.className='fairy-hud';hud.innerHTML=`<span>灵石 ${B.balance(1)} · 晶矿 ${B.balance(21)}</span>${button('team','派遣')}<strong>${['镐','钻头','炸药'][tool-1]} · 恢复加成 ${M.crewBonus().percent.toFixed(2)}%</strong>`;root.append(hud);
  }
  if(mine){const active=root.querySelector(`[data-original-action="fairy:tool:${tool}"]`);if(active)active.classList.add('fairy-tool-active');timer=setInterval(()=>{if(!root.isConnected){clearInterval(timer);return;}const n=B.balance(102);M.recover();if(n!==B.balance(102)){B.render();return;}const text=find(root,'/Auto_PickaxeRestoreTime');if(text){text.textContent=Math.max(0,Math.ceil((d.recoveryAt-Date.now())/60000))+'分';text.classList.add('fairy-clock');}},1000);}
  if(modal)dialog(root);
@@ -37,10 +37,10 @@ window.createFairylandPage=function(B){
   if(l==='xauto_DisciplePanel')return {visible:!!member};if(l==='xauto_Empty')return {visible:!member};
   if(l==='Right'||l==='SelfProductAdd')return {visible:false};
   if(l==='Name')return {text:member?.name||''};if(l==='Realm')return {text:member?.realm||'炼气期'};if(l==='Power')return {text:''};
-  if(l==='Help')return {visible:false};if(l.startsWith('WndCloseBtn'))return {action:'fairy:close',label:'返回矿洞'};return {};}});for(let i=0;i<5;i++){const member=B.state().disciples.find(x=>x.rosterId===d.team[i]),panel=find(native,`/Item_${i+1}/xauto_DisciplePanel`);if(member&&panel){panel.replaceChildren();panel.innerHTML=`<div class="fairy-member-display">${DiscipleAppearance.html(member)}<span>${esc(member.name)}<small>${esc(member.realm||'炼气期')}</small></span></div>`;}}box.append(native);}
+  if(l==='Help')return {visible:false};if(l.startsWith('WndCloseBtn'))return {action:'fairy:close',label:'返回矿洞'};return {};}});for(let i=0;i<5;i++){const member=B.state().disciples.find(x=>x.rosterId===d.team[i]),panel=find(native,`/Item_${i+1}/xauto_DisciplePanel`);if(member&&panel){panel.replaceChildren();panel.innerHTML=`<div class="fairy-member-display">${DiscipleAppearance.html(member)}<span>${esc(member.name)}<small>${esc(member.realm||'炼气期')} · ${esc(M.memberBonus(member).grade||'未评级')}</small><small>恢复速度 +${(M.memberBonus(member).value/100).toFixed(2)}%</small>${i===0?`<small>全队 +${M.crewBonus().percent.toFixed(2)}%</small>`:''}</span></div>`;}}box.append(native);}
 
- else {body=modal==='select'?M.eligible().map(x=>button('member:'+x.rosterId,esc(x.name))).join('')+button('member:none','撤下弟子'):d.log.map(x=>`<p>${x.depth+6}m · ${x.items.map(i=>`${name(i.id)} ×${i.n}`).join('、')||'挖掘矿层'}</p>`).join('')||'<p>暂无记录</p>';box.innerHTML=`<section role="dialog" aria-label="${modal==='select'?'选择弟子':'挖矿日志'}">${body}${button('close','返回')}</section>`;}
+ else {body=modal==='select'?M.eligible().map(x=>button('member:'+x.rosterId,esc(x.name)+' · '+esc(M.memberBonus(x).grade||'未评级')+' · 恢复 +'+(M.memberBonus(x).value/100).toFixed(2)+'%')).join('')+button('member:none','撤下弟子'):d.log.map(x=>`<p>${x.depth+6}m · ${x.items.map(i=>`${name(i.id)} ×${i.n}`).join('、')||'挖掘矿层'}</p>`).join('')||'<p>暂无记录</p>';box.innerHTML=`<section role="dialog" aria-label="${modal==='select'?'选择弟子':'挖矿日志'}">${body}${button('close','返回')}</section>`;}
  root.append(box);
  }
- return {render,back,reset,model:M,text:()=>({view,tool,modal,busy,mining:view==='mine'?M.data():null})};
+ return {render,back,reset,model:M,text:()=>({view,tool,modal,busy,mining:view==='mine'?M.data():null,crew:view==='mine'?M.crewBonus():null})};
 };

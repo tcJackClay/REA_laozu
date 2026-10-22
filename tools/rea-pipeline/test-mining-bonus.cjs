@@ -1,0 +1,21 @@
+const assert=require('node:assert/strict'),fs=require('node:fs');global.window=global;
+for(const f of ['fairyland-data','mining-rules','mining-model'])require('../../outputs/laozu-web/'+f+'.js');
+let now=100000000;Date.now=()=>now;
+let s={sect:99,disciples:[{rosterId:'a',sourceScore:48000},{rosterId:'b',sourceScore:3001}],goods:{}};
+const B={state:()=>s,save:()=>{},gate:()=>true,lockText:()=>'',balance:id=>s.goods[id]||0,add:(id,n)=>s.goods[id]=(s.goods[id]||0)+n},M=createMiningModel(B),checks=[];
+const ck=(n,v)=>{assert.ok(v,n);checks.push(n);},near=(a,b)=>Math.abs(a-b)<.001;
+for(const g of FAIRYLAND_DATA.WanderScore){for(const score of [g.iLowerLimit,g.iUpperLimit])ck('grade '+g.nID+' at '+score,M.memberBonus({sourceScore:score}).grade===g.szDesc);}
+ck('score above highest capped',M.memberBonus({sourceScore:999999}).grade===FAIRYLAND_DATA.WanderScore.at(-1).szDesc);
+ck('unknown score does not grant bonus',M.memberBonus({}).value===0);
+ck('captured score takes precedence over power',M.memberBonus({sourceScore:0,sourcePower:999999}).value===30);
+ck('legacy snapshot identified as approximation',M.memberBonus({sourcePower:3001}).source==='graduation-power-approximation');
+M.data();M.setMember(0,'a');s.goods[102]=0;const first=M.crewBonus().interval;ck('source percentage interval used',near(first,600000/1.123));
+now+=first/2;M.setMember(1,'b');const both=M.crewBonus();ck('all crew additive no captain multiplier',both.value===1350);ck('member change preserves partial work',near(M.data().recoveryAt-now,both.interval/2));
+now=M.data().recoveryAt+.01;M.recover();ck('accelerated timer grants actual tool',s.goods[102]===1);M.recover();ck('recovery reload idempotent',s.goods[102]===1);
+now=M.data().recoveryAt+both.interval+.01;M.setMember(1,null);ck('old crew settled before replacement',s.goods[102]===3);ck('removing member slows interval',near(M.data().recoveryInterval,first));
+M.setMember(0,null);now+=86400000;M.setMember(0,'a');M.recover();ck('no unstaffed catch up',s.goods[102]===3);
+s.run={config:{disciple:0}};s.selected=1;ck('run owner excluded independently from selected',!M.eligible().some(x=>x.rosterId==='a'));now+=86400000;M.recover();ck('invalid captain receives no recovery',s.goods[102]===3);delete s.run;
+M.setMember(0,'a');M.data().board[0]={type:3,durability:1,available:true};M.mine(1,0,0);ck('crew does not multiply mining drops',s.goods[1]===100);
+s.goods[102]=59;now+=86400000;M.recover();ck('bonus cannot exceed capacity',s.goods[102]===60);
+M.releaseMember(0);s.goods[102]=0;s.run={config:{disciple:0}};now+=86400000;delete s.run;M.recover();ck('departure then return without intermediate recover cannot claim idle time',s.goods[102]===0&&M.data().team[0]===null);
+const out='work/rea-pipeline/verification/fairyland-v36';fs.mkdirSync(out,{recursive:true});fs.writeFileSync(out+'/bonus.json',JSON.stringify({checks,formula:'offline cadence=600000/(1+source boost/10000); old graduation power is approximate score'},null,2));console.log(checks.length+' mining bonus checks passed');

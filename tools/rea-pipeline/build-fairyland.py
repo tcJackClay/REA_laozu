@@ -3,7 +3,7 @@ from pathlib import Path
 import json,UnityPy,re
 root=Path('work/alignment-v33');(root/'text-assets').mkdir(parents=True,exist_ok=True)
 s=Path('work/alignment-v13/all.cs').read_text(encoding='utf8')
-names=['CaveRoom','CaveRoomFixed','CaveRoomEffect','CaveFurniture','CaveGrid','CaveItemUse','CaveSeat','PeriodicPrize','Misc']
+names=['CaveRoom','CaveRoomFixed','CaveRoomEffect','CaveFurniture','CaveGrid','CaveItemUse','CaveSeat','PeriodicPrize','Misc','WanderScore']
 for name in names:
  start=s.index('public class cfg_'+name+' :');end=s.index('\n}',start)+2
  (root/('cfg_'+name+'.cs')).write_text(s[start:end],encoding='utf8')

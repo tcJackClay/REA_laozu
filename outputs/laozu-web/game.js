@@ -82,7 +82,7 @@
   }
   scene.addEventListener('click',e=>{const b=e.target.closest('[data-home-action]');if(b)homeAction(b.dataset.homeAction);});
   $('#modal-content').addEventListener('click',e=>{const b=e.target.closest('[data-home-action]');if(b)homeAction(b.dataset.homeAction);});
-  const DiscipleRoster=createDiscipleRoster({state:()=>state,save,modal,toast,stats,rebirth:i=>{const old=state.admission;state.admission={version:1,phase:'recruit',difficulty:old?.difficulty||1,maxDifficulty:old?.maxDifficulty||9,stamina:old?.stamina??45,cost:5,elapsed:0,points:[0,0,0,0],draws:old?.draws||0,profile:null};save();switchTab('wander');},close:()=>$('#modal').close()});
+  const DiscipleRoster=createDiscipleRoster({state:()=>state,save,modal,toast,stats,rebirth:i=>{HomeManagement.releaseMiner(i);const old=state.admission;state.admission={version:1,phase:'recruit',difficulty:old?.difficulty||1,maxDifficulty:old?.maxDifficulty||9,stamina:old?.stamina??45,cost:5,elapsed:0,points:[0,0,0,0],draws:old?.draws||0,profile:null};save();switchTab('wander');},close:()=>$('#modal').close()});
   function renderDisciples(){DiscipleRoster.mount(scene);}
   function renderBag() {
     const s=stats(),selected=state.inventory.find(i=>i.uid===chosen),d=selected&&itemById.get(selected.id);
@@ -172,7 +172,7 @@
     else return null;return {title,body,footer};
   }
 
-  function newRun(profile){if(state.run)return;gridMode=false;if(profile){if(state.rebirth?.stage==='active'){state.selected=state.rebirth.index;state.disciples[state.selected]=structuredClone(profile);}else{state.disciples.push(structuredClone(profile));state.selected=state.disciples.length-1;}}state.run={flow:5,eventLibraryVersion:19,pathId:1000+(state.admission?.difficulty||1),step:0,phase:'prepare',prepare:'birth',earned:0,seed:state.cleared,config:{disciple:state.selected,points:[0,0,0,0],seed:null,sub:null,teachers:[],pet:null},abilities:[],queue:[],popup:{type:'birth'},reward:null,hp:null,token:'run-'+(++uid),settled:false,history:[],records:[]};flowFilter=0;save();render();}
+  function newRun(profile){if(state.run)return;if(!profile||state.rebirth)HomeManagement.releaseMiner(state.rebirth?.index??state.selected);gridMode=false;if(profile){if(state.rebirth?.stage==='active'){state.selected=state.rebirth.index;state.disciples[state.selected]=structuredClone(profile);}else{state.disciples.push(structuredClone(profile));state.selected=state.disciples.length-1;}}state.run={flow:5,eventLibraryVersion:19,pathId:1000+(state.admission?.difficulty||1),step:0,phase:'prepare',prepare:'birth',earned:0,seed:state.cleared,config:{disciple:state.selected,points:[0,0,0,0],seed:null,sub:null,teachers:[],pet:null},abilities:[],queue:[],popup:{type:'birth'},reward:null,hp:null,token:'run-'+(++uid),settled:false,history:[],records:[]};flowFilter=0;save();render();}
   function renderWander(){
     if(Admission.mount(scene)){SeedSelection.unmount();TeacherSelection.unmount();return;}if(SeedSelection.mount(scene)){TeacherSelection.unmount();return;}if(TeacherSelection.mount(scene))return;
     const r=flowRun();if(r?.prepare==='entering')queueMicrotask(()=>Preparation.resume());if(state.run&&!r){state.run=null;save();}
