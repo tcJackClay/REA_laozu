@@ -163,7 +163,7 @@ window.createHomeManagement=function(B){
  function equip(id){const x=TEACHER_DATA.equipment.find(x=>x.id===id)||GAME_DATA.items.find(x=>x.id===id);return x?`<span class="home-recipe"><img src="${x.icon}" alt="">${esc(x.name)}</span>`:String(id);}
  function sourceItem(){
   const x=row(detail.id),teacher=page==='teacher',lv=M.level(page,x.iID),max=teacher?30:24,pay=M.payment(page,x.iID),unlocked=lv>=0,name=teacher?'uiteacherinfo':'uiseedlingupgrade';
-  const source=L.layouts[name],states=new Map();
+  const source=L.layouts[name],states=new Map(),skill=teacher?null:Cultivation.skill(x.iID,Math.max(0,lv));
   for(const r of source.nodes)for(const c of r.components)if(c.fields?.SpriteList){const leaf=r.path.split('/').at(-1);if(/prop|SwitchBg|takeProp/i.test(leaf))states.set(c.pathID,x.iTechnique);else if(/quality|Auto_Bg/i.test(leaf))states.set(c.pathID,x.iQuality);}
   const shade=document.createElement('button');shade.className='home-source-shade';shade.dataset.home26='close';shade.setAttribute('aria-label','关闭详情');canvas.append(shade);
   const fields={auto_seedlingName:x.szName,auto_Name:x.szName,Auto_curLevel:lv===max?'满级':levelText(lv),auto_curLevel:levelText(lv),Auto_nextLevel:levelText(lv+1),auto_nextLevel:levelText(lv+1),Auto_UpgradeText:unlocked?'升星':teacher?'合成':'解锁',Auto_ViewText:detail.fullbody?'详情':'全身',auto_Power:String((x.arrPower||[]).reduce((v,n,i,a)=>i%2===0&&lv>=n?a[i+1]:v,0))};
@@ -172,6 +172,10 @@ window.createHomeManagement=function(B){
    if(leaf==='Auto_InfoRoot')return {visible:!detail.fullbody&&!detail.skins};
    if(!teacher&&p.endsWith('/Bg/Content'))return {rect:{m_SizeDelta:{x:870,y:790}}};
    if(!teacher&&leaf==='Auto_Skill')return {rect:{m_SizeDelta:{x:870,y:290}}};
+   if(!teacher&&p.endsWith('/Auto_Skill/floor_gb_modi2/skillName'))return {text:skill?.szName||'',rect:{m_SizeDelta:{x:(skill?.szName||'').length*37,y:60}}};
+   if(!teacher&&p.endsWith('/Auto_Skill/skillDes'))return {text:'',rect:{m_AnchorMin:{x:0,y:1},m_AnchorMax:{x:0,y:1},m_AnchoredPosition:{x:150,y:-79},m_SizeDelta:{x:715,y:205}}};
+   if(!teacher&&p.endsWith('/Auto_Skill/skillBtn'))return {action:'home26:skill',label:'查看怒气技全部等级'};
+   if(!teacher&&p.endsWith('/Auto_Skill/skillBtn/skilllcon'))return {image:DETAIL_PROGRESS_ICONS.icons[skill?.iIconID]};
    if(!teacher&&p.endsWith('/Content/LevelUp'))return {rect:{m_SizeDelta:{x:870,y:460}}};
    if(!teacher&&leaf==='Auto_LevelUp')return {rect:{m_SizeDelta:{x:0,y:420}}};
    if(!teacher&&['Auto_curLevel','Auto_nextLevel'].includes(leaf))return {text:fields[leaf],visible:leaf==='Auto_curLevel'||lv<max,rect:{m_SizeDelta:{x:130,y:36}}};
@@ -220,9 +224,8 @@ window.createHomeManagement=function(B){
    return {};
   }});
   root.classList.add('home-source-dialog','home-item-source',teacher?'home-teacher-source':'home-seed-source');root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-label',x.szName);canvas.append(root);
-  slot(root,'/Auto_UpgradeList',`<div class="home-native-costs">${pay.costs.filter(c=>c.n>0).map(c=>`<button data-home26="item-resource:${c.id}"><span>${esc(M.good(c.id).szName)}</span><b class="${M.balance(c.id)>=c.n?'enough':'short'}">${M.balance(c.id)}/${c.n}</b></button>`).join('')}</div>`);
+  sourceMaterials(root,name,x,lv,max);
   slot(root,'/Auto_Stars',`<div class="home-native-stars">${'★'.repeat(Math.floor(Math.max(0,lv)/6))}${'☆'.repeat(Math.floor(max/6)-Math.floor(Math.max(0,lv)/6))}<small>${levelText(lv)}</small></div>`);
-  const costsEl=el(root,'/Auto_UpgradeList');if(costsEl)costsEl.style.width='420px';
   const frag=x.arrCost1;slot(root,'/Auto_Frag',`<div class="home-native-frag">${M.balance(frag[0])}/${frag[1]}</div>`);
   if(teacher){
    if(unlocked&&M.gate(AM.gateId())&&!detail.fullbody&&!detail.skins)root.insertAdjacentHTML('beforeend',`<div class="home-awake-entry">${btn('awake','觉醒 · '+TeacherAwake.level(B.state(),x.iID)+'阶')}</div>`);
@@ -234,8 +237,19 @@ window.createHomeManagement=function(B){
    sourceDetailRows(root,name,x,lv,max,true);
   }else{
    sourceDetailRows(root,name,x,lv,max,false);
-   const skill=Cultivation.skill(x.iID,Math.max(0,lv));slot(root,'/Auto_Skill',`<button class="home-native-skill" data-home26="skill"><h3>${esc(skill?.szName||x.szName)} <small>怒气技</small></h3><p>${rich(skill?.szDesc||'')}</p></button>`);
+   slot(root,'/Auto_Skill/skillDes',`<div class="home-source-skill-description">${rich(skill?.szDesc||'')}</div>`);
    slot(root,'/Auto_LevelUp',`<div class="home-native-effects">${[1,2,3,4].map(n=>`<p class="${lv>=n*6?'active':''}"><b>${n}★</b> ${rich(x['szStar'+n+'Des'])}</p>`).join('')}</div>`);
+  }
+ }
+ function sourceMaterials(root,name,x,lv,max){
+  const holder=slot(root,'/Auto_UpgradeList','<div class="home-source-materials"></div>').firstElementChild;
+  for(const c of M.materialDisplay(page,x.iID)){const good=M.good(c.id),S=DETAIL_PROGRESS_LAYOUTS;
+   const row=sourceSubtree(name,'/Auto_UpgradeList/ListItem',112,112,n=>n.path.endsWith('/Empty')?{visible:false}:{});
+   row.classList.add('home-source-material');row.dataset.goodsId=c.id;row.dataset.have=c.have;row.dataset.need=c.need;
+   const states=new Map();for(const n of S.layouts.goodsiconitem_upgrade.nodes)for(const k of n.components)if(k.fields?.SpriteList)states.set(k.pathID,good.iQuality||0);
+   const tile=U.render(S.layouts.goodsiconitem_upgrade,S.sprites,{width:150,height:150,states,node:n=>{const leaf=n.path.split('/').at(-1);if(leaf==='GoodsIconItem_Upgrade')return {action:'home26:item-resource:'+c.id,label:good.szName};if(leaf==='icon1')return {image:DETAIL_PROGRESS_ICONS.icons[good.iIconID]};if(leaf==='corner'||leaf==='effect')return {visible:false};if(leaf==='num')return {text:''};return {};}});
+   el(tile,'/num').querySelector('.unity-text').innerHTML=lv===max?'MAX':`<span style="color:${c.have>=c.need?'#00ff00':'#ff6159'}">${c.have}</span>\u200b/${c.need}`;
+   slot(row,'/xauto_IconItem/ViewRoot','').append(tile);holder.append(row);
   }
  }
  function skinOwned(x,id){return M.level('teacher',x.iID)>=0&&(id===x.iDefaultSkin||B.state().teacherUnlockedSkins?.includes(id));}
@@ -263,7 +277,12 @@ window.createHomeManagement=function(B){
   slot(root,'/Auto_EquipPropItem',`<div class="home-red-properties"><p>${equipment.arrTechnique.map(i=>names[i]).filter(Boolean).join(' / ')} · 共鸣值：${equipment.iReson}</p>${Array.from({length:Math.floor(attrs.length/2)},(_,i)=>`<p>${attr(attrs[i*2],attrs[i*2+1])}</p>`).join('')}</div>`);
   slot(root,'/auto_Formula',`<div class="home-native-formula">${[recipe.iMaterial0,recipe.iMaterial1,recipe.iMaterial2,recipe.iMaterial3,recipe.iMaterial4].filter(Boolean).map(equip).join(' + ')} → ${equip(id)}</div>`);
  }
- function sourceSkill(){const x=row(detail.id),skill=Cultivation.skill(x.iID,Math.max(0,M.level(page,x.iID)));const shade=document.createElement('button');shade.className='home-source-shade';shade.dataset.home26='close';shade.setAttribute('aria-label','返回功法详情');canvas.append(shade);const states=new Map();for(const r of L.layouts.uiseedlinginfo.nodes)for(const c of r.components)if(c.fields?.SpriteList)states.set(c.pathID,r.path.endsWith('/Auto_ghosticon')?x.iTechnique:x.iQuality);const root=U.render(L.layouts.uiseedlinginfo,L.sprites,{width:1080,height:1920,states,node:r=>{const leaf=r.path.split('/').at(-1);if(leaf==='Auto_Title')return {text:x.szName};if(leaf==='Auto_Icon')return {image:x.icon};if(leaf==='iauto_select')return {visible:false};if(leaf==='Auto_Content')return {text:''};if(leaf==='Text (TMP)')return {text:'点击空白区域关闭'};return {};}});root.classList.add('home-source-dialog');root.setAttribute('role','dialog');root.setAttribute('aria-label','怒气技说明');canvas.append(root);slot(root,'/Auto_ScrollView',`<div class="home-skill-scroll">${rich(skill?.szDesc||'')}</div>`);}
+ function sourceSkill(){const x=row(detail.id),skill=Cultivation.skill(x.iID,Math.max(0,M.level(page,x.iID))),S=PET_INFO_LAYOUTS;
+  const shade=document.createElement('button');shade.className='home-source-shade';shade.dataset.home26='close';shade.setAttribute('aria-label','返回功法详情');canvas.append(shade);
+  const root=U.render(S.layouts.uicommondesc,S.sprites,{width:1080,height:1920,node:r=>{const leaf=r.path.split('/').at(-1);if(leaf==='Auto_Title')return {text:skill?.szName||''};if(leaf==='Auto_Content')return {text:''};return {};}});
+  root.classList.add('home-source-dialog','home-skill-level-tip');root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-label','怒气技全部等级');canvas.append(root);
+  slot(root,'/Scroll View',`<div class="home-skill-scroll">${x.arrAngerSkill.flatMap((threshold,i,a)=>{if(i%2)return [];const cfg=CULTIVATION_DATA.skills.find(t=>t.iSkillID===a[i+1]);return cfg?[`<article data-source-skill="${cfg.iSkillID}"><h3>${threshold/6+1}级：${i===0?'解锁激活':threshold/6+'星激活'}</h3>${rich(cfg.szDesc)}</article>`]:[];}).join('')}<br><br></div>`);
+ }
 
  function sourceStamina(){const p=M.purchase(),c=M.cfgStamina(),shade=document.createElement('div');shade.className='home-source-shade';shade.dataset.home26='close';canvas.append(shade);
   const root=layout('uistamina',r=>{const leaf=r.path.split('/').at(-1);

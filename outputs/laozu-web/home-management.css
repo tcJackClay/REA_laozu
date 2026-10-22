@@ -35,3 +35,8 @@
 /* Original strategy subwindows; measured dynamic content stays inside source slots. */
 .strategy-detail-source [data-source-path$="/kuangti ZuoZuo"],.strategy-detail-source [data-source-path$="/Bg"],.strategy-detail-source [data-source-path$="/bg"],.strategy-detail-source [data-source-path$="/tanchuangdiban"]{pointer-events:auto}
 .strategy-native-scroll{height:100%;overflow:auto;overscroll-behavior:contain;pointer-events:auto;font:34px/1.45 KaiTi;color:#9c7445;box-sizing:border-box;padding:8px 14px}.strategy-native-scroll article{margin:0 0 38px;white-space:pre-wrap}.strategy-number{color:#5e9825}.strategy-detail-source .inactive{color:#8b8b8b}.strategy-detail-source .inactive span{color:inherit!important}.strategy-main-skill{height:100%;font:34px/1.3 KaiTi;color:#9c7445;pointer-events:auto}.strategy-equip-properties{display:flex;flex-direction:column;gap:10px}.strategy-equip-tiers{display:flex;flex-direction:column;gap:12px;pointer-events:auto}.strategy-tier-description{font:34px/1.3 KaiTi;color:#9c7445;white-space:pre-wrap}.strategy-equipment-tip [data-source-path$="/Content"]{overflow:visible}.strategy-source-head{pointer-events:none}
+
+/* Native skill widget and source upgrade IconItem subtrees (112/150 scale). */
+.home-source-skill-description{height:100%;overflow:auto;font-size:33px;line-height:1.3;color:#9c7445}
+.home-skill-level-tip .home-skill-scroll{padding:10px 20px;box-sizing:border-box}.home-skill-level-tip article{margin-bottom:24px}.home-skill-level-tip h3{font-size:45px;font-weight:400;color:#a69336;margin:0 0 8px}
+.home-source-materials{height:100%;display:flex;align-items:center;gap:33px}.home-source-materials>.unity-prefab{position:relative;inset:auto;flex:0 0 112px}.home-source-material .unity-text{white-space:nowrap}

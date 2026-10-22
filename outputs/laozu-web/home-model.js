@@ -41,6 +41,11 @@ window.createHomeModel=function(B){
   for(let i=0;i<cs.length;i++){const c=cs[i],have=balance(c.id),missing=Math.max(0,c.n-have);if(i===0&&lv>=0&&missing&&row.iOmniShard){out.push({id:c.id,n:Math.min(have,c.n)},{id:row.iOmniShard,n:missing});universal=missing;}else out.push(c);}
   return {costs:out,universal,enough:out.every(c=>balance(c.id)>=c.n)};
  }
+ // Display materials follow HeroUpgradeMaterialUtility, independently of the debit plan.
+ function materialDisplay(kind,id){const row=find(list(kind),id),lv=level(kind,id),universal=row?.iOmniShard||0;
+  return costs(kind,id).flatMap((c,i)=>{const have=balance(c.id),use=i===0&&lv>=0&&universal>0&&balance(universal)>0&&have<c.n,missing=Math.max(0,c.n-have),out=[{id:c.id,have,need:use?have:c.n}];
+   if(use)out.push({id:universal,have:Math.min(balance(universal),missing),need:missing});return out;});
+ }
  function upgrade(kind,id,allowUniversal=false,expectedLevel){const row=find(list(kind),id),lv=level(kind,id),max=kind==='seed'?24:30;if(expectedLevel!==undefined&&expectedLevel!==lv)throw Error('星阶已变化，请重新确认');if(!row||lv>=max)throw Error('已达最高星阶');if(!gate(kind==='seed'?2:15))throw Error(lockText(kind==='seed'?2:15));if(window.CollectionOwnership&&!CollectionOwnership.elementOpen(s(),row.iTechnique))throw Error('该属性尚未开放');const p=payment(kind,id);if(!p.enough)throw Error('升星材料不足');if(p.universal&&!allowUniversal)throw Error('需要确认使用通用碎片');
   p.costs.forEach(c=>add(c.id,-c.n));s()[kind+'Stars']??={};s()[kind+'Stars'][id]=lv+1;data()[kind+'Upgrades']=(data()[kind+'Upgrades']||0)+1;if(Array.isArray(s()[kind+'UnlockedIds'])&&!s()[kind+'UnlockedIds'].includes(+id))s()[kind+'UnlockedIds'].push(+id);B.save();return lv+1;
  }
@@ -63,5 +68,5 @@ window.createHomeModel=function(B){
  function claim(kind,id){const t=kind==='main'?mainTask():sectTasks().find(t=>t.iID===+id);if(!t||t.iID!==+id||t.claimed||t.progress<t.iComdition)throw Error('任务尚未完成或已领取');const items=rewards(kind==='main'?t.iRewardID:t.iPrize);items.forEach(x=>add(x.id,x.n));if(kind==='main'){data().mainIndex++;data().mainBaseline=baseline('main');}else data().claims['sect:'+s().sect+':'+id]=true;B.save();return items;}
  function levelUp(){const tasks=sectTasks();if(!tasks.length||!tasks.every(t=>t.claimed)||!D.SectV2.some(x=>x.iLevel===s().sect+1))throw Error('请先完成并领取全部老祖任务');s().sect++;data().sectBaseline=baseline('sect');B.save();}
  function sideIcons(){return D.FunctionIcon.filter(x=>[1,2,3,5,6].includes(x.iGroupID)&&x.iFunctionID&&gate(x.iFunctionID)&&(!x.arrCheckerParams||s().iconConditions?.[x.nID]===true)).sort((a,b)=>b.iSort-a.iSort);}
- return {data,profile,balance,add,good,cfgStamina,restore,purchase,buyStamina,gate,lockText,list,level,costs,payment,upgrade,avatarUnlocked,rename,sectTasks,mainTask,rewards,claim,levelUp,sideIcons};
+ return {data,profile,balance,add,good,cfgStamina,restore,purchase,buyStamina,gate,lockText,list,level,costs,payment,materialDisplay,upgrade,avatarUnlocked,rename,sectTasks,mainTask,rewards,claim,levelUp,sideIcons};
 };
