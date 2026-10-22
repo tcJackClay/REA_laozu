@@ -103,6 +103,20 @@ window.createHomeManagement=function(B){
   const result=U.render({nodes},L.sprites,{width,height,node:r=>r.id===first.id?{visible:true,rect:{m_AnchorMin:{x:0,y:1},m_AnchorMax:{x:0,y:1},m_Pivot:{x:0,y:1},m_AnchoredPosition:{x:0,y:0},m_SizeDelta:{x:width,y:height}},...node?.(r)}:node?.(r)});
   result.style.width=width+'px';result.style.height=height+'px';return result;
  }
+ // StarLevelItem/Flex_StarsItem: six ordered image fragments per star, not text glyphs.
+ function sourceStars(root,name,suffix,level,max){
+  const source=L.layouts[name],anchor=source.nodes.find(n=>n.path.endsWith(suffix)),first=source.nodes.find(n=>n.path===anchor?.path+'/Stars/ListStar');
+  if(!first)return;
+  const collection=first.components.find(c=>c.fields?.m_GameObjects)?.fields.m_GameObjects||[],parts=new Map(collection.map((x,i)=>[String(x.m_PathID),i]));
+  const size=first.components.find(c=>c.type==='RectTransform').m_SizeDelta;
+  const holder=slot(root,suffix,'<div class="home-source-star-strip"></div>')?.firstElementChild;if(!holder)return;
+  holder.setAttribute('role','img');holder.setAttribute('aria-label',level<0?'未解锁':levelText(level));holder.dataset.starLevel=level;holder.dataset.starMax=max;holder.style.display=level<0?'none':'flex';
+  for(let i=0;i<max/6;i++){
+   const count=Math.max(0,Math.min(6,level-i*6));
+   const star=sourceSubtree(name,first.path,size.x,size.y,n=>parts.has(String(n.id))?{visible:parts.get(String(n.id))<count}:{});
+   star.classList.add('home-source-star');star.dataset.starIndex=i;star.dataset.starParts=count;holder.append(star);
+  }
+ }
  function sourceSprite(r,index){const sw=r.components.find(c=>c.fields?.SpriteList),ref=sw?.fields.SpriteList[index];return ref?{image:L.sprites[ref.m_PathID]?.file}:{};}
  function sourceDetailRows(root,name,x,lv,max,teacher){
   if(teacher){
@@ -154,7 +168,7 @@ window.createHomeManagement=function(B){
      if(leaf==='Stars'||leaf==='starItem')return {visible:lv>=0};
      return {};
     });member.classList.add('home-suit-member');cards.append(member);
-    slot(member,page==='seed'?'/xauto_seedling/Stars':'/starItem',`<div class="home-suit-stars">${'★'.repeat(Math.floor(Math.max(0,lv)/6))}<small>${levelText(lv)}</small></div>`);
+    sourceStars(member,name,page==='seed'?'/xauto_seedling/Stars':'/starItem',lv,page==='seed'?24:30);
    }
    if(page==='seed'){const cfg=D.SeedlingGroup.find(x=>x.iID===g.id),iconNode=L.layouts[name].nodes.find(n=>n.path.endsWith('/xauto_elementList/ListItem/xauto_icon')),sprites=iconNode?.components.find(c=>c.fields?.SpriteList)?.fields.SpriteList||[];slot(group,'/xauto_elementList',`<div class="home-suit-elements">${[1,2,3,4,5,6,7,8].filter(e=>cfg.iActiveFiveElements&(1<<(e-1))).map(e=>`<img src="${L.sprites[sprites[e]?.m_PathID]?.file||''}" alt="${['','金','木','水','火','土','雷','邪','体'][e]}">`).join('')}</div>`);}
    slot(group,'/xauto_effecttList',`<div class="home-suit-effects">${g.tiers.map(t=>`<p class="${t.active?'active':''}">${t.threshold===0?'集齐整组':`全组达到${t.threshold/6}星`}：${attr(t.id,t.value)} ${t.active?'已激活':'未激活'}</p>`).join('')}</div>`);
@@ -175,7 +189,7 @@ window.createHomeManagement=function(B){
   const shade=document.createElement('button');shade.className='home-source-shade';shade.dataset.home26='close';shade.setAttribute('aria-label','关闭详情');canvas.append(shade);
   const fields={auto_seedlingName:x.szName,auto_Name:x.szName,Auto_curLevel:lv===max?'满级':levelText(lv),auto_curLevel:levelText(lv),Auto_nextLevel:levelText(lv+1),auto_nextLevel:levelText(lv+1),Auto_UpgradeText:unlocked?'升星':teacher?'合成':'解锁',Auto_ViewText:detail.fullbody?'详情':'全身',auto_Power:String((x.arrPower||[]).reduce((v,n,i,a)=>i%2===0&&lv>=n?a[i+1]:v,0))};
   const attributeText=level=>[x.arrSecondAttribute1,x.arrSecondAttribute2,x.arrSecondAttribute3].filter(a=>a?.length>1).map(a=>attr(a[0],level<0?0:a[Math.min(level+1,a.length-1)])).join('\n');
-  const recipe=teacher?TEACHER_DATA.recipes.find(r=>r.iFormID===x.arrComposeID?.[0]):null,discipleSkin=teacher?TSM.info(x.iID):null;
+  const recipe=teacher?TEACHER_DATA.recipes.find(r=>r.iFormID===x.arrComposeID?.[0]):null,discipleSkin=teacher?TSM.info(x.iID):null,frag=M.costs(page,x.iID)[0]||{id:0,n:1},fragCount=M.balance(frag.id);
   const root=U.render(source,L.sprites,{width:1080,height:1920,states,node:r=>{const p=r.path,leaf=p.split('/').at(-1);
    if(detail.readOnly&&(['Auto_UpgradeBtn','Auto_GetBtn','auto_leftBtn','auto_rightBtn','Auto_ViewSkin','Auto_Dress'].includes(leaf)||/Awake/.test(leaf)))return {visible:false};
    if(teacher){const skinNode=TeacherDiscipleSkinUI.node(r,discipleSkin,M);if(skinNode)return skinNode;}
@@ -201,7 +215,9 @@ window.createHomeManagement=function(B){
    if(leaf==='Auto_UnlockInfo')return {visible:unlocked};
    if(leaf==='Auto_lockInfo')return {visible:!unlocked};
    if(leaf==='Auto_Equiplock')return {visible:!unlocked};
-   if(leaf==='Auto_Frag')return {visible:!unlocked};
+   if(leaf==='Auto_Frag')return {visible:!teacher&&!unlocked};
+   if(!teacher&&p.includes('/Auto_Frag/')&&leaf==='Fill')return {fill:Math.min(1,fragCount/frag.n)};
+   if(!teacher&&p.includes('/Auto_Frag/')&&leaf==='Value')return {text:fragCount+'/'+frag.n};
    if(leaf==='Auto_Stars')return {visible:unlocked};
    if(leaf==='auto_nextLevelRoot'||leaf==='Auto_nextLevel')return {visible:lv<max,...(fields[leaf]!==undefined?{text:fields[leaf]}:{})};
    if(leaf==='auto_curPropStr')return {text:attributeText(lv)};
@@ -236,8 +252,8 @@ window.createHomeManagement=function(B){
   }});
   root.classList.add('home-source-dialog','home-item-source',teacher?'home-teacher-source':'home-seed-source');root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-label',x.szName);canvas.append(root);
   sourceMaterials(root,name,x,lv,max);
-  slot(root,'/Auto_Stars',`<div class="home-native-stars">${'★'.repeat(Math.floor(Math.max(0,lv)/6))}${'☆'.repeat(Math.floor(max/6)-Math.floor(Math.max(0,lv)/6))}<small>${levelText(lv)}</small></div>`);
-  const frag=x.arrCost1;slot(root,'/Auto_Frag',`<div class="home-native-frag">${M.balance(frag[0])}/${frag[1]}</div>`);
+  sourceStars(root,name,'/Auto_Stars',lv,max);
+
   if(teacher){
    TeacherDiscipleSkinUI.inline(root,discipleSkin,canvas);
    if(unlocked&&M.gate(AM.gateId())&&!detail.fullbody&&!detail.skins)root.insertAdjacentHTML('beforeend',`<div class="home-awake-entry">${btn('awake','觉醒 · '+TeacherAwake.level(B.state(),x.iID)+'阶')}</div>`);
