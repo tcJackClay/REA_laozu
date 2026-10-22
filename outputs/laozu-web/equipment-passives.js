@@ -6,13 +6,8 @@ window.EquipmentPassives=(()=>{
  const text=id=>(D.equipmentSkills[D.equipment[id]?.iProvideSkill]?.szDesc||'').replace(/<[^>]*>/g,'');
  function cells(i){let shape=defs().get(i.id)?.shape||[[0,0]];for(let r=0;r<((i.rotation||0)%4);r++){shape=shape.map(([x,y])=>[-y,x]);const min=Math.min(...shape.map(p=>p[0]));shape=shape.map(([x,y])=>[x-min,y]);}return shape.map(([x,y])=>[x+i.x,y+i.y]);}
  function adjacent(i,j){return cells(i).some(([x,y])=>cells(j).some(([a,b])=>Math.abs(x-a)+Math.abs(y-b)===1));}
- function neighbors(s,i){return carried(s).filter(j=>j.uid!==i.uid&&D.equipment[j.id]?.arrTechnique.some(x=>D.equipment[i.id]?.arrTechnique.includes(x))&&adjacent(i,j));}
  const percent=(t,re,fallback=0)=>+(t.match(re)?.[1]||fallback)/100;
- function modifiers(s,i){const t=text(i.id),n=neighbors(s,i).length,out={damage:0,heal:0,shield:0,crit:0,drain:0,atk:0,hp:0,def:0};const tail=t.includes('相邻每件')?t.split('相邻每件')[1]:'';
-  for(const [k,re] of Object.entries({damage:/伤害(?:加成)?[+提增加升]+(\d+(?:\.\d+)?)%/,heal:/治疗效果[+提升]+(\d+(?:\.\d+)?)%/,shield:/护盾值\+(\d+(?:\.\d+)?)%/,crit:/暴击伤害\+(\d+(?:\.\d+)?)%/,drain:/(\d+(?:\.\d+)?)%汲取率|汲取率\+(\d+(?:\.\d+)?)%/,atk:/攻击力(?:属性)?[+提升]+(\d+(?:\.\d+)?)%/,hp:/生命值[+提升]+(\d+(?:\.\d+)?)%/,def:/防御(?:力)?\+(\d+(?:\.\d+)?)%/}))out[k]=(k==='drain'?+(tail.match(re)?.[1]||tail.match(re)?.[2]||0)/100:percent(tail,re))*n;
-  for(const j of neighbors(s,i)){const desc=text(j.id);if(!desc.startsWith('使相邻'))continue;out.damage+=percent(desc,/伤害[+提升增加]+(\d+(?:\.\d+)?)%/);out.hp+=percent(desc,/生命值提升(\d+(?:\.\d+)?)%/);out.def+=percent(desc,/防御\+(\d+(?:\.\d+)?)%/);}
-  return out;
- }
+ function modifiers(s,i){return EquipAdjacency.modifiers(s,i);}
  function statBonuses(s){const out={2001:0,2002:0,2003:0};for(const i of carried(s)){const d=defs().get(i.id);if(!d)continue;const m=modifiers(s,i),stats=TeacherRuntime.equipStats(s,i,d);for(const [key,id] of [['atk',2001],['def',2002],['hp',2003]])out[id]+=(stats[id]||0)*m[key];}return out;}
  function begin(s,b){if(b.passiveRound===b.round)return;b.passiveRound=b.round;b.equipmentBonuses={};for(const i of carried(s)){const t=text(i.id),keys={'忽视闪避':2018,'忽视击晕':2020,'普攻减伤':2036,'暴击减伤':2028,'忽视反击':2022};for(const [name,id] of Object.entries(keys)){const m=t.match(new RegExp('提高自身([\\d.]+)%'+name+'（最多([\\d.]+)%'));if(m)b.equipmentBonuses[id]=Math.min(+m[2]*100,(b.equipmentBonuses[id]||0)+ +m[1]*100);}
    if(t.includes('第3次行动前移除')&&b.round<3)b.equipmentBonuses[2026]=Math.min(6000,(b.equipmentBonuses[2026]||0)+percent(t,/减伤\+(\d+)%/)*10000);

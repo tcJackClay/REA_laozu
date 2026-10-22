@@ -1,6 +1,6 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const c={window:null,console,Math:Object.create(Math)};c.Math.random=()=>0;c.window=c;vm.createContext(c);
-for(const f of ['game-data','wander-data','teacher-data','teacher-runtime-data','battle-damage-types','teacher-runtime','combat-effects-data','status-chains','equipment-passives','combat-effects'])vm.runInContext(fs.readFileSync(`outputs/laozu-web/${f}.js`,'utf8'),c);
+for(const f of ['game-data','wander-data','teacher-data','teacher-runtime-data','battle-damage-types','teacher-runtime','combat-effects-data','status-chains','equip-adjacency-data','equip-adjacency','equipment-passives','combat-effects'])vm.runInContext(fs.readFileSync(`outputs/laozu-web/${f}.js`,'utf8'),c);
 const E=c.CombatEffects,S=c.StatusChains,P=c.EquipmentPassives,D=c.COMBAT_EFFECTS_DATA,checks=[],ck=(name,v)=>{assert.ok(v,name);checks.push(name);};
 const state=()=>({selected:0,disciples:[{traitIds:[]}],run:{config:{teachers:[],points:[0,0,0,0]},abilities:[],eventBonuses:{}},inventory:[]});
 const battle=()=>({round:1,playerAtk:100,playerDef:40,playerSpeed:80,enemySpeed:30,playerMax:100000,playerHp:40000,enemyMax:1e9,enemyHp:4e8,enemyAtk:100,enemyDef:100,enemyRage:100,playerRage:0,damageTrace:[]});

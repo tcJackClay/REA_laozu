@@ -1,0 +1,32 @@
+{
+  "checks": [
+    "original unawakened skill list",
+    "serialized skill ids cannot bypass awakening",
+    "early awakening keeps base adjacency",
+    "level5 replaces rather than appends",
+    "active battle skill remains source iProvideSkill",
+    "source geometry maps normalized occupied coordinates",
+    "source absorption gives one matching gold neighbor",
+    "awakened self attack bonus is40percent",
+    "gold ring buffs neighboring red damage2percent",
+    "outgoing ring effect does not buff itself",
+    "replacement increases actual combat basic attack",
+    "early base adjacency only20percent",
+    "held reward does not activate adjacency",
+    "wood bitmask cannot match gold absorption",
+    "moving and changing item invalidates cache",
+    "sold item cannot provide adjacency",
+    "multi-cell contact counts one item",
+    "full rotation restores source geometry",
+    "emit rotates and shares occupancy normalization",
+    "all329 source rules use supported numeric directions",
+    "all numeric rule lists are mask plus attribute value pairs",
+    "multi-attribute rule preserves drain gate and rate",
+    "multi-attribute drain rate reaches modifier",
+    "repeated calculation never mutates save or accumulates",
+    "unknown gear grants no invented skills",
+    "1006 two sources add40percent hp to target",
+    "removing one1006 source recalculates20percent hp",
+    "1007 own crit-damage modifier reaches formal caster"
+  ]
+}

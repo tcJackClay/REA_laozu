@@ -38,3 +38,5 @@
 .wd-resonance{display:grid;grid-template-columns:1fr 1fr;gap:2px}.wd-resonance h3{grid-column:span 2}.wd-resonance .wd-slot{min-height:42px}
 #wander-dialog[data-type=bag-info] .wt-bag-board{margin:0;border-width:3px}
 .w-reward-entry{display:block;width:100%;text-align:left;cursor:pointer;font:inherit}
+/* Keep detail text inside the illustrated frame at phone widths. */
+#wander-dialog:is([data-type=book-item],[data-type=item]) .w-dialog-content{padding:12px 25px;overflow-wrap:anywhere}

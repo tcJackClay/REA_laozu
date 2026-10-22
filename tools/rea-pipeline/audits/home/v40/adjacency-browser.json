@@ -1,0 +1,119 @@
+{
+  "checks": [
+    "native continue starts actual battle",
+    "native swallow enters pending animation",
+    "swallow consumes real material and evolves artifact",
+    "source replacement resolves10901",
+    "detail exposes actual awakened adjacency",
+    "detail text remains inside illustrated frame",
+    "native continue starts actual battle",
+    "active battle skill is preserved across replacement",
+    "real cast consumes replacement40percent instead of base20percent",
+    "production battle starts with higher actual attack",
+    "actual enemy loses more hp after awakening",
+    "runtime audit exposes effective skills and source neighbors",
+    "refresh preserves evolved artifact",
+    "no runtime or resource errors"
+  ],
+  "errors": [],
+  "before": {
+    "atk": 271,
+    "hp": 999646,
+    "cast": {
+      "round": 1,
+      "kind": "equipment-cast",
+      "value": 9501,
+      "itemId": 150109,
+      "sourceSkill": 11121,
+      "replay": false,
+      "modifiers": {
+        "atk": 0.2,
+        "def": 0,
+        "hp": 0,
+        "damage": 0.02,
+        "crit": 0,
+        "heal": 0,
+        "shield": 0,
+        "drain": 0,
+        "raw": {
+          "stats": {
+            "2004": 2000
+          },
+          "flash": {
+            "2025": 200
+          },
+          "sources": [
+            {
+              "uid": 9501,
+              "skillId": 1035,
+              "count": 1,
+              "targets": [
+                9502
+              ],
+              "kind": "self"
+            },
+            {
+              "uid": 9502,
+              "skillId": 1011,
+              "count": 1,
+              "targets": [
+                9501
+              ],
+              "kind": "neighbors"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "after": {
+    "atk": 321,
+    "hp": 999581,
+    "cast": {
+      "round": 1,
+      "kind": "equipment-cast",
+      "value": 9501,
+      "itemId": 150109,
+      "sourceSkill": 11121,
+      "replay": false,
+      "modifiers": {
+        "atk": 0.4,
+        "def": 0,
+        "hp": 0,
+        "damage": 0.02,
+        "crit": 0,
+        "heal": 0,
+        "shield": 0,
+        "drain": 0,
+        "raw": {
+          "stats": {
+            "2004": 4000
+          },
+          "flash": {
+            "2025": 200
+          },
+          "sources": [
+            {
+              "uid": 9501,
+              "skillId": 10901,
+              "count": 1,
+              "targets": [
+                9502
+              ],
+              "kind": "self"
+            },
+            {
+              "uid": 9502,
+              "skillId": 1011,
+              "count": 1,
+              "targets": [
+                9501
+              ],
+              "kind": "neighbors"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const c={window:null,console,Math};c.window=c;vm.createContext(c);
-for(const f of ['game-data','wander-data','teacher-data','teacher-runtime-data','battle-damage-types','teacher-runtime','pet-battle-data','combat-effects-data','status-chains','equipment-passives','combat-effects','pet-battle'])vm.runInContext(fs.readFileSync(`outputs/laozu-web/${f}.js`,'utf8'),c);
+for(const f of ['game-data','wander-data','teacher-data','teacher-runtime-data','battle-damage-types','teacher-runtime','pet-battle-data','combat-effects-data','status-chains','equip-adjacency-data','equip-adjacency','equipment-passives','combat-effects','pet-battle'])vm.runInContext(fs.readFileSync(`outputs/laozu-web/${f}.js`,'utf8'),c);
 const E=c.CombatEffects,P=c.PetBattle,checks=[];
 const ck=(n,v)=>{assert.ok(v,n);checks.push(n);};
 const state=(attrs={},petId)=>({selected:0,disciples:[{traitIds:[]}],run:{config:{teachers:[],points:[0,0,0,0],petId},abilities:[],eventBonuses:attrs},inventory:[],pets:[]});

@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "original attribute reward applied",
+    "source reward not repeated by reload",
+    "paid upgrade activates next source collection tier",
+    "same production attack and element",
+    "collection increases real loop damage",
+    "neutral normal attack stays unchanged",
+    "real enemy hp decreased further",
+    "battle exposes active collection source tiers",
+    "no browser/resource errors"
+  ],
+  "errors": []
+}

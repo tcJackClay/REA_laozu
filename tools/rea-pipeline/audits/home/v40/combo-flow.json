@@ -1,0 +1,29 @@
+{
+  "checks": [
+    "seed uses original suit window",
+    "seed clones source group and member nodes",
+    "source group elements have loaded images",
+    "seed first and last member are inside horizontal viewport",
+    "seed secondary returns group context",
+    "seed cycles within group 1",
+    "seed cycles within group 2",
+    "seed cycles within group 3",
+    "seed upgrade retains group context",
+    "teacher uses original suit window",
+    "teacher clones source group and member nodes",
+    "teacher first and last member are inside horizontal viewport",
+    "teacher secondary returns group context",
+    "teacher cycles within group 1",
+    "teacher cycles within group 2",
+    "teacher cycles within group 3",
+    "teacher upgrade retains group context",
+    "nested details and upgrade preserve combo scroll",
+    "source all-members star threshold activates on actual upgrade",
+    "stale confirmation cannot pay again",
+    "transaction rechecks feature unlock",
+    "locked teacher uses actual portrait mask",
+    "quality overlay is visible",
+    "no browser exceptions"
+  ],
+  "errors": []
+}

@@ -1,6 +1,6 @@
 // Regenerates the explicit runtime/remaining-work inventory from shipped data and adapters.
 const fs=require('node:fs'),vm=require('node:vm');const c={window:null,console,Math};c.window=c;vm.createContext(c);
-for(const n of ['game-data','wander-data','teacher-data','teacher-runtime-data','teacher-runtime','combat-effects-data','status-chains','equipment-passives','combat-effects','event-library-data'])vm.runInContext(fs.readFileSync(`outputs/laozu-web/${n}.js`,'utf8'),c);
+for(const n of ['game-data','wander-data','teacher-data','teacher-runtime-data','teacher-runtime','combat-effects-data','status-chains','equip-adjacency-data','equip-adjacency','equipment-passives','combat-effects','event-library-data'])vm.runInContext(fs.readFileSync(`outputs/laozu-web/${n}.js`,'utf8'),c);
 const abilities=c.WANDER_DATA.abilities.map(a=>({id:a.id,name:a.name,status:c.CombatEffects.supportedAbilities.has(a.id)?'local-trigger-adapter':'deferred-special-status-chain'}));
 const rewardIds=[...new Set(Object.values(c.EVENT_LIBRARY_DATA.events).flatMap(e=>Array.from({length:11},(_,i)=>e['arrAction'+i]).filter(a=>a?.[0]===3).map(a=>a[1])))];
 const wheelIds=[...new Set(Object.values(c.EVENT_LIBRARY_DATA.events).filter(e=>e.iEventType===7).map(e=>e.arrParam[0]))];
