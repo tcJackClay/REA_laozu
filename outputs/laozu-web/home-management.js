@@ -1,6 +1,7 @@
 window.createHomeManagement=function(B){
  const M=createHomeModel(B),D=HOME_MANAGEMENT_DATA,L=HOME_MANAGEMENT_LAYOUTS,U=UnityRect,esc=Cultivation.esc,rich=Cultivation.rich;
  const Clan=createClanPage({...B,resourceBridge:{balance:M.balance,gate:M.gate,lockText:M.lockText,jump:resourceJump},back:()=>{page=null;detail=null;B.render();}});
+ const Market=createMarketPage({...B,openResource:(id,info=false)=>{detail={type:info?'resource-info':id===3?'stamina':'recharge',id};redraw();},balance:M.balance,add:M.add,gate:M.gate,lockText:M.lockText,jump:resourceJump,back:()=>{page=null;detail=null;B.render();}});
  const events=new AbortController();
  let currentProfile=null;
  let canvas=null,page=null,detail=null,filter=0,sort=5,reverse=false,combo=false,expanded=false,leftFold=false,rightFold=false;
@@ -27,6 +28,7 @@ window.createHomeManagement=function(B){
   }
   if(leaf==='locker'){const parent=p.slice(0,-7),button=ORIGINAL_LAYOUT_DATA.layouts.uimain.nodes.find(n=>n.path.startsWith(parent+'/')&&n.components.some(c=>c.fields?._funcIDs?.length));const ids=button?.components.flatMap(c=>c.fields?._funcIDs||[])||[];if(ids.length)return {visible:!ids.some(M.gate)};}
   if(leaf==='auto_SeedingBtn')return {action:'home26:seed',label:'功法管理'};
+  if(leaf==='auto_UIMarket')return {action:'home26:market',label:'坊市'};
   if(leaf==='auto_ClanBtn')return {action:'home26:clan',label:'赐福'};
   if(leaf==='auto_TeacherBtn')return {action:'home26:teacher',label:'长老管理'};
   if(leaf==='auto_SectTask'){const t=M.sectTasks().find(x=>!x.claimed);return {visible:true,action:'home26:sect-task',label:'老祖任务',text:t?.szDesc||'老祖等级可提升'};}
@@ -57,13 +59,13 @@ window.createHomeManagement=function(B){
   return `<aside class="home-side home-left">${side([2],leftFold)}${groups.some(x=>x.iGroupID===2)?btn('fold-left',leftFold?'⌄':'⌃'):''}</aside><aside class="home-side home-right">${side([3],rightFold)}${groups.some(x=>x.iGroupID===3)?btn('fold-right',rightFold?'⌄':'⌃'):''}</aside><aside class="home-side home-top-activities">${side([1],false)}</aside><aside class="home-side home-low-activities">${side([6],false)}</aside><div class="home26-shortcuts">${btn('mail',`<img src="${art('icon_main_youjian')}" alt="">邮件`)}${btn('warehouse',`<img src="${art('icon_main_cangku')}" alt="">仓库`)}${btn('expand',`<img src="${art('ui_zjm_kuozhan')}" alt="">${expanded?'收起':'展开'}`)}</div>${expanded?`<div class="home-expanded">${side([5],false)}${btn('settings','设置')}${btn('main-task','任务')}${btn('sect-task','老祖')}${btn('seed','功法')}${btn('teacher','长老')}${btn('expand','收起')}</div>`:''}`;
  }
  function layout(name,cb){return U.render(L.layouts[name],L.sprites,{width:1080,height:1920,node:cb});}
- function open(kind){const id=kind==='seed'?2:kind==='teacher'?15:kind==='clan'?4:0;if(id&&!M.gate(id))return B.toast(M.lockText(id));if(kind==='clan')Clan.reset();page=kind;detail=null;filter=0;combo=false;redraw();}
+ function open(kind){const id=kind==='seed'?2:kind==='teacher'?15:kind==='clan'?4:kind==='market'?13:0;if(id&&!M.gate(id))return B.toast(M.lockText(id));if(kind==='clan')Clan.reset();if(kind==='market')Market.reset();page=kind;detail=null;filter=0;combo=false;redraw();}
  function row(id){return M.list(page).find(x=>x.iID===+id);}
  const levelText=n=>n<0?'未解锁':Math.floor(n/6)+'星'+n%6+'阶';
  function card(kind,x){const lv=M.level(kind,x.iID),cost=M.costs(kind,x.iID)[0],can=lv<(kind==='seed'?24:30)&&M.payment(kind,x.iID).enough;
   return `<button class="home-card quality-${x.iQuality} ${lv<0?'unowned':''}" data-home26="item:${x.iID}" aria-label="${esc(x.szName)}"><img src="${x.icon}" alt=""><span>${esc(x.szName)}</span><small>${levelText(lv)}</small>${cost?`<small>${M.balance(cost.id)}/${cost.n} 碎片</small>`:''}${can?'<i class="home-red-dot">!</i>':''}</button>`;
  }
- function renderPage(){if(page==='clan'){Clan.render(canvas);return;}if(page==='sect-task'){renderSect();return;}
+ function renderPage(){if(page==='market'){Market.render(canvas);if(detail)renderDialog();return;}if(page==='clan'){Clan.render(canvas);return;}if(page==='sect-task'){renderSect();return;}
   const teacher=page==='teacher',name=teacher?'uiteacher':'uiallseedling',root=layout(name,r=>{const p=r.path,leaf=p.split('/').at(-1);
    if(p.includes('/SortTypeList')||leaf==='Auto_Return'||leaf==='ListRoot'||/Awake|Resonance/.test(p))return {visible:false};
    if(leaf==='Auto_SortByOrder')return {action:'home26:reverse',label:'切换排序方向'};
@@ -178,7 +180,7 @@ window.createHomeManagement=function(B){
    if(leaf==='ZuoZuoZuoZuoZuoZuoZuoZuo')return {action:'home26:close',label:'关闭体力购买'};
    return {};});root.classList.add('home-source-dialog');root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-label','确认购买');canvas.append(root);
  }
- function resourceJump(j){if(j.szParam1==='UIDiscipleBirth'){page=null;detail=null;B.switchTab('wander');return true;}if(j.iMode===102&&j.szParam1==='3'){page=null;detail=null;B.switchTab('story');return true;}B.toast('该目的页尚未接入，资源与当前进度保持不变');return false;}
+ function resourceJump(j){if(j.szParam1==='UIMarket'){open('market');return true;}if(j.szParam1==='UIDiscipleBirth'){page=null;detail=null;B.switchTab('wander');return true;}if(j.iMode===102&&j.szParam1==='3'){page=null;detail=null;B.switchTab('story');return true;}B.toast('该目的页尚未接入，资源与当前进度保持不变');return false;}
  function sourceStory(){
   const x=row(detail.id),lv=M.level('seed',x.iID),need=M.costs('seed',x.iID)[0]?.n||0,S=DETAIL_SECONDARY_LAYOUTS;
   const shade=document.createElement('button');shade.className='home-source-shade';shade.dataset.home26='close';shade.setAttribute('aria-label','关闭故事');canvas.append(shade);
@@ -207,6 +209,7 @@ window.createHomeManagement=function(B){
   if(detail.type==='rename'){title='修改姓名';body=`<input id="home-name" aria-label="玩家姓名" maxlength="8" value="${esc(M.data().name)}"><p>昵称长度为1—8个字符</p>${btn('rename-save','确定')}`;}
   if(detail.type==='stamina'){const p=M.purchase(),c=M.cfgStamina();title='确认购买';body=`<div class="home-stamina-icon"><img src="${icon(ALIGNED_STAGE_DATA.goods.find(x=>x.iGoodsID===3)?.iIconID)}" alt="体力"></div><p>体力 ${M.balance(3)}/${c.iStaminaLimit}</p><p>每${c.iRestoreTime/60}分钟恢复${c.iRestore}点体力</p><p>今日剩余次数：${p.remaining}</p>${btn('stamina-buy',p.remaining?`${p.cost} ${esc(M.good(p.currency).szName)} · 购买${p.amount}体力`:'售罄',!p.remaining||M.balance(p.currency)<p.cost)}`;}
   if(detail.type==='recharge'){title='仙玉充值';body='<p>原版此入口打开仙玉充值商城，需要渠道订单服务。</p><p>当前为本地复刻，未连接支付服务，不会生成订单或增加仙玉。</p>';}
+  if(detail.type==='resource-info'){title=M.good(detail.id).szName;body=`<p>拥有：${number(M.balance(detail.id))}</p><p>${esc(ResourceTips.goods(detail.id)?.szDesc||'')}</p>`;}
   if(detail.type==='resource'){const id=detail.id;title=M.good(id).szName;body=`<p>拥有：${number(M.balance(id))}</p><p>${esc(M.good(id).szDesc||'')}</p>${id===3?btn('stamina','购买体力'):btn('go-wander','前往游历获取')}`;}
   if(detail.type==='main-task'){const t=M.mainTask();title='新手任务';body=t?`<p>${esc(t.szDesc)}（${t.progress}/${t.iComdition}）</p>${rewardHTML(t.iRewardID)}${btn('claim-main',t.progress>=t.iComdition?'领取奖励':'前往')}`:'<p>全部新手任务已完成</p>';}
   if(detail.type==='reward'){title='获得奖励';body=detail.items.map(x=>`<p>${esc(M.good(x.id).szName)} ×${x.n}</p>`).join('');}
@@ -226,7 +229,7 @@ window.createHomeManagement=function(B){
  function jump(id){const j=D.FunctionJump.find(x=>x.iID===id);if(j?.szParam1==='UIDiscipleBirth'){page=null;detail=null;B.switchTab('wander');return;}if(j?.szParam1==='UISectV2'){open('sect-task');return;}if(j?.szParam1==='UISeedligNavs'){open('seed');return;}if(j?.szParam1==='UITeacherNavs'){open('teacher');return;}B.toast('该任务目标页面尚未接入，进度与奖励保持不变');}
  function action(a){const [key,value]=a.split(':'),id=+value;try{
   if(key==='recharge'&&!M.gate(13))return B.toast(M.lockText(13));
-  if(['seed','teacher','sect-task','clan'].includes(key))return open(key);
+  if(['seed','teacher','sect-task','clan','market'].includes(key))return open(key);
   if(key==='back'){page=null;detail=null;return redraw();}
   if(key==='close'){if(detail?.type==='item'&&(detail.skins||detail.fullbody)){detail.skins=false;detail.fullbody=false;return redraw();}detail=detail?.parent||(['universal','skill','story','recipe','strategy'].includes(detail?.type)?{type:'item',id:detail.id}:null);return redraw();}
   if(key==='item')detail={type:'item',id};
@@ -264,6 +267,6 @@ window.createHomeManagement=function(B){
   redraw();
  }catch(e){B.toast(e.message);}}
  document.addEventListener('click',e=>{const target=e.target.closest('[data-home26]');if(target&&!target.disabled&&canvas?.isConnected&&canvas.contains(target))action(target.dataset.home26);},{signal:events.signal});
- document.addEventListener('keydown',e=>{if(!canvas?.isConnected)return;if(e.key==='Escape'){if(page==='clan'){Clan.back();return;}if(detail)action('close');else if(page)action('back');}if(e.key==='Tab'&&detail){const dialog=canvas.querySelector('[role=dialog]'),buttons=[...dialog.querySelectorAll('button:not(:disabled),input')].filter(x=>x.checkVisibility()&&!x.classList.contains('home-modal-shade'));const first=buttons[0],last=buttons.at(-1);if(!dialog.contains(document.activeElement)||e.shiftKey&&document.activeElement===first||!e.shiftKey&&document.activeElement===last){e.preventDefault();(e.shiftKey?last:first)?.focus();}}},{signal:events.signal});
- return {dispose(){events.abort();canvas=null;},begin(){currentProfile=M.profile();},node,after,action,reset(){page=null;detail=null;canvas=null;},model:M,text:()=>({page:page||'home',dialog:detail,profile:M.profile(),tasks:M.sectTasks(),mainTask:M.mainTask(),sideIcons:M.sideIcons().map(x=>x.nID),clan:Clan.text()})};
+ document.addEventListener('keydown',e=>{if(!canvas?.isConnected)return;if(e.key==='Escape'){if(page==='clan'){Clan.back();return;}if(page==='market'){if(detail)action('close');else Market.back();return;}if(detail)action('close');else if(page)action('back');}if(e.key==='Tab'&&detail){const dialog=canvas.querySelector('[role=dialog]'),buttons=[...dialog.querySelectorAll('button:not(:disabled),input')].filter(x=>x.checkVisibility()&&!x.classList.contains('home-modal-shade'));const first=buttons[0],last=buttons.at(-1);if(!dialog.contains(document.activeElement)||e.shiftKey&&document.activeElement===first||!e.shiftKey&&document.activeElement===last){e.preventDefault();(e.shiftKey?last:first)?.focus();}}},{signal:events.signal});
+ return {dispose(){events.abort();canvas=null;},begin(){currentProfile=M.profile();},node,after,action,reset(){page=null;detail=null;canvas=null;},model:M,text:()=>({page:page||'home',dialog:detail,profile:M.profile(),tasks:M.sectTasks(),mainTask:M.mainTask(),sideIcons:M.sideIcons().map(x=>x.nID),clan:Clan.text(),market:page==='market'?Market.text():null})};
 };

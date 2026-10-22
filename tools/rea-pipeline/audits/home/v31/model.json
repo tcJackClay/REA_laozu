@@ -1,0 +1,25 @@
+{
+  "checks": [
+    "one persisted candidate per slot",
+    "free goods really credited",
+    "duplicate free buy rejected without mutation",
+    "source cost and goods credited",
+    "sold out moved last",
+    "invalid quantity rejected",
+    "insufficient money atomic",
+    "first refresh charges 30",
+    "stale confirmation rejected after refresh",
+    "second refresh charges 60",
+    "refresh cap cannot overspend",
+    "locked market rejects direct purchase",
+    "hidden until function52 unlocked",
+    "unlock enables batch goods",
+    "batch charges and grants quantity",
+    "batch cannot exceed remainder",
+    "offline next-day reset preserves balance",
+    "server day lower boundary included",
+    "server day upper boundary excluded",
+    "server day before lower bound locked",
+    "locked conditions compose source AND tips"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "checks": [
+    "fresh locked market",
+    "original market container",
+    "product labels visibly rendered",
+    "selected market navigation stays in viewport",
+    "free reward credits exactly once",
+    "sold out rejects duplicate",
+    "cancel keeps currency",
+    "confirmed price consumed",
+    "paid goods credited",
+    "first refresh costs 30",
+    "second refresh costs 60",
+    "refresh exhausted hidden",
+    "return restores home",
+    "reload preserves refresh expenditure",
+    "resource market route enters correct page",
+    "original batch window shown",
+    "batch defaults to affordable maximum",
+    "batch UI deducts and credits three",
+    "batch cancel preserves balance",
+    "market stamina plus opens original purchase",
+    "stamina purchase deducts and grants",
+    "stamina returns to market",
+    "Escape returns to home",
+    "no browser errors"
+  ],
+  "errors": []
+}
