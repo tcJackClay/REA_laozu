@@ -1,0 +1,28 @@
+/* Native UITips gem CfgShow: preview only, never writes gem ownership/equipment. */
+window.WarehouseSpecial=(()=>{
+ const data=()=>WAREHOUSE_SPECIAL_DATA,gem=id=>data().Gem.find(x=>x.iID===id),suit=g=>data().GemSuit.find(x=>x.iID===g.iSuitID);
+ function preview(id){const g=gem(id);if(!g)return null;const s=suit(g),members=s?s.arrGemID.filter(x=>s.iGeneral!==1||x===id).map(id=>gem(id)).filter(Boolean):[];return {gem:g,suit:s,count:1,members,tiers:s?s.arrNeedNum.map((n,i)=>({n,active:n<=1,text:s['SzDesc'+(i+1)]||''})):[]};}
+ const find=(root,path)=>[...root.querySelectorAll('[data-source-path]')].find(n=>n.dataset.sourcePath.endsWith(path));
+ function renderGem(canvas,id){const p=preview(id);if(!p)return;const g=p.gem,s=p.suit,L=WAREHOUSE_SPECIAL_LAYOUTS,source=L.layouts.uigeminfo,icons=WAREHOUSE_SPECIAL_ICONS.icons;
+  const shade=document.createElement('button');shade.className='home-source-shade';shade.style.zIndex=80;shade.dataset.home26='close';shade.setAttribute('aria-label','返回来源窗口');canvas.append(shade);
+  const states=new Map();for(const n of source.nodes)for(const c of n.components)if(c.fields?.SpriteList)states.set(c.pathID,n.path.endsWith('/auto_titleBg')?g.iQuality-1:n.path.endsWith('/bg')?g.iQuality:0);
+  const height=text=>Math.max(30,Math.ceil(String(text).replace(/<[^>]*>/g,'').length/12)*36),effectHeight=height(g.szDescribe),tierHeights=p.tiers.map(t=>35+33+height(t.text)),membersHeight=35+30+p.members.length*36,suitHeight=tierHeights.reduce((a,b)=>a+b,0),contentHeight=50+10+effectHeight+(s?10+50+10+38+10+suitHeight+10+membersHeight:0);
+  const root=UnityRect.render(source,L.sprites,{width:1080,height:1920,states,node:n=>{const path=n.path,leaf=path.split('/').at(-1);
+   if(leaf==='auto_GemName')return {text:g.szName};if(leaf==='auto_GemQuality')return {text:'品质:'+data().qualityNames[g.iQuality]};if(leaf==='auto_GemPower')return {text:'魂力:'+g.iPower};
+   if(['auto_gemLockParent','auto_inlay','auto_refine'].includes(leaf)||path.includes('/Scrollbar '))return {visible:false};
+   if(path.includes('/auto_Gem/GameObject/')){if(['select','new','otherPage','lock','arrow','red','mask','cfgId','localId'].includes(leaf))return {visible:false};if(leaf==='rarely')return {visible:g.iRarely>0};if(['icon','icon1','icon2'].includes(leaf)){const iconId=g[{icon:'iIcon',icon1:'iIconID2',icon2:'iIconID3'}[leaf]];return {visible:!!iconId,image:icons[iconId],imageBorder:{x:0,y:0,z:0,w:0}};}}
+   if(['auto_subTitle2','auto_suitNameParent','auto_subSuit','auto_suitCollect'].includes(leaf))return {visible:!!s,...(leaf==='auto_subSuit'?{rect:{m_SizeDelta:{x:446,y:suitHeight}}}:leaf==='auto_suitCollect'?{rect:{m_SizeDelta:{x:446,y:membersHeight}}}:{})};
+   if(path.endsWith('/Viewport/Content'))return {rect:{m_SizeDelta:{x:446,y:contentHeight}}};if(leaf==='auto_effects')return {rect:{m_SizeDelta:{x:446,y:effectHeight}}};if(path.endsWith('/auto_effects/ListItem'))return {rect:{m_SizeDelta:{x:446,y:effectHeight}}};if(leaf==='xauto_effect')return {text:'',rect:{m_SizeDelta:{x:388,y:effectHeight}}};
+   if(leaf==='auto_suitName')return {text:s?'【'+s.szName+'(1/'+s.arrNeedNum.at(-1)+')】':'',color:s&&s.arrNeedNum[0]<=1?{r:.282,g:.557,b:.129,a:1}:{r:.573,g:.561,b:.541,a:1}};
+   if(leaf==='auto_suitNameCollect')return {text:s?'【'+s.szName+'】':''};if(leaf==='auto_suitSubCollect')return {text:p.members.map(m=>'◆'+m.szName).join('\n'),rect:{m_SizeDelta:{x:400,y:p.members.length*36}}};return {};
+  }});root.classList.add('home-source-dialog','warehouse-gem-tip');root.style.zIndex=81;root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-label',g.szName);canvas.append(root);
+  const richAt=(scope,path,text)=>{const node=find(scope,path);if(node){node.replaceChildren();const div=document.createElement('div');div.className='warehouse-gem-rich';div.innerHTML=Cultivation.rich(text);node.append(div);}};richAt(root,'/xauto_effect',g.szDescribe);
+  const viewport=find(root,'/Scroll View/Viewport');viewport.style.overflow='auto';viewport.style.pointerEvents='auto';
+  const holder=find(root,'/auto_subSuit');if(holder){holder.replaceChildren();p.tiers.forEach((t,index)=>{const first=source.nodes.find(n=>n.path.endsWith('/auto_subSuit/ListItem')),nodes=source.nodes.filter(n=>n===first||n.path.startsWith(first.path+'/')).map(n=>n===first?{...n,parentID:null}:n),h=tierHeights[index],color=t.active?{r:.282,g:.557,b:.129,a:1}:{r:.573,g:.561,b:.541,a:1};
+   const item=UnityRect.render({nodes},L.sprites,{width:446,height:h,node:n=>{const leaf=n.path.split('/').at(-1);if(n===nodes[0])return {visible:true,rect:{m_AnchorMin:{x:0,y:1},m_AnchorMax:{x:0,y:1},m_Pivot:{x:0,y:1},m_AnchoredPosition:{x:0,y:0},m_SizeDelta:{x:446,y:h}}};if(leaf==='GameObject1')return {rect:{m_SizeDelta:{x:400,y:33}}};if(leaf==='GameObject2'||leaf==='xauto_subSuitDetail')return {text:leaf==='xauto_subSuitDetail'?'':undefined,color,rect:{m_SizeDelta:{x:400,y:height(t.text)}}};if(leaf==='xauto_subSuitName')return {text:'('+t.n+')套装:',color};return {};}});item.dataset.gemSuitCount=t.n;item.dataset.active=t.active;Object.assign(item.style,{position:'relative',width:'446px',height:h+'px'});holder.append(item);richAt(item,'/xauto_subSuitDetail',t.text);find(item,'/xauto_subSuitDetail').style.color=t.active?'#488E21':'#928F8A';
+  });}
+  // Collection preview counts only this configuration; other names stay grey.
+  const members=find(root,'/auto_suitSubCollect');if(members){const text=members.querySelector('.unity-text');if(text){text.innerHTML=p.members.map(m=>'<span style="color:'+(m.iID===id?'#488E21':'#928F8A')+'">◆'+Cultivation.esc(m.szName)+'</span>').join('<br>');members.querySelector('canvas')?.remove();}}
+ }
+ return {gem,preview,renderGem};
+})();
