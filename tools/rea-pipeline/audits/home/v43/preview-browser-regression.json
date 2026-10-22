@@ -1,0 +1,31 @@
+{
+  "checks": [
+    "native164node pet window used",
+    "pet panel click does not dismiss",
+    "parent strategy stays beneath preview",
+    "strategy pet shows1 not atlas30",
+    "source level1 exp",
+    "active and passive base descriptions present",
+    "long skill description is scrollable",
+    "no random abilities or account controls",
+    "extra attributes are grey and separate",
+    "base attributes keep source plus prefix",
+    "main and passive states use their original sprites",
+    "attribute help uses original common desc",
+    "help panel click does not dismiss",
+    "help returns same pet",
+    "deploy help uses actual source text",
+    "blank closes only help",
+    "escape returns exact strategy parent",
+    "viewing pet never changes account",
+    "blank area returns same strategy",
+    "blue pet only shows base active skill",
+    "empty passive uses original placeholder",
+    "no-passive preview returns without account mutation",
+    "teacher recommendation uses same pet preview",
+    "blank close remains available on small screen",
+    "returns teacher after nested preview",
+    "no runtime or resource errors"
+  ],
+  "errors": []
+}

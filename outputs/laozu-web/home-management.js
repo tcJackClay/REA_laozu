@@ -13,7 +13,7 @@ window.createHomeManagement=function(B){
  const btn=(a,text,disabled=false)=>`<button data-home26="${a}" ${disabled?'disabled':''}>${text}</button>`;
  const el=(root,suffix)=>[...root.querySelectorAll('[data-source-path]')].find(x=>x.dataset.sourcePath.endsWith(suffix));
  const slot=(root,suffix,html)=>{const n=el(root,suffix);if(n){n.replaceChildren();n.insertAdjacentHTML('beforeend',html);}return n;};
- const redraw=()=>B.render();
+ const redraw=()=>{const motion=window.PetMotion?.snapshot();B.render();if(motion)PetMotion.restore(motion);};
  function node(r){const p=r.path,leaf=p.split('/').at(-1),pr=currentProfile||M.profile();
   if(leaf==='Auto_Photo')return {visible:false};
   if(p.endsWith('/auto_PlayerHead/touxiang'))return {visible:true,image:icon(pr.avatar.iIcon)};
@@ -381,5 +381,5 @@ window.createHomeManagement=function(B){
  }catch(e){B.toast(e.message);}}
  document.addEventListener('click',e=>{const target=e.target.closest('[data-home26]');if(target&&!target.disabled&&canvas?.isConnected&&canvas.contains(target))action(target.dataset.home26);},{signal:events.signal});
  document.addEventListener('keydown',e=>{if(!canvas?.isConnected)return;if(e.key==='Escape'){if(page==='fairy'){Fairy.back();return;}if(page==='clan'){Clan.back();return;}if(page==='market'){if(detail)action('close');else Market.back();return;}if(detail)action('close');else if(page)action('back');}if(e.key==='Tab'&&detail){const dialog=[...canvas.querySelectorAll('[role=dialog]')].at(-1),buttons=[...dialog.querySelectorAll('button:not(:disabled),input')].filter(x=>x.checkVisibility()&&!x.classList.contains('home-modal-shade'));const first=buttons[0],last=buttons.at(-1);if(!dialog.contains(document.activeElement)||e.shiftKey&&document.activeElement===first||!e.shiftKey&&document.activeElement===last){e.preventDefault();(e.shiftKey?last:first)?.focus();}}},{signal:events.signal});
- return {releaseMiner:index=>Fairy.model.releaseMember(index),dispose(){events.abort();canvas=null;},begin(){currentProfile=M.profile();},node,after,action,reset(){page=null;detail=null;canvas=null;},model:M,text:()=>({page:page||'home',dialog:detail,profile:M.profile(),tasks:M.sectTasks(),mainTask:M.mainTask(),sideIcons:M.sideIcons().map(x=>x.nID),clan:Clan.text(),market:page==='market'?Market.text():null,fairy:page==='fairy'?Fairy.text():null})};
+ return {releaseMiner:index=>Fairy.model.releaseMember(index),dispose(){events.abort();canvas=null;},begin(){currentProfile=M.profile();},node,after,action,reset(){page=null;detail=null;canvas=null;},model:M,text:()=>({page:page||'home',dialog:detail,petMotion:window.PetMotion?.text()||[],profile:M.profile(),tasks:M.sectTasks(),mainTask:M.mainTask(),sideIcons:M.sideIcons().map(x=>x.nID),clan:Clan.text(),market:page==='market'?Market.text():null,fairy:page==='fairy'?Fairy.text():null})};
 };

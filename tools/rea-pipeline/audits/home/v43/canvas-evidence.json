@@ -1,0 +1,14 @@
+[
+  {
+    "bundle": "assets/data/35bcavy.bin",
+    "component": "-2184152922134899603",
+    "name": "UIWithOverlay",
+    "referencePixelsPerUnit": 100.0
+  },
+  {
+    "bundle": "assets/data/35bcavy.bin",
+    "component": "985146664711328877",
+    "name": "UIWithCamera",
+    "referencePixelsPerUnit": 100.0
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "checks": [
+    "indexed triangles do not double-alpha or leave diagonal cracks",
+    "premultiplied source RGB is preserved",
+    "GPU renderer identity exposed"
+  ],
+  "pixels": [
+    [
+      40,
+      199,
+      80,
+      128
+    ],
+    [
+      40,
+      199,
+      80,
+      128
+    ],
+    [
+      40,
+      199,
+      80,
+      128
+    ],
+    [
+      40,
+      199,
+      80,
+      128
+    ],
+    [
+      40,
+      199,
+      80,
+      128
+    ],
+    [
+      40,
+      199,
+      80,
+      128
+    ],
+    [
+      40,
+      199,
+      80,
+      128
+    ]
+  ]
+}

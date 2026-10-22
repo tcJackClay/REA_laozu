@@ -1,0 +1,9 @@
+const fs=require('node:fs'),assert=require('node:assert/strict'),{chromium}=require('C:/Users/45186/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'),raster=require('./pet-webgl-raster.cjs');
+(async()=>{const b=await chromium.launch({args:['--enable-webgl','--use-angle=swiftshader','--enable-unsafe-swiftshader']}),checks=[],ck=(n,v)=>{assert.ok(v,n);checks.push(n);};try{const p=await b.newPage();
+ const source=await p.evaluate(()=>{const c=document.createElement('canvas');c.width=c.height=8;const x=c.getContext('2d');x.fillStyle='rgba(40,200,80,0.5)';x.fillRect(0,0,8,8);return c.toDataURL();});
+ const draw={image:'test',vertices:[0,64,0,0,64,0,64,64],uv:[0,1,0,0,1,0,1,1],triangles:[0,1,2,0,2,3],color:[1,1,1,1],blend:0};
+ const result=await p.evaluate(raster,{width:64,height:64,images:{test:source},draws:[draw]});
+ const pixels=await p.evaluate(async data=>{const i=new Image();i.src='data:image/png;base64,'+data;await i.decode();const c=document.createElement('canvas');c.width=c.height=64;const x=c.getContext('2d');x.drawImage(i,0,0);return [[30,30],[31,31],[32,32],[31,32],[32,31],[4,4],[60,60]].map(([a,b])=>[...x.getImageData(a,b,1,1).data]);},result.single);
+ ck('indexed triangles do not double-alpha or leave diagonal cracks',pixels.every(p=>Math.abs(p[3]-127)<=1));ck('premultiplied source RGB is preserved',pixels.every(p=>Math.abs(p[0]-40)<=2&&Math.abs(p[1]-200)<=2&&Math.abs(p[2]-80)<=2));ck('GPU renderer identity exposed',result.renderer==='webgl-indexed-mesh');
+ fs.mkdirSync('work/rea-pipeline/verification/pet-motion-v43',{recursive:true});fs.writeFileSync('work/rea-pipeline/verification/pet-motion-v43/raster.json',JSON.stringify({checks,pixels},null,2));console.log(checks.length+' GPU raster checks passed');
+ }finally{await b.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

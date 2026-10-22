@@ -1,0 +1,20 @@
+{
+  "checks": {
+    "model.json": 586,
+    "browser.json": 29,
+    "raster.json": 3,
+    "preview-model-regression.json": 443,
+    "preview-browser-regression.json": 26,
+    "strategy-regression.json": 19,
+    "details-regression.json": 48,
+    "combo-regression.json": 24,
+    "native-detail-regression.json": 18
+  },
+  "total": 1196,
+  "sourceAPK": "C:\\Users\\45186\\Downloads\\wydlz_1.0.2609101116_20260917_030401_64981.apk",
+  "apkSha256": "5be3e3f7936591f2daf8c3eed9b444b9f03d179e878e8dc16c0e0a896f45a15d",
+  "petCount": 73,
+  "sheetDimensionsVerified": 73,
+  "reviewer": "pet_motion_review",
+  "scope": "source idle sampled at 24fps, not realtime Spine or all source actions"
+}
