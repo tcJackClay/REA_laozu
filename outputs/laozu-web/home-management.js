@@ -4,6 +4,7 @@ window.createHomeManagement=function(B){
  const Clan=createClanPage({...B,resourceBridge:{balance:M.balance,gate:M.gate,lockText:M.lockText,jump:resourceJump},back:()=>{page=null;detail=null;B.render();}});
  const Market=createMarketPage({...B,openResource:(id,info=false)=>{detail={type:info?'resource-info':id===3?'stamina':'recharge',id};redraw();},balance:M.balance,add:M.add,gate:M.gate,lockText:M.lockText,jump:resourceJump,back:()=>{page=null;detail=null;B.render();}});
  const Fairy=createFairylandPage({...B,balance:M.balance,add:M.add,gate:M.gate,lockText:M.lockText,back:()=>{page=null;detail=null;B.render();}});
+ const Antique=createAntiquePage({...B,balance:M.balance,add:M.add,gate:M.gate,lockText:M.lockText,jump,back:()=>{page=null;detail=null;B.render();}});
  const events=new AbortController();
  let currentProfile=null,currentBuildings=null,currentReadiness=[];
  let canvas=null,page=null,detail=null,filter=0,sort=5,reverse=false,combo=false,expanded=false,leftFold=false,rightFold=false;
@@ -14,7 +15,7 @@ window.createHomeManagement=function(B){
  const el=(root,suffix)=>[...root.querySelectorAll('[data-source-path]')].find(x=>x.dataset.sourcePath.endsWith(suffix));
  const slot=(root,suffix,html)=>{const n=el(root,suffix);if(n){n.replaceChildren();n.insertAdjacentHTML('beforeend',html);}return n;};
  const redraw=()=>{window.SourceLinks?.close();const motion=window.PetMotion?.snapshot();B.render();if(motion)PetMotion.restore(motion);};
- function node(r){const state=currentBuildings?.overrides.get(r.id);if(state)return state;const p=r.path,leaf=p.split('/').at(-1),pr=currentProfile||M.profile();
+ function node(r){const state=currentBuildings?.overrides.get(r.id);if(state)return {...state,...(r.path.endsWith('/auto_wenwuBtn')?{action:'home26:antique',label:'古宝'}:{})};const p=r.path,leaf=p.split('/').at(-1),pr=currentProfile||M.profile();
   if(leaf==='Auto_Photo')return {visible:false};
   if(p.endsWith('/auto_PlayerHead/touxiang'))return {visible:true,image:icon(pr.avatar.iIcon)};
   if(leaf==='auto_PlayerHead')return {action:'home26:avatar',label:'更换老祖头像'};
@@ -30,6 +31,7 @@ window.createHomeManagement=function(B){
    if(id&&leaf.startsWith('Add'))return {action:'home26:'+(id===3?'stamina':id===2?'recharge':'resource:'+id),label:id===3?'购买体力':'获取'+M.good(id).szName};
   }
 
+  if(leaf==='auto_wenwuBtn')return {action:'home26:antique',label:'古宝'};
   if(leaf==='auto_SeedingBtn')return {action:'home26:seed',label:'功法管理'};
   if(leaf==='auto_FairylandBtn')return {action:'home26:fairy',label:'福地'};
   if(leaf==='auto_UIMarket')return {action:'home26:market',label:'坊市'};
@@ -64,13 +66,13 @@ window.createHomeManagement=function(B){
   return `<aside class="home-side home-left">${side([2],leftFold)}${groups.some(x=>x.iGroupID===2)?btn('fold-left',leftFold?'⌄':'⌃'):''}</aside><aside class="home-side home-right">${side([3],rightFold)}${groups.some(x=>x.iGroupID===3)?btn('fold-right',rightFold?'⌄':'⌃'):''}</aside><aside class="home-side home-top-activities">${side([1],false)}</aside><aside class="home-side home-low-activities">${side([6],false)}</aside><div class="home26-shortcuts">${btn('mail',`<img src="${art('icon_main_youjian')}" alt="">邮件`)}${btn('warehouse',`<img src="${art('icon_main_cangku')}" alt="">仓库`)}${btn('expand',`<img src="${art('ui_zjm_kuozhan')}" alt="">${expanded?'收起':'展开'}`)}</div>${expanded?`<div class="home-expanded">${side([5],false)}${btn('settings','设置')}${btn('main-task','任务')}${btn('sect-task','老祖')}${btn('seed','功法')}${btn('teacher','长老')}${btn('expand','收起')}</div>`:''}`;
  }
  function layout(name,cb){return U.render(L.layouts[name],L.sprites,{width:1080,height:1920,node:cb});}
- function open(kind){const id=kind==='seed'?2:kind==='teacher'?15:kind==='clan'?4:kind==='market'?13:kind==='fairy'?25:0;if(id&&!M.gate(id)){if(D.FunctionOpen.find(f=>f.iID===id)?.iLockTipType===1)B.toast(M.lockText(id));return;}if(kind==='clan')Clan.reset();if(kind==='market')Market.reset();if(kind==='fairy')Fairy.reset();page=kind;detail=null;filter=0;combo=false;redraw();}
+ function open(kind){const id=kind==='antique'?3:kind==='seed'?2:kind==='teacher'?15:kind==='clan'?4:kind==='market'?13:kind==='fairy'?25:0;if(id&&!M.gate(id)){if(D.FunctionOpen.find(f=>f.iID===id)?.iLockTipType===1)B.toast(M.lockText(id));return;}if(kind==='antique')Antique.reset();if(kind==='clan')Clan.reset();if(kind==='market')Market.reset();if(kind==='fairy')Fairy.reset();page=kind;detail=null;filter=0;combo=false;redraw();}
  function row(id){return M.list(page).find(x=>x.iID===+id);}
  const levelText=n=>n<0?'未解锁':Math.floor(n/6)+'星'+n%6+'阶';
  function card(kind,x){const lv=M.level(kind,x.iID),cost=M.costs(kind,x.iID)[0],can=lv<(kind==='seed'?24:30)&&M.payment(kind,x.iID).enough;
   return `<button class="home-card quality-${x.iQuality} ${lv<0?'unowned':''}" data-home26="item:${x.iID}" aria-label="${esc(x.szName)}"><img src="${x.icon}" alt=""><span>${esc(x.szName)}</span><small>${levelText(lv)}</small>${cost?`<small>${M.balance(cost.id)}/${cost.n} 碎片</small>`:''}${can?'<i class="home-red-dot">!</i>':''}</button>`;
  }
- function renderPage(){if(page==='fairy'){Fairy.render(canvas);return;}if(page==='market'){Market.render(canvas);if(detail)renderDialog();return;}if(page==='clan'){Clan.render(canvas);return;}if(page==='sect-task'){renderSect();return;}
+ function renderPage(){if(page==='antique'){Antique.render(canvas);return;}if(page==='fairy'){Fairy.render(canvas);return;}if(page==='market'){Market.render(canvas);if(detail)renderDialog();return;}if(page==='clan'){Clan.render(canvas);return;}if(page==='sect-task'){renderSect();return;}
   const teacher=page==='teacher',name=combo?(teacher?'uiteachersuit':'uiseedlingsuit'):(teacher?'uiteacher':'uiallseedling'),root=layout(name,r=>{const p=r.path,leaf=p.split('/').at(-1);
    if(p.includes('/SortTypeList')||leaf==='Auto_Return'||leaf==='ListRoot')return {visible:false};
    if(/Resonance/.test(leaf))return {visible:M.gate(AM.gateId()),action:'home26:awake-resonance',label:'觉醒共鸣'};
@@ -366,12 +368,12 @@ window.createHomeManagement=function(B){
  }
  const rewardHTML=id=>`<div class="home-rewards">${M.rewards(id).map(x=>`<span>${esc(M.good(x.id).szName)} ×${x.n}</span>`).join('')}</div>`;
  function renderSect(){const tasks=M.sectTasks(),root=layout('uisectv2',r=>{const p=r.path,leaf=p.split('/').at(-1);if(p.includes('/Auto_AncestorRoot')||leaf==='Auto_Ancestor'||leaf==='Auto_Preview'||leaf==='Auto_HighPropRoot'||leaf==='Auto_Prop'||leaf==='Auto_Detail')return {visible:false};if(leaf==='Auto_Close')return {action:'home26:back',label:'返回山门'};if(leaf==='Auto_CurLevelTxt')return {text:'老祖 '+B.state().sect+'级'};if(leaf==='Auto_NextLevelTxt')return {text:'老祖 '+(B.state().sect+1)+'级'};if(leaf==='Auto_LevelDes')return {text:D.SectV2.find(x=>x.iLevel===B.state().sect+1)?.szDesc.replace(/<[^>]*>/g,'')||'已满级'};if(leaf==='Auto_LevelUpButton')return {action:'home26:level-up',label:'老祖升级'};if(p.includes('/auto_TopResBar/'))return node(r)||{};return {};});canvas.append(root);slot(root,'/Auto_Tasks',`<div class="home-task-list">${tasks.map(t=>`<section><p>${esc(t.szDesc)}（${t.progress}/${t.iComdition}）</p>${rewardHTML(t.iPrize)}${btn('claim-sect:'+t.iID,t.claimed?'已领取':t.progress>=t.iComdition?'领取':'前往',t.claimed)}</section>`).join('')}</div>`);if(detail)renderDialog();}
- function jump(id){const j=D.FunctionJump.find(x=>x.iID===id);if(j?.szParam1==='UIDiscipleBirth'){page=null;detail=null;B.switchTab('wander');return;}if(j?.szParam1==='UISectV2'){open('sect-task');return;}if(j?.szParam1==='UISeedligNavs'){open('seed');return;}if(j?.szParam1==='UITeacherNavs'){open('teacher');return;}B.toast('该任务目标页面尚未接入，进度与奖励保持不变');}
+ function jump(id){const j=D.FunctionJump.find(x=>x.iID===id);if(j?.iMode===102&&Number(j.szParam1)===0){page=null;detail=null;B.switchTab('disciples');return;}if(j?.szParam1==='UIDiscipleBirth'){page=null;detail=null;B.switchTab('wander');return;}if(j?.szParam1==='UISectV2'){open('sect-task');return;}if(j?.szParam1==='UISeedligNavs'){open('seed');return;}if(j?.szParam1==='UITeacherNavs'){open('teacher');return;}B.toast('该任务目标页面尚未接入，进度与奖励保持不变');}
  function action(a){const [key,value,context]=a.split(':'),id=+value;try{
   const message=canvas?.querySelector('.source-message-box');if(message&&window.SourceWindowMotion&&['close','message-background','upgrade-confirm','awake-confirm'].includes(key)){const pending=detail;SourceWindowMotion.close(message,()=>{if(detail===pending&&canvas?.isConnected)action(key==='message-background'?'close':a);},key==='message-background');return;}
   if((key==='upgrade-confirm'&&detail?.type==='universal')||(key==='awake-confirm'&&detail?.type==='awake-confirm')){canvas?.querySelector('.source-message-box')?.remove();canvas?.querySelector('.source-message-shade')?.remove();}
   if(key==='recharge'&&!M.gate(13))return B.toast(M.lockText(13));
-  if(['seed','teacher','sect-task','clan','market','fairy'].includes(key))return open(key);
+  if(['antique','seed','teacher','sect-task','clan','market','fairy'].includes(key))return open(key);
   if(key==='back'){page=null;detail=null;return redraw();}
   if(key==='close'){if(detail?.type==='item'&&(detail.skins||detail.fullbody)){detail.skins=false;detail.fullbody=false;delete detail.skin;return redraw();}detail=detail?.parent||(['universal','skill','story','recipe','strategy'].includes(detail?.type)?{type:'item',id:detail.id}:null);return redraw();}
   if(key==='awake'){AM.checkEntry(detail.id);detail={type:'awake',id:detail.id,parent:{...detail}};}
@@ -425,6 +427,6 @@ window.createHomeManagement=function(B){
   redraw();
  }catch(e){B.toast(e.message);}}
  document.addEventListener('click',e=>{const target=e.target.closest('[data-home26]');if(target&&!target.disabled&&canvas?.isConnected&&canvas.contains(target))action(target.dataset.home26);},{signal:events.signal});
- document.addEventListener('keydown',e=>{if(!canvas?.isConnected)return;if(e.key==='Escape'){if(page==='fairy'){Fairy.back();return;}if(page==='clan'){Clan.back();return;}if(page==='market'){if(detail)action('close');else Market.back();return;}if(detail)action('close');else if(page)action('back');}if(e.key==='Tab'&&detail){const dialog=[...canvas.querySelectorAll('[role=dialog]')].at(-1),buttons=[...dialog.querySelectorAll('button:not(:disabled),input')].filter(x=>x.checkVisibility()&&!x.classList.contains('home-modal-shade'));const first=buttons[0],last=buttons.at(-1);if(!dialog.contains(document.activeElement)||e.shiftKey&&document.activeElement===first||!e.shiftKey&&document.activeElement===last){e.preventDefault();(e.shiftKey?last:first)?.focus();}}},{signal:events.signal});
- return {releaseMiner:index=>Fairy.model.releaseMember(index),dispose(){events.abort();canvas=null;},begin(){currentProfile=M.profile();currentBuildings=SourceHomeReadiness.functions(M);},node,after,action,reset(){page=null;detail=null;canvas=null;},model:M,text:()=>({page:page||'home',dialog:detail,petMotion:window.PetMotion?.text()||[],windowMotion:window.SourceWindowMotion?.text()||[],profile:M.profile(),buildingStates:currentBuildings?.states||[],readiness:currentReadiness,tasks:M.sectTasks(),mainTask:M.mainTask(),sideIcons:M.sideIcons().map(x=>x.nID),clan:Clan.text(),market:page==='market'?Market.text():null,fairy:page==='fairy'?Fairy.text():null})};
+ document.addEventListener('keydown',e=>{if(!canvas?.isConnected)return;if(e.key==='Escape'){if(page==='antique')return;if(page==='fairy'){Fairy.back();return;}if(page==='clan'){Clan.back();return;}if(page==='market'){if(detail)action('close');else Market.back();return;}if(detail)action('close');else if(page)action('back');}if(e.key==='Tab'&&detail){const dialog=[...canvas.querySelectorAll('[role=dialog]')].at(-1),buttons=[...dialog.querySelectorAll('button:not(:disabled),input')].filter(x=>x.checkVisibility()&&!x.classList.contains('home-modal-shade'));const first=buttons[0],last=buttons.at(-1);if(!dialog.contains(document.activeElement)||e.shiftKey&&document.activeElement===first||!e.shiftKey&&document.activeElement===last){e.preventDefault();(e.shiftKey?last:first)?.focus();}}},{signal:events.signal});
+ return {releaseMiner:index=>Fairy.model.releaseMember(index),dispose(){Antique.dispose();events.abort();canvas=null;},begin(){currentProfile=M.profile();currentBuildings=SourceHomeReadiness.functions(M);},node,after,action,reset(){page=null;detail=null;canvas=null;},model:M,text:()=>({page:page||'home',dialog:detail,petMotion:window.PetMotion?.text()||[],windowMotion:window.SourceWindowMotion?.text()||[],profile:M.profile(),buildingStates:currentBuildings?.states||[],readiness:currentReadiness,tasks:M.sectTasks(),mainTask:M.mainTask(),sideIcons:M.sideIcons().map(x=>x.nID),clan:Clan.text(),market:page==='market'?Market.text():null,antique:page==='antique'?Antique.text():null,fairy:page==='fairy'?Fairy.text():null})};
 };
