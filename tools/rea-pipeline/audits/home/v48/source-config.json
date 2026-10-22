@@ -1,0 +1,351 @@
+{
+  "provenance": {
+    "gameAppID": "4874935988449324839",
+    "settingsID": "-5610697030864737600",
+    "settingsCAB": "CAB-e899a2c1502ec3fde2ffdba2f32aabc3"
+  },
+  "reddots": {
+    "200": {
+      "iID": 200,
+      "szName": "宗门科技树入口",
+      "arrChildren": [
+        201
+      ],
+      "enShowLimit": 1,
+      "iPriority": 0,
+      "arrStyleParams": [
+        0,
+        7,
+        -35,
+        -25
+      ],
+      "bUseSubID": 0,
+      "enFinishMode": 0,
+      "szFinishParams": "",
+      "iFunctionID": 4,
+      "arrSubFunctionID": []
+    },
+    "201": {
+      "iID": 201,
+      "szName": "宗门科技树升级",
+      "arrChildren": [],
+      "enShowLimit": 1,
+      "iPriority": 0,
+      "arrStyleParams": [
+        0,
+        7,
+        0,
+        0
+      ],
+      "bUseSubID": 1,
+      "enFinishMode": 0,
+      "szFinishParams": "",
+      "iFunctionID": 0,
+      "arrSubFunctionID": []
+    },
+    "212": {
+      "iID": 212,
+      "szName": "功法",
+      "arrChildren": [],
+      "enShowLimit": 1,
+      "iPriority": 0,
+      "arrStyleParams": [
+        0,
+        7,
+        0,
+        0
+      ],
+      "bUseSubID": 1,
+      "enFinishMode": 0,
+      "szFinishParams": "",
+      "iFunctionID": 2,
+      "arrSubFunctionID": []
+    },
+    "340": {
+      "iID": 340,
+      "szName": "老师入口",
+      "arrChildren": [
+        341,
+        342
+      ],
+      "enShowLimit": 1,
+      "iPriority": 0,
+      "arrStyleParams": [
+        0,
+        9,
+        0,
+        0
+      ],
+      "bUseSubID": 0,
+      "enFinishMode": 0,
+      "szFinishParams": "",
+      "iFunctionID": 15,
+      "arrSubFunctionID": []
+    },
+    "341": {
+      "iID": 341,
+      "szName": "老师觉醒",
+      "arrChildren": [],
+      "enShowLimit": 1,
+      "iPriority": 0,
+      "arrStyleParams": [
+        0,
+        9,
+        0,
+        0
+      ],
+      "bUseSubID": 1,
+      "enFinishMode": 0,
+      "szFinishParams": "",
+      "iFunctionID": 318,
+      "arrSubFunctionID": []
+    },
+    "342": {
+      "iID": 342,
+      "szName": "老师升星",
+      "arrChildren": [],
+      "enShowLimit": 1,
+      "iPriority": 0,
+      "arrStyleParams": [
+        0,
+        9,
+        0,
+        0
+      ],
+      "bUseSubID": 1,
+      "enFinishMode": 0,
+      "szFinishParams": "",
+      "iFunctionID": 15,
+      "arrSubFunctionID": []
+    },
+    "390": {
+      "iID": 390,
+      "szName": "老师灵赐奖励可领取",
+      "arrChildren": [],
+      "enShowLimit": 1,
+      "iPriority": 0,
+      "arrStyleParams": [
+        0,
+        7,
+        0,
+        0
+      ],
+      "bUseSubID": 1,
+      "enFinishMode": 0,
+      "szFinishParams": "",
+      "iFunctionID": 318,
+      "arrSubFunctionID": []
+    },
+    "613": {
+      "iID": 613,
+      "szName": "长老觉醒共鸣等级可升级",
+      "arrChildren": [],
+      "enShowLimit": 1,
+      "iPriority": 0,
+      "arrStyleParams": [
+        0,
+        7,
+        0,
+        0
+      ],
+      "bUseSubID": 0,
+      "enFinishMode": 0,
+      "szFinishParams": "",
+      "iFunctionID": 318,
+      "arrSubFunctionID": []
+    }
+  },
+  "styles": [
+    {
+      "iID": 342,
+      "szName": "老师可升星-主界面入口",
+      "iIndex": 1,
+      "iSettingsIndex": 9,
+      "iOffsetX": 0.0,
+      "iOffsetY": 0.0
+    },
+    {
+      "iID": 342,
+      "szName": "老师可升星-长老页签",
+      "iIndex": 2,
+      "iSettingsIndex": 9,
+      "iOffsetX": 0.0,
+      "iOffsetY": 0.0
+    },
+    {
+      "iID": 342,
+      "szName": "老师可升星-角色立绘UI",
+      "iIndex": 3,
+      "iSettingsIndex": 9,
+      "iOffsetX": 0.0,
+      "iOffsetY": 0.0
+    },
+    {
+      "iID": 342,
+      "szName": "老师可升星-升星按钮",
+      "iIndex": 4,
+      "iSettingsIndex": 9,
+      "iOffsetX": 0.0,
+      "iOffsetY": 0.0
+    },
+    {
+      "iID": 212,
+      "szName": "功法可升星-主界面入口",
+      "iIndex": 1,
+      "iSettingsIndex": 9,
+      "iOffsetX": 0.0,
+      "iOffsetY": 0.0
+    },
+    {
+      "iID": 212,
+      "szName": "功法可升星-功法立绘Icon",
+      "iIndex": 2,
+      "iSettingsIndex": 9,
+      "iOffsetX": 0.0,
+      "iOffsetY": 0.0
+    },
+    {
+      "iID": 212,
+      "szName": "功法可升星-升星按钮",
+      "iIndex": 3,
+      "iSettingsIndex": 9,
+      "iOffsetX": 0.0,
+      "iOffsetY": 0.0
+    },
+    {
+      "iID": 212,
+      "szName": "功法可升星-功法页签",
+      "iIndex": 4,
+      "iSettingsIndex": 9,
+      "iOffsetX": 0.0,
+      "iOffsetY": 0.0
+    }
+  ],
+  "settings": [
+    {
+      "ResRef": {
+        "path": "Game/ImmortalFamily/GameResources/Prefabs/UI/Widgets/ReddotNormal.prefab",
+        "guid": "10a68c96bec8b83439058f941b42cdd7"
+      },
+      "IsSupportClick": 0,
+      "IsSupportView": 0,
+      "Priority": 9
+    },
+    {
+      "ResRef": {
+        "path": "Game/ImmortalFamily/GameResources/Prefabs/UI/Widgets/ReddotNormal.prefab",
+        "guid": "10a68c96bec8b83439058f941b42cdd7"
+      },
+      "IsSupportClick": 0,
+      "IsSupportView": 0,
+      "Priority": 8
+    },
+    {
+      "ResRef": {
+        "path": "Game/ImmortalFamily/GameResources/Prefabs/UI/Widgets/ReddotSign.prefab",
+        "guid": "1075460ed489bd6458678d65928733e0"
+      },
+      "IsSupportClick": 0,
+      "IsSupportView": 0,
+      "Priority": 7
+    },
+    {
+      "ResRef": {
+        "path": "Game/ImmortalFamily/GameResources/Prefabs/UI/Widgets/ReddotNew.prefab",
+        "guid": "60f91f1fbe589c347b36f43b859c55c1"
+      },
+      "IsSupportClick": 0,
+      "IsSupportView": 0,
+      "Priority": 3
+    },
+    {
+      "ResRef": {
+        "path": "Game/ImmortalFamily/GameResources/Prefabs/UI/Widgets/ReddotNew.prefab",
+        "guid": "60f91f1fbe589c347b36f43b859c55c1"
+      },
+      "IsSupportClick": 0,
+      "IsSupportView": 0,
+      "Priority": 2
+    },
+    {
+      "ResRef": {
+        "path": "Game/ImmortalFamily/GameResources/Prefabs/UI/Widgets/ReddotUp.prefab",
+        "guid": "2b4730daa602f9d4bae9b8de1ffd9bb3"
+      },
+      "IsSupportClick": 0,
+      "IsSupportView": 0,
+      "Priority": 1
+    },
+    {
+      "ResRef": {
+        "path": "Game/ImmortalFamily/GameResources/Prefabs/UI/Widgets/BluedotSign.prefab",
+        "guid": "f7dff388f8566e3419dfb902d5544e2a"
+      },
+      "IsSupportClick": 0,
+      "IsSupportView": 0,
+      "Priority": 0
+    },
+    {
+      "ResRef": {
+        "path": "Game/ImmortalFamily/GameResources/Prefabs/UI/Widgets/ReddotSign_New.prefab",
+        "guid": "f73ef01533dfba746a2b7102e2446686"
+      },
+      "IsSupportClick": 0,
+      "IsSupportView": 0,
+      "Priority": 10
+    },
+    {
+      "ResRef": {
+        "path": "Game/ImmortalFamily/GameResources/Prefabs/UI/Widgets/BluedotSign_New.prefab",
+        "guid": "65eacfd4b403c0044bc88fadd74d960f"
+      },
+      "IsSupportClick": 0,
+      "IsSupportView": 0,
+      "Priority": 6
+    },
+    {
+      "ResRef": {
+        "path": "Game/ImmortalFamily/GameResources/Prefabs/UI/Widgets/Bluedot_Arrow.prefab",
+        "guid": "8ec2e710fe324954e843594f35213d1b"
+      },
+      "IsSupportClick": 0,
+      "IsSupportView": 0,
+      "Priority": 5
+    },
+    {
+      "ResRef": {
+        "path": "Game/ImmortalFamily/GameResources/Prefabs/UI/Widgets/Reddot_BigArrow.prefab",
+        "guid": "b1be9b956b876b4478129a67cf15d593"
+      },
+      "IsSupportClick": 0,
+      "IsSupportView": 0,
+      "Priority": 4
+    }
+  ],
+  "registrations": [
+    {
+      "leaf": "auto_SeedingBtn",
+      "kind": "seed",
+      "id": 212,
+      "index": 1,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "leaf": "auto_TeacherBtn",
+      "kind": "teacher",
+      "id": 340,
+      "index": 0,
+      "x": -10,
+      "y": 0
+    },
+    {
+      "leaf": "auto_ClanBtn",
+      "kind": "clan",
+      "id": 200,
+      "index": 0,
+      "x": 0,
+      "y": 0
+    }
+  ]
+}

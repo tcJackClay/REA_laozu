@@ -31,7 +31,7 @@ window.createHomeModel=function(B){
   if(f.arrPlatforms.length&&!f.arrPlatforms.includes(s().platformID))return false;
   if(f.arrPlatformVers.length&&!f.arrPlatformVers.includes(s().platformVersion))return false;
   if(f.iCeleId&&!s().activeCelebrations?.includes(f.iCeleId))return false;
-  return group(f.arrOpenCond)||!!f.arrForceOpen&&group(f.arrForceOpen)||!!f.arrForceOpen2&&group(f.arrForceOpen2);
+  return group(f.arrOpenCond)||!!f.arrForceOpen&&f.arrForceOpen.split(';').filter(Boolean).some(condition)||!!f.arrForceOpen2&&group(f.arrForceOpen2);
  }
  function lockText(id){const f=find(D.FunctionOpen,id);if(!f)return '尚未开放';return f.arrOpenCond.split(';').map(r=>{const [t,n]=r.split('#').map(Number);return t===1?'完成'+n+'次游历开启':t===5?'老祖'+n+'级开启':t===6?'开服第'+n+'天开启':'';}).filter(Boolean).join('，')||f.szLockTipText.replace(/<[^>]*>/g,'')||'尚未开放';}
  const list=kind=>kind==='seed'?CULTIVATION_DATA.seeds:TEACHER_DATA.teachers;

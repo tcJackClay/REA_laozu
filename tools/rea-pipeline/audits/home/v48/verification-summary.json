@@ -1,0 +1,11 @@
+{
+  "readinessModel": 858,
+  "readinessBrowser": 28,
+  "detailsBrowser": 48,
+  "clanBrowserIncludingProductionBattle": 20,
+  "comboBrowser": 24,
+  "total": 1003,
+  "review": "strategy_review; same-GO fallback issue repaired and all7 SingleVisible locker states tested",
+  "originalRuntimeVerified": false,
+  "awakeningBrowser": 25
+}

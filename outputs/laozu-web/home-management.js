@@ -5,7 +5,7 @@ window.createHomeManagement=function(B){
  const Market=createMarketPage({...B,openResource:(id,info=false)=>{detail={type:info?'resource-info':id===3?'stamina':'recharge',id};redraw();},balance:M.balance,add:M.add,gate:M.gate,lockText:M.lockText,jump:resourceJump,back:()=>{page=null;detail=null;B.render();}});
  const Fairy=createFairylandPage({...B,balance:M.balance,add:M.add,gate:M.gate,lockText:M.lockText,back:()=>{page=null;detail=null;B.render();}});
  const events=new AbortController();
- let currentProfile=null;
+ let currentProfile=null,currentBuildings=null,currentReadiness=[];
  let canvas=null,page=null,detail=null,filter=0,sort=5,reverse=false,combo=false,expanded=false,leftFold=false,rightFold=false;
  const comboScroll={};
  const art=name=>Object.values(L.sprites).find(x=>x.name===name)?.file||HOME_DATA.assets[name]||PORTAL_DATA.assets[name]||'';
@@ -14,7 +14,7 @@ window.createHomeManagement=function(B){
  const el=(root,suffix)=>[...root.querySelectorAll('[data-source-path]')].find(x=>x.dataset.sourcePath.endsWith(suffix));
  const slot=(root,suffix,html)=>{const n=el(root,suffix);if(n){n.replaceChildren();n.insertAdjacentHTML('beforeend',html);}return n;};
  const redraw=()=>{window.SourceLinks?.close();const motion=window.PetMotion?.snapshot();B.render();if(motion)PetMotion.restore(motion);};
- function node(r){const p=r.path,leaf=p.split('/').at(-1),pr=currentProfile||M.profile();
+ function node(r){const state=currentBuildings?.overrides.get(r.id);if(state)return state;const p=r.path,leaf=p.split('/').at(-1),pr=currentProfile||M.profile();
   if(leaf==='Auto_Photo')return {visible:false};
   if(p.endsWith('/auto_PlayerHead/touxiang'))return {visible:true,image:icon(pr.avatar.iIcon)};
   if(leaf==='auto_PlayerHead')return {action:'home26:avatar',label:'更换老祖头像'};
@@ -29,7 +29,7 @@ window.createHomeManagement=function(B){
    if(id&&leaf==='Icon')return {image:PORTAL_DATA.goods.find(x=>x.iGoodsID===id)?.image||icon(ALIGNED_STAGE_DATA.goods.find(x=>x.iGoodsID===id)?.iIconID),action:'home26:resource:'+id,label:M.good(id).szName};
    if(id&&leaf.startsWith('Add'))return {action:'home26:'+(id===3?'stamina':id===2?'recharge':'resource:'+id),label:id===3?'购买体力':'获取'+M.good(id).szName};
   }
-  if(leaf==='locker'){const parent=p.slice(0,-7),button=ORIGINAL_LAYOUT_DATA.layouts.uimain.nodes.find(n=>n.path.startsWith(parent+'/')&&n.components.some(c=>c.fields?._funcIDs?.length));const ids=button?.components.flatMap(c=>c.fields?._funcIDs||[])||[];if(ids.length)return {visible:!ids.some(M.gate)};}
+
   if(leaf==='auto_SeedingBtn')return {action:'home26:seed',label:'功法管理'};
   if(leaf==='auto_FairylandBtn')return {action:'home26:fairy',label:'福地'};
   if(leaf==='auto_UIMarket')return {action:'home26:market',label:'坊市'};
@@ -57,13 +57,14 @@ window.createHomeManagement=function(B){
   target.insertAdjacentHTML('beforeend',sideHTML());
   // Suppress prefab editor lock overlays only when that FunctionButton is actually unlocked.
   for(const r of ORIGINAL_LAYOUT_DATA.layouts.uimain.nodes){const ids=r.components.flatMap(c=>c.fields?._funcIDs||[]);if(!ids.length)continue;const n=el(root,r.path);if(!n)continue;const open=ids.some(M.gate);n.dataset.functionOpen=String(open);if(!open&&n.dataset.originalAction?.startsWith('home26:'))n.setAttribute('aria-label',n.getAttribute('aria-label')+'（'+M.lockText(ids[0])+'）');}
+  currentReadiness=SourceHomeReadiness.render(root,M,B.state(),AM);
   if(detail)renderDialog();
  }
  function sideHTML(){const groups=M.sideIcons();const side=(group,fold)=>{const rows=groups.filter(x=>group.includes(x.iGroupID));return rows.slice(0,fold?1:undefined).map(x=>`<button data-home26="side:${x.nID}" aria-label="${esc(x.szName)}">${icon(x.iIconID)?`<img src="${icon(x.iIconID)}" alt="">`:''}<span>${esc(x.szName)}</span></button>`).join('');};
   return `<aside class="home-side home-left">${side([2],leftFold)}${groups.some(x=>x.iGroupID===2)?btn('fold-left',leftFold?'⌄':'⌃'):''}</aside><aside class="home-side home-right">${side([3],rightFold)}${groups.some(x=>x.iGroupID===3)?btn('fold-right',rightFold?'⌄':'⌃'):''}</aside><aside class="home-side home-top-activities">${side([1],false)}</aside><aside class="home-side home-low-activities">${side([6],false)}</aside><div class="home26-shortcuts">${btn('mail',`<img src="${art('icon_main_youjian')}" alt="">邮件`)}${btn('warehouse',`<img src="${art('icon_main_cangku')}" alt="">仓库`)}${btn('expand',`<img src="${art('ui_zjm_kuozhan')}" alt="">${expanded?'收起':'展开'}`)}</div>${expanded?`<div class="home-expanded">${side([5],false)}${btn('settings','设置')}${btn('main-task','任务')}${btn('sect-task','老祖')}${btn('seed','功法')}${btn('teacher','长老')}${btn('expand','收起')}</div>`:''}`;
  }
  function layout(name,cb){return U.render(L.layouts[name],L.sprites,{width:1080,height:1920,node:cb});}
- function open(kind){const id=kind==='seed'?2:kind==='teacher'?15:kind==='clan'?4:kind==='market'?13:kind==='fairy'?25:0;if(id&&!M.gate(id))return B.toast(M.lockText(id));if(kind==='clan')Clan.reset();if(kind==='market')Market.reset();if(kind==='fairy')Fairy.reset();page=kind;detail=null;filter=0;combo=false;redraw();}
+ function open(kind){const id=kind==='seed'?2:kind==='teacher'?15:kind==='clan'?4:kind==='market'?13:kind==='fairy'?25:0;if(id&&!M.gate(id)){if(D.FunctionOpen.find(f=>f.iID===id)?.iLockTipType===1)B.toast(M.lockText(id));return;}if(kind==='clan')Clan.reset();if(kind==='market')Market.reset();if(kind==='fairy')Fairy.reset();page=kind;detail=null;filter=0;combo=false;redraw();}
  function row(id){return M.list(page).find(x=>x.iID===+id);}
  const levelText=n=>n<0?'未解锁':Math.floor(n/6)+'星'+n%6+'阶';
  function card(kind,x){const lv=M.level(kind,x.iID),cost=M.costs(kind,x.iID)[0],can=lv<(kind==='seed'?24:30)&&M.payment(kind,x.iID).enough;
@@ -385,5 +386,5 @@ window.createHomeManagement=function(B){
  }catch(e){B.toast(e.message);}}
  document.addEventListener('click',e=>{const target=e.target.closest('[data-home26]');if(target&&!target.disabled&&canvas?.isConnected&&canvas.contains(target))action(target.dataset.home26);},{signal:events.signal});
  document.addEventListener('keydown',e=>{if(!canvas?.isConnected)return;if(e.key==='Escape'){if(page==='fairy'){Fairy.back();return;}if(page==='clan'){Clan.back();return;}if(page==='market'){if(detail)action('close');else Market.back();return;}if(detail)action('close');else if(page)action('back');}if(e.key==='Tab'&&detail){const dialog=[...canvas.querySelectorAll('[role=dialog]')].at(-1),buttons=[...dialog.querySelectorAll('button:not(:disabled),input')].filter(x=>x.checkVisibility()&&!x.classList.contains('home-modal-shade'));const first=buttons[0],last=buttons.at(-1);if(!dialog.contains(document.activeElement)||e.shiftKey&&document.activeElement===first||!e.shiftKey&&document.activeElement===last){e.preventDefault();(e.shiftKey?last:first)?.focus();}}},{signal:events.signal});
- return {releaseMiner:index=>Fairy.model.releaseMember(index),dispose(){events.abort();canvas=null;},begin(){currentProfile=M.profile();},node,after,action,reset(){page=null;detail=null;canvas=null;},model:M,text:()=>({page:page||'home',dialog:detail,petMotion:window.PetMotion?.text()||[],windowMotion:window.SourceWindowMotion?.text()||[],profile:M.profile(),tasks:M.sectTasks(),mainTask:M.mainTask(),sideIcons:M.sideIcons().map(x=>x.nID),clan:Clan.text(),market:page==='market'?Market.text():null,fairy:page==='fairy'?Fairy.text():null})};
+ return {releaseMiner:index=>Fairy.model.releaseMember(index),dispose(){events.abort();canvas=null;},begin(){currentProfile=M.profile();currentBuildings=SourceHomeReadiness.functions(M);},node,after,action,reset(){page=null;detail=null;canvas=null;},model:M,text:()=>({page:page||'home',dialog:detail,petMotion:window.PetMotion?.text()||[],windowMotion:window.SourceWindowMotion?.text()||[],profile:M.profile(),buildingStates:currentBuildings?.states||[],readiness:currentReadiness,tasks:M.sectTasks(),mainTask:M.mainTask(),sideIcons:M.sideIcons().map(x=>x.nID),clan:Clan.text(),market:page==='market'?Market.text():null,fairy:page==='fairy'?Fairy.text():null})};
 };

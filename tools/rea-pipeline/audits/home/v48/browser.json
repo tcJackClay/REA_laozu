@@ -1,0 +1,33 @@
+{
+  "checks": [
+    "fresh normal source building keeps lock",
+    "Auto_wenwu locked parent hidden",
+    "Auto_pet locked parent hidden",
+    "Auto_gem locked parent hidden",
+    "locked click does not enter management",
+    "locked message uses original gate",
+    "source unlock hides seed locker",
+    "source blue arrows for seed and teacher",
+    "source red marker for affordable blessing",
+    "native style prefab and no extra button",
+    "badge hit forwards to seed building",
+    "visiting without spending does not dismiss readiness",
+    "actual upgrade consumes source fragments",
+    "consumed seed arrow disappears but teacher remains",
+    "teacher upgrade clears normal material arrow",
+    "blessing activation clears readiness when mineral spent",
+    "refresh preserves consumed state and cleared markers",
+    "universal fragments do not produce normal upgrade arrow",
+    "building hot area remains reachable at320",
+    "Auto_wenwu open parent visible in isolated source-state fixture",
+    "Auto_pet open parent visible in isolated source-state fixture",
+    "Auto_gem open parent visible in isolated source-state fixture",
+    "updated client reward390 red wins over awakening blue",
+    "claim actual reward changes main hint to awakening341 blue",
+    "awakening actual material debit clears eligibility hint",
+    "100 total awakening exp produces resonance613 red",
+    "actual resonance level increase clears spent exp hint",
+    "no browser or resource errors"
+  ],
+  "errors": []
+}
