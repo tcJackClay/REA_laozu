@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "inactive enters upgrade directly",
+    "inactive hides room and dispatch tabs",
+    "opening does not grant tools or spend gold",
+    "inactive back returns fairyland",
+    "reopening and refreshing still no tools",
+    "free activation persists level1",
+    "offline starter granted once on activation",
+    "active room and dispatch tabs visible",
+    "active dispatch opens team editor",
+    "room returns active mine",
+    "refresh cannot claim activation grant again",
+    "no runtime or resource errors"
+  ],
+  "errors": []
+}

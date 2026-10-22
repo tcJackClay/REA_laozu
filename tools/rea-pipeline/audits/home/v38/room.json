@@ -1,0 +1,31 @@
+{
+  "checks": [
+    "source initial recovery25minutes",
+    "ancestor threshold blocks without cost",
+    "insufficient funds untouched",
+    "fixed function gate rechecked",
+    "source exact level2 cost",
+    "upgrade does not fill newly unlocked capacity",
+    "level2 recovery matches23minutes",
+    "old full capacity elapsed time cannot fill new capacity",
+    "stale confirmation cannot upgrade twice",
+    "new recovery adds actual tool",
+    "source cost for level3",
+    "source cost for level4",
+    "source cost for level5",
+    "max capacity150 and16minutes",
+    "max level does not consume",
+    "fresh model retains level",
+    "explicit level0 retained",
+    "inactive cannot mine",
+    "free activation follows source level1",
+    "activation confirmation not replayable",
+    "inactive initialization never grants starter tools",
+    "inactive offline time grants nothing",
+    "inactive dispatch blocked",
+    "activation grants offline starter exactly once",
+    "model recreation cannot repeat starter",
+    "legacy mining saves cannot repeat starter",
+    "dispatch becomes available after activation"
+  ]
+}

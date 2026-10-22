@@ -8,3 +8,7 @@
 .fairy-auto-goals{height:100%;overflow:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.fairy-auto-goals button{font-size:28px;color:#65503a;background:#e4d7ba;border:3px solid #a38c67}.fairy-auto-goals button[aria-pressed=true]{border-color:#558236}.fairy-auto-goals img{display:block;width:100px;height:100px;object-fit:contain;margin:auto}.fairy-auto-goals b{margin-left:12px}.fairy-overlay input[type=range]{width:100%;height:100%;accent-color:#d0a35c}
 
 .fairy-auto-goals{box-sizing:border-box;padding:0 90px 30px;grid-auto-rows:230px}.fairy-budget-button{display:grid;place-items:center;height:100%;width:100%;font:32px KaiTi;color:#65503a;background:#ddc99b;border:2px solid #9a815b;border-radius:10px}.fairy-overlay [data-auto-budget]{margin:0}
+
+.fairy-room-effects{font:30px/1.7 KaiTi;color:#675033;text-align:left;padding:15px}.fairy-room-costs{display:flex;justify-content:center;gap:30px;font:30px KaiTi;color:#675033}.fairy-room-title{display:block;text-align:center;font:54px KaiTi;color:#675033}.fairy-room-upgrade button:disabled{filter:grayscale(1)}
+
+.fairy-overlay:has(.fairy-room-upgrade){background:#e7dfce}.fairy-room-upgrade{transform:translateY(-30px) scale(.86);transform-origin:50% 50%}.fairy-room-effects{box-sizing:border-box;white-space:normal}.fairy-hud{flex-wrap:wrap;font-size:25px}

@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "original room and upgrade prefabs",
+    "source capacity and period visible",
+    "upgrade spends5000 and persists level2",
+    "upgrade does not grant tools",
+    "next level threshold disables upgrade",
+    "room tab returns mine",
+    "container back returns fairyland",
+    "refresh keeps room and wallet",
+    "no browser errors"
+  ],
+  "errors": []
+}

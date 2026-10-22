@@ -1,12 +1,17 @@
 /* Offline adapter: local map distribution, rewards and recovery cadence are approximate.
  * Client targeting/damage rules remain MiningRules; no server-equivalence claim. */
 window.createMiningModel=function(B){
- const S=B.state,interval=600000,rewards={3:[1,100],4:[2,1],5:[21,50],6:[104,1],7:[103,1],8:[6,20],9:[40001,1],10:[1000,1]};
+ const S=B.state,interval=1500000,rewards={3:[1,100],4:[2,1],5:[21,50],6:[104,1],7:[103,1],8:[6,20],9:[40001,1],10:[1000,1]};
  const defs=()=>FAIRYLAND_DATA.CaveGrid;
  function row(depth){return Array.from({length:6},(_,x)=>{const types=defs().filter(c=>c.iUnlockDepth<=depth),c=types[(depth*7+x*3+Math.floor(depth/5))%types.length];return {type:c.iType,durability:c.iDurability,available:false};});}
- function data(){const s=S();for(const d of s.disciples)if(!d.rosterId)d.rosterId=crypto.randomUUID();if(!s.miningV34){s.miningV34={version:1,team:[null,null,null,null,null],depth:0,board:MiningRules.reveal(Array.from({length:8},(_,i)=>row(i)).flat(),0),revision:0,log:[],recoveryAt:Date.now()+interval};B.add(102,MiningRules.pickaxeLimit(1));B.save();}return s.miningV34;}
+ function data(){const s=S();for(const d of s.disciples)if(!d.rosterId)d.rosterId=crypto.randomUUID();let changed=false;if(!s.miningV34){s.miningV34={version:1,team:[null,null,null,null,null],depth:0,board:MiningRules.reveal(Array.from({length:8},(_,i)=>row(i)).flat(),0),revision:0,log:[],recoveryAt:Date.now()+interval,starterGranted:false};changed=true;}const d=s.miningV34;
+  // Preserve the offline adapter's starter tools, but never grant them before activation.
+  // Older mining saves already received this grant and must not receive it again.
+  if(d.starterGranted===undefined){d.starterGranted=true;changed=true;}if(!d.starterGranted&&(s.discipleRooms?.[3]?.level??1)>0){B.add(102,MiningRules.pickaxeLimit(1));d.starterGranted=true;changed=true;}if(changed)B.save();return d;}
  function eligible(){return S().disciples.filter((d,i)=>d.isWanderFinish!==false&&!(S().run&&i===(S().run.config?.disciple??S().selected)));}
- function gate(){if(!B.gate(25))throw Error(B.lockText(25));if(!B.gate(28))throw Error(B.lockText(28));}
+ function gate(activation=false){if(!B.gate(25))throw Error(B.lockText(25));if(!B.gate(28))throw Error(B.lockText(28));if(!activation&&S().discipleRooms?.[3]?.level===0)throw Error('请先激活灵脉');}
+ function roomInfo(){const level=S().discipleRooms?.[3]?.level??1,configs=FAIRYLAND_DATA.CaveRoom.filter(c=>c.iID===3),current=configs.find(c=>c.iLevel===level),next=configs.find(c=>c.iLevel===level+1);const effects=c=>(c?.arrEffects||[]).map(id=>FAIRYLAND_DATA.CaveRoomEffect.find(x=>x.iID===id)).filter(Boolean),description=effects(current).map(x=>x.szDesc).join('\n')||'尚未激活',baseMinutes=Number(description.match(/速度：(\d+)分钟/)?.[1]||25),costs=[];for(let i=0;i<(next?.arrUpgradeMats.length||0);i+=2){const [id,n]=next.arrUpgradeMats.slice(i,i+2);if(id>0&&n>0)costs.push({id,n});}const reason=!next?'已满级':!B.gate(28)?B.lockText(28):(S().sect||1)<next.iSectLevel?'需要老祖等级达到'+next.iSectLevel+'级':next.iFunctionOpen&&!B.gate(next.iFunctionOpen)?B.lockText(next.iFunctionOpen):costs.some(c=>B.balance(c.id)<c.n)?'升级材料不足':'';return {level,current,next,costs,description,nextDescription:effects(next).map(x=>x.szDesc).join('\n'),baseMinutes,capacity:MiningRules.pickaxeLimit(level),reason};}
+ function upgradeRoom(expected){gate(true);const info=roomInfo();if(expected!==info.level)throw Error('房间等级已更新');if(info.reason)throw Error(info.reason);recover();for(const c of info.costs)B.add(c.id,-c.n);S().discipleRooms??={};S().discipleRooms[3]={...(S().discipleRooms[3]||{}),level:info.next.iLevel};syncClock(data(),crewBonus(),Date.now());B.save();return roomInfo();}
  function memberBonus(member){
   if(!member)return {value:0,grade:null,score:null,source:'none'};
   const exact=Number.isFinite(member.sourceScore),score=exact?member.sourceScore:member.sourcePower??member.journey?.stats?.power;
@@ -14,10 +19,10 @@ window.createMiningModel=function(B){
   const rows=FAIRYLAND_DATA.WanderScore.filter(x=>x.nID>0),last=rows.at(-1),grade=rows.find(x=>score>=x.iLowerLimit&&score<=x.iUpperLimit)||(score>last.iUpperLimit?last:rows[0]);
   return {value:grade.arrMineItemBoost[1],grade:grade.szDesc,score,source:exact?'source-score':'graduation-power-approximation'};
  }
- function crewBonus(){const d=data(),members=eligible(),seen=new Set();const crew=d.team.map((id,i)=>{const member=MiningRules.seatOpen(i,S().sect)&&!seen.has(id)?members.find(x=>x.rosterId===id):null;seen.add(id);return {id:member?.rosterId||null,...memberBonus(member)};});const value=crew.reduce((n,x)=>n+x.value,0);return {value,percent:value/100,crew,interval:interval/(1+value/10000),captain:!!crew[0].id};}
+ function crewBonus(){const d=data(),members=eligible(),seen=new Set();const crew=d.team.map((id,i)=>{const member=MiningRules.seatOpen(i,S().sect)&&!seen.has(id)?members.find(x=>x.rosterId===id):null;seen.add(id);return {id:member?.rosterId||null,...memberBonus(member)};});const value=crew.reduce((n,x)=>n+x.value,0);return {value,percent:value/100,crew,interval:roomInfo().baseMinutes*60000/(1+value/10000),captain:!!crew[0].id&&roomInfo().level>0};}
  // Server supplies nextRecovTime. This cadence and proportional carry-over are offline approximations.
  function syncClock(d,bonus,now){const old=d.recoveryInterval||interval,next=bonus.interval;if(!bonus.captain){if(now>=d.recoveryAt||old!==next)d.recoveryAt=now+next;}else if(old!==next){const remaining=Math.max(0,Math.min(1,(d.recoveryAt-now)/old));d.recoveryAt=now+remaining*next;}d.recoveryInterval=next;}
- function recover(){const d=data(),now=Date.now(),bonus=crewBonus(),cap=MiningRules.pickaxeLimit(S().discipleRooms?.[3]?.level||1),old=d.recoveryInterval||interval;let settled=false;
+ function recover(){if(S().discipleRooms?.[3]?.level===0)return;const d=data(),now=Date.now(),bonus=crewBonus(),cap=MiningRules.pickaxeLimit(S().discipleRooms?.[3]?.level??1),old=d.recoveryInterval||interval;let settled=false;
   if(bonus.captain&&now>=d.recoveryAt){const count=Math.floor((now-d.recoveryAt)/old)+1,amount=Math.max(0,Math.min(count,cap-B.balance(102)));if(amount)B.add(102,amount);d.recoveryAt+=count*old;settled=true;}
   const before=d.recoveryAt,rate=d.recoveryInterval;syncClock(d,bonus,now);if(settled||now>=before||rate!==d.recoveryInterval||before!==d.recoveryAt)B.save();
  }
@@ -36,5 +41,5 @@ window.createMiningModel=function(B){
   if(d.board.slice(0,6).every(c=>c.type===0)){d.depth++;d.board=d.board.slice(6).concat(row(d.depth+7));d.board=MiningRules.reveal(d.board,0);}
   const result={revision:d.revision,tool,index,depth:d.depth,items:Object.entries(gained).map(([id,n])=>({id:+id,n}))};d.log.unshift(result);d.log=d.log.slice(0,50);B.save();return result;
  }
- return {data,eligible,setMember,mine,recover,memberBonus,crewBonus,releaseMember,autoOptions,autoCheck,autoToggle,autoMine};
+ return {data,eligible,setMember,mine,recover,memberBonus,crewBonus,releaseMember,autoOptions,autoCheck,autoToggle,autoMine,roomInfo,upgradeRoom};
 };
