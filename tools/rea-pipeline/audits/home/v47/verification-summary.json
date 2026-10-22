@@ -1,0 +1,13 @@
+{
+  "curveModel": 207,
+  "timingBrowser": 19,
+  "materialPromptBrowser": 16,
+  "nativeRowsBrowser": 18,
+  "awakeningBrowser": 25,
+  "detailsBrowser": 48,
+  "comboBrowser": 24,
+  "awakeningModel": 24,
+  "total": 381,
+  "reviewer": "strategy_review",
+  "originalDeviceFrameCapture": false
+}

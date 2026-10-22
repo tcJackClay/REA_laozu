@@ -1,0 +1,24 @@
+{
+  "checks": [
+    "first load delays3 source frames",
+    "opening uses source template",
+    "frame opacity follows source Hermite",
+    "checkbox update preserves opening clock",
+    "close interrupts popup and restores unit initial",
+    "no debit before close completion",
+    "cancel during close changes final result without debit",
+    "cached resource delays1 frame",
+    "open returns exact unit opacity and scale",
+    "no early callback during final track frame",
+    "background close preserves pending yes result",
+    "cleanup removes motion context",
+    "cancel then confirm during closing commits once",
+    "removed window cancels delayed transaction",
+    "reduced motion uses final source appearance",
+    "reduced motion cancel leaves account level",
+    "awakening material untouched before close callback",
+    "awakening callback charges once and increments once",
+    "no browser errors"
+  ],
+  "errors": []
+}

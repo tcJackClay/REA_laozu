@@ -1,0 +1,438 @@
+{
+  "common": {
+    "BackgroundColor": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.7490196228027344
+    },
+    "BackgroundBlurAddColors": [
+      {
+        "r": 0.40566039085388184,
+        "g": 0.40374690294265747,
+        "b": 0.40374690294265747,
+        "a": 1.0
+      },
+      {
+        "r": 0.650943398475647,
+        "g": 0.6478729248046875,
+        "b": 0.6478729248046875,
+        "a": 1.0
+      },
+      {
+        "r": 0.29411765933036804,
+        "g": 0.29411765933036804,
+        "b": 0.29411765933036804,
+        "a": 1.0
+      }
+    ],
+    "PopupAnimTempleteID": 10001,
+    "CloseAnimTempleteID": 10005,
+    "FlexManagerVerticalAnimTempleteID": 10002,
+    "FlexManagerHorizontalAnimTempleteID": 10003,
+    "FlexManagerGridAnimTempleteID": 10004,
+    "AnimTempletes": {
+      "m_FileID": 1,
+      "m_PathID": 2523404910360376609
+    },
+    "EnableDelayPopupAnim": 1,
+    "DelayPopupAnimFramesForNewRes": 3,
+    "DelayPopupAnimFramesForCachedRes": 1
+  },
+  "templates": {
+    "10001": {
+      "id": 10001,
+      "name": "通用-弹窗动画-10001",
+      "interval": 0.0,
+      "isMoveAnimEnabled": 0,
+      "moveAnimSettings": {
+        "duration": 0.5,
+        "mode": 1,
+        "isAlternationInvert": 0,
+        "isInvisibleWhenDelay": 1,
+        "isRelative": 1,
+        "isXEnable": 1,
+        "isYEnable": 1,
+        "isZEnable": 0,
+        "postion": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "postionDelta": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "isControllAll": 1,
+        "curve": {
+          "m_Curve": [],
+          "m_PreInfinity": 2,
+          "m_PostInfinity": 2,
+          "m_RotationOrder": 4
+        },
+        "yCurve": {
+          "m_Curve": [],
+          "m_PreInfinity": 2,
+          "m_PostInfinity": 2,
+          "m_RotationOrder": 4
+        },
+        "zCurve": {
+          "m_Curve": [],
+          "m_PreInfinity": 2,
+          "m_PostInfinity": 2,
+          "m_RotationOrder": 4
+        }
+      },
+      "isCanvasGroupAlphaAnimEnabled": 1,
+      "canvasGroupAlphaAminSettings": {
+        "duration": 0.20000000298023224,
+        "fromAlpha": 0.20000000298023224,
+        "toAlpha": 1.0,
+        "curve": {
+          "m_Curve": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "inSlope": 0.0,
+              "outSlope": 0.0,
+              "weightedMode": 0,
+              "inWeight": 0.0,
+              "outWeight": 0.0
+            },
+            {
+              "time": 1.0,
+              "value": 1.0,
+              "inSlope": 0.0,
+              "outSlope": 0.0,
+              "weightedMode": 0,
+              "inWeight": 0.0,
+              "outWeight": 0.0
+            }
+          ],
+          "m_PreInfinity": 2,
+          "m_PostInfinity": 2,
+          "m_RotationOrder": 4
+        }
+      },
+      "isScaleAnimEnabled": 1,
+      "scaleAminSettings": {
+        "duration": 0.20000000298023224,
+        "scale": {
+          "x": {
+            "fromValue": 0.20000000298023224,
+            "toValue": 1.0,
+            "curve": {
+              "m_Curve": [
+                {
+                  "time": 0.0,
+                  "value": 0.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                },
+                {
+                  "time": 1.0,
+                  "value": 1.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                }
+              ],
+              "m_PreInfinity": 2,
+              "m_PostInfinity": 2,
+              "m_RotationOrder": 4
+            }
+          },
+          "y": {
+            "fromValue": 0.20000000298023224,
+            "toValue": 1.0,
+            "curve": {
+              "m_Curve": [
+                {
+                  "time": 0.0,
+                  "value": 0.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                },
+                {
+                  "time": 1.0,
+                  "value": 1.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                }
+              ],
+              "m_PreInfinity": 2,
+              "m_PostInfinity": 2,
+              "m_RotationOrder": 4
+            }
+          },
+          "z": {
+            "fromValue": 1.0,
+            "toValue": 1.0,
+            "curve": {
+              "m_Curve": [
+                {
+                  "time": 0.0,
+                  "value": 1.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                },
+                {
+                  "time": 1.0,
+                  "value": 1.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                }
+              ],
+              "m_PreInfinity": 2,
+              "m_PostInfinity": 2,
+              "m_RotationOrder": 4
+            }
+          }
+        }
+      },
+      "isRotationAnimEnabled": 0,
+      "rotationAminSettings": {
+        "duration": 0.0,
+        "isRelative": 0,
+        "angles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "curve": {
+          "m_Curve": [],
+          "m_PreInfinity": 2,
+          "m_PostInfinity": 2,
+          "m_RotationOrder": 4
+        }
+      }
+    },
+    "10005": {
+      "id": 10005,
+      "name": "通用-关闭动画-10005",
+      "interval": 0.0,
+      "isMoveAnimEnabled": 0,
+      "moveAnimSettings": {
+        "duration": 0.5,
+        "mode": 1,
+        "isAlternationInvert": 0,
+        "isInvisibleWhenDelay": 1,
+        "isRelative": 1,
+        "isXEnable": 1,
+        "isYEnable": 1,
+        "isZEnable": 0,
+        "postion": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "postionDelta": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "isControllAll": 1,
+        "curve": {
+          "m_Curve": [],
+          "m_PreInfinity": 2,
+          "m_PostInfinity": 2,
+          "m_RotationOrder": 4
+        },
+        "yCurve": {
+          "m_Curve": [],
+          "m_PreInfinity": 2,
+          "m_PostInfinity": 2,
+          "m_RotationOrder": 4
+        },
+        "zCurve": {
+          "m_Curve": [],
+          "m_PreInfinity": 2,
+          "m_PostInfinity": 2,
+          "m_RotationOrder": 4
+        }
+      },
+      "isCanvasGroupAlphaAnimEnabled": 1,
+      "canvasGroupAlphaAminSettings": {
+        "duration": 0.20000000298023224,
+        "fromAlpha": 1.0,
+        "toAlpha": 0.5,
+        "curve": {
+          "m_Curve": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "inSlope": 0.0,
+              "outSlope": 0.0,
+              "weightedMode": 0,
+              "inWeight": 0.0,
+              "outWeight": 0.0
+            },
+            {
+              "time": 1.0,
+              "value": 1.0,
+              "inSlope": 0.0,
+              "outSlope": 0.0,
+              "weightedMode": 0,
+              "inWeight": 0.0,
+              "outWeight": 0.0
+            }
+          ],
+          "m_PreInfinity": 2,
+          "m_PostInfinity": 2,
+          "m_RotationOrder": 4
+        }
+      },
+      "isScaleAnimEnabled": 1,
+      "scaleAminSettings": {
+        "duration": 0.20000000298023224,
+        "scale": {
+          "x": {
+            "fromValue": 1.0,
+            "toValue": 0.5,
+            "curve": {
+              "m_Curve": [
+                {
+                  "time": 0.0,
+                  "value": 0.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                },
+                {
+                  "time": 1.0,
+                  "value": 1.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                }
+              ],
+              "m_PreInfinity": 2,
+              "m_PostInfinity": 2,
+              "m_RotationOrder": 4
+            }
+          },
+          "y": {
+            "fromValue": 1.0,
+            "toValue": 0.5,
+            "curve": {
+              "m_Curve": [
+                {
+                  "time": 0.0,
+                  "value": 0.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                },
+                {
+                  "time": 1.0,
+                  "value": 1.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                }
+              ],
+              "m_PreInfinity": 2,
+              "m_PostInfinity": 2,
+              "m_RotationOrder": 4
+            }
+          },
+          "z": {
+            "fromValue": 1.0,
+            "toValue": 1.0,
+            "curve": {
+              "m_Curve": [
+                {
+                  "time": 0.0,
+                  "value": 1.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                },
+                {
+                  "time": 1.0,
+                  "value": 1.0,
+                  "inSlope": 0.0,
+                  "outSlope": 0.0,
+                  "weightedMode": 0,
+                  "inWeight": 0.0,
+                  "outWeight": 0.0
+                }
+              ],
+              "m_PreInfinity": 2,
+              "m_PostInfinity": 2,
+              "m_RotationOrder": 4
+            }
+          }
+        }
+      },
+      "isRotationAnimEnabled": 0,
+      "rotationAminSettings": {
+        "duration": 0.0,
+        "isRelative": 0,
+        "angles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "curve": {
+          "m_Curve": [],
+          "m_PreInfinity": 2,
+          "m_PostInfinity": 2,
+          "m_RotationOrder": 4
+        }
+      }
+    }
+  },
+  "provenance": {
+    "sources": [
+      {
+        "bundle": "assets/data/35bcavy.bin",
+        "origin": "patch",
+        "sha256": "28889bfc9a4a474e6a79a1160dc0adc74ea9177d4f49c11ac985777e8cc0767b"
+      },
+      {
+        "bundle": "assets/data/1pbfp5j.bin",
+        "origin": "patch",
+        "sha256": "6db43dbd09c664437eb292e43c0c42e8400976b13f73efa90bb9f00f53b498e3"
+      },
+      {
+        "bundle": "assets/data/ydb66m.bin",
+        "origin": "apk",
+        "sha256": "b69af4496215a8a8ec6b29756ed1082a179485a7b378fd42dae774eb2da3a7f6"
+      }
+    ],
+    "frameworkID": "9190050698666742893",
+    "settingsID": "1559826722061161138",
+    "templateID": "2523404910360376609",
+    "settingsCAB": "CAB-e899a2c1502ec3fde2ffdba2f32aabc3",
+    "templateCAB": "CAB-9bb781a8608c05f0e877e07269f8d289"
+  }
+}

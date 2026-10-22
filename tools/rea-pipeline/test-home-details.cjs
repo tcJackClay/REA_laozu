@@ -6,7 +6,7 @@ const out='work/rea-pipeline/verification/home-v27';fs.mkdirSync(out,{recursive:
  await page.goto('http://127.0.0.1:5173/?view=sect');await page.waitForSelector('[data-original-action="home26:avatar"]');
  const snap=async name=>{await page.waitForLoadState('networkidle');await page.screenshot({path:out+'/'+name+'.png'});};
  const runtime=()=>page.evaluate(()=>JSON.parse(render_game_to_text()).source.home),read=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('laozu-web-v9')));
- const act=async a=>{const x=page.locator(`[data-home26="${a}"],[data-original-action="home26:${a}"]`).filter({visible:true});await (a==='close'?x.last():x.first()).click();};
+ const act=async a=>{const x=page.locator(`[data-home26="${a}"],[data-original-action="home26:${a}"]`).filter({visible:true});await (a==='close'?x.last():x.first()).click();await page.waitForFunction(()=>!window.SourceWindowMotion?.text().some(x=>x.phase!=='idle'));};
  let r=await runtime();ck('fresh profile reads game save',r.profile.name==='无名老祖'&&r.profile.level===1&&r.profile.resources[1].n===300&&r.profile.resources[2].n===40);
  await act('rename');await page.locator('#home-name').fill('山门测试');await act('rename-save');ck('rename commits', (await read()).homeV26.name==='山门测试');
  await act('avatar');await act('avatar-set:2');await act('close');ck('avatar commits',(await read()).homeV26.avatar===2);
