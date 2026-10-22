@@ -17,6 +17,7 @@ window.createHomeModel=function(B){
  function buyStamina(){const p=purchase();if(p.remaining<=0)throw Error('今日购买次数已用完');if(balance(p.currency)<p.cost)throw Error(good(p.currency).szName+'不足');add(p.currency,-p.cost);add(3,p.amount);data().purchases[p.day]=p.count+1;B.save();}
  const completed=()=>s().wanderCompleted??s().cleared??0;
  function condition(rule){const [type,...p]=rule.split('#'),a=+p[0];switch(+type){
+  case 7:return CULTIVATION_DATA.seeds.some(r=>level('seed',r.iID)>=24)||TEACHER_DATA.teachers.some(r=>level('teacher',r.iID)>=30)||!!window.AntiqueRules&&ANTIQUE_DATA.Gubao.some(r=>AntiqueRules.max(r)>0&&AntiqueRules.level(s(),r.iID)>=AntiqueRules.max(r));
   case 1:return completed()>=a;case 5:return (s().sect||1)>=a;
   case 6:return Math.floor((Date.now()-(s().createdAt||Date.now()))/86400000)+1>=a;
   case 14:return !!s().createdAt&&Math.max(1,Math.floor((Date.now()+28800000)/86400000)-Math.floor((s().createdAt+28800000)/86400000)+1)>=a;

@@ -3,3 +3,5 @@
 .market-description{font:32px/1.5 KaiTi,serif;color:#64513c;overflow:auto!important;pointer-events:auto!important}
 
 .market-clock{font:28px KaiTi,serif!important;color:#5b482f;display:flex;align-items:center;justify-content:center}
+
+.hunyuan-exchange-list{display:flex;flex-direction:column;align-items:center;pointer-events:auto!important}.hunyuan-exchange-row{position:relative!important;width:997px!important;height:256px!important;flex-shrink:0}.hunyuan-exchange-row [data-market]{cursor:pointer;pointer-events:auto!important}.hunyuan-exchange-row .market-good-icon b{font-size:30px}.hunyuan-exchange-row .market-good-icon{pointer-events:none}
