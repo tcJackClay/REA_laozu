@@ -1,0 +1,1 @@
+window.BATTLE_SPEED_DATA={"misc":[{"nType":2207,"nNumVal":0,"nFloatVal":0.0,"szStrVal":"","szArray":[],"szFloatArray":[1.600000023841858,2.299999952316284,3.0]},{"nType":2214,"nNumVal":0,"nFloatVal":0.0,"szStrVal":"","szArray":[],"szFloatArray":[2.0,3.0,4.0]},{"nType":2215,"nNumVal":2,"nFloatVal":0.0,"szStrVal":"","szArray":[],"szFloatArray":[]}],"quickWanderScale":1.5};

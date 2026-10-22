@@ -31,3 +31,6 @@
 #wander-dialog:focus-visible{outline:none}
 
 .flow-shell .w-actions [data-flow=leave]{order:1}.flow-shell .w-actions #w-next{order:2}.flow-shell .w-actions [data-flow=stash]{order:3}#w-reforge-sink{display:none;position:absolute;bottom:100px;left:24px;width:40px;height:25px;border:2px ridge #d4b66b;border-radius:50%;text-align:center;padding-top:3px;font:13px KaiTi;color:#fff0b4;background:#7f7844;box-shadow:0 0 16px #edca7b88;z-index:8}.flow-shell[data-clearing=true] #w-reforge-sink{display:block}
+
+/* Native UIBattleStoryWin speed subtree; horizontal inset follows original 1080 canvas. Vertical placement fits the existing wander footer. */
+.battle-speed-native{position:absolute;right:6.944444%;bottom:18px;z-index:15}.flow-shell[data-combat=true] [data-flow="bag-info"]{visibility:hidden}.flow-shell:not([data-combat=true])>.battle-speed-native{display:none}
