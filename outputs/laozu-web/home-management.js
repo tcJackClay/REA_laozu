@@ -13,7 +13,7 @@ window.createHomeManagement=function(B){
  const btn=(a,text,disabled=false)=>`<button data-home26="${a}" ${disabled?'disabled':''}>${text}</button>`;
  const el=(root,suffix)=>[...root.querySelectorAll('[data-source-path]')].find(x=>x.dataset.sourcePath.endsWith(suffix));
  const slot=(root,suffix,html)=>{const n=el(root,suffix);if(n){n.replaceChildren();n.insertAdjacentHTML('beforeend',html);}return n;};
- const redraw=()=>{const motion=window.PetMotion?.snapshot();B.render();if(motion)PetMotion.restore(motion);};
+ const redraw=()=>{window.SourceLinks?.close();const motion=window.PetMotion?.snapshot();B.render();if(motion)PetMotion.restore(motion);};
  function node(r){const p=r.path,leaf=p.split('/').at(-1),pr=currentProfile||M.profile();
   if(leaf==='Auto_Photo')return {visible:false};
   if(p.endsWith('/auto_PlayerHead/touxiang'))return {visible:true,image:icon(pr.avatar.iIcon)};

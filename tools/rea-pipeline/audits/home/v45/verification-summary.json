@@ -1,0 +1,12 @@
+{
+  "sourceLinks": 655,
+  "sourceLinksBrowser": 18,
+  "strategyDetailBrowser": 26,
+  "detailsBrowser": 48,
+  "comboFlowBrowser": 24,
+  "collectionRules": 521,
+  "productionBattle": 9,
+  "total": 1301,
+  "review": "strategy_review: source and implementation, no blockers; source Bg +8 restored",
+  "originalRuntimeVerified": false
+}

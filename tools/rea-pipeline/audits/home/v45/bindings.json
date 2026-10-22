@@ -1,0 +1,17 @@
+[
+  {
+    "layout": "uiequipinfo",
+    "path": "/UIEquipInfo/Bg/Root/auto_NormalDes",
+    "nodeID": "4968842843380067600"
+  },
+  {
+    "layout": "uiequipinfo",
+    "path": "/UIEquipInfo/Bg/Root/Skill/Desc/Scroll View/Viewport/Content/Auto_Desc/ListItem/xauto_Desc",
+    "nodeID": "3258546963105787152"
+  },
+  {
+    "layout": "uiequipinfo",
+    "path": "/UIEquipInfo/Bg/Root/Skill/Desc/Scroll View/Viewport/Content/Auto_Awake/ListItem/Image/xauto_Desc",
+    "nodeID": "-7618685857224774384"
+  }
+]

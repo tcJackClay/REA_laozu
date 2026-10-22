@@ -1,0 +1,23 @@
+{
+  "checks": [
+    "only confirmed equipment source nodes contain links",
+    "ordinary parent background not clickable link",
+    "native six-node tooltip opens",
+    "exact TextDesc content",
+    "repeat click updates rather than closes",
+    "number highlighting leaves link id intact",
+    "first ESC closes only tooltip",
+    "scroll survives tooltip dismissal",
+    "parent close disposes tooltip",
+    "260 source term configs exported",
+    "unknown and external links inert",
+    "original three horizontal positioning branches",
+    "original above-click +50 no vertical clamp",
+    "help prefix opens original common desc",
+    "help returns to equipment",
+    "narrow screen link works",
+    "read-only flow preserves account",
+    "no browser or asset errors"
+  ],
+  "errors": []
+}
