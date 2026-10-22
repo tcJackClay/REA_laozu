@@ -3,7 +3,7 @@ const c={window:null,console,Math};c.window=c;vm.createContext(c);
 for(const f of ['game-data','wander-data','teacher-data','teacher-runtime-data','battle-damage-types','teacher-runtime','pet-battle-data','combat-effects-data','status-chains','equip-adjacency-data','equip-adjacency','equipment-passives','combat-effects','pet-battle'])vm.runInContext(fs.readFileSync(`outputs/laozu-web/${f}.js`,'utf8'),c);
 const E=c.CombatEffects,P=c.PetBattle,checks=[];
 const ck=(n,v)=>{assert.ok(v,n);checks.push(n);};
-const state=(attrs={},petId)=>({selected:0,disciples:[{traitIds:[]}],run:{config:{teachers:[],points:[0,0,0,0],petId},abilities:[],eventBonuses:attrs},inventory:[],pets:[]});
+const state=(attrs={},petId)=>({selected:0,disciples:[{traitIds:[]}],run:{config:{teachers:[],points:[0,0,0,0],petId,petUid:petId?9001:0},abilities:[],eventBonuses:attrs},inventory:[],pets:petId?[{id:petId,uid:9001,level:1,breakTimes:0}]:[]});
 const fight=()=>({round:1,playerAtk:100,playerDef:20,playerHp:500,playerMax:1000,enemyHp:10000,enemyMax:10000,enemyAtk:100,damageTrace:[]});
 let s=state({2009:10000,2027:5000}),b=fight();let hit=E.deal(s,b,100,{random:()=>0});ck('critical and critical damage applied',hit.critical&&hit.damage===200);
 s=state({2017:10000});b=fight();hit=E.deal(s,b,100,{outgoing:false,random:()=>0});ck('dodge prevents real hp loss',hit.dodge&&b.playerHp===500);

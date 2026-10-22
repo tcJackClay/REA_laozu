@@ -23,7 +23,7 @@ window.createHomeModel=function(B){
   case 6:return Math.floor((Date.now()-(s().createdAt||Date.now()))/86400000)+1>=a;
   case 14:return !!s().createdAt&&Math.max(1,Math.floor((Date.now()+28800000)/86400000)-Math.floor((s().createdAt+28800000)/86400000)+1)>=a;
   case 4:return (s().homeV26?.maxWanderDifficulty||0)>=a;
-  case 11:return (s().homeV26?.maxWanderDifficulty||0)>=(+p[1]||a);
+  case 11:{const mode=+p[0],target=+p[1],degree=+p[2],passed=mode===0?s().homeV26?.maxWanderDifficulty||0:s().homeV26?.wanderPassed?.[mode]||0,current=passed+1,progress=s().homeV26?.wanderDegrees?.[mode]?.[current]||0;return current>target||current===target&&progress>=degree;}
   case 1001:return p.every(k=>s().serverFlags?.[k]===true);
   default:return s().conditionValues?.[rule]===true;
  }}

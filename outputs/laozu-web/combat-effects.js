@@ -7,8 +7,9 @@ window.CombatEffects=(()=>{
  const add=(out,id,v)=>{out[id]=(out[id]||0)+Number(v||0);};
  function resonance(s,a){return equipped(s).reduce((n,i)=>{const d=D.equipment[i.id];return n+(d&&(a.iTechnique?d.arrTechnique.includes(a.iTechnique):d.arrWeaponForm.includes(a.iWeaponForm))?d.iReson:0);},0);}
  function learned(s){return (s.run?.abilities||[]).map(id=>{const base=D.abilities[id];if(!base)return null;const value=resonance(s,base);return groups.get(base.iAbilityID).filter(a=>a.iReson<=value).sort((a,b)=>b.iLevel-a.iLevel)[0]||base;}).filter(Boolean);}
- function attributes(s,{equipment=true,teachers=true,advanced=true}={}){
-  const out={...(s.run?.eventBonuses||{})},hero=s.disciples?.[s.selected||0];
+ function attributes(s,{equipment=true,teachers=true,advanced=true,pets=true,hero=s.disciples?.[s.selected||0]}={}){
+  const out={...(s.run?.eventBonuses||{})};
+  if(pets&&window.PetRules)for(const [k,v] of Object.entries(PetRules.attributes(s,hero)))add(out,k,v);
   if(window.CollectionBonuses)for(const [k,v] of Object.entries(CollectionBonuses.attributes(s)))add(out,k,v);
   if(window.TeacherAwake)for(const [k,v] of Object.entries(TeacherAwake.attributes(s)))add(out,k,v);
   const rows=[...(hero?.traitIds||[]).map(id=>D.abilities[id]),...learned(s)];
@@ -19,7 +20,7 @@ window.CombatEffects=(()=>{
   if(advanced&&window.DiscipleAdvanced)for(const [k,v] of Object.entries(DiscipleAdvanced.attrs(s,hero,s.inventory)))add(out,k,v);
   return out;
  }
- function basic(s,base,advanced=true){const a=attributes(s,{advanced});for(const [k,id] of [['atk',2001],['def',2002],['hp',2003]])base[k]=Math.max(k==='def'?0:1,Math.round((base[k]+(a[id]||0))*(1+(a[id+3]||0)/10000)*(1+(a[id+62]||0)/10000)));base.speed=Math.max(1,30+(s.run?.config?.points?.[3]||0)*2+(a[2008]||0));return base;}
+ function basic(s,base,advanced=true,options={}){const a=attributes(s,{advanced,...options});for(const [k,id] of [['atk',2001],['def',2002],['hp',2003]])base[k]=Math.max(k==='def'?0:1,Math.round((base[k]+(a[id]||0))*(1+(a[id+3]||0)/10000)*(1+(a[id+62]||0)/10000)));base.speed=Math.max(1,30+(s.run?.config?.points?.[3]||0)*2+(a[2008]||0));return base;}
  const supportedAbilities=new Set([4001,4005,4009,4025,4029,4033,4049,4053,4057,4073,4077,4081,4097,4145,4149,4153,4169,4173,4177,4181,4185,4189,4193,4197,4201,4237,42071,42081,42091,43071,45071,45081,47011,47021,48021]);
  for(const id of Object.keys(StatusChains.registry))supportedAbilities.add(+id);
  const family=a=>groups.get(a.iAbilityID)?.find(x=>x.iLevel===0)?.iID||a.iID;
