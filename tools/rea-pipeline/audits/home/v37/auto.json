@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "durability weighted path",
+    "cannot partially destroy next cell",
+    "connected spaces lead directly to target",
+    "DFS includes connected hidden empties",
+    "requires privilege21",
+    "budget capped150",
+    "cannot remove last target",
+    "invalid target rejected",
+    "batch charges actual path cost",
+    "duplicate revision rejected",
+    "submit rechecks entitlement",
+    "zero tools rejected",
+    "full capacity recovery settled before batch debit"
+  ]
+}

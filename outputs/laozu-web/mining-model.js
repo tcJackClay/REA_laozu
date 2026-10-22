@@ -22,11 +22,19 @@ window.createMiningModel=function(B){
   const before=d.recoveryAt,rate=d.recoveryInterval;syncClock(d,bonus,now);if(settled||now>=before||rate!==d.recoveryInterval||before!==d.recoveryAt)B.save();
  }
  function setMember(pos,id){gate();const d=data();if(!MiningRules.seatOpen(pos,S().sect))throw Error('席位尚未解锁');if(id!==null&&!eligible().some(x=>x.rosterId===id))throw Error('该弟子无法派遣');recover();const hadCaptain=crewBonus().captain;d.team=d.team.map(x=>x===id?null:x);d.team[pos]=id;const bonus=crewBonus();if(!hadCaptain&&bonus.captain)d.recoveryAt=Date.now()+(d.recoveryInterval||interval);syncClock(d,bonus,Date.now());B.save();}
+ function autoOptions(){const d=data();d.autoSelected??={};for(const c of defs())if(c.iCanAuto===1&&d.autoSelected[c.iType]===undefined)d.autoSelected[c.iType]=d.depth>=c.iUnlockDepth;return defs().filter(c=>c.iCanAuto===1&&d.depth>=c.iUnlockDepth).map(c=>({...c,selected:!!d.autoSelected[c.iType]}));}
+ function autoCheck(){gate();if(!crewBonus().captain)throw Error('请先派遣队长');if(B.balance(102)<=0)throw Error('暂无矿镐');if(S().entitlements?.[21]!==true)throw Error('解锁月卡特权后可使用');return Math.min(150,B.balance(102));}
+ function autoToggle(type){autoCheck();const rows=autoOptions(),r=rows.find(x=>x.iType===type);if(!r)throw Error('目标尚未解锁');if(r.selected&&rows.filter(x=>x.selected).length<=1)throw Error('至少选择1种奖励目标');data().autoSelected[type]=!r.selected;B.save();}
+ function autoMine(budget,revision){autoCheck();recover();const max=autoCheck(),d=data();if(revision!==d.revision)throw Error('矿图已更新');if(!Number.isInteger(budget)||budget<1||budget>max)throw Error('矿镐预算无效');const rows=autoOptions();if(!rows.some(x=>x.selected))throw Error('至少选择1种奖励目标');const selected=Object.fromEntries(rows.map(x=>[x.iType,x.selected])),plan=MiningAuto.plan(d.board,d.depth,selected,budget);if(!plan.path.length)return {items:[],cost:0};const gained={};for(const i of new Set(plan.path)){const c=d.board[i],r=rewards[c.type];if(r)gained[r[0]]=(gained[r[0]]||0)+r[1];d.board[i]={type:0,durability:0,available:true};}B.add(102,-plan.cost);for(const [id,n] of Object.entries(gained))B.add(+id,n);d.board=MiningRules.reveal(d.board,0);d.revision++;
+  // Beyond-board generation is supplied by the server; local adapter shifts cleared rows only, preserves unspent budget.
+  while(d.board.slice(0,6).every(c=>!c.type)){d.depth++;d.board=d.board.slice(6).concat(row(d.depth+7));}d.board=MiningRules.reveal(d.board,0);
+  const result={revision:d.revision,tool:1,auto:true,depth:d.depth,cost:plan.cost,serverContinuationBudget:plan.remaining,items:Object.entries(gained).map(([id,n])=>({id:+id,n}))};d.log.unshift(result);d.log=d.log.slice(0,50);B.save();return result;
+ }
  function releaseMember(index){const d=S().miningV34,id=S().disciples[index]?.rosterId;if(!d||!id||!d.team.includes(id))return;recover();d.team=d.team.map(x=>x===id?null:x);syncClock(d,crewBonus(),Date.now());B.save();}
  function mine(tool,index,revision){gate();const d=data();if(!crewBonus().captain)throw Error('请先派遣队长');recover();if(revision!==d.revision)throw Error('矿图已更新');const captain=eligible().find(x=>x.rosterId===d.team[0]);const plan=MiningRules.plan({board:d.board,depth:d.depth,team:[captain?1:0],tool,index,balance:B.balance});const gained={};for(const c of plan.destroyed){const r=rewards[c.type];if(r)gained[r[0]]=(gained[r[0]]||0)+r[1];}B.add(plan.cost.id,-1);for(const [id,n] of Object.entries(gained))B.add(+id,n);d.board=MiningRules.reveal(plan.board,0);d.revision++;
   // Local scroll rule: clear the first row, shift exactly one row; source supplies this via server.
   if(d.board.slice(0,6).every(c=>c.type===0)){d.depth++;d.board=d.board.slice(6).concat(row(d.depth+7));d.board=MiningRules.reveal(d.board,0);}
   const result={revision:d.revision,tool,index,depth:d.depth,items:Object.entries(gained).map(([id,n])=>({id:+id,n}))};d.log.unshift(result);d.log=d.log.slice(0,50);B.save();return result;
  }
- return {data,eligible,setMember,mine,recover,memberBonus,crewBonus,releaseMember};
+ return {data,eligible,setMember,mine,recover,memberBonus,crewBonus,releaseMember,autoOptions,autoCheck,autoToggle,autoMine};
 };

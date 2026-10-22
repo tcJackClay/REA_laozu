@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "without entitlement dialog denied",
+    "original popup opens",
+    "cancel leaves tools unchanged",
+    "minus changes budget",
+    "max restores budget",
+    "submit closes popup",
+    "actual charge bounded by requested budget",
+    "batch log written",
+    "reload does not repeat batch",
+    "no console or resource errors"
+  ],
+  "errors": []
+}

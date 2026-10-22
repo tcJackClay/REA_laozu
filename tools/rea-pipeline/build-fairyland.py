@@ -37,7 +37,7 @@ def raw_bundle(b):
  return z.read(b)
 layouts={}; refs={}
 keys=['m_AnchoredPosition','m_SizeDelta','m_AnchorMin','m_AnchorMax','m_Pivot','m_LocalScale','m_LocalRotation','m_LocalPosition','m_Sprite','m_text','m_FontSize','m_fontSize','m_fontSizeMin','m_fontSizeMax','m_fontStyle','m_enableAutoSizing','m_Color','m_fontColor','m_Enabled','m_Type','m_FillCenter','m_FillAmount','m_RaycastTarget','m_HorizontalAlignment','m_VerticalAlignment','m_Margin','m_Padding','m_Spacing','m_ChildAlignment','m_Constraint','m_ConstraintCount','m_CellSize','m_ChildControlWidth','m_ChildControlHeight','m_ChildForceExpandWidth','m_ChildForceExpandHeight']
-targets=['uifairyland','uifairylandroommain','uifairylandroomupgrade','uifairylandroomdispatch','uimining','uiminingteameditor']
+targets=['uifairyland','uifairylandroommain','uifairylandroomupgrade','uifairylandroomdispatch','uimining','uiminingteameditor','uiminingauto']
 for name in targets:
  if name not in bundles: continue
  b=bundles[name]; e=UnityPy.load(raw_bundle(b)[4:]); obs={o.path_id:o for o in e.objects}
