@@ -1,0 +1,9 @@
+.collection-success-shade{background:rgba(0,0,0,.78)}
+.collection-success{pointer-events:none}.collection-success [data-source-path$="/Bg"]{pointer-events:auto}
+.collection-success [data-source-path$="/Auto_PropList"]{display:flex;flex-direction:column;gap:13px}
+.collection-success-attr{position:relative!important;width:635px!important;height:40px!important;flex-shrink:0}
+.collection-success-portrait{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:600px;height:700px;object-fit:contain;max-width:none}
+.collection-success .unity-text{white-space:pre-line}
+
+.collection-success [data-source-path$="/Bg/Info"],.collection-success [data-source-path$="/InfoBg"]{pointer-events:auto}
+.collection-success [data-source-path$="/Auto_upDes"]{overflow:auto;pointer-events:auto}

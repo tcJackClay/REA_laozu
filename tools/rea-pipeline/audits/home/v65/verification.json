@@ -1,0 +1,39 @@
+{
+  "checks": [
+    "milestone opens original seed result",
+    "seed debit and level committed before window",
+    "exact source milestone labels",
+    "three original attribute rows",
+    "panel click preserves result",
+    "escape restores same detail",
+    "dismiss grants nothing twice",
+    "ordinary step stays in detail",
+    "first synthesis opens original teacher result",
+    "unlock recipe visible",
+    "synthesis owns teacher and debits once",
+    "blank click returns to teacher",
+    "teacher milestone updates result state",
+    "upgrade hides unlock recipe",
+    "source star effect text rendered",
+    "milestone return restores detail",
+    "refresh returns home without replay",
+    "upgrade persisted",
+    "no browser resource errors"
+  ],
+  "errors": [],
+  "sourceChecks": 3235,
+  "regression": {
+    "collectionRules": 527,
+    "productionBattle": 13,
+    "homeDetails": 49,
+    "comboReturn": 24,
+    "detailStates": 19,
+    "materialsBrowser": 25,
+    "materialsConfig": 2560,
+    "homeTransactions": 20
+  },
+  "total": 6491,
+  "stagedOnlyBrowserChecks": 19,
+  "originalDeviceCapture": false,
+  "staticChecklistHighIssues": 0
+}
