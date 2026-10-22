@@ -179,7 +179,28 @@ window.createHomeManagement=function(B){
    return {};});root.classList.add('home-source-dialog');root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-label','确认购买');canvas.append(root);
  }
  function resourceJump(j){if(j.szParam1==='UIDiscipleBirth'){page=null;detail=null;B.switchTab('wander');return true;}if(j.iMode===102&&j.szParam1==='3'){page=null;detail=null;B.switchTab('story');return true;}B.toast('该目的页尚未接入，资源与当前进度保持不变');return false;}
- function renderDialog(){if(detail.type==='resource'&&[1,21].includes(detail.id))return ResourceTips.render(canvas,detail.id,{balance:M.balance,gate:M.gate,lockText:M.lockText,jump:resourceJump,toast:B.toast,close:()=>action('close')});if(detail.type==='item')return sourceItem();if(detail.type==='skill')return sourceSkill();if(detail.type==='stamina')return sourceStamina();let title='',body='';
+ function sourceStory(){
+  const x=row(detail.id),lv=M.level('seed',x.iID),need=M.costs('seed',x.iID)[0]?.n||0,S=DETAIL_SECONDARY_LAYOUTS;
+  const shade=document.createElement('button');shade.className='home-source-shade';shade.dataset.home26='close';shade.setAttribute('aria-label','关闭故事');canvas.append(shade);
+  const states=new Map();for(const n of S.layouts.uiseedlingstory.nodes)for(const c of n.components)if(c.fields?.SpriteList)states.set(c.pathID,x.iQuality);
+  const root=U.render(S.layouts.uiseedlingstory,S.sprites,{width:1080,height:1920,states,node:r=>{
+   const leaf=r.path.split('/').at(-1);
+   if(leaf==='StoryTitle')return {text:'故事'};
+   if(leaf==='auto_name')return {text:x.szName};
+   if(leaf==='auto_icon')return {image:x.icon};
+   if(leaf==='auto_unlockInfo')return {visible:lv<0};
+   if(leaf==='auto_stars')return {visible:lv>=0};
+   if(leaf==='auto_fragmentCount')return {text:`${M.balance(x.arrCost1[0])}/${need}`};
+   if(leaf==='auto_sotryDetail')return {text:x.szStory||''};
+   if(r.path==='/UISeedlingStory/Text (TMP)')return {text:'点击空白区域关闭'};
+   return {};
+  }});
+  root.classList.add('home-source-dialog');root.setAttribute('role','dialog');root.setAttribute('aria-label',x.szName+' · 故事');root.setAttribute('aria-modal','true');canvas.append(root);
+  for(const suffix of ['/Zuo 37/bg','/auto_sotryDetail','/auto_SeedlingInfoItem']){const panel=el(root,suffix);if(panel)panel.style.pointerEvents='auto';}
+  const progress=el(root,'/auto_progressSlider');if(progress)progress.style.clipPath=`inset(0 ${100-Math.min(100,need?M.balance(x.arrCost1[0])/need*100:100)}% 0 0)`;
+  slot(root,'/auto_stars',`<div class="home-native-stars">${'★'.repeat(Math.floor(Math.max(0,lv)/6))}${'☆'.repeat(4-Math.floor(Math.max(0,lv)/6))}<small>${levelText(lv)}</small></div>`);
+ }
+ function renderDialog(){if(detail.type==='story'&&page==='seed')return sourceStory();if(detail.type==='resource'&&[1,21].includes(detail.id))return ResourceTips.render(canvas,detail.id,{balance:M.balance,gate:M.gate,lockText:M.lockText,jump:resourceJump,toast:B.toast,close:()=>action('close')});if(detail.type==='item')return sourceItem();if(detail.type==='skill')return sourceSkill();if(detail.type==='stamina')return sourceStamina();let title='',body='';
   if(detail.type==='item'){title=page==='teacher'?'长老养成':'功法养成';body=itemBody();}
   if(detail.type==='universal'){title='使用通用碎片';const p=M.payment(page,detail.id);body=`<p>专属碎片不足，消耗 ${p.universal} 个通用碎片补足后升星。</p>${btn('upgrade-confirm','确认升星')}`;}
   if(detail.type==='avatar'){title='头像';body=`<div class="home-avatar-list">${D.PlayerAvatar.filter(a=>a.iType===1&&M.avatarUnlocked(a)).map(a=>`<button data-home26="avatar-set:${a.iID}" aria-label="头像${a.iID}"><img src="${icon(a.iIcon)}" alt="">${M.data().avatar===a.iID?'使用中':'使用'}</button>`).join('')}</div>`;}
