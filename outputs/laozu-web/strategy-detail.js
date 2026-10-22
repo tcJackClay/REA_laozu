@@ -47,5 +47,23 @@ window.StrategyDetailUI=(()=>{
  }
  function render(canvas,detail,kind){const v=StrategyPreview.resolve(kind,detail.parent.id,detail.parent.strategyIndex||0),p=StrategyDetailPreview.resolve(v,detail.part,detail.id);if(!p)return null;return p.type==='seed'?seed(canvas,p):p.type==='teacher'?teacher(canvas,p):p.type==='ability'?ability(canvas,p):equipment(canvas,p,67);}
  function recipe(canvas,id){const p=StrategyDetailPreview.equipment(id,false);return p?equipment(canvas,p,69):null;}
- return {render,recipe};
+ // Reuse the source EquipSmallItem without making non-interactive prefab children clickable.
+ function smallNode(layout,sprites,r,prefix,cfg,teacher){
+  if(!r.path.startsWith(prefix+'/')&&r.path!==prefix)return null;
+  if(r.path===prefix)return {visible:!!cfg};
+  if(!cfg)return {};
+  const suffix=r.path.slice(prefix.length+1),sw=r.components.find(c=>c.fields?.SpriteList);
+  const image=index=>({image:sprites[sw?.fields.SpriteList[index]?.m_PathID]?.file});
+  if(suffix==='quality')return image(cfg.iQuality);
+  if(suffix==='Icon')return {image:STRATEGY_DETAIL_ICONS.icons[cfg.iIconEzID]||icon(cfg.iID),imageBorder:{x:0,y:0,z:0,w:0}};
+  if(suffix==='shapeIcon'){const parent=layout.nodes.find(n=>n.path===prefix),width=parent.components.find(c=>c.type==='RectTransform').m_SizeDelta.x;return {visible:!!cfg.iIconShapeId,image:STRATEGY_DETAIL_ICONS.icons[cfg.iIconShapeId],imageBorder:{x:0,y:0,z:0,w:0},rect:{m_LocalScale:{x:width/144,y:width/144,z:1}}};}
+  const weapons=[...(cfg.arrWeaponForm||[])];if(teacher?.arrEquip?.includes(cfg.iID))for(const n of teacher.arrEquipWeapon||[])if(n>0&&!weapons.includes(n))weapons.push(n);
+  if(suffix.startsWith('PropAllIcons/'))for(const [group,values] of [['techniqueRoot',cfg.arrTechnique],['weaponRoot',weapons]]){
+   const root=layout.nodes.find(n=>n.path===prefix+'/PropAllIcons/'+group),kids=layout.nodes.filter(n=>n.parentID===root.id);
+   if(r.id===root.id)return {visible:values.some(v=>v>0)};
+   const i=kids.findIndex(n=>n.id===r.id);if(i>=0)return {visible:(values[i]||0)>0,...image(values[i]||0)};
+  }
+  return {};
+ }
+ return {render,recipe,smallNode};
 })();

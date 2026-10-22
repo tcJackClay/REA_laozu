@@ -68,7 +68,7 @@
     if(c.m_Enabled===0)continue;
     if('m_Sprite' in c){const spr=sprites[String(c.m_Sprite.m_PathID)];
      if((spr||typeof over.image==='string'&&over.image)&&over.image!==false){const im=document.createElement('div');im.className='unity-image';const url=over.image||spr.file;
-      if(c.m_Type===1&&Object.values(spr?.border||{}).some(Boolean)){const b=spr.border,v=slicedBorder(b,rect.width,rect.height);im.style.cssText=`border-style:solid;border-width:${v.w}px ${v.z}px ${v.y}px ${v.x}px;border-image:url("${url}") ${b.w} ${b.z} ${b.y} ${b.x} fill stretch;`;}
+      if(c.m_Type===1&&Object.values(over.imageBorder??spr?.border??{}).some(Boolean)){const b=over.imageBorder??spr.border,v=slicedBorder(b,rect.width,rect.height);im.style.cssText=`border-style:solid;border-width:${v.w}px ${v.z}px ${v.y}px ${v.x}px;border-image:url("${url}") ${b.w} ${b.z} ${b.y} ${b.x} fill stretch;`;}
       else {im.style.backgroundImage=`url("${url}")`;im.style.backgroundSize=c.m_Type===2?'auto':'100% 100%';}
       im.style.opacity=c.m_Color?.a??1;
       if(c.m_Type===3)im.style.clipPath=`inset(0 ${(1-(over.fill??c.m_FillAmount))*100}% 0 0)`;

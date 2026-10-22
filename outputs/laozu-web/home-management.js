@@ -170,7 +170,9 @@ window.createHomeManagement=function(B){
   const shade=document.createElement('button');shade.className='home-source-shade';shade.dataset.home26='close';shade.setAttribute('aria-label','关闭详情');canvas.append(shade);
   const fields={auto_seedlingName:x.szName,auto_Name:x.szName,Auto_curLevel:lv===max?'满级':levelText(lv),auto_curLevel:levelText(lv),Auto_nextLevel:levelText(lv+1),auto_nextLevel:levelText(lv+1),Auto_UpgradeText:unlocked?'升星':teacher?'合成':'解锁',Auto_ViewText:detail.fullbody?'详情':'全身',auto_Power:String((x.arrPower||[]).reduce((v,n,i,a)=>i%2===0&&lv>=n?a[i+1]:v,0))};
   const attributeText=level=>[x.arrSecondAttribute1,x.arrSecondAttribute2,x.arrSecondAttribute3].filter(a=>a?.length>1).map(a=>attr(a[0],level<0?0:a[Math.min(level+1,a.length-1)])).join('\n');
+  const recipe=teacher?TEACHER_DATA.recipes.find(r=>r.iFormID===x.arrComposeID?.[0]):null;
   const root=U.render(source,L.sprites,{width:1080,height:1920,states,node:r=>{const p=r.path,leaf=p.split('/').at(-1);
+   if(teacher){const tile=source.nodes.find(n=>n.path.endsWith('/auto_EquipRoot/Auto_Equip')&&(p===n.path||p.startsWith(n.path+'/'))),match=p.match(/^(.*\/auto_Formula\/equip([123]))(?:\/.*)?$/),id=tile?recipe?.arrProductID?.[0]:match?[recipe?.iMaterial0,recipe?.iMaterial1,recipe?.arrProductID?.[0]][+match[2]-1]:0;if(tile||match)return StrategyDetailUI.smallNode(source,L.sprites,r,tile?.path||match[1],COMBAT_EFFECTS_DATA.equipment[id],x);}
    if(leaf==='Auto_InfoRoot')return {visible:!detail.fullbody&&!detail.skins};
    if(!teacher&&p.endsWith('/Bg/Content'))return {rect:{m_SizeDelta:{x:870,y:790}}};
    if(!teacher&&leaf==='Auto_Skill')return {rect:{m_SizeDelta:{x:870,y:290}}};
@@ -234,8 +236,6 @@ window.createHomeManagement=function(B){
    const sid=detail.skins?(detail.skin||x.iDefaultSkin):(B.state().teacherSkins?.[x.iID]||x.iDefaultSkin),image=window.HOME_DETAIL_DATA?.portraits?.[sid]||window.HOME_DETAIL_DATA?.portraits?.[x.iDefaultSkin]||x.icon;
    if(detail.skins)slot(root,'/Auto_PoolContent',`<div class="home-native-skins">${HOME_DETAIL_DATA.TeacherSkin.filter(t=>t.iTeacherID===x.iID).map(t=>`<button data-home26="skin-pick:${t.iID}" aria-pressed="${t.iID===sid}"><img src="${HOME_DETAIL_DATA.portraits?.[t.iID]||x.icon}" alt=""><span>${esc(t.szSkinName)}</span><small>${skinOwned(x,t.iID)?'已获得':esc(t.szDes||'未获得')}</small></button>`).join('')}</div>`);
    slot(root,'/auto_Moudle',`<img class="home-teacher-portrait ${detail.fullbody?'full':''}" src="${image}" alt="${esc(x.szName)}">`);
-   const rec=TEACHER_DATA.recipes.find(r=>r.iFormID===x.arrComposeID?.[0]);if(rec)slot(root,'/Auto_Equip',equip(rec.arrProductID[0]));
-   slot(root,'/auto_Formula',`<div class="home-native-formula">${rec?[rec.iMaterial0,rec.iMaterial1,rec.iMaterial2,rec.iMaterial3,rec.iMaterial4].filter(Boolean).map(equip).join(' + ')+' → '+equip(rec.arrProductID[0]):''}</div>`);
    sourceDetailRows(root,name,x,lv,max,true);
   }else{
    sourceDetailRows(root,name,x,lv,max,false);
@@ -282,10 +282,11 @@ window.createHomeManagement=function(B){
   if(!equipment)return;
   const shade=document.createElement('button');shade.className='home-source-shade';shade.dataset.home26='close';shade.setAttribute('aria-label','返回长老详情');canvas.append(shade);
   const recipeParent=S.layouts.uicoloursequiptip.nodes.find(n=>n.path.endsWith('/auto_Formula')).parentID;
-  const root=U.render(S.layouts.uicoloursequiptip,S.sprites,{width:1080,height:1920,node:r=>{const leaf=r.path.split('/').at(-1);
+  const root=U.render(S.layouts.uicoloursequiptip,S.sprites,{width:1080,height:1920,node:r=>{const leaf=r.path.split('/').at(-1),match=r.path.match(/^(.*\/auto_Formula\/equip([123]))(?:\/.*)?$/);
+   if(match){const cfg=COMBAT_EFFECTS_DATA.equipment[[recipe.iMaterial0,recipe.iMaterial1,id][+match[2]-1]];return StrategyDetailUI.smallNode(S.layouts.uicoloursequiptip,S.sprites,r,match[1],cfg,x);}
    if(leaf==='auto_bg')return {rect:{m_SizeDelta:{x:808,y:x.szSpecialDesc?1050:940},m_AnchoredPosition:{x:0,y:0}}};
    if(r.id===recipeParent)return {rect:{m_SizeDelta:{x:666,y:200}}};
-   if(leaf==='Image')return {rect:{m_SizeDelta:{x:666,y:70}}};
+   if(leaf==='Image'&&!r.path.includes('/auto_Formula/'))return {rect:{m_SizeDelta:{x:666,y:70}}};
    if(leaf==='ui_ty_line')return {rect:{m_SizeDelta:{x:666,y:4}}};
    if(leaf==='auto_Name')return {text:equipment.szName+'【'+equipment.iStar+'阶】'};
    if(leaf==='auto_des')return {text:'',rect:{m_SizeDelta:{x:658,y:230}}};
@@ -298,7 +299,7 @@ window.createHomeManagement=function(B){
   slot(root,'/auto_des',`<div class="home-red-description">${rich(COMBAT_EFFECTS_DATA.equipmentSkills[equipment.iProvideSkill]?.szDesc||equipment.szEquipSkillDesc||'')}</div>`);
   const attrs=equipment.arrBuffParam||[],names=['','金','木','水','火','土','雷','邪','体'];
   slot(root,'/Auto_EquipPropItem',`<div class="home-red-properties"><p>${equipment.arrTechnique.map(i=>names[i]).filter(Boolean).join(' / ')} · 共鸣值：${equipment.iReson}</p>${Array.from({length:Math.floor(attrs.length/2)},(_,i)=>`<p>${attr(attrs[i*2],attrs[i*2+1])}</p>`).join('')}</div>`);
-  slot(root,'/auto_Formula',`<div class="home-native-formula">${[recipe.iMaterial0,recipe.iMaterial1,recipe.iMaterial2,recipe.iMaterial3,recipe.iMaterial4].filter(Boolean).map(equip).join(' + ')} → ${equip(id)}</div>`);
+  for(const tile of root.querySelectorAll('[data-source-path]'))if(/\/auto_Formula\/equip[123]$/.test(tile.dataset.sourcePath))tile.classList.add('home-recipe');
  }
  function sourceSkill(){const x=row(detail.id),skill=Cultivation.skill(x.iID,Math.max(0,M.level(page,x.iID))),S=PET_INFO_LAYOUTS;
   const shade=document.createElement('button');shade.className='home-source-shade';shade.dataset.home26='close';shade.setAttribute('aria-label','返回功法详情');canvas.append(shade);
