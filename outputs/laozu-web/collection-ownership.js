@@ -17,7 +17,7 @@ window.CollectionOwnership=(()=>{
  }
  function elementOpen(s,e){if(!e)return true;if(Array.isArray(s.openElements))return s.openElements.includes(e);const id=104+e;if(s.functionOpen?.[id]!==undefined)return !!s.functionOpen[id];const f=window.HOME_MANAGEMENT_DATA.FunctionOpen.find(x=>x.iID===id);if(!f)return false;
   const condition=r=>{const [type,n]=r.split('#').map(Number);if(type===6)return Math.floor((Date.now()-(s.serverOpenedAt||s.createdAt||Date.now()))/86400000)+1>=n;if(type===19||type===20){const kind=type===19?'seed':'teacher';return rows(kind).some(x=>x.iTechnique===n&&level(s,kind,x.iID)>=0);}return s.conditionValues?.[r]===true;};
-  const group=r=>!r||r.split(';').filter(Boolean).every(condition);return group(f.arrOpenCond)||!!f.arrForceOpen&&group(f.arrForceOpen)||!!f.arrForceOpen2&&group(f.arrForceOpen2);
+  const group=r=>!r||r.split(';').filter(Boolean).every(condition);return group(f.arrOpenCond)||!!f.arrForceOpen&&f.arrForceOpen.split(';').filter(Boolean).some(condition)||!!f.arrForceOpen2&&group(f.arrForceOpen2);
  }
  return {level,receive,reconcile,elementOpen};
 })();

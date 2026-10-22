@@ -204,7 +204,7 @@ window.createHomeManagement=function(B){
   const source=L.layouts[name],states=new Map(),skill=teacher?null:Cultivation.skill(x.iID,Math.max(0,lv));
   for(const r of source.nodes)for(const c of r.components)if(c.fields?.SpriteList){const leaf=r.path.split('/').at(-1);if(/prop|SwitchBg|takeProp/i.test(leaf))states.set(c.pathID,x.iTechnique);else if(/quality|Auto_Bg/i.test(leaf))states.set(c.pathID,x.iQuality);}
   const shade=document.createElement('button');shade.className='home-source-shade';shade.dataset.home26='close';shade.setAttribute('aria-label','关闭详情');canvas.append(shade);
-  const fields={auto_seedlingName:x.szName,auto_Name:x.szName,Auto_curLevel:lv===max?'满级':levelText(lv),auto_curLevel:levelText(lv),Auto_nextLevel:levelText(lv+1),auto_nextLevel:levelText(lv+1),Auto_UpgradeText:unlocked?'升星':teacher?'合成':'解锁',Auto_ViewText:detail.fullbody?'详情':'全身',auto_Power:String((x.arrPower||[]).reduce((v,n,i,a)=>i%2===0&&lv>=n?a[i+1]:v,0))};
+  const fields={auto_seedlingName:x.szName,auto_Name:x.szName,Auto_curLevel:lv===max?'满级':levelText(lv),auto_curLevel:levelText(lv),Auto_nextLevel:levelText(lv+1),auto_nextLevel:levelText(lv+1),Auto_UpgradeText:unlocked?'升星':teacher?'合成':'解锁',Auto_ViewText:detail.fullbody?(detail.skins?'切换':'详情'):'全身',auto_Power:String((x.arrPower||[]).reduce((v,n,i,a)=>i%2===0&&lv>=n?a[i+1]:v,0))};
   const attributeText=level=>[x.arrSecondAttribute1,x.arrSecondAttribute2,x.arrSecondAttribute3].filter(a=>a?.length>1).map(a=>attr(a[0],level<0?0:a[Math.min(level+1,a.length-1)])).join('\n');
   const recipe=teacher?TEACHER_DATA.recipes.find(r=>r.iFormID===x.arrComposeID?.[0]):null,discipleSkin=teacher?TSM.info(x.iID):null,frag=M.costs(page,x.iID)[0]||{id:0,n:1},fragCount=M.balance(frag.id);
   const root=U.render(source,L.sprites,{width:1080,height:1920,states,node:r=>{const p=r.path,leaf=p.split('/').at(-1);
@@ -245,8 +245,8 @@ window.createHomeManagement=function(B){
    if(leaf==='auto_seedlingIcon')return {image:x.icon};
    if(leaf==='auto_EquipRoot')return {action:'home26:recipe',label:'合成配方'};
    if(leaf==='Auto_Story'&&!teacher)return {action:'home26:story',label:'功法故事'};
-   if(leaf==='Auto_StrageBtn')return {visible:!!x.arrStrategy?.length,action:'home26:strategy',label:'攻略'};
-   if(leaf==='Auto_ViewModel')return {visible:!!HOME_DETAIL_DATA.portraits?.[detail.skin||B.state().teacherSkins?.[x.iID]||x.iDefaultSkin],action:'home26:fullbody',label:detail.fullbody?'返回详情':'查看全身'};
+   if(leaf==='Auto_StrageBtn')return {visible:!!x.arrStrategy?.length&&!detail.fullbody&&!detail.skins,action:'home26:strategy',label:'攻略'};
+   if(leaf==='Auto_ViewModel')return {visible:!!HOME_DETAIL_DATA.portraits?.[detail.skin||B.state().teacherSkins?.[x.iID]||x.iDefaultSkin],action:'home26:fullbody',label:detail.fullbody?(detail.skins?'返回皮肤列表':'返回详情'):'查看全身'};
    if(leaf==='Auto_SwitchBg')return {visible:!detail.fullbody};
    if(leaf==='Auto_PoolContent')return {rect:{m_SizeDelta:{x:1080,y:13}}};
    if(leaf==='Auto_Pool')return {visible:!!detail.skins&&!detail.fullbody};
@@ -359,7 +359,13 @@ window.createHomeManagement=function(B){
   const shade=document.createElement('button');shade.className='home-source-shade';shade.dataset.home26='close';shade.setAttribute('aria-label','返回功法详情');canvas.append(shade);
   const root=U.render(S.layouts.uicommondesc,S.sprites,{width:1080,height:1920,node:r=>{const leaf=r.path.split('/').at(-1);if(leaf==='Auto_Title')return {text:skill?.szName||''};if(leaf==='Auto_Content')return {text:''};return {};}});
   root.classList.add('home-source-dialog','home-skill-level-tip');root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-label','怒气技全部等级');canvas.append(root);
-  slot(root,'/Scroll View',`<div class="home-skill-scroll">${x.arrAngerSkill.flatMap((threshold,i,a)=>{if(i%2)return [];const cfg=CULTIVATION_DATA.skills.find(t=>t.iSkillID===a[i+1]);return cfg?[`<article data-source-skill="${cfg.iSkillID}"><h3>${threshold/6+1}级：${i===0?'解锁激活':threshold/6+'星激活'}</h3>${rich(cfg.szDesc)}</article>`]:[];}).join('')}<br><br></div>`);
+  // UICommonDesc owns a 773px content column; preserve its viewport and TMP style.
+  const content=S.layouts.uicommondesc.nodes.find(n=>n.path.endsWith('/Auto_Content')).components.find(c=>c.m_fontSize),owner=detail;
+  const viewport=slot(root,'/Scroll View/Viewport','<div class="home-skill-scroll" tabindex="0" aria-label="怒气技各级说明"></div>').firstElementChild;
+  viewport.style.fontSize=content.m_fontSize+'px';const color=content.m_fontColor;viewport.style.color=`rgb(${Math.round(color.r*255)},${Math.round(color.g*255)},${Math.round(color.b*255)})`;
+  viewport.innerHTML=x.arrAngerSkill.flatMap((threshold,i,a)=>{if(i%2)return [];const cfg=CULTIVATION_DATA.skills.find(t=>t.iSkillID===a[i+1]);return cfg?[`<article data-source-skill="${cfg.iSkillID}"><span class="home-skill-tier-title">${Math.floor(threshold/6)+1}级：${i===0?'解锁激活':Math.floor(threshold/6)+'星激活'}</span><br>${rich(cfg.szDesc)}<br> <br></article>`]:[];}).join('');
+  viewport.scrollTop=owner.skillScroll||0;viewport.addEventListener('scroll',()=>{owner.skillScroll=viewport.scrollTop;});
+
  }
 
  function sourceStamina(){const p=M.purchase(),c=M.cfgStamina(),shade=document.createElement('div');shade.className='home-source-shade';shade.dataset.home26='close';canvas.append(shade);
@@ -488,6 +494,6 @@ window.createHomeManagement=function(B){
   redraw();
  }catch(e){B.toast(e.message);}}
  document.addEventListener('click',e=>{const target=e.target.closest('[data-home26]');if(target&&!target.disabled&&canvas?.isConnected&&canvas.contains(target))action(target.dataset.home26);},{signal:events.signal});
- document.addEventListener('keydown',e=>{if(!canvas?.isConnected)return;if(e.key==='Escape'){if(page==='antique')return;if(page==='fairy'){Fairy.back();return;}if(page==='clan'){Clan.back();return;}if(page==='market'){if(detail)action('close');else Market.back();return;}if(detail)action('close');else if(page)action('back');}if(e.key==='Tab'&&detail){const dialog=[...canvas.querySelectorAll('[role=dialog]')].at(-1),buttons=[...dialog.querySelectorAll('button:not(:disabled),input')].filter(x=>x.checkVisibility()&&!x.classList.contains('home-modal-shade'));const first=buttons[0],last=buttons.at(-1);if(!dialog.contains(document.activeElement)||e.shiftKey&&document.activeElement===first||!e.shiftKey&&document.activeElement===last){e.preventDefault();(e.shiftKey?last:first)?.focus();}}},{signal:events.signal});
+ document.addEventListener('keydown',e=>{if(!canvas?.isConnected)return;if(e.key==='Escape'){if(page==='antique')return;if(page==='fairy'){Fairy.back();return;}if(page==='clan'){Clan.back();return;}if(page==='market'){if(detail)action('close');else Market.back();return;}if(detail)action('close');else if(page)action('back');}if(e.key==='Tab'&&detail){const dialog=[...canvas.querySelectorAll('[role=dialog]')].at(-1),buttons=[...dialog.querySelectorAll('button:not(:disabled),input,[tabindex="0"]')].filter(x=>x.checkVisibility()&&!x.classList.contains('home-modal-shade'));const first=buttons[0],last=buttons.at(-1);if(!dialog.contains(document.activeElement)||e.shiftKey&&document.activeElement===first||!e.shiftKey&&document.activeElement===last){e.preventDefault();(e.shiftKey?last:first)?.focus();}}},{signal:events.signal});
  return {releaseMiner:index=>Fairy.model.releaseMember(index),dispose(){clearInterval(cardTimer);TrialUI.dispose();MonthUI.dispose();TeacherDiscipleSkinUI.stop();Antique.dispose();WarehouseAntique.dispose();events.abort();canvas=null;},begin(){currentProfile=M.profile();currentBuildings=SourceHomeReadiness.functions(M);},node,after,action,reset(){TrialUI.dispose();MonthUI.dispose();warehouseOrigin=null;TeacherDiscipleSkinUI.stop();Warehouse.reset();page=null;detail=null;canvas=null;},model:M,text:()=>({page:page||'home',dialog:detail,petMotion:window.PetMotion?.text()||[],ancestorMotion:window.AncestorMotion?.text()||[],windowMotion:window.SourceWindowMotion?.text()||[],profile:M.profile(),monthNotifications:CardEvents.text(),monthCards:[MM.info(1),MM.info(2),MM.info(3)].map(p=>({id:p.id,owner:p.owner,received:p.received,expires:p.record.expires})),buildingStates:currentBuildings?.states||[],readiness:currentReadiness,tasks:M.sectTasks(),mainTask:M.mainTask(),sideIcons:M.sideIcons().map(x=>x.nID),clan:Clan.text(),market:page==='market'?Market.text():null,warehouse:detail?.type==='warehouse'||warehouseContext()?Warehouse.text():null,antique:page==='antique'?Antique.text():null,fairy:page==='fairy'?Fairy.text():null})};
 };
