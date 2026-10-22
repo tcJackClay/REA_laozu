@@ -9,6 +9,7 @@ const out='work/rea-pipeline/verification/wander-loop';fs.mkdirSync(out,{recursi
  const act=a=>page.locator(`[data-flow="${a}"]`).click();
  const read=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('laozu-web-v9')));
  await page.goto('http://127.0.0.1:5173/?view=wander');
+ await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('laozu-web-v9'));CollectionOwnership.receive(s,22101);localStorage.setItem('laozu-web-v9',JSON.stringify(s));});await page.goto('http://127.0.0.1:5173/?view=wander');
  await original('admit:draw');await page.evaluate(()=>advanceTime(2400));await original('admit:random');await original('admit:accept');
  await page.locator('.seed-catalog [data-seed-id]').first().click();await original('seed:next');await page.locator('[data-teacher-id="22101"]').click();await original('teacher:confirm');
  let s=await read();s.crystal=100;s.inventory=[{uid:901,id:110101,x:2,y:1,rotation:0}];

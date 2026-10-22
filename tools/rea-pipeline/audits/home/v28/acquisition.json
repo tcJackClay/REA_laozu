@@ -1,0 +1,19 @@
+{
+  "checks": [
+    "production fresh owns only configured starter",
+    "production fresh no complete collections",
+    "teacher correct wish pool",
+    "teacher first draw unlocks real collection",
+    "teacher duplicate deposits source fragments",
+    "teacher returns to exact detail",
+    "teacher received shards pay actual upgrade",
+    "seed correct wish pool",
+    "seed first draw unlocks real collection",
+    "seed duplicate deposits source fragments",
+    "seed returns to exact detail",
+    "seed received shards pay actual upgrade",
+    "reload cannot replay received prizes",
+    "no runtime errors"
+  ],
+  "errors": []
+}

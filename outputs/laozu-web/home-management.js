@@ -72,7 +72,7 @@ window.createHomeManagement=function(B){
    return {};
   });canvas.append(root);
   const viewport=teacher?'/Auto_Teacher/Viewport':'/Auto_Seedling/Viewport';
-  const rows=M.list(page).filter(x=>x.icon&&(!filter||x.iTechnique===filter)&&(!B.state().openElements||B.state().openElements.includes(x.iTechnique))).sort((a,b)=>{const up=x=>M.level(page,x.iID)<(teacher?30:24)&&M.payment(page,x.iID).enough;const power=x=>{let n=0;for(let i=0;i<(x.arrPower?.length||0);i+=2)if(M.level(page,x.iID)>=x.arrPower[i])n=x.arrPower[i+1];return n;};const value=x=>({1:M.level(page,x.iID),2:+up(x),3:x.iQuality,4:-x.iTechnique,5:(M.level(page,x.iID)>=0?1e9:0)+power(x)})[sort];return (reverse?-1:1)*(Number(up(b))-Number(up(a))||value(b)-value(a)||a.iID-b.iID);});
+  const rows=M.list(page).filter(x=>x.icon&&(!filter||x.iTechnique===filter)&&CollectionOwnership.elementOpen(B.state(),x.iTechnique)).sort((a,b)=>{const up=x=>M.level(page,x.iID)<(teacher?30:24)&&M.payment(page,x.iID).enough;const power=x=>{let n=0;for(let i=0;i<(x.arrPower?.length||0);i+=2)if(M.level(page,x.iID)>=x.arrPower[i])n=x.arrPower[i+1];return n;};const value=x=>({1:M.level(page,x.iID),2:+up(x),3:x.iQuality,4:-x.iTechnique,5:(M.level(page,x.iID)>=0?1e9:0)+power(x)})[sort];return (reverse?-1:1)*(Number(up(b))-Number(up(a))||value(b)-value(a)||a.iID-b.iID);});
   slot(root,viewport,`<div class="home-catalog">${combo?comboHTML():rows.map(x=>card(page,x)).join('')}</div>`);
   const selector=el(root,'/auto_ClassSelector');if(selector)selector.innerHTML=`<div class="home-filters">${['全部','金','木','水','火','土','雷','邪','体'].map((x,i)=>`<button data-home26="filter:${i}" aria-pressed="${i===filter}">${x}</button>`).join('')}</div>`;
   const nav=layout(teacher?'uiteachernavs':'uiseedlignavs',r=>{const leaf=r.path.split('/').at(-1);if(leaf==='auto_Back')return {action:'home26:back',label:'返回山门'};if(leaf==='Auto_NavBtn1')return {action:'home26:list',label:teacher?'长老列表':'功法列表'};if(leaf==='Auto_NavBtn2')return {action:'home26:combo',label:teacher?'长老组合':'功法组合'};if(leaf==='Auto_NabBtn3')return {visible:false};return {};});canvas.append(nav);
@@ -206,7 +206,7 @@ window.createHomeManagement=function(B){
   if(key==='back'){page=null;detail=null;return redraw();}
   if(key==='close'){if(detail?.type==='item'&&(detail.skins||detail.fullbody)){detail.skins=false;detail.fullbody=false;return redraw();}detail=detail?.parent||(['universal','skill','story','recipe','strategy'].includes(detail?.type)?{type:'item',id:detail.id}:null);return redraw();}
   if(key==='item')detail={type:'item',id};
-  else if(key==='neighbor'){const rows=M.list(page).filter(x=>x.icon&&(!filter||x.iTechnique===filter)),i=rows.findIndex(x=>x.iID===detail.id);detail={type:'item',id:rows[(i+id+rows.length)%rows.length].iID};}
+  else if(key==='neighbor'){const rows=M.list(page).filter(x=>x.icon&&(!filter||x.iTechnique===filter)&&CollectionOwnership.elementOpen(B.state(),x.iTechnique)),i=rows.findIndex(x=>x.iID===detail.id);detail={type:'item',id:rows[(i+id+rows.length)%rows.length].iID};}
   else if(['story','recipe','skill','strategy'].includes(key)){detail={type:key,id:detail.id};}
   else if(key==='skins'){detail.skins=true;detail.skin=B.state().teacherSkins?.[detail.id]||row(detail.id).iDefaultSkin;}
   else if(key==='skins-close'){detail.skins=false;}
@@ -225,7 +225,7 @@ window.createHomeManagement=function(B){
   else if(key==='fold-left')leftFold=!leftFold;
   else if(key==='fold-right')rightFold=!rightFold;
   else if(key==='upgrade'||key==='upgrade-confirm'){const p=M.payment(page,detail.id);if(key==='upgrade'&&p.universal){detail={type:'universal',id:detail.id};}else {M.upgrade(page,detail.id,key==='upgrade-confirm');detail={type:'item',id:detail.id};B.toast('养成成功，携带属性已更新');}}
-  else if(key==='obtain'){page=null;detail=null;B.switchTab('wish');return;}
+  else if(key==='obtain'){const pool=page==='teacher'?12002:11002,previousPage=page,previousDetail={...detail};page=null;detail=null;B.openWish(pool,()=>{page=previousPage;detail=previousDetail;redraw();});return;}
   else if(key==='rename-save'){M.rename(document.getElementById('home-name').value);detail=null;}
   else if(key==='avatar-set'){const x=D.PlayerAvatar.find(x=>x.iID===id);if(!x||!M.avatarUnlocked(x))throw Error('头像尚未解锁');M.data().avatar=id;B.save();}
   else if(key==='stamina-buy')M.buyStamina();

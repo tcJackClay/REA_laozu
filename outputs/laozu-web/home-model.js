@@ -25,7 +25,7 @@ window.createHomeModel=function(B){
   default:return s().conditionValues?.[rule]===true;
  }}
  const group=str=>!str||str.split(';').filter(Boolean).every(condition);
- function gate(id){if(!id)return true;const f=find(D.FunctionOpen,id);if(!f)return false;
+ function gate(id){if(!id)return true;if(id>=105&&id<=112&&window.CollectionOwnership)return CollectionOwnership.elementOpen(s(),id-104);const f=find(D.FunctionOpen,id);if(!f)return false;
   if(s().functionOpen?.[id]!==undefined)return !!s().functionOpen[id];
   if(f.arrPlatforms.length&&!f.arrPlatforms.includes(s().platformID))return false;
   if(f.arrPlatformVers.length&&!f.arrPlatformVers.includes(s().platformVersion))return false;
@@ -34,13 +34,13 @@ window.createHomeModel=function(B){
  }
  function lockText(id){const f=find(D.FunctionOpen,id);if(!f)return '尚未开放';return f.arrOpenCond.split(';').map(r=>{const [t,n]=r.split('#').map(Number);return t===1?'完成'+n+'次游历开启':t===5?'老祖'+n+'级开启':t===6?'开服第'+n+'天开启':'';}).filter(Boolean).join('，')||f.szLockTipText.replace(/<[^>]*>/g,'')||'尚未开放';}
  const list=kind=>kind==='seed'?CULTIVATION_DATA.seeds:TEACHER_DATA.teachers;
- function level(kind,id){const ids=s()[kind+'UnlockedIds'],stars=s()[kind+'Stars']||{};return Array.isArray(ids)&&!ids.includes(+id)?-1:stars[id]??0;}
+ function level(kind,id){const ids=s()[kind+'UnlockedIds'],stars=s()[kind+'Stars']||{};return window.CollectionOwnership?CollectionOwnership.level(s(),kind,id):Array.isArray(ids)&&!ids.includes(+id)?-1:stars[id]??(ids?.includes(+id)?0:-1);}
  function costs(kind,id){const row=find(list(kind),id),lv=level(kind,id);if(!row)return [];return [row.arrCost1,row.arrCost2].filter(x=>x?.length>1).map(a=>({id:a[0],n:a[Math.min(a.length-1,Math.max(1,lv+2))]}));}
  function payment(kind,id){const row=find(list(kind),id),lv=level(kind,id),cs=costs(kind,id),out=[];let universal=0;
   for(let i=0;i<cs.length;i++){const c=cs[i],have=balance(c.id),missing=Math.max(0,c.n-have);if(i===0&&lv>=0&&missing&&row.iOmniShard){out.push({id:c.id,n:Math.min(have,c.n)},{id:row.iOmniShard,n:missing});universal=missing;}else out.push(c);}
   return {costs:out,universal,enough:out.every(c=>balance(c.id)>=c.n)};
  }
- function upgrade(kind,id,allowUniversal=false){const row=find(list(kind),id),lv=level(kind,id),max=kind==='seed'?24:30;if(!row||lv>=max)throw Error('已达最高星阶');const p=payment(kind,id);if(!p.enough)throw Error('升星材料不足');if(p.universal&&!allowUniversal)throw Error('需要确认使用通用碎片');
+ function upgrade(kind,id,allowUniversal=false){const row=find(list(kind),id),lv=level(kind,id),max=kind==='seed'?24:30;if(!row||lv>=max)throw Error('已达最高星阶');if(window.CollectionOwnership&&!CollectionOwnership.elementOpen(s(),row.iTechnique))throw Error('该属性尚未开放');const p=payment(kind,id);if(!p.enough)throw Error('升星材料不足');if(p.universal&&!allowUniversal)throw Error('需要确认使用通用碎片');
   p.costs.forEach(c=>add(c.id,-c.n));s()[kind+'Stars']??={};s()[kind+'Stars'][id]=lv+1;data()[kind+'Upgrades']=(data()[kind+'Upgrades']||0)+1;if(Array.isArray(s()[kind+'UnlockedIds'])&&!s()[kind+'UnlockedIds'].includes(+id))s()[kind+'UnlockedIds'].push(+id);B.save();return lv+1;
  }
  function avatarUnlocked(a){if(a.iType!==1)return false;const p=a.arrUnlockParams;if(!p.length)return true;if(p[0]===1)return (s().sect||1)>=p[1];if(p[0]===2)return level('teacher',p[1])>=0;return s().ownedAvatarIds?.includes(a.iID)||false;}
