@@ -1,0 +1,23 @@
+{
+  "checks": [
+    "three original attribute rows",
+    "attribute rows do not overlap",
+    "original attribute icons loaded",
+    "universal material confirmation opens",
+    "opening confirmation does not consume",
+    "cancel returns selected seed",
+    "cancel leaves materials unchanged",
+    "confirmed upgrade consumes exact universal deficit",
+    "five original teacher star cards",
+    "locked source star badges visible",
+    "disable-tip setting shared with teacher",
+    "disable-tip survives reload",
+    "max seed hides source next values",
+    "max seed hides source arrows",
+    "max seed hides upgrade",
+    "ESC returns to list",
+    "narrow-screen rows inside detail",
+    "no runtime errors"
+  ],
+  "errors": []
+}

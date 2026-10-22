@@ -1,0 +1,27 @@
+const fs=require('node:fs'),assert=require('node:assert/strict');
+const {chromium}=require('C:/Users/45186/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const out='work/rea-pipeline/verification/detail-native-rows';fs.mkdirSync(out,{recursive:true});
+(async()=>{const browser=await chromium.launch(),checks=[],errors=[],ck=(n,v)=>{assert.ok(v,n);checks.push(n);};try{
+ const page=await browser.newPage({viewport:{width:390,height:844}});page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://127.0.0.1:5173/');await page.waitForSelector('[data-original-action="home26:avatar"]');await page.locator('[data-original-action="home26:avatar"]').click();await page.locator('[data-home26="avatar-set:1"]').click();await page.keyboard.press('Escape');
+ const fixture=await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('laozu-web-v9')),seed=CULTIVATION_DATA.seeds.find(x=>[x.arrSecondAttribute1,x.arrSecondAttribute2,x.arrSecondAttribute3].filter(a=>a?.length>1).length===3),teacher=TEACHER_DATA.teachers.find(x=>x.iOmniShard);s.sect=7;s.wanderCompleted=1;s.gold=1000000;s.seedUnlockedIds=[seed.iID];s.teacherUnlockedIds=[teacher.iID];s.seedStars={[seed.iID]:0};s.teacherStars={[teacher.iID]:0};s.goods={[seed.iOmniShard]:10000,[teacher.iOmniShard]:10000};localStorage.setItem('laozu-web-v9',JSON.stringify(s));return {seed,teacher};});
+ const act=async a=>{const nodes=page.locator(`[data-home26="${a}"],[data-original-action="home26:${a}"]`).filter({visible:true});await (a==='close'?nodes.last():nodes.first()).click();};
+ const state=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('laozu-web-v9'))),runtime=()=>page.evaluate(()=>JSON.parse(render_game_to_text()).source.home);
+ await page.reload();await act('seed');await act('item:'+fixture.seed.iID);
+ const rows=page.locator('.home-source-attribute-rows>.unity-prefab');ck('three original attribute rows',await rows.count()===3);
+ ck('attribute rows do not overlap',await rows.evaluateAll(xs=>xs.slice(1).every((x,i)=>x.getBoundingClientRect().top>=xs[i].getBoundingClientRect().bottom)));
+ ck('original attribute icons loaded',await rows.locator('[data-source-path$="/xauto_icon"]>.unity-image').count()===3);
+ await page.screenshot({path:out+'/seed-detail.png'});
+ const before=await state();await act('upgrade');ck('universal material confirmation opens',(await runtime()).dialog.type==='universal');ck('opening confirmation does not consume',JSON.stringify(await state())===JSON.stringify(before));
+ await act('close');ck('cancel returns selected seed',(await runtime()).dialog.id===fixture.seed.iID&&(await runtime()).dialog.type==='item');ck('cancel leaves materials unchanged',JSON.stringify(await state())===JSON.stringify(before));
+ await act('upgrade');await page.locator('[data-home26="universal-disable-confirm"]').check();await act('upgrade-confirm');let s=await state();ck('confirmed upgrade consumes exact universal deficit',s.seedStars[fixture.seed.iID]===1&&s.goods[fixture.seed.iOmniShard]===10000-fixture.seed.arrCost1[2]);
+ await act('close');await act('back');await act('teacher');await act('item:'+fixture.teacher.iID);
+ ck('five original teacher star cards',await page.locator('.home-source-star-card').count()===5);ck('locked source star badges visible',await page.locator('.home-source-star-card [data-source-path$="/xauto_locker"]:visible').count()===5);
+ await act('upgrade');ck('disable-tip setting shared with teacher', (await runtime()).dialog.type==='item'&&(await state()).teacherStars[fixture.teacher.iID]===1);
+ await page.screenshot({path:out+'/teacher-detail.png'});await page.reload();ck('disable-tip survives reload',(await state()).disableUniversalFragmentUpgradeConfirm===true);
+ await page.evaluate(id=>{const s=JSON.parse(localStorage.getItem('laozu-web-v9'));s.seedStars[id]=24;localStorage.setItem('laozu-web-v9',JSON.stringify(s));},fixture.seed.iID);await page.reload();await act('seed');await act('item:'+fixture.seed.iID);
+ ck('max seed hides source next values',await page.locator('.home-source-attribute-rows [data-source-path$="/xauto_upValue"]:visible').count()===0);ck('max seed hides source arrows',await page.locator('.home-source-attribute-rows [data-source-path$="/xauto_jiantou"]:visible').count()===0);ck('max seed hides upgrade',await page.locator('[data-original-action="home26:upgrade"]:visible').count()===0);
+ await page.screenshot({path:out+'/seed-max.png'});await page.keyboard.press('Escape');ck('ESC returns to list',!(await runtime()).dialog);
+ await page.setViewportSize({width:320,height:740});await act('item:'+fixture.seed.iID);ck('narrow-screen rows inside detail',await rows.evaluateAll(xs=>xs.every(x=>{const b=x.getBoundingClientRect();return b.left>=0&&b.right<=320;})));await page.screenshot({path:out+'/seed-narrow.png'});
+ ck('no runtime errors',errors.length===0);fs.writeFileSync(out+'/checks.json',JSON.stringify({checks,errors},null,2));console.log(checks.length+' native detail checks passed');
+ }finally{await browser.close();}})().catch(e=>{console.error(e);process.exitCode=1;});
