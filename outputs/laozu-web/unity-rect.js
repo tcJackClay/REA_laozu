@@ -40,6 +40,7 @@
  }
  const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const color=c=>c?`rgba(${Math.round(c.r*255)},${Math.round(c.g*255)},${Math.round(c.b*255)},${c.a})`:'inherit';
+ function slicedBorder(border,width,height){const sx=Math.min(1,Math.max(0,width)/(border.x+border.z||1)),sy=Math.min(1,Math.max(0,height)/(border.y+border.w||1));return {x:border.x*sx,z:border.z*sx,y:border.y*sy,w:border.w*sy};}
  function stateOverrides(layout,sprites,states=new Map()){
   const result=new Map(),components=new Map(),gos=new Map(layout.nodes.map(r=>[r.id,r]));
   for(const r of layout.nodes)for(const c of r.components)components.set(c.pathID,{row:r,c});
@@ -67,7 +68,7 @@
     if(c.m_Enabled===0)continue;
     if('m_Sprite' in c){const spr=sprites[String(c.m_Sprite.m_PathID)];
      if((spr||typeof over.image==='string'&&over.image)&&over.image!==false){const im=document.createElement('div');im.className='unity-image';const url=over.image||spr.file;
-      if(c.m_Type===1&&Object.values(spr?.border||{}).some(Boolean)){const b=spr.border;im.style.cssText=`border-style:solid;border-width:${b.w}px ${b.z}px ${b.y}px ${b.x}px;border-image:url("${url}") ${b.w} ${b.z} ${b.y} ${b.x} fill stretch;`;}
+      if(c.m_Type===1&&Object.values(spr?.border||{}).some(Boolean)){const b=spr.border,v=slicedBorder(b,rect.width,rect.height);im.style.cssText=`border-style:solid;border-width:${v.w}px ${v.z}px ${v.y}px ${v.x}px;border-image:url("${url}") ${b.w} ${b.z} ${b.y} ${b.x} fill stretch;`;}
       else {im.style.backgroundImage=`url("${url}")`;im.style.backgroundSize=c.m_Type===2?'auto':'100% 100%';}
       im.style.opacity=c.m_Color?.a??1;
       if(c.m_Type===3)im.style.clipPath=`inset(0 ${(1-(over.fill??c.m_FillAmount))*100}% 0 0)`;
@@ -84,5 +85,5 @@
   for(const r of layout.nodes){const c=r.components.find(c=>'m_text'in c),parent=html.get(r.id),el=parent?.querySelector(':scope>.unity-text');if(c&&el){el.style.whiteSpace=c.fields?.m_enableWordWrapping===0?'pre':'pre-wrap';el.style.overflow=c.fields?.m_overflowMode===0?'visible':'hidden';const over=overrides.get(r.id)||{};root.OriginalFont?.draw(parent,c,over.text??c.m_text??'',rects.get(r.id),color(over.color||c.m_fontColor||c.m_Color));}}
   return wrap;
  }
- const api={resolve,solve,render,mul,point,stateOverrides};root.UnityRect=api;if(typeof module!=='undefined')module.exports=api;
+ const api={resolve,solve,render,mul,point,stateOverrides,slicedBorder};root.UnityRect=api;if(typeof module!=='undefined')module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

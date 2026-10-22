@@ -1,0 +1,768 @@
+{
+  "sources": [
+    {
+      "skin": 2210101,
+      "picture": 82101,
+      "sprite": "Teacher_head_Gold_Blue_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-3275003731134292249",
+      "sha256": "c9bbbcb66a252055f8ab7f14f955cf31a5d602d6b6ace379c4a8dc3db9feb0ba"
+    },
+    {
+      "skin": 2210201,
+      "picture": 82102,
+      "sprite": "Teacher_head_Gold_Blue_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "3851336466733946900",
+      "sha256": "cf686767795d452e611cf5fa0e23cf3e8702119661b466e8bbdfff1d5aa2fc6c"
+    },
+    {
+      "skin": 2220101,
+      "picture": 82201,
+      "sprite": "Teacher_head_Wood_Blue_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "3093116570712560556",
+      "sha256": "b211710a7b13aef8289416bd595db176dbe2ab89932d2e7319296278150ef1b8"
+    },
+    {
+      "skin": 2220201,
+      "picture": 82202,
+      "sprite": "Teacher_head_Wood_Blue_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-3011399632131577825",
+      "sha256": "82589da3c4718cc20c5307286a1c04cad55fbe2abd3ff97a0f9605cf071e4526"
+    },
+    {
+      "skin": 2230101,
+      "picture": 82301,
+      "sprite": "Teacher_head_Water_Blue_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-7701743476670584428",
+      "sha256": "fd0a8168f346a96c3c481d1006fe2143a066e1aa410bd2754663639cf4f660eb"
+    },
+    {
+      "skin": 2230201,
+      "picture": 82302,
+      "sprite": "Teacher_head_Water_Blue_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "2986032480876578161",
+      "sha256": "08763092c1752eda59ee99290e921df7341211e5dcc6c04bd3892e5a05b681d7"
+    },
+    {
+      "skin": 2240101,
+      "picture": 82401,
+      "sprite": "Teacher_head_Fire_Blue_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "1204274056442339892",
+      "sha256": "b92713c02b84507a2d9a9d99b360c5adab544709ff60f41f1ca774bb5a3643ed"
+    },
+    {
+      "skin": 2240201,
+      "picture": 82402,
+      "sprite": "Teacher_head_Fire_Blue_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-6981394549516704873",
+      "sha256": "b6476ff9f14310abd17908899298297fdd0c5e10203ada5efe960255732e11d1"
+    },
+    {
+      "skin": 2250101,
+      "picture": 82501,
+      "sprite": "Teacher_head_Soil_Blue_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-6496470134014350268",
+      "sha256": "3e9d10258b15e06240634c57244020190e236068ae6d6d5a539f3dab416fd74e"
+    },
+    {
+      "skin": 2250201,
+      "picture": 82502,
+      "sprite": "Teacher_head_Soil_Blue_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-8166153799544801455",
+      "sha256": "79acc8bc66df4522a276a59effec3b088ac6eb0628947914602944198a04bc35"
+    },
+    {
+      "skin": 2260101,
+      "picture": 82601,
+      "sprite": "Teacher_head_Thunder_Blue_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-7398253166781844418",
+      "sha256": "309f7d85ce6f288900186ac041c6342da7a0382a5dbe9c58535e40943619ec43"
+    },
+    {
+      "skin": 2260201,
+      "picture": 82602,
+      "sprite": "Teacher_head_Thunder_Blue_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "5218809942504231329",
+      "sha256": "f180c2e060cf325767b133154f5cb9c966b5255f8a31e981071e005d5ba8b5ec"
+    },
+    {
+      "skin": 2270101,
+      "picture": 82701,
+      "sprite": "Teacher_head_Heretical_Blue_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-4561865608107383223",
+      "sha256": "3ad56cc84f61881fb6007ed22d4b051f1a8d3f2c2494a8741cc417cfa257c1f7"
+    },
+    {
+      "skin": 2270201,
+      "picture": 82702,
+      "sprite": "Teacher_head_Heretical_Blue_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "5471273226081244425",
+      "sha256": "c2bc06f53730806c4de64a649ff284a44d57d4a61f7f795607031759bd640f7b"
+    },
+    {
+      "skin": 2280101,
+      "picture": 82801,
+      "sprite": "Teacher_head_Aespect_Blue_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-3849869544320850534",
+      "sha256": "9cfc44ffa659d161cb1e61fda26ad8bd7faba8397516d4146f83a07ad19ff72c"
+    },
+    {
+      "skin": 2280201,
+      "picture": 82802,
+      "sprite": "Teacher_head_Aespect_Blue_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-14661707370116982",
+      "sha256": "104024f695d2e66e6ea479baa7ff3a0a652a67d158bc9bc1f0aafe1c3479d439"
+    },
+    {
+      "skin": 2310101,
+      "picture": 83101,
+      "sprite": "Teacher_head_Gold_Purple_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "4335046087727275067",
+      "sha256": "83924d76426ca389e5ed77868247e72f2673c90e221627b51005e77b6fa622a4"
+    },
+    {
+      "skin": 2310201,
+      "picture": 83102,
+      "sprite": "Teacher_head_Gold_Purple_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-4137326904257206417",
+      "sha256": "11a991212e451b33abb56a506f55769a5facb00476c6581d4bcd4fd8beb54408"
+    },
+    {
+      "skin": 2310301,
+      "picture": 83103,
+      "sprite": "Teacher_head_Gold_Purple_3",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "509662451006920422",
+      "sha256": "c80895ecf1b780c7eda4b6f10eda0a5a106659fb937b33255a171bd9563e9aba"
+    },
+    {
+      "skin": 2310401,
+      "picture": 83104,
+      "sprite": "Teacher_head_Gold_Purple_4",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-1578767342026460773",
+      "sha256": "dac903d739cd3fe2c06d0d5ab06e2a7412a626352bbe54a843fda6798d1ec21f"
+    },
+    {
+      "skin": 2320101,
+      "picture": 83201,
+      "sprite": "Teacher_head_Wood_Purple_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "1611684004123528982",
+      "sha256": "dd261d5cd03aa8705cc42cdbee0ba56bbd288975cf24f5d7469407239a35fcdf"
+    },
+    {
+      "skin": 2320201,
+      "picture": 83202,
+      "sprite": "Teacher_head_Wood_Purple_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-3288805679435034156",
+      "sha256": "c34828fa52e597f37bcf9c78259431402f553eb62af8abe0a7fc0150340b69e5"
+    },
+    {
+      "skin": 2320301,
+      "picture": 83203,
+      "sprite": "Teacher_head_Wood_Purple_3",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-5444785166279904288",
+      "sha256": "f881dfdea02cae211e163e0b88901c7d900272bfa08fce5db4f5387e17c65824"
+    },
+    {
+      "skin": 2320401,
+      "picture": 83204,
+      "sprite": "Teacher_head_Wood_Purple_4",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "8532441279654030461",
+      "sha256": "401017651ca57283c036650f73edbaa11d24508ddaa60bf2a900a5c39c4bfd47"
+    },
+    {
+      "skin": 2320501,
+      "picture": 83204,
+      "sprite": "Teacher_head_Wood_Purple_4",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "8532441279654030461",
+      "sha256": "401017651ca57283c036650f73edbaa11d24508ddaa60bf2a900a5c39c4bfd47"
+    },
+    {
+      "skin": 2330101,
+      "picture": 83301,
+      "sprite": "Teacher_head_Water_Purple_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "3934081677391071056",
+      "sha256": "847fd3d1ce4e879b0b7f7f22c3c9aee373e5a6be720e977404aa22093b9836a4"
+    },
+    {
+      "skin": 2330201,
+      "picture": 83302,
+      "sprite": "Teacher_head_Water_Purple_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-1664237152289381658",
+      "sha256": "aa80ab91334b81fca667c016674202b2ec2eccfefa74bbda4f5ededeaece8652"
+    },
+    {
+      "skin": 2330301,
+      "picture": 83303,
+      "sprite": "Teacher_head_Water_Purple_3",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "1871308606536421486",
+      "sha256": "5da407f8c82b1b925fac1101df6b040c6f7d9313410b6c1eb158ee6705ccde86"
+    },
+    {
+      "skin": 2330401,
+      "picture": 83304,
+      "sprite": "Teacher_head_Water_Purple_4",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "5882694898725293248",
+      "sha256": "bb993dcf6fcb85f3c09eda5552d2f329c8994fbaa1955687a55db3400479596e"
+    },
+    {
+      "skin": 2330501,
+      "picture": 83305,
+      "sprite": "Teacher_head_Water_Purple_5",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "2087615541486908169",
+      "sha256": "b24970f413ac6cd0845fcb6c589a64143e348b23e04ef3ef31640b4807871573"
+    },
+    {
+      "skin": 2340101,
+      "picture": 83401,
+      "sprite": "Teacher_head_Fire_Purple_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "1442379533900569791",
+      "sha256": "0b571e7255a701a00b9bb8fe810f5ca71d1c1976f56b0f04bd58769bed8f6770"
+    },
+    {
+      "skin": 2340201,
+      "picture": 83402,
+      "sprite": "Teacher_head_Fire_Purple_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "1448811027815155457",
+      "sha256": "3bb09ba7bae09d6701fdc7ef2e22dce7910d9039094ddcfe154a451a9cfd1633"
+    },
+    {
+      "skin": 2340301,
+      "picture": 83403,
+      "sprite": "Teacher_head_Fire_Purple_3",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "8146593943022242212",
+      "sha256": "6e503e91afa04731d0cc2e8bc60ceab9ae4968e792123e93680c1570ba5c4f0d"
+    },
+    {
+      "skin": 2340401,
+      "picture": 83404,
+      "sprite": "Teacher_head_Fire_Purple_4",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-4214543520235501534",
+      "sha256": "bf7e70149e108508c13ae2b6e1559ec9b7bf49ac9a7fc9d239e4548141ff2a77"
+    },
+    {
+      "skin": 2350101,
+      "picture": 83501,
+      "sprite": "Teacher_head_Soil_Purple_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-4820259222412676247",
+      "sha256": "d56b2f98274ab50f1f7f016d742161280d6a633328d7a63104dfe975be77129d"
+    },
+    {
+      "skin": 2350201,
+      "picture": 83502,
+      "sprite": "Teacher_head_Soil_Purple_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-4376131836758566493",
+      "sha256": "e1219c65a03fea8f961aa01771d266b5d4e901d20729baf3d635842b52b27d92"
+    },
+    {
+      "skin": 2350301,
+      "picture": 83503,
+      "sprite": "Teacher_head_Soil_Purple_3",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "1133789642575221941",
+      "sha256": "c77617ba9d8b1dbc3aa9baba7abc16942a5654181edc21ebcdd68d52993504d9"
+    },
+    {
+      "skin": 2350401,
+      "picture": 83504,
+      "sprite": "Teacher_head_Soil_Purple_4",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "3322029313339343544",
+      "sha256": "c8bc45e19ca0c21ea4c545d3beeb1c184b46c97dbb93a8616901d1a5154979ca"
+    },
+    {
+      "skin": 2360101,
+      "picture": 83601,
+      "sprite": "Teacher_head_Thunder_Purple_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "9021074465150129127",
+      "sha256": "a8629dcc2d0a4679a568f224f53d38ea5133f327f7035d05ad319db373de427d"
+    },
+    {
+      "skin": 2360201,
+      "picture": 83602,
+      "sprite": "Teacher_head_Thunder_Purple_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "3925636439546340159",
+      "sha256": "2fcffddbfb81d02087fc994632ef787ee49f005dd72b7e4ad7a271295cdda167"
+    },
+    {
+      "skin": 2360301,
+      "picture": 83603,
+      "sprite": "Teacher_head_Thunder_Purple_3",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-8248816947957003455",
+      "sha256": "653f70a79ecf36f475eb6636db5403b42aa7bec5d7a46e129c5aac68dc0409e5"
+    },
+    {
+      "skin": 2360401,
+      "picture": 83604,
+      "sprite": "Teacher_head_Thunder_Purple_4",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-6198551372119242084",
+      "sha256": "e56af2f289e893aa7317c30d11f57d8500d7c4e35305e6a81a3d398327a07555"
+    },
+    {
+      "skin": 2370101,
+      "picture": 83701,
+      "sprite": "Teacher_head_Heretical_Purple_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "157259094314651053",
+      "sha256": "4e71a3d7a8eb742c678cfcd7001a00057daaafc42db21bc2501c9a05f789b08a"
+    },
+    {
+      "skin": 2370201,
+      "picture": 83702,
+      "sprite": "Teacher_head_Heretical_Purple_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "750953066646893238",
+      "sha256": "059f0383e354d5b725ac5e31f6c9bffa38b1254032aa4ce8f837e2b2ef9d52bc"
+    },
+    {
+      "skin": 2370301,
+      "picture": 83703,
+      "sprite": "Teacher_head_Heretical_Purple_3",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "1430357926125564145",
+      "sha256": "6d569759c20c8804b428ac416b0849f9bc8489e2824c93a036546bfae92bd18c"
+    },
+    {
+      "skin": 2380101,
+      "picture": 83801,
+      "sprite": "Teacher_head_Aespect_Purple_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-8876983463083361480",
+      "sha256": "17c6f95ad99c7c49188f0e0edbcbc45e656bb3080dded651a36adf008871b3d9"
+    },
+    {
+      "skin": 2380201,
+      "picture": 83802,
+      "sprite": "Teacher_head_Aespect_Purple_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-2346407494638892936",
+      "sha256": "b8f94e7613cf6768c07df9c5de4d3e8aeea52ca048396f7835e4b616bcd32375"
+    },
+    {
+      "skin": 2380301,
+      "picture": 83803,
+      "sprite": "Teacher_head_Aespect_Purple_3",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-195259379485575562",
+      "sha256": "a6c4f5f7f701630306665f96267167148d9c22f531f9788fe6e4279f8db6a2ac"
+    },
+    {
+      "skin": 2380401,
+      "picture": 83804,
+      "sprite": "Teacher_head_Aespect_Purple_4",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-3441149409839476299",
+      "sha256": "159d0d74c428bf642755a6048efcf89dbfeb321167689d4851839609d61fe9c5"
+    },
+    {
+      "skin": 2410101,
+      "picture": 84101,
+      "sprite": "Teacher_head_Gold_Orange_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "3933660835927758088",
+      "sha256": "62e064f11770fa8f6f04b41473985a5b43333f4ebdb344d4399d0f2d54d55590"
+    },
+    {
+      "skin": 2410201,
+      "picture": 84102,
+      "sprite": "Teacher_head_Gold_Orange_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-1383037159149070812",
+      "sha256": "3a46c79d5dc921240227dc4f541d6faf82f593f08fb392866ce1cda1a5f1b993"
+    },
+    {
+      "skin": 2410301,
+      "picture": 84103,
+      "sprite": "Teacher_head_Gold_Orange_3",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "592273466606940165",
+      "sha256": "066d29d2902623352145369a4da9e91d238aeccdf2a4204dcfc62f5c46d661a2"
+    },
+    {
+      "skin": 2410302,
+      "picture": 301002,
+      "sprite": "icon_kp_teacherSkin_baihu",
+      "bundle": "assets/data/2etr4mj.bin",
+      "origin": "web-patch",
+      "pathID": "7916175643712219168",
+      "sha256": "59cf42cfefecb304b7741040d77fe9ff380ad004ed75896b02c86ec0aa689d3b"
+    },
+    {
+      "skin": 2410401,
+      "picture": 84104,
+      "sprite": "Teacher_head_Gold_Orange_4",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-4745322702004468588",
+      "sha256": "ce783d8191fb4b63287cb1e4f115777528e2a153e0debe14a0ab9ea3465a0bb0"
+    },
+    {
+      "skin": 2420101,
+      "picture": 84201,
+      "sprite": "Teacher_head_Wood_Orange_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-7833976707226667572",
+      "sha256": "728c3741fa638dffd43bc9095ec6d3224a36b0fca0e4481d2dac9303649981f0"
+    },
+    {
+      "skin": 2420201,
+      "picture": 84202,
+      "sprite": "Teacher_head_Wood_Orange_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "2823838311786083403",
+      "sha256": "e3b89c8355a9bdc124db5199e68f0a32d6b9f782814af39812bd204a255d5708"
+    },
+    {
+      "skin": 2420301,
+      "picture": 84203,
+      "sprite": "Teacher_head_Wood_Orange_3",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "472747942887508771",
+      "sha256": "307be65febc25406a3d9f85712936608dbe3f00ccf483d1c4fbdf505a923f8e7"
+    },
+    {
+      "skin": 2420401,
+      "picture": 84204,
+      "sprite": "Teacher_head_Wood_Orange_4",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-4491675589858006296",
+      "sha256": "1fea259d56c256f39440b423a4d89bd9f2ae9e1d3c6310c94001348c61ff2a60"
+    },
+    {
+      "skin": 2430101,
+      "picture": 84301,
+      "sprite": "Teacher_head_Water_Orange_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-8176407504656492375",
+      "sha256": "a39747ed3592670ce412ddf4dfd51f2e193b73e8b294940606be0758b04786e4"
+    },
+    {
+      "skin": 2430102,
+      "picture": 301005,
+      "sprite": "icon_kp_teacherSkin_change",
+      "bundle": "assets/data/2etr4mj.bin",
+      "origin": "patch",
+      "pathID": "-8761602882377144481",
+      "sha256": "6144c55e4649e4db04917acafcfa746dadfe1d51678197c20acaa56c42d9fe38"
+    },
+    {
+      "skin": 2430201,
+      "picture": 84302,
+      "sprite": "Teacher_head_Water_Orange_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-6617453857198790681",
+      "sha256": "2d406eebd55f7e71340414da7446949d6727afdace8fab3de9db3cf2ae7a7243"
+    },
+    {
+      "skin": 2430301,
+      "picture": 84303,
+      "sprite": "Teacher_head_Water_Orange_3",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-5587001182090428609",
+      "sha256": "0843756c3427cbecce7e507ef999aa7e519845e4eefade069e84a9906b85aaf6"
+    },
+    {
+      "skin": 2430401,
+      "picture": 84304,
+      "sprite": "Teacher_head_Water_Orange_4",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "438693843443561814",
+      "sha256": "a8f8d63db14431f6955d7669a7eca941080ad705abe4ecd8ec024655f28f0160"
+    },
+    {
+      "skin": 2430501,
+      "picture": 84305,
+      "sprite": "Teacher_head_Water_Orange_5",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "6616843757274584960",
+      "sha256": "c07657df6bfd392fead49247866d6cc4468356ccc8ffebc6be46834849c38082"
+    },
+    {
+      "skin": 2440101,
+      "picture": 84401,
+      "sprite": "Teacher_head_Fire_Orange_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-8269723660992386260",
+      "sha256": "ad08193f7479357ee71de17caa1fa89a42b4465732d4531d674d82fb0b4acb97"
+    },
+    {
+      "skin": 2440201,
+      "picture": 84402,
+      "sprite": "Teacher_head_Fire_Orange_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "1298263920425291486",
+      "sha256": "5de6bef8c5c83b63d1d9f9abca259dd6afb30eea7baf581bb0bfed5c1c7f0d88"
+    },
+    {
+      "skin": 2440301,
+      "picture": 84403,
+      "sprite": "Teacher_head_Fire_Orange_3",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "1605849793013990895",
+      "sha256": "a45795c9910b65327dd016384aef3d6ac80268167bca01ab36a845bd08300256"
+    },
+    {
+      "skin": 2440401,
+      "picture": 84404,
+      "sprite": "Teacher_head_Fire_Orange_4",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-1588732368628330753",
+      "sha256": "d072dc0cd2579b17ffa0d6bf41150a2f8072e38a0bdf5b7ac03f6432fa36b9a0"
+    },
+    {
+      "skin": 2450101,
+      "picture": 84501,
+      "sprite": "Teacher_head_Soil_Orange_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-2600476280954839161",
+      "sha256": "2908eece644fcfb754dd9ef629a75cad4ada680a1a58f2f413c63aab339b5ad9"
+    },
+    {
+      "skin": 2450201,
+      "picture": 84502,
+      "sprite": "Teacher_head_Soil_Orange_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-5089836568415816401",
+      "sha256": "176e72ff7c1e69a344af9c09489760d7feb305b2200d30de72ee6398752723ab"
+    },
+    {
+      "skin": 2450301,
+      "picture": 84503,
+      "sprite": "Teacher_head_Soil_Orange_3",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "9064267896310423039",
+      "sha256": "8602dbf24b0e3b388bca4b4f6802da07ddbf94b68d51b9e55eb3e584478104d8"
+    },
+    {
+      "skin": 2450401,
+      "picture": 84504,
+      "sprite": "Teacher_head_Soil_Orange_4",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "2000965733605235165",
+      "sha256": "cf0e2407ffbbf2e6f0ac0b4290fc6cfb88a2e3e57ae14c5e09b18507e5442d32"
+    },
+    {
+      "skin": 2460101,
+      "picture": 84601,
+      "sprite": "Teacher_head_Thunder_Orange_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-4552651387910341118",
+      "sha256": "02dc2a41d7e350f79c6d23dfd268fdcee9a86000b75214bb72f2db398a439729"
+    },
+    {
+      "skin": 2460201,
+      "picture": 84602,
+      "sprite": "Teacher_head_Thunder_Orange_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "7087779273627829523",
+      "sha256": "56f69c8560d01d8732972d7d4dcebc6a98fdf2e832166b1d8fc5dfee094bb922"
+    },
+    {
+      "skin": 2460301,
+      "picture": 84603,
+      "sprite": "Teacher_head_Thunder_Orange_3",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-6082646457568100775",
+      "sha256": "afbc9a9ffea9ce3692c359c0a02cdc99695cf98ea42597f4488dd03b29e30ad6"
+    },
+    {
+      "skin": 2460401,
+      "picture": 84604,
+      "sprite": "Teacher_head_Thunder_Orange_4",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "589378701689471440",
+      "sha256": "4ad8315b1c1ef334ebd08646ad89d1639b09578660c1f677dfb8afe118b426bd"
+    },
+    {
+      "skin": 2470101,
+      "picture": 84701,
+      "sprite": "Teacher_head_Heretical_Orange_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "9046750693704638365",
+      "sha256": "e38ad539cca9b98f2facd6701266d0cbaf02d970dfe1c44fb3a854dde5c41ba4"
+    },
+    {
+      "skin": 2470201,
+      "picture": 84702,
+      "sprite": "Teacher_head_Heretical_Orange_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "2951675027845548209",
+      "sha256": "760754c0d1bf92d2e878427fbc1709313dddc11cbd8a5da771389ae5d06ff376"
+    },
+    {
+      "skin": 2470301,
+      "picture": 84703,
+      "sprite": "Teacher_head_Heretical_Orange_3",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-2993025058890867061",
+      "sha256": "933208afc13b22c8ba0a4b4a59739074afa2dd56f37c99226f4b4cefd8eecb6e"
+    },
+    {
+      "skin": 2480101,
+      "picture": 84801,
+      "sprite": "Teacher_head_Aespect_Orange_1",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "775674459093939198",
+      "sha256": "00a334ae481d95aa0e28010a2646b8053000e89693e84b8ce41fb80d18c99fae"
+    },
+    {
+      "skin": 2480201,
+      "picture": 84802,
+      "sprite": "Teacher_head_Aespect_Orange_2",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-7640987561551923641",
+      "sha256": "8abc34a3b1c20788c14551338f1eecab90d61695500d902fdbaaa25d7ff8447b"
+    },
+    {
+      "skin": 2480301,
+      "picture": 84803,
+      "sprite": "Teacher_head_Aespect_Orange_3",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "9128778600919699661",
+      "sha256": "a0112bed5da04440fc0e8a2a733df66e25a876a28964916425fd37823268595e"
+    },
+    {
+      "skin": 2480401,
+      "picture": 84804,
+      "sprite": "Teacher_head_Aespect_Orange_4",
+      "bundle": "assets/data/2b5u6im.bin",
+      "origin": "patch",
+      "pathID": "-8396315465956435380",
+      "sha256": "1b529a85fe77edbce42bce3d92b91bcfd861bc68c3040bce97bc8b9dc9e19e3e"
+    }
+  ],
+  "missing": [
+    {
+      "skin": 2340501,
+      "picture": null,
+      "name": null
+    },
+    {
+      "skin": 2420501,
+      "picture": null,
+      "name": null
+    },
+    {
+      "skin": 2440501,
+      "picture": null,
+      "name": null
+    }
+  ]
+}

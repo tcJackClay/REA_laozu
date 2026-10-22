@@ -6,6 +6,7 @@ window.createHomeManagement=function(B){
  const events=new AbortController();
  let currentProfile=null;
  let canvas=null,page=null,detail=null,filter=0,sort=5,reverse=false,combo=false,expanded=false,leftFold=false,rightFold=false;
+ const comboScroll={};
  const art=name=>Object.values(L.sprites).find(x=>x.name===name)?.file||HOME_DATA.assets[name]||PORTAL_DATA.assets[name]||'';
  const icon=id=>{const n=ALIGNED_STAGE_DATA.icons.find(x=>x.nID===+id)?.strIconName;return art(n);};
  const btn=(a,text,disabled=false)=>`<button data-home26="${a}" ${disabled?'disabled':''}>${text}</button>`;
@@ -79,13 +80,49 @@ window.createHomeManagement=function(B){
   });canvas.append(root);
   const viewport=combo?'/Scroll View/Viewport':teacher?'/Auto_Teacher/Viewport':'/Auto_Seedling/Viewport';
   const rows=M.list(page).filter(x=>x.icon&&(!filter||x.iTechnique===filter)&&CollectionOwnership.elementOpen(B.state(),x.iTechnique)).sort((a,b)=>{const up=x=>M.level(page,x.iID)<(teacher?30:24)&&M.payment(page,x.iID).enough;const power=x=>{let n=0;for(let i=0;i<(x.arrPower?.length||0);i+=2)if(M.level(page,x.iID)>=x.arrPower[i])n=x.arrPower[i+1];return n;};const value=x=>({1:M.level(page,x.iID),2:+up(x),3:x.iQuality,4:-x.iTechnique,5:(M.level(page,x.iID)>=0?1e9:0)+power(x)})[sort];return (reverse?-1:1)*(Number(up(b))-Number(up(a))||value(b)-value(a)||a.iID-b.iID);});
-  slot(root,viewport,`<div class="home-catalog">${combo?comboHTML():rows.map(x=>card(page,x)).join('')}</div>`);
+  if(combo)renderCombos(root,viewport,name);else slot(root,viewport,`<div class="home-catalog">${rows.map(x=>card(page,x)).join('')}</div>`);
   const selector=el(root,'/auto_ClassSelector');if(selector)selector.innerHTML=`<div class="home-filters">${['全部','金','木','水','火','土','雷','邪','体'].map((x,i)=>`<button data-home26="filter:${i}" aria-pressed="${i===filter}">${x}</button>`).join('')}</div>`;
   const nav=layout(teacher?'uiteachernavs':'uiseedlignavs',r=>{const leaf=r.path.split('/').at(-1);if(leaf==='auto_Back')return {action:'home26:back',label:'返回山门'};if(leaf==='Auto_NavBtn1')return {action:'home26:list',label:teacher?'长老列表':'功法列表'};if(leaf==='Auto_NavBtn2')return {action:'home26:combo',label:teacher?'长老组合':'功法组合'};if(leaf==='Auto_NabBtn3')return {visible:false};return {};});canvas.append(nav);
   if(!el(nav,'/auto_Back'))canvas.insertAdjacentHTML('beforeend',`<button class="home-page-back" data-home26="back"><img src="assets/btn_fanhui.png" alt="返回山门"></button>`);
   if(detail)renderDialog();
  }
- function comboHTML(){return CollectionBonuses.groups(B.state(),page).map(g=>`<section class="home-combo"><h3>${esc(g.name)}</h3><div>${g.ids.map(id=>{const x=row(id);return x?card(page,x).replace(`data-home26="item:${id}"`,`data-home26="combo-item:${id}:${g.id}"`):'';}).join('')}</div>${g.tiers.map(t=>`<p class="${t.active?'active':''}">${t.threshold===0?'集齐整组':`全组达到${t.threshold/6}星`}：${attr(t.id,t.value)} ${t.active?'已激活':'未激活'}</p>`).join('')}</section>`).join('');}
+ function sourceSubtree(name,suffix,width,height,node){
+  const source=L.layouts[name],first=source.nodes.find(n=>n.path.endsWith(suffix)),nodes=source.nodes.filter(n=>n===first||n.path.startsWith(first.path+'/')).map(n=>n===first?{...n,parentID:null}:n);
+  const result=U.render({nodes},L.sprites,{width,height,node:r=>r.id===first.id?{visible:true,rect:{m_AnchorMin:{x:0,y:1},m_AnchorMax:{x:0,y:1},m_Pivot:{x:0,y:1},m_AnchoredPosition:{x:0,y:0},m_SizeDelta:{x:width,y:height}},...node?.(r)}:node?.(r)});
+  result.style.width=width+'px';result.style.height=height+'px';return result;
+ }
+ function renderCombos(root,viewport,name){
+  const holder=slot(root,viewport,'<div class="home-source-combos"></div>').firstElementChild;
+  const positions=comboScroll[page]??={top:0,members:{}};holder.addEventListener('scroll',()=>{positions.top=holder.scrollTop;});
+  for(const g of CollectionBonuses.groups(B.state(),page)){
+   const elementMask=page==='seed'?D.SeedlingGroup.find(x=>x.iID===g.id).iActiveFiveElements:0,elementCount=[1,2,3,4,5,6,7,8].filter(e=>elementMask&(1<<(e-1))).length;
+   const group=sourceSubtree(name,'/ListSuit',1080,780,r=>{if(r.path.endsWith('/xauto_suitName'))return {text:g.name};if(r.path.endsWith('/xauto_elementList'))return {rect:{m_SizeDelta:{x:elementCount*60,y:71}}};if(page==='seed'&&r.path.endsWith('/baseEffect/title/txt'))return {rect:{m_SizeDelta:{x:450,y:38}}};return {};});group.classList.add('home-combo','home-native-combo');holder.append(group);
+   const cards=slot(group,'/ListSuit/Scroll View/Viewport','<div class="home-suit-members"></div>').firstElementChild;
+   cards.addEventListener('scroll',()=>{positions.members[g.id]=cards.scrollLeft;});
+   for(const id of g.ids){const x=row(id);if(!x)continue;const lv=M.level(page,id),pay=M.payment(page,id),cost=M.costs(page,id)[0];
+    const member=sourceSubtree(name,'/ListSuitItem',239,369,r=>{const leaf=r.path.split('/').at(-1);
+     if(leaf==='ListSuitItem')return {action:`home26:combo-item:${id}:${g.id}`,label:x.szName};
+     if(['Frame','frame01','Prop','Prop_TechniqueIcon'].includes(leaf)){const c=r.components.find(c=>c.fields?.SpriteList),ref=c?.fields.SpriteList[['Frame','frame01'].includes(leaf)?x.iQuality:x.iTechnique],spr=L.sprites[ref?.m_PathID];return spr?{image:spr.file,visible:true}:{};}
+     if(leaf==='Icon')return {image:page==='teacher'?(HOME_DETAIL_DATA.cardPortraits?.[B.state().teacherSkins?.[id]||x.iDefaultSkin]||x.icon):x.icon};if(leaf==='Name')return {text:x.szName};
+     if(leaf==='Mask')return {visible:lv<0,image:HOME_DETAIL_DATA.cardPortraits?.[B.state().teacherSkins?.[id]||x.iDefaultSkin]||x.icon,className:'home-suit-locked-mask'};
+     if(leaf==='mask')return {visible:lv<0};
+     if(leaf==='Select')return {visible:false};
+     if(['Red','xauto_red'].includes(leaf))return {visible:pay.enough&&lv<(page==='seed'?24:30)};
+     if(['Frag','FragProgress'].includes(leaf))return {visible:lv<0};
+     if(leaf==='Fill')return {fill:cost?.n?Math.min(1,M.balance(cost.id)/cost.n):0};
+     if(leaf==='Value')return {text:cost?`${M.balance(cost.id)}/${cost.n}`:''};
+     if(['unlock','Compose'].includes(leaf))return {visible:lv<0&&pay.enough};
+     if(leaf==='Stars'||leaf==='starItem')return {visible:lv>=0};
+     return {};
+    });member.classList.add('home-suit-member');cards.append(member);
+    slot(member,page==='seed'?'/xauto_seedling/Stars':'/starItem',`<div class="home-suit-stars">${'★'.repeat(Math.floor(Math.max(0,lv)/6))}<small>${levelText(lv)}</small></div>`);
+   }
+   if(page==='seed'){const cfg=D.SeedlingGroup.find(x=>x.iID===g.id),iconNode=L.layouts[name].nodes.find(n=>n.path.endsWith('/xauto_elementList/ListItem/xauto_icon')),sprites=iconNode?.components.find(c=>c.fields?.SpriteList)?.fields.SpriteList||[];slot(group,'/xauto_elementList',`<div class="home-suit-elements">${[1,2,3,4,5,6,7,8].filter(e=>cfg.iActiveFiveElements&(1<<(e-1))).map(e=>`<img src="${L.sprites[sprites[e]?.m_PathID]?.file||''}" alt="${['','金','木','水','火','土','雷','邪','体'][e]}">`).join('')}</div>`);}
+   slot(group,'/xauto_effecttList',`<div class="home-suit-effects">${g.tiers.map(t=>`<p class="${t.active?'active':''}">${t.threshold===0?'集齐整组':`全组达到${t.threshold/6}星`}：${attr(t.id,t.value)} ${t.active?'已激活':'未激活'}</p>`).join('')}</div>`);
+   cards.scrollLeft=positions.members[g.id]||0;
+  }
+  holder.scrollTop=positions.top;
+ }
  function attr(id,v){const a=TEACHER_DATA.attributes.find(x=>x.iAtrributeID===id);return esc(a?.szAttrName||'属性 '+id)+' +'+([2001,2002,2003,2007].includes(id)?v:v/100+'%');}
  function itemBody(){const x=row(detail.id),lv=M.level(page,x.iID),next=lv+1,pay=M.payment(page,x.iID),teacher=page==='teacher',attributes=[x.arrSecondAttribute1,x.arrSecondAttribute2,x.arrSecondAttribute3].filter(a=>a?.length>1);
   const skill=!teacher?Cultivation.skill(x.iID,Math.max(0,lv)):null;
@@ -105,6 +142,7 @@ window.createHomeManagement=function(B){
    if(!teacher&&leaf==='Auto_Skill')return {rect:{m_SizeDelta:{x:870,y:290}}};
    if(!teacher&&p.endsWith('/Content/LevelUp'))return {rect:{m_SizeDelta:{x:870,y:460}}};
    if(!teacher&&leaf==='Auto_LevelUp')return {rect:{m_SizeDelta:{x:0,y:420}}};
+   if(!teacher&&['Auto_curLevel','Auto_nextLevel'].includes(leaf))return {text:fields[leaf],visible:leaf==='Auto_curLevel'||lv<max,rect:{m_SizeDelta:{x:130,y:36}}};
    if(!teacher&&p.endsWith('/Bg/GameObject'))return {rect:{m_AnchoredPosition:{x:-40,y:-130}}};
    if(leaf==='Auto_CloseBg')return {action:'home26:close',label:'关闭详情',image:false};
    if(leaf==='auto_leftBtn'||leaf==='auto_rightBtn')return {action:'home26:neighbor:'+(leaf==='auto_leftBtn'?-1:1),label:leaf==='auto_leftBtn'?'上一项':'下一项'};
