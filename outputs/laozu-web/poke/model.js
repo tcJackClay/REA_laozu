@@ -32,9 +32,16 @@
     function routeUnlocked(id){const v=ROUTES.variants.find(v=>v.id===id);if(!v||!chapterOpen(v.chapter-1))return false;const list=chapterRoutes(v.chapter-1);return list.slice(0,list.indexOf(v)).every(v=>s.progression.routes.includes(v.id));}
     function gymUnlocked(id){const g=PROGRESSION.gyms.find(g=>g.id===id);return !!g&&chapterOpen(g.chapter)&&chapterRoutes(g.chapter).every(v=>s.progression.routes.includes(v.id));}
     function cityUnlocked(id){const c=PROGRESSION.cities.find(c=>c.id===id);if(!c)return false;if(c.id==='PALLET_TOWN')return true;if(!chapterOpen(c.chapter))return false;if(c.id==='INDIGO_PLATEAU')return s.progression.routes.includes('kanto-8-0');return c.requiresRoute?s.progression.routes.includes(c.requiresRoute):chapterOpen(c.chapter);}
-    function startGym(id,uid){if(s.run)throw Error('请先完成当前冒险');if(!gymUnlocked(id))throw Error('道馆尚未解锁');const mon=s.collection.find(m=>m.uid===uid);if(!mon)throw Error('请选择收藏中的宝可梦');const g=PROGRESSION.gyms.find(g=>g.id===id),runId=++s.sequence;
-      const items=mon.loadout?.length?JSON.parse(JSON.stringify(mon.loadout)):[{uid:'gym-move-'+runId,kind:'move',key:attackPool(mon.speciesId,mon.level).at(-1),w:2,h:1,x:0,y:0,rotation:0}];
-      s.run={id:runId,gymId:id,borrowedUid:uid,boardSize:'5x5',mon:JSON.parse(JSON.stringify(mon)),phase:'ready',stage:0,hp:mon.hp||90+mon.level*15,maxHp:mon.hp||90+mon.level*15,earned:0,elapsed:0,battle:null,items,pending:[],log:[g.name+' · '+g.leader],nextItem:items.length+1,outcome:null,totalBattles:g.team.length,route:{id:g.id,name:g.name,scene:g.scene,levels:g.team.map(t=>t[1]),wild:0}};return s.run;}
+    function startGym(id,uids){
+      if(s.run)throw Error('请先完成当前冒险');if(!gymUnlocked(id))throw Error('道馆尚未解锁');
+      if(!Array.isArray(uids)||uids.length!==3||new Set(uids).size!==3)throw Error('请选择三只不同的宝可梦');
+      const mons=uids.map(uid=>s.collection.find(m=>m.uid===uid));if(mons.some(m=>!m))throw Error('出战宝可梦已不存在');
+      const g=PROGRESSION.gyms.find(g=>g.id===id),runId=s.sequence+1;
+      const team=mons.map((mon,i)=>({mon:JSON.parse(JSON.stringify(mon)),hp:mon.hp||90+mon.level*15,maxHp:mon.hp||90+mon.level*15,items:mon.loadout?.length?JSON.parse(JSON.stringify(mon.loadout)):[{uid:'gym-'+runId+'-'+i,kind:'move',key:attackPool(mon.speciesId,mon.level).at(-1),w:2,h:1,x:0,y:0,rotation:0}]}));
+      s.sequence=runId;const first=team[0];
+      s.run={id:runId,gymId:id,gymTeam:team,activeMember:0,boardSize:'5x5',mon:first.mon,phase:'ready',stage:0,hp:first.hp,maxHp:first.maxHp,earned:0,elapsed:0,battle:null,items:first.items,pending:[],log:[g.name+' · '+g.leader],nextItem:100,outcome:null,totalBattles:g.team.length,route:{id:g.id,name:g.name,scene:g.scene,levels:g.team.map(t=>t[1]),wild:0}};return s.run;
+    }
+    function replaceFainted(){const r=s.run;if(!r.gymTeam)return false;const old=r.gymTeam[r.activeMember];old.hp=0;old.items=r.items;r.log.push(name(r.mon.speciesId)+'倒下了！');const next=r.activeMember+1;if(next>=r.gymTeam.length)return false;const member=r.gymTeam[next];r.activeMember=next;r.mon=member.mon;r.hp=member.hp;r.maxHp=member.maxHp;r.items=member.items;r.battle.skills=Object.fromEntries(r.items.filter(i=>i.kind==='move').map(i=>[i.uid,r.battle.t+600]));r.battle.berryUsed=false;r.log.push(name(r.mon.speciesId)+'接替出战！');return true;}
     const drawCost=(tier=0)=>{if(!Number.isInteger(tier)||!GENETICS.tiers[tier])throw Error('抽取档位无效');return GENETICS.tiers[tier].cost;};
     const tierUnlocked=(tier)=>s.geneTotal>=drawCost(tier);
     function attackPool(id,level){const pool=[...new Set((species(id).learn||[]).filter(([lv,key])=>lv<=level&&catalog.MOVES[key]?.power>0&&['phys','spec'].includes(catalog.MOVES[key].cat)).map(([,key])=>key))];return pool.length?pool:['tackle'];}
@@ -181,6 +188,8 @@
         if(r.battle!==b)continue;
         if(b.t>=b.enemyAt){const amount=r.route?3+Math.floor(b.level/8):r.stage===0?5:8;r.hp=Math.max(0,r.hp-amount);b.enemyAt+=2200;const e={actor:'enemy',amount,time:b.t};b.events.push(e);b.lastHit=e;}
         if(r.hp>0&&r.hp<=r.maxHp*.55&&!b.berryUsed&&r.items.some(x=>x.key==='oran-berry')){const heal=Math.min(25,r.maxHp-r.hp);r.hp+=heal;b.berryUsed=true;b.events.push({actor:'heal',amount:heal,time:b.t});r.log.push('橙橙果恢复了'+heal+'点生命。');}
+        if(r.hp<=0&&r.gymId&&replaceFainted())continue;
+        if(r.gymTeam)r.gymTeam[r.activeMember].hp=r.hp;
         if(r.hp<=0){r.phase='settlement';r.outcome='rescued';r.log.push('探险中止，宝可梦已被救援。');}
       }
     }

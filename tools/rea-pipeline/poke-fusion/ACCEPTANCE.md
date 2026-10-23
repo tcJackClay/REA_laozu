@@ -135,3 +135,8 @@ node tools/rea-pipeline/test-poke-theme.cjs
 - [x] 收藏伙伴与毕业背包实际挑战，胜负、回城、刷新与重复结算。
 - [x] 模型完整推进及手机宽度截图验收。
 - 原站与融合边界：[progression/README.md](progression/README.md)。
+
+## 道馆三只出战
+- [x] 无默认选中，弹窗选择三只、取消重选、确认进入挑战。
+- [x] 各自背包实际生效，倒下接替、敌人HP保留、全灭失败、刷新恢复。
+- [x] 黑色图形界面与手机截图，八道馆和冒险回归。
