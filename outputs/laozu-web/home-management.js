@@ -79,7 +79,7 @@ window.createHomeManagement=function(B){
   // The original task component populates an empty container at runtime.
   const task=M.mainTask(),taskRoot=el(root,'/auto_MainTaskEntry/click_area');
   if(task&&task.iDisMode&&taskRoot){taskRoot.style.display='';taskRoot.innerHTML=`<button class="home-main-task" data-home26="main-task"><strong>新手</strong><span>${esc(task.szDesc)}<br>（${task.progress}/${task.iComdition}）</span>${task.progress>=task.iComdition?'<i class="home-red-dot">!</i>':''}</button>`;}
-  target.insertAdjacentHTML('beforeend',sideHTML());window.HomeVisual?.finish(root,target,{M,leftFold,rightFold,expanded});paintCardReddot(CardEvents.daily());if(!cardTimer)cardTimer=setInterval(()=>{if(canvas?.isConnected)CardEvents.tick();},250);
+  target.insertAdjacentHTML('beforeend',sideHTML());window.HomeVisual?.finish(root,target,{M,B,leftFold,rightFold,expanded});paintCardReddot(CardEvents.daily());if(!cardTimer)cardTimer=setInterval(()=>{if(canvas?.isConnected)CardEvents.tick();},250);
   // Suppress prefab editor lock overlays only when that FunctionButton is actually unlocked.
   for(const r of ORIGINAL_LAYOUT_DATA.layouts.uimain.nodes){const ids=r.components.flatMap(c=>c.fields?._funcIDs||[]);if(!ids.length)continue;const n=el(root,r.path);if(!n)continue;const open=ids.some(M.gate);n.dataset.functionOpen=String(open);if(!open&&n.dataset.originalAction?.startsWith('home26:'))n.setAttribute('aria-label',n.getAttribute('aria-label')+'（'+M.lockText(ids[0])+'）');}
   currentReadiness=SourceHomeReadiness.render(root,M,B.state(),AM);

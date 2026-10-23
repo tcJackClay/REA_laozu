@@ -18,7 +18,7 @@ window.createAlignedStage=function(B){
  function navigate(tab){tip=null;B.home?.reset();if(tab==='sect')s.phase='chapter';save();B.switchTab(tab);}
  function renderNav(){const ids=['disciples','wish','sect','story','activities','guild'],labels=['弟子','祈愿','山门','主线','玩法','仙盟'];return prefab('uimainnavs',r=>{const m=r.path.match(/auto_NavButtons\/(ToggleButton(?: \((\d+)\))?)(?:\/|$)/);if(!m)return {};const i=+(m[2]||0),leaf=r.path.split('/').at(-1),selected=activeTab===ids[i],visual=window.HomeVisual?.nav(r,selected)||{};if(r.path.endsWith(m[1]))return {action:'nav:'+ids[i],label:labels[i]};if(leaf==='diwen'||leaf.startsWith('mingzidi'))return {visible:selected};if(leaf==='ZuoZuo')return {text:labels[i],...visual};return visual;});}
  function renderHome(){B.home?.begin();
-  const h=prefab('uimain',r=>{const p=r.path;const override=B.home?.node(r),visual=window.HomeVisual?.node(r,Number(canvas?.dataset.homeHeight)||1920)||{};if(override||visual.rect)return {...visual,...override,rect:{...visual.rect,...override?.rect}};
+  const h=prefab('uimain',r=>{const p=r.path;const override=B.home?.node(r),visual=window.HomeVisual?.node(r,Number(canvas?.dataset.homeHeight)||1920)||{};if(override||visual.rect||visual.action)return {...visual,...override,rect:{...visual.rect,...override?.rect}};
    if(/\/(LeftDownRoot|LeftBtnGroup|IconGroupLeft|auto_rTopRoot)$/.test(p)||/lop_BuildingReddot|WanderDifficulty|auto_redPrivate/.test(p))return {visible:false};
    if(p.endsWith('/Auto_Photo')||p.endsWith('/auto_PlayerHead/touxiang'))return {image:false};
    if(p.endsWith('/Auto_Name'))return {text:s.profile?.name||'—'};

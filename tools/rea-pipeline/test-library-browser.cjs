@@ -6,7 +6,7 @@ const out='work/rea-pipeline/verification/library-browser';fs.mkdirSync(out,{rec
  try{const page=await browser.newPage({viewport:{width:390,height:844}});
  await page.addInitScript(()=>{const raf=window.requestAnimationFrame.bind(window);window.requestAnimationFrame=fn=>fn.name==='loop'?0:raf(fn);});
  page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url());});
- const original=a=>page.locator(`[data-original-action="${a}"]`).click();
+ const original=a=>page.locator(`[data-original-action="${a}"]`).first().click();
  const act=a=>page.locator(`[data-flow="${a}"]`).last().click();
  const read=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('laozu-web-v9')));
  await page.goto('http://127.0.0.1:5173/?view=wander');
