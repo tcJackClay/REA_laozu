@@ -237,3 +237,7 @@
 .route-levels button{border:1px solid var(--line);border-radius:4px;background:var(--panel);color:white;font-size:11px;padding:3px 6px}
 .route-levels button[aria-pressed=true]{border-color:var(--yellow);color:var(--yellow)}
 .map-heading>span{max-width:78px;overflow:hidden;text-overflow:ellipsis}
+
+/* Crop non-interactive side margins; preserve all route cells at equal scale. */
+.region-map{aspect-ratio:1}
+.region-art{position:absolute;top:0;left:-13.888889%;width:133.333333%;max-width:none;height:100%;object-fit:fill}
