@@ -1,0 +1,30 @@
+# 战斗、背包与冒险路线显示对齐（2026-10-23）
+
+本次只调整表现与说明交互，不改融合玩法的冷却、伤害、奖励、存档或抽取规则。
+
+## 已完成
+
+- [x] 战斗朝向：原版 `.ally img` 使用 `scaleX(-1)`，敌方保持原图片朝向；当前画布使用相同翻转，并使攻击位移朝对手方向。
+- [x] HP：提取原版 `.hp` 规则，精灵上方显示带高光的粉红条；生命比例大于 20% 时 `#f0607a`，否则 `#d6334f`，关联真实当前 HP。
+- [x] 招式：原版属性徽标 + 中文招式名称同一行；卡块和说明窗均不显示 CD，自动释放的内部冷却保留。
+- [x] 道具：奖励和包内仅显示已有原图片；点击/触摸显示名称与实际功能文本，重复点击、点外部、放置、切换步骤或 Escape 可关闭。拖拽影像同样复用图片。
+- [x] 冒险路线：复用原版 `tl-rail / timeline / tl-node / tl-link` 和草丛、道具、精灵中心素材；当前节点框、已完成连接线与计数随真实阶段推进。
+- [x] 竖屏 320×568、360×844、390×844、450×844 及触摸说明窗定位检查。
+
+## 来源与边界
+
+固定来源为 pokecatch-reference/evidence/source/bundle/app.f5605635e3.js 和 app.4cbef38437.css；取证摘要与原 CSS 规则见 [battle-ui-source.json](battle-ui-source.json)。原版 DOM 证据 `evidence/runtime/live/09-adventure-running.html.txt` 可核对路线图与 mini-hp。
+
+原版 `UI.typeBadge` 是带属性色的文字徽标，固定资源包未发现独立属性图片。本次复用该徽标，没有自行画元素符号或引入外部图片。若期望圆形属性象形图标，需要另行确认已有素材来源。
+
+路线使用当前可玩的六个阶段：伙伴→遭遇→奖励→遭遇→奖励→结算。原版多章节长路线不属于当前两战闭环，未虚构更多事件。奖励整理与事件记录共用该次奖励节点，继续进入下一场战斗才推进。
+
+## 验证
+
+- `node tools/rea-pipeline/test-poke-battle-ui.cjs`：23 项专项通过；点击/触摸说明、关闭、入包、两次奖励功能文案、路线 3/6→4/6→5/6→6/6、窄屏定位均通过。
+- `node tools/rea-pipeline/test-poke-browser.cjs`：30 项完整闭环通过；含自然计时第一场战斗、鼠标拖拽、触摸放置、刷新与结算收藏、再次抽取。
+- `node tools/rea-pipeline/test-poke-theme.cjs`：33 项主题回归通过。
+- develop-web-game 官方客户端烟测完成，已查看截图；其截图仅包含画布，整屏验收使用下方独立截图。
+- Front-End Checklist 对实际 HP/道具说明 DOM 结构的静态检查未发现高优先级问题，不等同于完整无障碍认证。
+
+截图与测试结果：[battle-ui/checks.json](battle-ui/checks.json)、[战斗](battle-ui/battle.png)、[道具说明](battle-ui/item-tooltip.png)、[320宽](battle-ui/reward-320.png)。专项测试从确定性的本地奖励存档开始，随后使用真实点击与触摸推进；不是原站运行截图，也不代表实体手机验收。
