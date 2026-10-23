@@ -8,6 +8,7 @@
     "kanto.png": "a4f02f5ea479e3632461d886018222c0f35e500d4801daf488ebec388e4b4701",
     "source\\kanto.bin": "c9f38c5d52099958c18efe737a45ba04ce8101b0eb349e9d2243bf8324d82b49",
     "source\\region_map.pal": "35fc49a8f807f4d934381dfecd4440b1e5de24f7bab86bcb15859cc6adfcc83e",
-    "source\\region_map.png": "7c402c5461d5547191cbfefb279727964e19c6dd60d33f5b0bb052ea20545184"
+    "source\\region_map.png": "7c402c5461d5547191cbfefb279727964e19c6dd60d33f5b0bb052ea20545184",
+    "source/region_map_layout_kanto.h": "62b8f2e60891a97cb44bb16f52c2a1fb45be5f2caff5f0db86dd36dbe3b5c194"
   }
 }

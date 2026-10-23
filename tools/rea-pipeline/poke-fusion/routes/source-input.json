@@ -1,0 +1,2559 @@
+{
+  "STORY": {
+    "CHAPTERS": [
+      {
+        "name": "Badge Roche",
+        "region": "Bourg Palette → Argenta",
+        "day": true,
+        "aceUp": 2,
+        "capMargin": 4,
+        "zoneFrom": 5,
+        "steps": [
+          {
+            "kind": "gift",
+            "name": "Labo du Prof. Chen",
+            "bg": "town",
+            "gift": {
+              "key": "starter",
+              "choices": [
+                1,
+                4,
+                7
+              ],
+              "level": 5,
+              "text": "Le Prof. Chen te propose un Pokémon !"
+            }
+          },
+          {
+            "kind": "route",
+            "name": "Route 1",
+            "bg": "prairie",
+            "areas": [
+              "kanto-route-1-area"
+            ],
+            "lv": [
+              2,
+              3
+            ],
+            "wild": 3,
+            "trainers": 0,
+            "item": true
+          },
+          {
+            "kind": "heal",
+            "name": "Jadielle",
+            "bg": "town"
+          },
+          {
+            "kind": "route",
+            "name": "Route 2",
+            "bg": "prairie",
+            "areas": [
+              "kanto-route-2-south-towards-viridian-city"
+            ],
+            "lv": [
+              4,
+              7
+            ],
+            "wild": 2,
+            "trainers": 0
+          },
+          {
+            "kind": "route",
+            "name": "Forêt de Jade",
+            "bg": "forest",
+            "areas": [
+              "viridian-forest-area"
+            ],
+            "wild": 4,
+            "trainers": 2,
+            "item": true
+          },
+          {
+            "kind": "heal",
+            "name": "Argenta",
+            "bg": "town"
+          },
+          {
+            "kind": "find",
+            "name": "Musée d'Argenta",
+            "bg": "town",
+            "item": "old-amber",
+            "once": "old-amber"
+          },
+          {
+            "kind": "gym",
+            "name": "Arène d'Argenta",
+            "bg": "gym-rock",
+            "fallback": "mountain",
+            "leader": "Pierre",
+            "sprite": "brock",
+            "type": "rock",
+            "badge": "Roche",
+            "color": "#9a8b6a",
+            "reward": 1386,
+            "power": 1.22,
+            "ace": 15,
+            "team": [
+              [
+                74,
+                14
+              ],
+              [
+                95,
+                15
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Badge Cascade",
+        "region": "Route 3 → Azuria",
+        "aceUp": 2,
+        "steps": [
+          {
+            "kind": "route",
+            "name": "Route 3",
+            "bg": "mountain",
+            "areas": [
+              "kanto-route-3-area"
+            ],
+            "wild": 2,
+            "trainers": 3
+          },
+          {
+            "kind": "gift",
+            "name": "Centre Pokémon (Route 4)",
+            "bg": "town",
+            "gift": {
+              "key": "magikarp",
+              "choices": [
+                129
+              ],
+              "level": 5,
+              "text": "Un vendeur louche t'offre un Magicarpe…"
+            }
+          },
+          {
+            "kind": "route",
+            "name": "Mont Sélénite",
+            "bg": "cave",
+            "areas": [
+              "mt-moon-1f",
+              "mt-moon-b1f",
+              "mt-moon-b2f"
+            ],
+            "wild": 4,
+            "trainers": 2,
+            "item": true
+          },
+          {
+            "kind": "gift",
+            "name": "Mont Sélénite",
+            "bg": "cave",
+            "gift": {
+              "key": "fossil",
+              "items": [
+                "dome-fossil",
+                "helix-fossil"
+              ],
+              "text": "Deux fossiles au fond de la grotte… lequel prends-tu ?"
+            }
+          },
+          {
+            "kind": "route",
+            "name": "Route 4",
+            "bg": "prairie",
+            "areas": [
+              "kanto-route-4-area"
+            ],
+            "wild": 3,
+            "trainers": 2
+          },
+          {
+            "kind": "heal",
+            "name": "Azuria",
+            "bg": "town"
+          },
+          {
+            "kind": "route",
+            "name": "Pont Pépite",
+            "bg": "lake",
+            "areas": [
+              "kanto-route-24-area",
+              "kanto-route-25-area"
+            ],
+            "wild": 4,
+            "trainers": 5,
+            "item": true
+          },
+          {
+            "kind": "heal",
+            "name": "Azuria",
+            "bg": "town"
+          },
+          {
+            "kind": "gym",
+            "name": "Arène d'Azuria",
+            "bg": "gym-water",
+            "fallback": "lake",
+            "leader": "Ondine",
+            "sprite": "misty",
+            "type": "water",
+            "badge": "Cascade",
+            "color": "#4aa3df",
+            "reward": 2079,
+            "power": 1.06,
+            "team": [
+              [
+                120,
+                18
+              ],
+              [
+                54,
+                19
+              ],
+              [
+                121,
+                21
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Badge Foudre",
+        "region": "Route 5 → Carmin sur Mer",
+        "steps": [
+          {
+            "kind": "route",
+            "name": "Route 5",
+            "bg": "prairie",
+            "areas": [
+              "kanto-route-5-area"
+            ],
+            "wild": 3,
+            "trainers": 2
+          },
+          {
+            "kind": "route",
+            "name": "Route 6",
+            "bg": "prairie",
+            "areas": [
+              "kanto-route-6-area"
+            ],
+            "wild": 3,
+            "trainers": 2,
+            "item": true
+          },
+          {
+            "kind": "heal",
+            "name": "Carmin sur Mer",
+            "bg": "pier"
+          },
+          {
+            "kind": "route",
+            "name": "Océane",
+            "bg": "pier",
+            "areas": [
+              "kanto-route-6-area"
+            ],
+            "wild": 0,
+            "trainers": 3,
+            "item": true
+          },
+          {
+            "kind": "route",
+            "name": "Route 11",
+            "bg": "prairie",
+            "areas": [
+              "kanto-route-11-area"
+            ],
+            "wild": 4,
+            "trainers": 3
+          },
+          {
+            "kind": "route",
+            "name": "Grotte Taupiqueur",
+            "bg": "cave",
+            "areas": [
+              "digletts-cave-area"
+            ],
+            "wild": 4,
+            "trainers": 1
+          },
+          {
+            "kind": "heal",
+            "name": "Carmin sur Mer",
+            "bg": "pier"
+          },
+          {
+            "kind": "gym",
+            "name": "Arène de Carmin",
+            "bg": "gym-electric",
+            "fallback": "town",
+            "leader": "Major Bob",
+            "sprite": "ltsurge",
+            "type": "electric",
+            "badge": "Foudre",
+            "color": "#f7d02c",
+            "reward": 2376,
+            "power": 1.15,
+            "team": [
+              [
+                100,
+                21
+              ],
+              [
+                25,
+                18
+              ],
+              [
+                82,
+                22
+              ],
+              [
+                26,
+                24
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Badge Prisme",
+        "region": "Route 9 → Céladopole",
+        "steps": [
+          {
+            "kind": "route",
+            "name": "Route 9",
+            "bg": "mountain",
+            "areas": [
+              "kanto-route-9-area"
+            ],
+            "wild": 2,
+            "trainers": 2
+          },
+          {
+            "kind": "route",
+            "name": "Route 10",
+            "bg": "mountain",
+            "areas": [
+              "kanto-route-10-area"
+            ],
+            "wild": 2,
+            "trainers": 0
+          },
+          {
+            "kind": "route",
+            "name": "Grotte",
+            "bg": "cave",
+            "areas": [
+              "rock-tunnel-b1f",
+              "rock-tunnel-b2f"
+            ],
+            "wild": 4,
+            "trainers": 3,
+            "item": true
+          },
+          {
+            "kind": "heal",
+            "name": "Lavanville",
+            "bg": "town"
+          },
+          {
+            "kind": "route",
+            "name": "Route 8",
+            "bg": "prairie",
+            "areas": [
+              "kanto-route-8-area"
+            ],
+            "wild": 3,
+            "trainers": 2
+          },
+          {
+            "kind": "route",
+            "name": "Route 7",
+            "bg": "prairie",
+            "areas": [
+              "kanto-route-7-area"
+            ],
+            "wild": 2,
+            "trainers": 0
+          },
+          {
+            "kind": "heal",
+            "name": "Céladopole",
+            "bg": "town"
+          },
+          {
+            "kind": "gift",
+            "name": "Manoir Céladon",
+            "bg": "town",
+            "gift": {
+              "key": "eevee",
+              "choices": [
+                133
+              ],
+              "level": 28,
+              "text": "Une Poké Ball traîne sur une table… c'est un Évoli !"
+            }
+          },
+          {
+            "kind": "gym",
+            "name": "Arène de Céladopole",
+            "bg": "gym-grass",
+            "fallback": "forest",
+            "leader": "Erika",
+            "sprite": "erika",
+            "type": "grass",
+            "badge": "Prisme",
+            "color": "#7ac74c",
+            "reward": 2871,
+            "power": 1.1,
+            "team": [
+              [
+                114,
+                24
+              ],
+              [
+                47,
+                27
+              ],
+              [
+                103,
+                26
+              ],
+              [
+                71,
+                29
+              ],
+              [
+                45,
+                29
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Badge Âme",
+        "region": "Tour Pokémon → Parmanie",
+        "steps": [
+          {
+            "kind": "route",
+            "name": "Tour Pokémon",
+            "bg": "cave",
+            "areas": [
+              "pokemon-tower-3f",
+              "pokemon-tower-4f",
+              "pokemon-tower-5f",
+              "pokemon-tower-6f",
+              "pokemon-tower-7f"
+            ],
+            "wild": 4,
+            "trainers": 2,
+            "item": true,
+            "veil": {
+              "after": "silph-scope",
+              "types": [
+                "ghost"
+              ]
+            }
+          },
+          {
+            "kind": "static",
+            "name": "Tour Pokémon",
+            "bg": "cave",
+            "id": 105,
+            "level": 45,
+            "spirit": true,
+            "after": "silph-scope",
+            "once": "marowak-ghost",
+            "text": "Le fantôme d'une mère Ossatueur barre le sommet de la Tour !",
+            "reward": {
+              "key": "cubone-fuji",
+              "choices": [
+                104
+              ],
+              "level": 30,
+              "text": "L'âme d'Ossatueur s'apaise… M. Fuji te confie son petit."
+            }
+          },
+          {
+            "kind": "heal",
+            "name": "Lavanville",
+            "bg": "town"
+          },
+          {
+            "kind": "static",
+            "name": "Route 12",
+            "bg": "lake",
+            "id": 143,
+            "level": 38,
+            "text": "Un Ronflex bloque le passage !"
+          },
+          {
+            "kind": "route",
+            "name": "Route 12-13",
+            "bg": "lake",
+            "areas": [
+              "kanto-route-12-area",
+              "kanto-route-13-area"
+            ],
+            "wild": 3,
+            "trainers": 3
+          },
+          {
+            "kind": "route",
+            "name": "Route 14-15",
+            "bg": "prairie",
+            "areas": [
+              "kanto-route-14-area",
+              "kanto-route-15-area"
+            ],
+            "wild": 3,
+            "trainers": 2,
+            "item": true
+          },
+          {
+            "kind": "heal",
+            "name": "Parmanie",
+            "bg": "town"
+          },
+          {
+            "kind": "route",
+            "name": "Parc Safari",
+            "bg": "forest",
+            "areas": [
+              "kanto-safari-zone-middle",
+              "kanto-safari-zone-area-1-east",
+              "kanto-safari-zone-area-2-north",
+              "kanto-safari-zone-area-3-west"
+            ],
+            "wild": 5,
+            "trainers": 0,
+            "item": true
+          },
+          {
+            "kind": "heal",
+            "name": "Parmanie",
+            "bg": "town"
+          },
+          {
+            "kind": "gym",
+            "name": "Arène de Parmanie",
+            "bg": "gym-poison",
+            "fallback": "forest",
+            "leader": "Koga",
+            "sprite": "koga",
+            "type": "poison",
+            "badge": "Âme",
+            "color": "#a33ea1",
+            "reward": 4257,
+            "power": 1.2,
+            "team": [
+              [
+                109,
+                37
+              ],
+              [
+                42,
+                38
+              ],
+              [
+                89,
+                39
+              ],
+              [
+                49,
+                38
+              ],
+              [
+                109,
+                37
+              ],
+              [
+                110,
+                43
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Badge Marais",
+        "region": "Safrania",
+        "steps": [
+          {
+            "kind": "route",
+            "name": "Piste Cyclable",
+            "bg": "pier",
+            "areas": [
+              "kanto-route-16-area",
+              "kanto-route-17-area",
+              "kanto-route-18-area"
+            ],
+            "wild": 4,
+            "trainers": 2
+          },
+          {
+            "kind": "heal",
+            "name": "Céladopole",
+            "bg": "town"
+          },
+          {
+            "kind": "route",
+            "name": "Repaire Rocket",
+            "bg": "cave",
+            "areas": [
+              "kanto-route-7-area",
+              "kanto-route-8-area"
+            ],
+            "wild": 0,
+            "trainers": 3,
+            "item": true
+          },
+          {
+            "kind": "unlock",
+            "name": "Repaire Rocket",
+            "bg": "cave",
+            "once": "silph-scope",
+            "text": "Tu mets la main sur le Scope Sylphe : les Spectres de la Tour Pokémon ne pourront plus se cacher !"
+          },
+          {
+            "kind": "route",
+            "name": "Routes 7-8",
+            "bg": "prairie",
+            "areas": [
+              "kanto-route-7-area",
+              "kanto-route-8-area"
+            ],
+            "wild": 4,
+            "trainers": 1
+          },
+          {
+            "kind": "heal",
+            "name": "Safrania",
+            "bg": "town"
+          },
+          {
+            "kind": "gift",
+            "name": "Dojo de Safrania",
+            "bg": "town",
+            "gift": {
+              "key": "dojo",
+              "choices": [
+                106,
+                107
+              ],
+              "level": 42,
+              "text": "Le Maître Karaté t'offre un de ses Pokémon !"
+            }
+          },
+          {
+            "kind": "route",
+            "name": "Sylphe SARL",
+            "bg": "town",
+            "areas": [
+              "saffron-city-silph-co-7f"
+            ],
+            "wild": 0,
+            "trainers": 3,
+            "item": true
+          },
+          {
+            "kind": "find",
+            "name": "Sylphe SARL 7e",
+            "bg": "town",
+            "item": "rare-candy",
+            "once": "silph-rare-candy"
+          },
+          {
+            "kind": "heal",
+            "name": "Safrania",
+            "bg": "town"
+          },
+          {
+            "kind": "gym",
+            "name": "Arène de Safrania",
+            "bg": "gym-psychic",
+            "fallback": "town",
+            "leader": "Morgane",
+            "sprite": "sabrina",
+            "type": "psychic",
+            "badge": "Marais",
+            "color": "#f95587",
+            "reward": 4257,
+            "power": 0.79,
+            "team": [
+              [
+                64,
+                38
+              ],
+              [
+                122,
+                37
+              ],
+              [
+                97,
+                38
+              ],
+              [
+                121,
+                38
+              ],
+              [
+                49,
+                38
+              ],
+              [
+                65,
+                43
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Badge Volcan",
+        "region": "Routes maritimes → Cramois'Île",
+        "steps": [
+          {
+            "kind": "route",
+            "name": "Routes 19-20",
+            "bg": "pier",
+            "areas": [
+              "kanto-sea-route-19-area",
+              "kanto-sea-route-20-area"
+            ],
+            "wild": 2,
+            "trainers": 3
+          },
+          {
+            "kind": "route",
+            "name": "Centrale",
+            "bg": "cave",
+            "areas": [
+              "kanto-power-plant-area"
+            ],
+            "wild": 2,
+            "trainers": 2
+          },
+          {
+            "kind": "heal",
+            "name": "Centrale",
+            "bg": "cave"
+          },
+          {
+            "kind": "route",
+            "name": "Îles Écume",
+            "bg": "cave",
+            "climate": {
+              "rain": 3,
+              "storm": 1
+            },
+            "areas": [
+              "seafoam-islands-1f",
+              "seafoam-islands-b1f",
+              "seafoam-islands-b2f",
+              "seafoam-islands-b3f",
+              "seafoam-islands-b4f"
+            ],
+            "wild": 3,
+            "trainers": 3,
+            "item": true
+          },
+          {
+            "kind": "heal",
+            "name": "Cramois'Île",
+            "bg": "beach"
+          },
+          {
+            "kind": "trade",
+            "name": "Labo de Cramois'Île",
+            "bg": "beach",
+            "level": 30,
+            "text": "Le labo ranime ton fossile !",
+            "offers": [
+              [
+                "dome-fossil",
+                140
+              ],
+              [
+                "helix-fossil",
+                138
+              ],
+              [
+                "old-amber",
+                142
+              ]
+            ]
+          },
+          {
+            "kind": "route",
+            "name": "Manoir Pokémon",
+            "bg": "cave",
+            "areas": [
+              "pokemon-mansion-1f",
+              "pokemon-mansion-2f",
+              "pokemon-mansion-3f",
+              "pokemon-mansion-b1f"
+            ],
+            "wild": 3,
+            "trainers": 3,
+            "item": true
+          },
+          {
+            "kind": "heal",
+            "name": "Cramois'Île",
+            "bg": "beach"
+          },
+          {
+            "kind": "gym",
+            "name": "Arène de Cramois'Île",
+            "bg": "gym-fire",
+            "fallback": "beach",
+            "leader": "Auguste",
+            "sprite": "blaine",
+            "type": "fire",
+            "badge": "Volcan",
+            "color": "#ee8130",
+            "reward": 4653,
+            "power": 1.14,
+            "team": [
+              [
+                58,
+                42
+              ],
+              [
+                77,
+                40
+              ],
+              [
+                126,
+                43
+              ],
+              [
+                38,
+                42
+              ],
+              [
+                78,
+                42
+              ],
+              [
+                59,
+                47
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Badge Terre",
+        "region": "Route 21 → Jadielle",
+        "steps": [
+          {
+            "kind": "route",
+            "name": "Route 21",
+            "bg": "pier",
+            "areas": [
+              "kanto-sea-route-21-area"
+            ],
+            "wild": 3,
+            "trainers": 3,
+            "item": true
+          },
+          {
+            "kind": "heal",
+            "name": "Bourg Palette",
+            "bg": "town"
+          },
+          {
+            "kind": "route",
+            "name": "Route 1",
+            "bg": "prairie",
+            "areas": [
+              "kanto-route-1-area"
+            ],
+            "wild": 3,
+            "trainers": 2
+          },
+          {
+            "kind": "route",
+            "name": "Forêt de Jade",
+            "bg": "forest",
+            "areas": [
+              "viridian-forest-area"
+            ],
+            "wild": 3,
+            "trainers": 2,
+            "item": true
+          },
+          {
+            "kind": "heal",
+            "name": "Jadielle",
+            "bg": "town"
+          },
+          {
+            "kind": "route",
+            "name": "Route 22",
+            "bg": "prairie",
+            "areas": [
+              "kanto-route-22-area"
+            ],
+            "wild": 3,
+            "trainers": 1,
+            "item": true
+          },
+          {
+            "kind": "heal",
+            "name": "Jadielle",
+            "bg": "town"
+          },
+          {
+            "kind": "gym",
+            "name": "Arène de Jadielle",
+            "bg": "gym-ground",
+            "fallback": "town",
+            "leader": "Giovanni",
+            "sprite": "giovanni",
+            "type": "ground",
+            "badge": "Terre",
+            "color": "#e2bf65",
+            "reward": 4950,
+            "power": 1.27,
+            "team": [
+              [
+                111,
+                45
+              ],
+              [
+                51,
+                42
+              ],
+              [
+                53,
+                44
+              ],
+              [
+                31,
+                44
+              ],
+              [
+                34,
+                45
+              ],
+              [
+                112,
+                50
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Route Victoire",
+        "ace": 75,
+        "region": "Route 23 → Route Victoire",
+        "steps": [
+          {
+            "kind": "route",
+            "name": "Route 23",
+            "bg": "mountain",
+            "areas": [
+              "kanto-route-23-area"
+            ],
+            "wild": 3,
+            "trainers": 4,
+            "classes": [
+              "acetrainer",
+              "acetrainer-f",
+              "blackbelt",
+              "psychic"
+            ]
+          },
+          {
+            "kind": "heal",
+            "name": "Route Victoire",
+            "bg": "cave"
+          },
+          {
+            "kind": "route",
+            "name": "Route Victoire",
+            "bg": "cave",
+            "areas": [
+              "kanto-victory-road-2-1f",
+              "kanto-victory-road-2-2f",
+              "kanto-victory-road-2-3f"
+            ],
+            "wild": 3,
+            "trainers": 5,
+            "item": true,
+            "classes": [
+              "acetrainer",
+              "acetrainer-f",
+              "blackbelt",
+              "psychic"
+            ]
+          },
+          {
+            "kind": "heal",
+            "name": "Route Victoire",
+            "bg": "cave"
+          },
+          {
+            "kind": "gym",
+            "name": "Route Victoire",
+            "bg": "cave",
+            "fallback": "mountain",
+            "leader": "Blue",
+            "sprite": "blue",
+            "target": 0.45,
+            "type": "normal",
+            "badge": null,
+            "color": "#5e83c4",
+            "reward": 5000,
+            "text": "Blue t'attend à la sortie de la Route Victoire : un dernier combat avant la Ligue !",
+            "power": 1.43,
+            "team": [
+              [
+                18,
+                47
+              ],
+              [
+                65,
+                47
+              ],
+              [
+                112,
+                45
+              ],
+              [
+                103,
+                45
+              ],
+              [
+                59,
+                45
+              ],
+              [
+                9,
+                53
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ENCOUNTERS": {
+    "kanto-route-1-area": [
+      [
+        16,
+        2,
+        5,
+        20,
+        "walk"
+      ],
+      [
+        19,
+        2,
+        4,
+        20,
+        "walk"
+      ]
+    ],
+    "kanto-route-10-area": [
+      [
+        21,
+        13,
+        17,
+        20,
+        "walk"
+      ],
+      [
+        23,
+        11,
+        17,
+        10,
+        "walk"
+      ],
+      [
+        27,
+        11,
+        17,
+        10,
+        "walk"
+      ],
+      [
+        60,
+        10,
+        10,
+        50,
+        "good-rod"
+      ],
+      [
+        61,
+        23,
+        23,
+        25,
+        "super-rod"
+      ],
+      [
+        79,
+        15,
+        15,
+        25,
+        "super-rod"
+      ],
+      [
+        100,
+        14,
+        17,
+        20,
+        "walk"
+      ],
+      [
+        118,
+        10,
+        10,
+        50,
+        "good-rod"
+      ],
+      [
+        129,
+        5,
+        5,
+        100,
+        "old-rod"
+      ]
+    ],
+    "kanto-route-11-area": [
+      [
+        21,
+        13,
+        17,
+        20,
+        "walk"
+      ],
+      [
+        23,
+        12,
+        15,
+        20,
+        "walk"
+      ],
+      [
+        27,
+        12,
+        15,
+        20,
+        "walk"
+      ],
+      [
+        30,
+        16,
+        100,
+        100,
+        "npc-trade"
+      ],
+      [
+        60,
+        10,
+        10,
+        50,
+        "good-rod"
+      ],
+      [
+        90,
+        15,
+        15,
+        25,
+        "super-rod"
+      ],
+      [
+        96,
+        9,
+        15,
+        10,
+        "walk"
+      ],
+      [
+        98,
+        15,
+        15,
+        25,
+        "super-rod"
+      ],
+      [
+        118,
+        10,
+        10,
+        50,
+        "good-rod"
+      ],
+      [
+        129,
+        5,
+        5,
+        100,
+        "old-rod"
+      ]
+    ],
+    "kanto-route-12-area": [
+      [
+        16,
+        23,
+        27,
+        20,
+        "walk"
+      ],
+      [
+        43,
+        22,
+        26,
+        20,
+        "walk"
+      ],
+      [
+        44,
+        28,
+        30,
+        4,
+        "walk"
+      ],
+      [
+        48,
+        24,
+        26,
+        10,
+        "walk"
+      ],
+      [
+        60,
+        10,
+        10,
+        50,
+        "good-rod"
+      ],
+      [
+        69,
+        22,
+        26,
+        20,
+        "walk"
+      ],
+      [
+        70,
+        28,
+        30,
+        4,
+        "walk"
+      ],
+      [
+        72,
+        5,
+        5,
+        25,
+        "super-rod"
+      ],
+      [
+        98,
+        15,
+        15,
+        17,
+        "super-rod"
+      ],
+      [
+        118,
+        10,
+        15,
+        50,
+        "good-rod|super-rod"
+      ],
+      [
+        129,
+        5,
+        15,
+        100,
+        "old-rod|super-rod"
+      ],
+      [
+        143,
+        30,
+        30,
+        100,
+        "pokeflute"
+      ]
+    ],
+    "kanto-route-13-area": [
+      [
+        16,
+        25,
+        27,
+        20,
+        "walk"
+      ],
+      [
+        43,
+        22,
+        26,
+        20,
+        "walk"
+      ],
+      [
+        44,
+        28,
+        30,
+        4,
+        "walk"
+      ],
+      [
+        48,
+        24,
+        26,
+        10,
+        "walk"
+      ],
+      [
+        60,
+        10,
+        10,
+        50,
+        "good-rod"
+      ],
+      [
+        69,
+        22,
+        26,
+        20,
+        "walk"
+      ],
+      [
+        70,
+        28,
+        30,
+        4,
+        "walk"
+      ],
+      [
+        72,
+        5,
+        5,
+        25,
+        "super-rod"
+      ],
+      [
+        98,
+        15,
+        15,
+        17,
+        "super-rod"
+      ],
+      [
+        118,
+        10,
+        15,
+        50,
+        "good-rod|super-rod"
+      ],
+      [
+        129,
+        5,
+        15,
+        100,
+        "old-rod|super-rod"
+      ],
+      [
+        132,
+        25,
+        25,
+        5,
+        "walk"
+      ]
+    ],
+    "kanto-route-14-area": [
+      [
+        16,
+        26,
+        26,
+        20,
+        "walk"
+      ],
+      [
+        17,
+        28,
+        30,
+        4,
+        "walk"
+      ],
+      [
+        43,
+        22,
+        26,
+        20,
+        "walk"
+      ],
+      [
+        44,
+        30,
+        30,
+        5,
+        "walk"
+      ],
+      [
+        48,
+        24,
+        26,
+        10,
+        "walk"
+      ],
+      [
+        69,
+        22,
+        26,
+        20,
+        "walk"
+      ],
+      [
+        70,
+        30,
+        30,
+        5,
+        "walk"
+      ],
+      [
+        132,
+        23,
+        23,
+        15,
+        "walk"
+      ]
+    ],
+    "kanto-route-15-area": [
+      [
+        16,
+        23,
+        23,
+        15,
+        "walk"
+      ],
+      [
+        17,
+        28,
+        30,
+        4,
+        "walk"
+      ],
+      [
+        43,
+        22,
+        26,
+        20,
+        "walk"
+      ],
+      [
+        44,
+        30,
+        30,
+        5,
+        "walk"
+      ],
+      [
+        48,
+        26,
+        28,
+        10,
+        "walk"
+      ],
+      [
+        69,
+        22,
+        26,
+        20,
+        "walk"
+      ],
+      [
+        70,
+        30,
+        30,
+        5,
+        "walk"
+      ],
+      [
+        132,
+        26,
+        26,
+        20,
+        "walk"
+      ]
+    ],
+    "kanto-route-16-area": [
+      [
+        19,
+        18,
+        22,
+        15,
+        "walk"
+      ],
+      [
+        20,
+        23,
+        25,
+        4,
+        "walk"
+      ],
+      [
+        21,
+        20,
+        22,
+        20,
+        "walk"
+      ],
+      [
+        84,
+        18,
+        22,
+        10,
+        "walk"
+      ],
+      [
+        143,
+        30,
+        30,
+        100,
+        "pokeflute"
+      ]
+    ],
+    "kanto-route-17-area": [
+      [
+        20,
+        25,
+        29,
+        15,
+        "walk"
+      ],
+      [
+        21,
+        20,
+        22,
+        20,
+        "walk"
+      ],
+      [
+        22,
+        25,
+        27,
+        4,
+        "walk"
+      ],
+      [
+        60,
+        10,
+        10,
+        50,
+        "good-rod"
+      ],
+      [
+        72,
+        5,
+        5,
+        25,
+        "super-rod"
+      ],
+      [
+        84,
+        24,
+        28,
+        10,
+        "walk"
+      ],
+      [
+        98,
+        15,
+        15,
+        17,
+        "super-rod"
+      ],
+      [
+        118,
+        10,
+        15,
+        50,
+        "good-rod|super-rod"
+      ],
+      [
+        129,
+        5,
+        15,
+        100,
+        "old-rod|super-rod"
+      ]
+    ],
+    "kanto-route-18-area": [
+      [
+        20,
+        25,
+        29,
+        15,
+        "walk"
+      ],
+      [
+        21,
+        20,
+        22,
+        20,
+        "walk"
+      ],
+      [
+        22,
+        25,
+        29,
+        10,
+        "walk"
+      ],
+      [
+        60,
+        10,
+        10,
+        50,
+        "good-rod"
+      ],
+      [
+        72,
+        5,
+        5,
+        25,
+        "super-rod"
+      ],
+      [
+        84,
+        24,
+        28,
+        10,
+        "walk"
+      ],
+      [
+        98,
+        15,
+        15,
+        17,
+        "super-rod"
+      ],
+      [
+        108,
+        23,
+        100,
+        100,
+        "npc-trade"
+      ],
+      [
+        118,
+        10,
+        15,
+        50,
+        "good-rod|super-rod"
+      ],
+      [
+        129,
+        5,
+        15,
+        100,
+        "old-rod|super-rod"
+      ]
+    ],
+    "kanto-route-2-south-towards-viridian-city": [
+      [
+        10,
+        3,
+        5,
+        10,
+        "walk"
+      ],
+      [
+        13,
+        3,
+        5,
+        10,
+        "walk"
+      ],
+      [
+        16,
+        3,
+        5,
+        20,
+        "walk"
+      ],
+      [
+        19,
+        2,
+        5,
+        20,
+        "walk"
+      ]
+    ],
+    "kanto-route-22-area": [
+      [
+        19,
+        2,
+        4,
+        20,
+        "walk"
+      ],
+      [
+        21,
+        3,
+        5,
+        5,
+        "walk"
+      ],
+      [
+        29,
+        2,
+        4,
+        20,
+        "walk"
+      ],
+      [
+        32,
+        2,
+        4,
+        20,
+        "walk"
+      ],
+      [
+        60,
+        10,
+        15,
+        50,
+        "good-rod|super-rod"
+      ],
+      [
+        118,
+        10,
+        15,
+        50,
+        "good-rod|super-rod"
+      ],
+      [
+        129,
+        5,
+        5,
+        100,
+        "old-rod"
+      ]
+    ],
+    "kanto-route-23-area": [
+      [
+        21,
+        26,
+        26,
+        15,
+        "walk"
+      ],
+      [
+        22,
+        38,
+        43,
+        10,
+        "walk"
+      ],
+      [
+        23,
+        26,
+        26,
+        20,
+        "walk"
+      ],
+      [
+        24,
+        41,
+        41,
+        5,
+        "walk"
+      ],
+      [
+        27,
+        26,
+        26,
+        20,
+        "walk"
+      ],
+      [
+        28,
+        41,
+        41,
+        5,
+        "walk"
+      ],
+      [
+        60,
+        10,
+        10,
+        50,
+        "good-rod"
+      ],
+      [
+        80,
+        23,
+        23,
+        25,
+        "super-rod"
+      ],
+      [
+        99,
+        23,
+        23,
+        17,
+        "super-rod"
+      ],
+      [
+        117,
+        23,
+        23,
+        25,
+        "super-rod"
+      ],
+      [
+        118,
+        10,
+        10,
+        50,
+        "good-rod"
+      ],
+      [
+        119,
+        23,
+        23,
+        17,
+        "super-rod"
+      ],
+      [
+        129,
+        5,
+        5,
+        100,
+        "old-rod"
+      ],
+      [
+        132,
+        33,
+        43,
+        20,
+        "walk"
+      ]
+    ],
+    "kanto-route-24-area": [
+      [
+        10,
+        7,
+        7,
+        20,
+        "walk"
+      ],
+      [
+        11,
+        8,
+        8,
+        20,
+        "walk"
+      ],
+      [
+        13,
+        7,
+        7,
+        20,
+        "walk"
+      ],
+      [
+        14,
+        8,
+        8,
+        20,
+        "walk"
+      ],
+      [
+        16,
+        12,
+        13,
+        15,
+        "walk"
+      ],
+      [
+        43,
+        12,
+        14,
+        10,
+        "walk"
+      ],
+      [
+        54,
+        15,
+        15,
+        25,
+        "super-rod"
+      ],
+      [
+        60,
+        10,
+        10,
+        50,
+        "good-rod"
+      ],
+      [
+        63,
+        8,
+        12,
+        10,
+        "walk"
+      ],
+      [
+        69,
+        12,
+        14,
+        10,
+        "walk"
+      ],
+      [
+        98,
+        15,
+        15,
+        25,
+        "super-rod"
+      ],
+      [
+        118,
+        10,
+        15,
+        50,
+        "good-rod|super-rod"
+      ],
+      [
+        129,
+        5,
+        5,
+        100,
+        "old-rod"
+      ]
+    ],
+    "kanto-route-25-area": [
+      [
+        10,
+        8,
+        8,
+        20,
+        "walk"
+      ],
+      [
+        11,
+        7,
+        9,
+        20,
+        "walk"
+      ],
+      [
+        13,
+        8,
+        8,
+        20,
+        "walk"
+      ],
+      [
+        14,
+        7,
+        9,
+        20,
+        "walk"
+      ],
+      [
+        16,
+        13,
+        13,
+        15,
+        "walk"
+      ],
+      [
+        43,
+        12,
+        14,
+        10,
+        "walk"
+      ],
+      [
+        54,
+        15,
+        15,
+        25,
+        "super-rod"
+      ],
+      [
+        60,
+        10,
+        10,
+        50,
+        "good-rod"
+      ],
+      [
+        63,
+        10,
+        12,
+        10,
+        "walk"
+      ],
+      [
+        69,
+        12,
+        14,
+        10,
+        "walk"
+      ],
+      [
+        98,
+        15,
+        15,
+        25,
+        "super-rod"
+      ],
+      [
+        118,
+        10,
+        15,
+        50,
+        "good-rod|super-rod"
+      ],
+      [
+        129,
+        5,
+        5,
+        100,
+        "old-rod"
+      ]
+    ],
+    "kanto-route-3-area": [
+      [
+        16,
+        6,
+        8,
+        20,
+        "walk"
+      ],
+      [
+        21,
+        5,
+        8,
+        20,
+        "walk"
+      ],
+      [
+        39,
+        3,
+        7,
+        5,
+        "walk"
+      ]
+    ],
+    "kanto-route-4-area": [
+      [
+        19,
+        8,
+        12,
+        20,
+        "walk"
+      ],
+      [
+        21,
+        8,
+        12,
+        20,
+        "walk"
+      ],
+      [
+        23,
+        6,
+        12,
+        10,
+        "walk"
+      ],
+      [
+        27,
+        6,
+        12,
+        10,
+        "walk"
+      ]
+    ],
+    "kanto-route-5-area": [
+      [
+        16,
+        13,
+        16,
+        20,
+        "walk"
+      ],
+      [
+        43,
+        13,
+        16,
+        20,
+        "walk"
+      ],
+      [
+        52,
+        10,
+        16,
+        10,
+        "walk"
+      ],
+      [
+        56,
+        10,
+        16,
+        10,
+        "walk"
+      ],
+      [
+        69,
+        13,
+        16,
+        20,
+        "walk"
+      ]
+    ],
+    "kanto-route-6-area": [
+      [
+        16,
+        13,
+        16,
+        20,
+        "walk"
+      ],
+      [
+        43,
+        13,
+        16,
+        20,
+        "walk"
+      ],
+      [
+        52,
+        10,
+        16,
+        10,
+        "walk"
+      ],
+      [
+        56,
+        10,
+        16,
+        10,
+        "walk"
+      ],
+      [
+        60,
+        10,
+        10,
+        50,
+        "good-rod"
+      ],
+      [
+        69,
+        13,
+        16,
+        20,
+        "walk"
+      ],
+      [
+        90,
+        15,
+        15,
+        25,
+        "super-rod"
+      ],
+      [
+        98,
+        15,
+        15,
+        25,
+        "super-rod"
+      ],
+      [
+        118,
+        10,
+        10,
+        50,
+        "good-rod"
+      ],
+      [
+        129,
+        5,
+        5,
+        100,
+        "old-rod"
+      ]
+    ],
+    "kanto-route-7-area": [
+      [
+        16,
+        19,
+        22,
+        20,
+        "walk"
+      ],
+      [
+        37,
+        18,
+        20,
+        5,
+        "walk"
+      ],
+      [
+        43,
+        19,
+        22,
+        20,
+        "walk"
+      ],
+      [
+        52,
+        17,
+        20,
+        15,
+        "walk"
+      ],
+      [
+        56,
+        17,
+        20,
+        15,
+        "walk"
+      ],
+      [
+        58,
+        18,
+        20,
+        5,
+        "walk"
+      ],
+      [
+        69,
+        19,
+        22,
+        20,
+        "walk"
+      ]
+    ],
+    "kanto-route-8-area": [
+      [
+        16,
+        18,
+        20,
+        20,
+        "walk"
+      ],
+      [
+        23,
+        17,
+        19,
+        15,
+        "walk"
+      ],
+      [
+        27,
+        17,
+        19,
+        15,
+        "walk"
+      ],
+      [
+        37,
+        15,
+        18,
+        10,
+        "walk"
+      ],
+      [
+        52,
+        18,
+        20,
+        20,
+        "walk"
+      ],
+      [
+        56,
+        18,
+        20,
+        20,
+        "walk"
+      ],
+      [
+        58,
+        15,
+        18,
+        10,
+        "walk"
+      ]
+    ],
+    "kanto-route-9-area": [
+      [
+        19,
+        14,
+        17,
+        20,
+        "walk"
+      ],
+      [
+        21,
+        13,
+        17,
+        20,
+        "walk"
+      ],
+      [
+        23,
+        11,
+        17,
+        10,
+        "walk"
+      ],
+      [
+        27,
+        11,
+        17,
+        10,
+        "walk"
+      ]
+    ],
+    "kanto-sea-route-19-area": [
+      [
+        60,
+        10,
+        10,
+        50,
+        "good-rod"
+      ],
+      [
+        72,
+        5,
+        40,
+        20,
+        "surf"
+      ],
+      [
+        90,
+        15,
+        15,
+        17,
+        "super-rod"
+      ],
+      [
+        116,
+        15,
+        15,
+        17,
+        "super-rod"
+      ],
+      [
+        118,
+        10,
+        15,
+        50,
+        "good-rod|super-rod"
+      ],
+      [
+        120,
+        15,
+        15,
+        25,
+        "super-rod"
+      ],
+      [
+        129,
+        5,
+        5,
+        100,
+        "old-rod"
+      ]
+    ],
+    "kanto-sea-route-20-area": [
+      [
+        60,
+        10,
+        10,
+        50,
+        "good-rod"
+      ],
+      [
+        72,
+        5,
+        40,
+        20,
+        "surf"
+      ],
+      [
+        90,
+        15,
+        15,
+        17,
+        "super-rod"
+      ],
+      [
+        116,
+        15,
+        15,
+        17,
+        "super-rod"
+      ],
+      [
+        118,
+        10,
+        15,
+        50,
+        "good-rod|super-rod"
+      ],
+      [
+        120,
+        15,
+        15,
+        25,
+        "super-rod"
+      ],
+      [
+        129,
+        5,
+        5,
+        100,
+        "old-rod"
+      ]
+    ],
+    "kanto-sea-route-21-area": [
+      [
+        16,
+        21,
+        23,
+        20,
+        "walk"
+      ],
+      [
+        17,
+        30,
+        32,
+        10,
+        "walk"
+      ],
+      [
+        19,
+        21,
+        23,
+        20,
+        "walk"
+      ],
+      [
+        20,
+        30,
+        30,
+        15,
+        "walk"
+      ],
+      [
+        60,
+        10,
+        10,
+        50,
+        "good-rod"
+      ],
+      [
+        72,
+        5,
+        40,
+        20,
+        "surf"
+      ],
+      [
+        90,
+        15,
+        15,
+        17,
+        "super-rod"
+      ],
+      [
+        114,
+        28,
+        32,
+        5,
+        "walk"
+      ],
+      [
+        116,
+        15,
+        15,
+        17,
+        "super-rod"
+      ],
+      [
+        118,
+        10,
+        15,
+        50,
+        "good-rod|super-rod"
+      ],
+      [
+        120,
+        15,
+        15,
+        25,
+        "super-rod"
+      ],
+      [
+        129,
+        5,
+        5,
+        100,
+        "old-rod"
+      ]
+    ],
+    "viridian-forest-area": [
+      [
+        10,
+        3,
+        5,
+        20,
+        "walk"
+      ],
+      [
+        11,
+        4,
+        6,
+        20,
+        "walk"
+      ],
+      [
+        13,
+        3,
+        5,
+        20,
+        "walk"
+      ],
+      [
+        14,
+        4,
+        6,
+        20,
+        "walk"
+      ],
+      [
+        25,
+        3,
+        5,
+        4,
+        "walk"
+      ]
+    ]
+  },
+  "originalHashes": {
+    "STORY": "c84dfe765306702ea3beda5545d58f5fbde75d411de9515f0aaf6a57e9b8a74f",
+    "ENCOUNTERS": "7b2c1ea97019954b99b04c2375b3003602f0678b04da0ec72f6355f01bad1617"
+  }
+}

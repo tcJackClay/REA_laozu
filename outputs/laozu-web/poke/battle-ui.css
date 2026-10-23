@@ -221,3 +221,19 @@
 .pokeball-start span{line-height:24px}
 .pokeball-start:not(:disabled):active{transform:translateY(2px)}
 @media(max-height:650px){.pokeball-start{width:120px;height:120px;font-size:15px;padding:8px}.pokeball-start img{height:64px;width:64px}.region-name{font-size:13px;top:10px;left:10px}.route-bubble{padding:6px 9px;font-size:12px;gap:2px}}
+
+/* Source map section cells: no enlarged hitboxes crossing city boundaries. */
+.region-map{container-type:inline-size}
+.route-zones{position:absolute;inset:0;pointer-events:none}
+.route-cell{position:absolute;pointer-events:auto;padding:0;margin:0;border:0;background:transparent;cursor:pointer;min-width:0;min-height:0;border-radius:0}
+.route-cell:after{content:'';position:absolute;inset:0;border:0;background:transparent;pointer-events:none}
+.route-cell.chosen:after{background:#ffce0580;box-shadow:inset 0 0 0 1px #fff39480,0 0 3px #ffdf70}
+.route-cell:hover:after,.route-cell:focus-visible:after{background:#ffffff80;border-color:white}
+.route-bubble{transform:translate(-50%,-100%);max-width:160px;white-space:nowrap}
+.route-bubble:after{left:calc(50% + var(--arrow,0px))}
+.route-bubble.below{transform:translate(-50%,0)}
+.route-bubble.below:after{top:auto;bottom:100%;border-top-color:transparent;border-bottom-color:#ffdd70}
+.route-levels{pointer-events:auto;display:flex;gap:5px}
+.route-levels button{border:1px solid var(--line);border-radius:4px;background:var(--panel);color:white;font-size:11px;padding:3px 6px}
+.route-levels button[aria-pressed=true]{border-color:var(--yellow);color:var(--yellow)}
+.map-heading>span{max-width:78px;overflow:hidden;text-overflow:ellipsis}

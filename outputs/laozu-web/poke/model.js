@@ -5,6 +5,7 @@
   else root.PokeFusion = api;
 })(globalThis, () => {
   'use strict';
+  const ROUTES=typeof module==='object'&&module.exports?require('./routes.js'):globalThis.POKE_ROUTES;
   const KEY = 'poke-fusion-v1', COST = 3, COLS = 5, ROWS = 5;
   const NAMES = {1:'妙蛙种子',4:'小火龙',7:'杰尼龟',10:'绿毛虫',16:'波波',19:'小拉达',25:'皮卡丘'};
   const MOVE_NAMES = {'vine-whip':'藤鞭',ember:'火花','water-gun':'水枪',tackle:'撞击',scratch:'抓','razor-leaf':'飞叶快刀','fire-fang':'火焰牙','water-pulse':'水之波动'};
@@ -25,7 +26,9 @@
       const primary = {1:'vine-whip',4:'ember',7:'water-gun'}[id];
       const runId = ++s.sequence;
       s.points -= cost; s.firstFree = false;
+      const route=ROUTES?.variants.find(v=>v.id===s.selectedRoute);
       s.run = {id:runId,boardSize:'5x5',mon:{uid:'run-'+runId,speciesId:id,level:5},phase:'draw',stage:0,hp:90,maxHp:90,earned:0,elapsed:0,battle:null,items:[{uid:'r'+runId+'-0',kind:'move',key:primary,w:2,h:1,x:0,y:0,rotation:0}],pending:[],log:[name(id)+'加入本次探险。'],nextItem:1,outcome:null};
+      if(route){s.run.route=JSON.parse(JSON.stringify(route));s.run.totalBattles=route.wild+route.trainers;s.run.mon.level=route.levels[0];s.run.hp=s.run.maxHp=90+route.levels[0]*15;}
       return def;
     }
     function reveal() { need('draw').phase = 'ready'; }
@@ -80,8 +83,10 @@
       const r=s.run;if(!r||!['ready','event'].includes(r.phase))throw Error('当前不能出发');
       if(!r.items.some(x=>x.kind==='move'))throw Error('至少携带一个招式');
       if(r.pending.length)throw Error('请先将待领取物品装入背包');
-      const hp=r.stage===0?34:65;
-      r.battle={speciesId:[10,19][r.stage],hp,maxHp:hp,t:0,enemyAt:1800,skills:Object.fromEntries(r.items.filter(x=>x.kind==='move').map(x=>[x.uid,600])),berryUsed:false,events:[],lastHit:null};
+      const level=r.route?Math.round(r.route.levels[0]+(r.route.levels[1]-r.route.levels[0])*r.stage/Math.max(1,r.totalBattles-1)):null;
+      let enemy=[10,19][r.stage];if(r.route){const pool=r.route.pool.filter(([id])=>species(id));let roll=random()*pool.reduce((n,p)=>n+p[1],0);enemy=pool[pool.length-1][0];for(const [id,weight] of pool){roll-=weight;if(roll<0){enemy=id;break;}}}
+      const hp=r.route?24+level*3+r.stage*6:r.stage===0?34:65;
+      r.battle={speciesId:enemy,level,trainer:!!r.route&&r.stage>=r.route.wild,hp,maxHp:hp,t:0,enemyAt:1800,skills:Object.fromEntries(r.items.filter(x=>x.kind==='move').map(x=>[x.uid,600])),berryUsed:false,events:[],lastHit:null};
       r.phase='battle';r.log.push('遭遇了'+name(r.battle.speciesId)+'！');
     }
     function damage(move, enemy) {
@@ -115,7 +120,7 @@
           }
         }
         if(r.phase!=='battle')break;
-        if(b.t>=b.enemyAt){const amount=r.stage===0?5:8;r.hp=Math.max(0,r.hp-amount);b.enemyAt+=2200;const e={actor:'enemy',amount,time:b.t};b.events.push(e);b.lastHit=e;}
+        if(b.t>=b.enemyAt){const amount=r.route?3+Math.floor(b.level/8):r.stage===0?5:8;r.hp=Math.max(0,r.hp-amount);b.enemyAt+=2200;const e={actor:'enemy',amount,time:b.t};b.events.push(e);b.lastHit=e;}
         if(r.hp>0&&r.hp<=r.maxHp*.55&&!b.berryUsed&&r.items.some(x=>x.key==='oran-berry')){const heal=Math.min(25,r.maxHp-r.hp);r.hp+=heal;b.berryUsed=true;b.events.push({actor:'heal',amount:heal,time:b.t});r.log.push('橙橙果恢复了'+heal+'点生命。');}
         if(r.hp<=0){r.phase='settlement';r.outcome='rescued';r.log.push('探险中止，宝可梦已被救援。');}
       }
@@ -125,7 +130,7 @@
       r.phase='event';r.log.push('背包整理完成，返回探险记录。');
     }
     function proceed() {
-      const r=need('event');if(r.stage===0){r.stage=1;startBattle();}else{r.phase='settlement';r.outcome='graduated';r.log.push('常青小径探险完成！');}
+      const r=need('event');if(r.stage<(r.totalBattles||2)-1){r.stage++;startBattle();}else{r.phase='settlement';r.outcome='graduated';r.log.push((r.route?.name||'常青小径')+'探险完成！');}
     }
     function forward(){
       if(!s.run||!['ready','reward','event'].includes(s.run.phase))throw Error('当前不能前进');
