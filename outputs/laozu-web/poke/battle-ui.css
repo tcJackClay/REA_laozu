@@ -88,3 +88,21 @@
 .item.move .type-well{background:transparent}
 .item.move.selected{outline:2px solid var(--yellow);box-shadow:0 0 8px #ffcb0555}
 .move-line b{text-shadow:0 1px 2px #000b,0 0 2px #0008}
+
+/* Interlocking backpack blocks: inset cell tray and continuous beveled pieces. */
+.board{border:3px solid #080b13;border-radius:5px;background:#101522;box-shadow:inset 0 3px 9px #000b,0 1px 0 #53607966}
+.cells>button{border:1px solid #293245;background:linear-gradient(135deg,#080d1680,#1a223180);box-shadow:inset 1px 1px 2px #0009,inset -1px -1px 0 #ffffff06;border-radius:3px}
+.item.move,.item.held,.reward-items .item.move,.reward-items .item.held{
+ position:relative;isolation:isolate;border:3px solid #0a0e18;border-radius:5px;
+ background-color:var(--type);background-image:linear-gradient(145deg,#ffffff24,transparent 42%,#00000024);
+ box-shadow:inset 0 3px 0 #ffffff65,inset 3px 0 0 #ffffff25,inset 0 -4px 0 #0006,inset -3px 0 0 #0003,0 2px 0 #0008;
+}
+.board .item{position:absolute}
+.item.held,.reward-items .item.held{background-color:#3b455b;background-image:linear-gradient(145deg,#ffffff14,transparent 45%,#0004)}
+.item:before{content:none}
+.item .move-line{padding:3px 2px 5px;gap:1px}
+.move-line .source-type{filter:drop-shadow(0 2px 0 #0004);width:95%}
+.item .move-line b{font-size:clamp(8px,13cqw,18px);text-shadow:0 2px 0 #0005,0 0 3px #0007}
+.item.selected,.item.move.selected{outline:none;border-color:#ffe18b;box-shadow:inset 0 3px 0 #fff7,inset 3px 0 0 #fff3,inset 0 -4px 0 #0005,0 0 0 1px #8d6826,0 0 10px #ffcb054d;z-index:2}
+.item.held .held-art{filter:drop-shadow(0 2px 0 #0007)}
+#drag-ghost{border:3px solid #ffe18b;border-radius:5px;box-shadow:inset 0 3px 0 #fff5,inset 0 -4px 0 #0006,0 8px 16px #0007;padding:4px;background:var(--type,#3b455b)}
