@@ -316,3 +316,14 @@
 .gym-party button{width:46px;height:46px;flex-shrink:1;min-height:34px;position:relative;border:2px solid #545c75;background:#1d2438;border-radius:9px;padding:2px 3px 8px;box-shadow:0 2px 0 #111622}
 .gym-party button[aria-pressed="true"]{border-color:#ffd433;box-shadow:0 0 0 1px #ffd433,0 0 10px #ffd43355;background:#323449}.gym-party button.fainted{filter:grayscale(1);opacity:.45}.gym-party .sprite{width:30px;height:30px;display:block;margin:auto}.party-hp{position:absolute;left:4px;right:4px;bottom:3px;height:5px;overflow:hidden;background:#442c3c;border-radius:2px}.party-hp i{display:block;height:100%}.gym-party button:focus-visible{outline:2px solid white;outline-offset:2px}
 .gym-battle .combat-status.own,.gym-battle .combat-identity.own{left:35%}
+
+.feed-content{scrollbar-width:none;-ms-overflow-style:none}.feed-content::-webkit-scrollbar{display:none}
+.gym-opponent{position:absolute;top:36px;right:7px;display:flex;align-items:center;gap:5px;padding:4px 6px;border:2px solid #424b65;border-radius:8px;background:#171c2ced;z-index:2}
+.opponent-leader{width:27px;height:32px;object-fit:contain;image-rendering:pixelated}.opponent-balls{display:flex;gap:3px}.opponent-ball{display:flex;align-items:center;justify-content:center;width:20px;height:22px;border:1px solid transparent;border-radius:5px}.opponent-ball img{width:16px;height:16px;object-fit:contain;image-rendering:pixelated}.opponent-ball.current{border-color:#ffd433;background:#554a26;box-shadow:0 0 5px #ffd43377}.opponent-ball.defeated{filter:grayscale(1);opacity:.35}
+.reward-badge{display:block;width:64px;height:64px;background-size:512px 64px;image-rendering:pixelated;margin:24px auto}.gym-result .primary{display:block;margin:24px auto}
+@media(max-width:350px){.gym-opponent{gap:3px;padding:3px 4px}.opponent-balls{gap:1px}.opponent-ball{width:18px}.opponent-leader{width:23px}}
+
+.gym-opponent{top:32px;padding-top:3px;padding-bottom:3px}.opponent-leader{height:28px}
+.tier-ball{display:block;width:32px;height:32px;object-fit:contain;image-rendering:pixelated;margin:0 auto 9px}.gene-tier{min-height:170px;padding:10px 8px}
+.draw-ball-start{width:112px;height:112px;border-radius:50%;border:2px solid #5b657e;background:#1d2234;color:#fff;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;font-size:15px;font-weight:bold}.draw-ball-start img{width:42px;height:42px;object-fit:contain;image-rendering:pixelated}.draw-ball-start:disabled{opacity:.4}.draw-ball-start:not(:disabled):hover{border-color:#ffce45}
+@media(max-height:650px){.gene-picker h1{margin:0 0 8px}.gene-tiers{gap:8px;margin-bottom:10px}.gene-tier{min-height:145px;padding:6px}.gene-tier .tier-ball{width:24px;height:24px;margin-bottom:5px}.draw-ball-start{width:86px;height:86px}.draw-ball-start img{width:32px;height:32px}.encounter-draw.choosing{padding-top:8px}.choosing .draw-controls{margin-top:4px}}
