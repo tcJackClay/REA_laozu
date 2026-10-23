@@ -11,14 +11,14 @@ window.createAlignedStage=function(B){
  const art=name=>Object.values(L.sprites).find(x=>x.name===name)?.file||window.HOME_DATA.assets[name]||P.assets[name]||'';
  const good=id=>P.goods.find(x=>x.iGoodsID===+id)||D.goods.find(x=>x.iGoodsID===+id),icon=id=>good(id)?.image||'assets/prop_mu.png';
  const unlocked=n=>!n.arrFrontNode.length||(s.wins[n.arrFrontNode[1]]||0)>0;
- function prefab(name,cb,states){return U.render(L.layouts[name],L.sprites,{width:1080,height:1920,node:cb,states});}
+ function prefab(name,cb,states){return U.render(L.layouts[name],L.sprites,{width:1080,height:Number(canvas?.dataset.homeHeight)||1920,node:cb,states});}
  function locate(root,part){return [...root.querySelectorAll('[data-source-path]')].find(el=>el.dataset.sourcePath.endsWith(part));}
  function replaceSlot(root,part,content){const el=locate(root,part);if(!el)return;el.replaceChildren();const slot=document.createElement('div');slot.className='unity-slot';slot.innerHTML=content;el.append(slot);}
  function blockMessage(text){tip={type:'message',text};draw();}
  function navigate(tab){tip=null;B.home?.reset();if(tab==='sect')s.phase='chapter';save();B.switchTab(tab);}
- function renderNav(){const ids=['disciples','wish','sect','story','activities','guild'],labels=['弟子','祈愿','山门','主线','玩法','仙盟'],icons=['dizi','zhaomu','zhucheng','zhuxian','wanfa','xianmeng'];return prefab('uimainnavs',r=>{const m=r.path.match(/auto_NavButtons\/(ToggleButton(?: \((\d+)\))?)(?:\/|$)/);if(!m)return {};const i=+(m[2]||0),leaf=r.path.split('/').at(-1);if(r.path.endsWith(m[1]))return {action:'nav:'+ids[i],label:labels[i]};if(leaf==='diwen'||leaf.startsWith('mingzidi'))return {visible:activeTab===ids[i]};if(leaf==='ZuoZuo')return {text:labels[i]};if(r.components.some(c=>c.sprite)&&!['diwen'].includes(leaf)&&!leaf.startsWith('mingzidi'))return {image:art(icons[i])};return {};});}
+ function renderNav(){const ids=['disciples','wish','sect','story','activities','guild'],labels=['弟子','祈愿','山门','主线','玩法','仙盟'];return prefab('uimainnavs',r=>{const m=r.path.match(/auto_NavButtons\/(ToggleButton(?: \((\d+)\))?)(?:\/|$)/);if(!m)return {};const i=+(m[2]||0),leaf=r.path.split('/').at(-1),selected=activeTab===ids[i],visual=window.HomeVisual?.nav(r,selected)||{};if(r.path.endsWith(m[1]))return {action:'nav:'+ids[i],label:labels[i]};if(leaf==='diwen'||leaf.startsWith('mingzidi'))return {visible:selected};if(leaf==='ZuoZuo')return {text:labels[i],...visual};return visual;});}
  function renderHome(){B.home?.begin();
-  const h=prefab('uimain',r=>{const p=r.path;const override=B.home?.node(r);if(override)return override;
+  const h=prefab('uimain',r=>{const p=r.path;const override=B.home?.node(r),visual=window.HomeVisual?.node(r,Number(canvas?.dataset.homeHeight)||1920)||{};if(override||visual.rect)return {...visual,...override,rect:{...visual.rect,...override?.rect}};
    if(/\/(LeftDownRoot|LeftBtnGroup|IconGroupLeft|auto_rTopRoot)$/.test(p)||/lop_BuildingReddot|WanderDifficulty|auto_redPrivate/.test(p))return {visible:false};
    if(p.endsWith('/Auto_Photo')||p.endsWith('/auto_PlayerHead/touxiang'))return {image:false};
    if(p.endsWith('/Auto_Name'))return {text:s.profile?.name||'—'};
@@ -151,7 +151,7 @@ window.createAlignedStage=function(B){
    return {};
   });replaceSlot(h,'/auto_Rewards',`<div class="source-ledger-items">${(cache?.goods||[]).map(x=>`<div class="source-ledger-item"><img src="${icon(x.id)}" alt=""><span>${esc(good(x.id)?.szName||String(x.id))} ×${x.num}</span></div>`).join('')}</div>`);canvas.append(h);}
  function nextNode(){const i=D.chapter.arrNodes.indexOf(s.nodeID);return D.nodes.find(n=>D.chapter.arrNodes.indexOf(n.iID)>i&&n.iNodeType!==3&&unlocked(n));}
- function draw(){if(!canvas)return;canvas.replaceChildren();canvas.style.background='';canvas.dataset.phase=activeTab==='sect'?'home':s.phase;
+ function draw(){if(!canvas)return;window.HomeVisual?.prepare(scene,canvas,activeTab==='sect'&&B.home?.text().page==='home');canvas.replaceChildren();canvas.style.background='';canvas.dataset.phase=activeTab==='sect'?'home':s.phase;
   if(activeTab==='sect')renderHome();else {renderChapter();if(['detail','formation','pending'].includes(s.phase)){const shade=document.createElement('div');shade.className='source-shade';canvas.append(shade);}if(s.phase==='detail')renderDetail();if(s.phase==='formation')renderFormation();if(s.phase==='pending')renderPending();if(s.phase==='battle'){canvas.replaceChildren();renderBattle();if(s.battle.ended&&!s.result)renderPending();}if(s.phase==='result'){canvas.replaceChildren();renderResult();}if(s.phase==='failed'){canvas.replaceChildren();canvas.append(prefab('uistagebattlefail',r=>r.path.toLowerCase().includes('return')?{action:'return-result',label:'返回主线'}:{}));}}
   if(s.snapshotProvenance?.kind==='controlled-fixture')canvas.insertAdjacentHTML('beforeend','<span class="source-evidence-badge">受控测试数据</span>');
   if(tip){const text=tip.type==='stars'?starConf().szCondTip1+'<br>'+starConf().szCondTip2+'<br>'+starConf().szCondTip3:esc(tip.text);canvas.insertAdjacentHTML('beforeend',`<div class="source-shade"></div><div class="source-conditions" role="dialog" aria-modal="true">${text}<p><button data-original-action="close-tip">关闭</button></p></div>`);}
@@ -219,6 +219,7 @@ window.createAlignedStage=function(B){
  const fresh=initial();s={...fresh,...structuredClone(snapshot.state),schema:10,snapshotProvenance:structuredClone(snapshot.provenance)};s.roster=s.roster.map(x=>({...x,id:String(x.id)}));s.formation=s.formation.map(String);s.lastChallengeAt=null;lastChallengeAt=null;save();draw();},getState:()=>structuredClone(s)};
  document.addEventListener('click',e=>{const el=e.target.closest('[data-original-action]');if(el&&!el.disabled)action(el.dataset.originalAction);else if(canvas?.contains(e.target)&&['result','failed'].includes(s.phase))action('return-result');});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&['sect','story'].includes(activeTab)){if(tip){tip=null;draw();}else if(s.phase==='detail')action('close-detail');else if(s.phase==='formation')action('close-formation');else if(s.phase==='result'||s.phase==='failed')action('return-result');}});
+ window.addEventListener('resize',()=>{if(canvas&&activeTab==='sect'&&B.home?.text().page==='home'&&!B.home?.text().dialog)draw();});
  new ResizeObserver(()=>{if(canvas&&scene)canvas.style.transform=`scale(${scene.clientWidth/1080})`;}).observe(document.querySelector('#app'));
  window.SourceAlignment=api;return api;
 };

@@ -1,0 +1,22 @@
+/* Scoped to the mountain-gate screen; other systems retain their current canvas. */
+#app[data-source-layout=true][data-home-visual=true]{height:var(--home-visual-height)}
+.home-visual-source .unity-font,.home-visual-nav .unity-font{filter:drop-shadow(2px 0 0 #241f18) drop-shadow(-2px 0 0 #241f18) drop-shadow(0 2px 0 #241f18) drop-shadow(0 -2px 0 #241f18)}
+.home-native-side{display:flex;flex-direction:column;align-items:center;gap:0;padding:0;border-radius:0;background:none;overflow:visible;max-height:670px}
+.home-native-side.home-left,.home-native-side.home-right{background:none;padding:12px 0}
+.home-native-side.home-left{left:38px;width:105px;top:246px}.home-native-side.home-right{right:4px;width:165px;top:240px}
+.home-source-function-icon{position:relative!important;inset:auto!important;flex-shrink:0;pointer-events:none}
+.home-native-side .home-native-fold{width:71px;height:72px;flex-shrink:0;padding:0;margin:0;background:none;border:0;box-shadow:none;pointer-events:auto}
+.home-native-side .home-native-fold img{width:71px;height:72px;margin:0}
+.home-native-side .unity-font,.home-native-main-task .unity-font,.home-native-shortcuts .unity-font{filter:drop-shadow(2px 0 #241f18) drop-shadow(-2px 0 #241f18) drop-shadow(0 2px #241f18) drop-shadow(0 -2px #241f18)}
+.home-native-main-task{position:relative;width:461px;height:83px}
+.home-native-main-task .unity-text{white-space:nowrap}
+.home-native-shortcuts{right:28px;bottom:302px;gap:16px;align-items:start}
+.home-native-shortcuts>button{position:relative;display:block;width:92px;height:91px;min-width:92px;padding:0}
+.home-native-shortcuts>button>.unity-prefab{width:92px;height:91px}
+.home-native-shortcuts>button[data-home26=expand]>img{position:absolute;left:2px;top:0;width:88px;height:76px}
+.home-native-shortcuts>button[data-home26=expand]>span{position:absolute;left:0;top:71px;width:92px;font:28px KaiTi;color:#fff5d2;text-shadow:2px 2px #241f18,-2px -2px #241f18}
+.home-visual-nav [data-original-action^="nav:"]{touch-action:manipulation}
+
+.home-native-side.home-left::before,.home-native-side.home-right::before{content:"";position:absolute;inset:0;background:url('assets/alignment/ui_zjm_btnkk__2943877790552557482.png') center/100% 100% no-repeat;opacity:.298039228;pointer-events:none}
+
+.home-native-side.home-left,.home-native-side.home-right{overflow-y:auto;overflow-x:hidden;scrollbar-width:none}

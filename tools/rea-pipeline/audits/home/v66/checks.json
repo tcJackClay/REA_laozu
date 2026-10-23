@@ -1,0 +1,256 @@
+{
+  "checks": [
+    "fresh lock graphics remain source conditional",
+    "native novice task graphic used",
+    "six original navigation hit regions",
+    "only selected source parchment shown",
+    "selected source 1.1 scale",
+    "native side icon prefabs shown",
+    "native image folding arrows shown",
+    "folded side preserves one existing icon",
+    "expand restores filtered icons",
+    "450 phone fits visible viewport",
+    "450 original canvas range",
+    "450 source map compensation",
+    "450 six touch regions stay visible",
+    "450 native shortcut icons not obscured",
+    "390 phone fits visible viewport",
+    "390 original canvas range",
+    "390 source map compensation",
+    "390 six touch regions stay visible",
+    "390 native shortcut icons not obscured",
+    "360 phone fits visible viewport",
+    "360 original canvas range",
+    "360 source map compensation",
+    "360 six touch regions stay visible",
+    "360 native shortcut icons not obscured",
+    "320 phone fits visible viewport",
+    "320 original canvas range",
+    "320 source map compensation",
+    "320 six touch regions stay visible",
+    "320 native shortcut icons not obscured",
+    "long phone uses available height",
+    "expand panel visible",
+    "visual toggles do not change stored gameplay",
+    "warehouse click still opens correct page",
+    "warehouse return retains mountain screen",
+    "building opens same existing system",
+    "return restores long-phone geometry",
+    "native task button still opens task",
+    "refresh remains mountain screen",
+    "real journey returns home after refresh",
+    "active journey label survives visual redraw",
+    "no browser or resource errors"
+  ],
+  "metrics": [
+    {
+      "screen": [
+        450,
+        800
+      ],
+      "app": {
+        "x": 0,
+        "y": 0,
+        "w": 450,
+        "h": 800
+      },
+      "height": 1920,
+      "mapTop": -320,
+      "nav": [
+        {
+          "x": 19.270832061767578,
+          "y": 708.359375,
+          "w": 66.66667175292969,
+          "h": 66.6666259765625
+        },
+        {
+          "x": 88.22916412353516,
+          "y": 708.359375,
+          "w": 66.66666412353516,
+          "h": 66.6666259765625
+        },
+        {
+          "x": 157.1875,
+          "y": 708.359375,
+          "w": 66.66665649414062,
+          "h": 66.6666259765625
+        },
+        {
+          "x": 226.1458282470703,
+          "y": 708.359375,
+          "w": 66.66667175292969,
+          "h": 66.6666259765625
+        },
+        {
+          "x": 295.1041564941406,
+          "y": 708.359375,
+          "w": 66.66665649414062,
+          "h": 66.6666259765625
+        },
+        {
+          "x": 364.0625,
+          "y": 708.359375,
+          "w": 66.66665649414062,
+          "h": 66.6666259765625
+        }
+      ]
+    },
+    {
+      "screen": [
+        390,
+        844
+      ],
+      "app": {
+        "x": 0,
+        "y": 0,
+        "w": 390,
+        "h": 844
+      },
+      "height": 2337.230769230769,
+      "mapTop": -2.10989,
+      "nav": [
+        {
+          "x": 16.70138931274414,
+          "y": 764.5737915039062,
+          "w": 57.777774810791016,
+          "h": 57.77777099609375
+        },
+        {
+          "x": 76.46527862548828,
+          "y": 764.5737915039062,
+          "w": 57.77777862548828,
+          "h": 57.77777099609375
+        },
+        {
+          "x": 136.2291717529297,
+          "y": 764.5737915039062,
+          "w": 57.77777099609375,
+          "h": 57.77777099609375
+        },
+        {
+          "x": 195.99305725097656,
+          "y": 764.5737915039062,
+          "w": 57.77777099609375,
+          "h": 57.77777099609375
+        },
+        {
+          "x": 255.75694274902344,
+          "y": 764.5737915039062,
+          "w": 57.77778625488281,
+          "h": 57.77777099609375
+        },
+        {
+          "x": 315.52081298828125,
+          "y": 764.5737915039062,
+          "w": 57.777801513671875,
+          "h": 57.77777099609375
+        }
+      ]
+    },
+    {
+      "screen": [
+        360,
+        800
+      ],
+      "app": {
+        "x": 0,
+        "y": 10,
+        "w": 360,
+        "h": 780
+      },
+      "height": 2340,
+      "mapTop": 0,
+      "nav": [
+        {
+          "x": 15.416666984558105,
+          "y": 716.6875,
+          "w": 53.33333206176758,
+          "h": 53.3333740234375
+        },
+        {
+          "x": 70.58333587646484,
+          "y": 716.6875,
+          "w": 53.333335876464844,
+          "h": 53.3333740234375
+        },
+        {
+          "x": 125.75,
+          "y": 716.6875,
+          "w": 53.333343505859375,
+          "h": 53.3333740234375
+        },
+        {
+          "x": 180.9166717529297,
+          "y": 716.6875,
+          "w": 53.33332824707031,
+          "h": 53.3333740234375
+        },
+        {
+          "x": 236.08334350585938,
+          "y": 716.6875,
+          "w": 53.333343505859375,
+          "h": 53.3333740234375
+        },
+        {
+          "x": 291.25,
+          "y": 716.6875,
+          "w": 53.333343505859375,
+          "h": 53.3333740234375
+        }
+      ]
+    },
+    {
+      "screen": [
+        320,
+        568
+      ],
+      "app": {
+        "x": 0.8125,
+        "y": 0,
+        "w": 318.375,
+        "h": 568
+      },
+      "height": 1920,
+      "mapTop": -320,
+      "nav": [
+        {
+          "x": 14.43055534362793,
+          "y": 500.5739440917969,
+          "w": 47.111114501953125,
+          "h": 47.111114501953125
+        },
+        {
+          "x": 63.161109924316406,
+          "y": 500.5739440917969,
+          "w": 47.111114501953125,
+          "h": 47.111114501953125
+        },
+        {
+          "x": 111.89166259765625,
+          "y": 500.5739440917969,
+          "w": 47.111114501953125,
+          "h": 47.111114501953125
+        },
+        {
+          "x": 160.62222290039062,
+          "y": 500.5739440917969,
+          "w": 47.111114501953125,
+          "h": 47.111114501953125
+        },
+        {
+          "x": 209.352783203125,
+          "y": 500.5739440917969,
+          "w": 47.111083984375,
+          "h": 47.111114501953125
+        },
+        {
+          "x": 258.0833435058594,
+          "y": 500.5739440917969,
+          "w": 47.111083984375,
+          "h": 47.111114501953125
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

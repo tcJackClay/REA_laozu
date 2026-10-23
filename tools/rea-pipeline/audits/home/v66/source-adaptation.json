@@ -1,0 +1,20 @@
+{
+  "bundle": "assets/data/1pbfp5j.bin",
+  "objectID": "1559826722061161138",
+  "settings": {
+    "ScreenMatchMode": 0,
+    "ScreenMatchValue": 0.0,
+    "ReferenceResolution": {
+      "x": 1080.0,
+      "y": 2340.0
+    },
+    "ReferenceResolutionMin": {
+      "x": 1080.0,
+      "y": 1920.0
+    },
+    "ReferenceResolutionMax": {
+      "x": 1080.0,
+      "y": 2340.0
+    }
+  }
+}
