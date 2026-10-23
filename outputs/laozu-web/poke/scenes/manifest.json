@@ -14,5 +14,85 @@
     "sha256": "13d7ddb7ce38a17702e4bda86f6e23b3a8d799dcb783771bb332b66d8cb73ef5",
     "etag": "\"522eeadc851ef2a95be4fe4d27ccaffd\"",
     "provenance": "path from fixed app.f5605635e3.js; bytes fetched 2026-10-23, not part of original five packs"
+  },
+  {
+    "url": "https://pokecatch-online.netlify.app/assets/bg/scenes/01-prairie-ouverte-710x400.webp",
+    "path": "01-prairie-ouverte-710x400.webp",
+    "bytes": 39356,
+    "sha256": "6bfaa3ef78c1ea764ebac19d54550d4a32af052a135f9935789b5ab2a43ad8e7",
+    "etag": null,
+    "provenance": "SCENES name resolver from fixed app.f5605635e3.js; unchanged original bytes fetched 2026-10-23"
+  },
+  {
+    "url": "https://pokecatch-online.netlify.app/assets/bg/scenes/03-sentier-rocheux-710x400.webp",
+    "path": "03-sentier-rocheux-710x400.webp",
+    "bytes": 41572,
+    "sha256": "c28047f4a42107fa8cbc6f5a9244259ba1a11aca310b414de174c11f238ef20c",
+    "etag": null,
+    "provenance": "SCENES name resolver from fixed app.f5605635e3.js; unchanged original bytes fetched 2026-10-23"
+  },
+  {
+    "url": "https://pokecatch-online.netlify.app/assets/bg/scenes/04-berge-riviere-710x400.webp",
+    "path": "04-berge-riviere-710x400.webp",
+    "bytes": 44296,
+    "sha256": "ff597d7ef74b5e61fe96cde07878c965708265e4502185fa63adf68c518ae9b0",
+    "etag": null,
+    "provenance": "SCENES name resolver from fixed app.f5605635e3.js; unchanged original bytes fetched 2026-10-23"
+  },
+  {
+    "url": "https://pokecatch-online.netlify.app/assets/bg/scenes/05-pont-pepite-v2-710x400.webp",
+    "path": "05-pont-pepite-v2-710x400.webp",
+    "bytes": 30952,
+    "sha256": "e96637e25c5e515b1d97c637abb8f5cc3e74a3491d8b3f40e0244620addf4e84",
+    "etag": null,
+    "provenance": "SCENES name resolver from fixed app.f5605635e3.js; unchanged original bytes fetched 2026-10-23"
+  },
+  {
+    "url": "https://pokecatch-online.netlify.app/assets/bg/scenes/06-pontons-peche-710x400.webp",
+    "path": "06-pontons-peche-710x400.webp",
+    "bytes": 35010,
+    "sha256": "55744b73a29084dcf6cf75233a91e420c8e84f76edb8cddada076ee57a8597c4",
+    "etag": null,
+    "provenance": "SCENES name resolver from fixed app.f5605635e3.js; unchanged original bytes fetched 2026-10-23"
+  },
+  {
+    "url": "https://pokecatch-online.netlify.app/assets/bg/scenes/07-prairie-cotiere-710x400.webp",
+    "path": "07-prairie-cotiere-710x400.webp",
+    "bytes": 37450,
+    "sha256": "17bad2e90407194df628ba76a0d59abd9464d5b48aab2d313cabd3fa474ee2d8",
+    "etag": null,
+    "provenance": "SCENES name resolver from fixed app.f5605635e3.js; unchanged original bytes fetched 2026-10-23"
+  },
+  {
+    "url": "https://pokecatch-online.netlify.app/assets/bg/scenes/08-piste-cyclable-710x400.webp",
+    "path": "08-piste-cyclable-710x400.webp",
+    "bytes": 36684,
+    "sha256": "be4519b4d391b816aebdb3157c3874373f64122d4a14444b7b4e105a470ace75",
+    "etag": null,
+    "provenance": "SCENES name resolver from fixed app.f5605635e3.js; unchanged original bytes fetched 2026-10-23"
+  },
+  {
+    "url": "https://pokecatch-online.netlify.app/assets/bg/scenes/10-pleine-mer-710x400.webp",
+    "path": "10-pleine-mer-710x400.webp",
+    "bytes": 33408,
+    "sha256": "1e519d40959536d25662e2f75962e4c60d1b9359c95eee030dde171d184d9ec4",
+    "etag": null,
+    "provenance": "SCENES name resolver from fixed app.f5605635e3.js; unchanged original bytes fetched 2026-10-23"
+  },
+  {
+    "url": "https://pokecatch-online.netlify.app/assets/bg/scenes/11-approche-ligue-710x400.webp",
+    "path": "11-approche-ligue-710x400.webp",
+    "bytes": 43166,
+    "sha256": "35ff454eb3df9cec58aa7778e3836149cef0e7a1c887a51f297ef49bf6a0ac9c",
+    "etag": null,
+    "provenance": "SCENES name resolver from fixed app.f5605635e3.js; unchanged original bytes fetched 2026-10-23"
+  },
+  {
+    "url": "https://pokecatch-online.netlify.app/assets/bg/scenes/12-foret-jade-v2-710x400.webp",
+    "path": "12-foret-jade-v2-710x400.webp",
+    "bytes": 45772,
+    "sha256": "843534ed565a3736fd85bda7d5fe3f063e64357f89e7a7f1e3524b826bf3fb48",
+    "etag": null,
+    "provenance": "SCENES name resolver from fixed app.f5605635e3.js; unchanged original bytes fetched 2026-10-23"
   }
 ]

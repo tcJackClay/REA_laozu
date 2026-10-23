@@ -119,8 +119,10 @@
   let feedStart=null;app.addEventListener('pointercancel',()=>{feedStart=null;});app.addEventListener('pointerdown',e=>{if(e.target.closest('.message-feed')&&!e.target.closest('button')){feedStart={x:e.clientX,y:e.clientY};app.setPointerCapture(e.pointerId);}});app.addEventListener('pointermove',e=>{if(feedStart&&Math.abs(e.clientX-feedStart.x)>45&&Math.abs(e.clientY-feedStart.y)<35){feedStart=null;act('feed-toggle');}});app.addEventListener('pointerup',e=>{if(feedStart&&Math.abs(e.clientX-feedStart.x)>45&&Math.abs(e.clientY-feedStart.y)<35)act('feed-toggle');feedStart=null;});
   window.addEventListener('resize',()=>{fitBoard();drawScene();positionTip();positionRouteBubble();});
   function getImage(url){let image=imageCache.get(url);if(!image){image=new Image();image.src=url;image.onload=drawScene;imageCache.set(url,image);}return image;}
+  function adventureScene(){const r=M.s.run;return r?.route?.scene||POKE_ROUTES.variants.find(v=>v.id===r?.route?.id)?.scene||'02-chemin-boise-lisiere-710x400.webp';}
   function drawScene(){const canvas=document.querySelector('#scene');if(!canvas)return;const rect=canvas.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);canvas.width=rect.width*dpr;canvas.height=rect.height*dpr;const c=canvas.getContext('2d'),w=rect.width,h=rect.height;c.scale(dpr,dpr);c.imageSmoothingEnabled=false;
-    const background=getImage('poke/scenes/'+(view==='home'?'39-bourg-palette-710x400.webp':'02-chemin-boise-lisiere-710x400.webp'));
+    const sceneFile=view==='home'?'39-bourg-palette-710x400.webp':adventureScene();canvas.dataset.scene=sceneFile;
+    const background=getImage('poke/scenes/'+sceneFile);
     if(background.complete&&background.naturalWidth){const scale=Math.max(w/background.naturalWidth,h/background.naturalHeight),sw=w/scale,sh=h/scale;c.drawImage(background,(background.naturalWidth-sw)/2,(background.naturalHeight-sh)/2,sw,sh,0,0,w,h);}
     if(view==='home'){
       for(const [id,x,y] of [[1,.19,.8],[4,.83,.84],[7,.62,.65]]){const im=getImage(sprite(id)),b=imageBounds(id),scale=42/Math.max(b.w,b.h);if(im.complete&&im.naturalWidth)c.drawImage(im,b.x,b.y,b.w,b.h,x*w-b.w*scale/2,y*h-b.h*scale/2,b.w*scale,b.h*scale);}
@@ -136,7 +138,7 @@
       if(recent&&r.phase==='battle'){const x=hit.actor==='player'?w*.77:w*.25,y=hit.actor==='player'?h*.42:h*.57;c.font='bold 22px system-ui';c.textAlign='center';c.strokeStyle='#443a30';c.lineWidth=3;c.fillStyle=hit.actor==='heal'?'#b5ec9d':'#fff1bc';c.strokeText((hit.actor==='heal'?'+':'−')+hit.amount,x,y);c.fillText((hit.actor==='heal'?'+':'−')+hit.amount,x,y);}
     }
   }
-  window.render_game_to_text=()=>JSON.stringify({view,speed:M.s.preferences.speed,feed,settingsOpen,coordinateSystem:'board origin top-left; x right 0..4, y down 0..4',points:M.s.points,defeats:M.s.defeats,firstFree:M.s.firstFree,collection:M.s.collection,run:M.s.run,selected});
+  window.render_game_to_text=()=>JSON.stringify({view,scene:view==='wander'?adventureScene():null,speed:M.s.preferences.speed,feed,settingsOpen,coordinateSystem:'board origin top-left; x right 0..4, y down 0..4',points:M.s.points,defeats:M.s.defeats,firstFree:M.s.firstFree,collection:M.s.collection,run:M.s.run,selected});
   window.advanceTime=ms=>{if(view==='wander'&&M.s.run?.phase==='battle'){M.tick(ms);save();render();}};
   let last=performance.now(),acc=0;function frame(now){const dt=Math.min(100,now-last);last=now;if(!settingsOpen&&!document.hidden&&view==='wander'&&M.s.run?.phase==='battle'){acc+=dt;if(acc>=100){M.tick(acc*M.s.preferences.speed);acc=0;save();render();}}requestAnimationFrame(frame);}requestAnimationFrame(frame);
   save();render();scheduleReveal();

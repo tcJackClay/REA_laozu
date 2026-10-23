@@ -1,0 +1,89 @@
+{
+  "source": "app.f5605635e3.js / SCENES catalog and name resolver (2026-10-22 capture)",
+  "routes": {
+    "Route 1": {
+      "id": 1,
+      "path": "01-prairie-ouverte-710x400.webp"
+    },
+    "Route 2": {
+      "id": 2,
+      "path": "02-chemin-boise-lisiere-710x400.webp"
+    },
+    "Forêt de Jade": {
+      "id": 12,
+      "path": "12-foret-jade-v2-710x400.webp"
+    },
+    "Route 3": {
+      "id": 3,
+      "path": "03-sentier-rocheux-710x400.webp"
+    },
+    "Route 4": {
+      "id": 3,
+      "path": "03-sentier-rocheux-710x400.webp"
+    },
+    "Pont Pépite": {
+      "id": 5,
+      "path": "05-pont-pepite-v2-710x400.webp"
+    },
+    "Route 5": {
+      "id": 1,
+      "path": "01-prairie-ouverte-710x400.webp"
+    },
+    "Route 6": {
+      "id": 4,
+      "path": "04-berge-riviere-710x400.webp"
+    },
+    "Route 11": {
+      "id": 1,
+      "path": "01-prairie-ouverte-710x400.webp"
+    },
+    "Route 9": {
+      "id": 3,
+      "path": "03-sentier-rocheux-710x400.webp"
+    },
+    "Route 10": {
+      "id": 3,
+      "path": "03-sentier-rocheux-710x400.webp"
+    },
+    "Route 8": {
+      "id": 1,
+      "path": "01-prairie-ouverte-710x400.webp"
+    },
+    "Route 7": {
+      "id": 1,
+      "path": "01-prairie-ouverte-710x400.webp"
+    },
+    "Route 12-13": {
+      "id": 6,
+      "path": "06-pontons-peche-710x400.webp"
+    },
+    "Route 14-15": {
+      "id": 7,
+      "path": "07-prairie-cotiere-710x400.webp"
+    },
+    "Piste Cyclable": {
+      "id": 8,
+      "path": "08-piste-cyclable-710x400.webp"
+    },
+    "Routes 7-8": {
+      "id": 1,
+      "path": "01-prairie-ouverte-710x400.webp"
+    },
+    "Routes 19-20": {
+      "id": 10,
+      "path": "10-pleine-mer-710x400.webp"
+    },
+    "Route 21": {
+      "id": 10,
+      "path": "10-pleine-mer-710x400.webp"
+    },
+    "Route 22": {
+      "id": 4,
+      "path": "04-berge-riviere-710x400.webp"
+    },
+    "Route 23": {
+      "id": 11,
+      "path": "11-approche-ligue-710x400.webp"
+    }
+  }
+}

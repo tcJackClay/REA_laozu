@@ -2,6 +2,7 @@ from pathlib import Path
 import json,re,math,hashlib
 snapshot=json.loads(Path('tools/rea-pipeline/poke-fusion/routes/source-input.json').read_text(encoding='utf-8'))
 story=snapshot['STORY']; encounters=snapshot['ENCOUNTERS']
+scene_map=json.loads(Path('tools/rea-pipeline/poke-fusion/routes/scene-mapping.json').read_text(encoding='utf-8'))['routes']
 aces=[16,24,30,38,46,54,62,70,75]
 layout=Path('outputs/laozu-web/poke/maps/source/region_map_layout_kanto.h').read_text();rows=re.findall(r'\{([^{}]+)\}',layout.split('[LAYER_DUNGEON]')[0]);grid=[[v.strip() for v in row.split(',') if v.strip()] for row in rows if 'MAPSEC_' in row]
 regions=[]
@@ -21,7 +22,7 @@ for ci,c in enumerate(story['CHAPTERS'][:9]):
    for e in encounters.get(area,[]):
     if 'walk' in e[4] or 'surf' in e[4]:pool[e[0]]=max(pool.get(e[0],0),e[3])
   assert pool,(r['name'],r['areas'])
-  v={'id':f'kanto-{ci}-{ri}','name':'常青森林' if ids==['forest'] else '／'.join(i.split('-')[1] for i in ids)+'号道路','chapter':ci+1,'levels':level,'wild':r.get('wild',0),'trainers':r.get('trainers',0),'areas':r['areas'],'sourceName':r['name'],'pool':[[k,v] for k,v in pool.items()],'regions':ids}
+  v={'id':f'kanto-{ci}-{ri}','name':'常青森林' if ids==['forest'] else '／'.join(i.split('-')[1] for i in ids)+'号道路','chapter':ci+1,'levels':level,'wild':r.get('wild',0),'trainers':r.get('trainers',0),'areas':r['areas'],'sourceName':r['name'],'scene':scene_map[r['name']]['path'],'bg':r['bg'],'pool':[[k,v] for k,v in pool.items()],'regions':ids}
   variants.append(v)
   for region in regions:
    if region['id'] in ids:region['variants'].append(v['id'])
