@@ -1,0 +1,3352 @@
+{
+  "source": "PokeCatch fixed deployment 2026-10-22",
+  "inputs": [
+    {
+      "path": "evidence/runtime-data/POKEDEX.json",
+      "sha256": "fb2cf7a5f45d5c2159cad9f70acadff7c86495d2f17a101b95fc9c7a52f31e10",
+      "bytes": 464414
+    },
+    {
+      "path": "evidence/runtime-data/MOVES.json",
+      "sha256": "c44cfa1a290619956d2fbf87ca241ef6c2e635752f73b13de2afd8908fc6dab4",
+      "bytes": 56833
+    },
+    {
+      "path": "evidence/runtime-data/TYPE_CHART.json",
+      "sha256": "3152d04db7de0295bb01cecdd29ffffbbcb194ec48a855a1348f2549190d847d",
+      "bytes": 2379
+    },
+    {
+      "path": "evidence/runtime-data/SPRITE_BOUNDS.json",
+      "sha256": "798aad4fe22f65c0ecb34107550c5562dd0403e3fa5ac314c3926d494906cf57",
+      "bytes": 118394
+    },
+    {
+      "path": "evidence/source/packs.json",
+      "sha256": "2aeba1a4ee896155d6697219dbc9c72914f599fed04bfbd130f2a434db9ccf30",
+      "bytes": 35662
+    },
+    {
+      "path": "evidence/source/bundle/pack-pokemon.015f7a99b1.bin",
+      "sha256": "015f7a99b19589dfa7faa10aa64e6e37d532b3cc8c0eef22a20e16fabea2daf2",
+      "bytes": 218472
+    },
+    {
+      "path": "evidence/source/bundle/pack-items.7f5bff6694.bin",
+      "sha256": "7f5bff6694f754b1974fc4597d8914066734f279010f50c52c1ad26aa5e74d55",
+      "bytes": 18902
+    },
+    {
+      "path": "evidence/source/bundle/pack-badges.f2733cbf4f.bin",
+      "sha256": "f2733cbf4fc2ae1c3d8d2d0318d69f9e9bff02d11bcd5254cad7b9951e1ca97f",
+      "bytes": 7231
+    },
+    {
+      "path": "evidence/source/bundle/pack-ui.394409051b.bin",
+      "sha256": "394409051b37e780890cde8ae85cb5dae31fc1b4967c6af048a012aea5338f75",
+      "bytes": 33901
+    },
+    {
+      "path": "evidence/source/bundle/pack-faces.ee1d7538f8.bin",
+      "sha256": "ee1d7538f82c0f95e6d568127a1bf7a12e57a5c4f7b799dc8d1d3363f01842c0",
+      "bytes": 259135
+    }
+  ],
+  "assets": [
+    {
+      "path": "pokemon/1.png",
+      "sha256": "a3bd4708f11413968541a177e5d05363f913b3e961a69f96fc342a419d28aca2",
+      "bytes": 335
+    },
+    {
+      "path": "pokemon/10.png",
+      "sha256": "4f81c77a21c860c3295004d1faaa6c16648e463394c6dda1f210971d85d7962b",
+      "bytes": 283
+    },
+    {
+      "path": "pokemon/100.png",
+      "sha256": "2f37f014fd76692459fb5cd4238b1c73d0371bb5aef848980f599a4384296dbb",
+      "bytes": 226
+    },
+    {
+      "path": "pokemon/101.png",
+      "sha256": "29ff1039075bbfd6009e2e96974ca94bbd95407905e36d9adcf6aa18c78add44",
+      "bytes": 245
+    },
+    {
+      "path": "pokemon/102.png",
+      "sha256": "5f0ad1c11bf320d852d8a2f8e6b927e21840aa177b61c1eb10e4101081deb51d",
+      "bytes": 354
+    },
+    {
+      "path": "pokemon/103.png",
+      "sha256": "c2884f86b72c7d50fd25b0b007c0afc859e5ddceb4104687d5409492170ff6e8",
+      "bytes": 1115
+    },
+    {
+      "path": "pokemon/104.png",
+      "sha256": "69ae54111ad0677324ff801eccbbf276ac64bc6c33cbdd6b6fed66a037741767",
+      "bytes": 321
+    },
+    {
+      "path": "pokemon/105.png",
+      "sha256": "c31393ca7e1f4cc19dc9f6c2bf3e159a0bccbbef382b10b0147ec16b6b62fb7c",
+      "bytes": 814
+    },
+    {
+      "path": "pokemon/106.png",
+      "sha256": "426230a8d305b3778b308acd09790a955e12678cf8bff1eb01365dd3e7a5d3a0",
+      "bytes": 894
+    },
+    {
+      "path": "pokemon/107.png",
+      "sha256": "777fc822e4f4ca4513dd5f4332af66bfc8cf1b0f51def2f7414b61676771c790",
+      "bytes": 605
+    },
+    {
+      "path": "pokemon/108.png",
+      "sha256": "d35a064dd878f90f8dbd43a439c4c584f4b83fc0df959b395d7b3133e6514e00",
+      "bytes": 348
+    },
+    {
+      "path": "pokemon/109.png",
+      "sha256": "9a7657fb31ad984d0e7a2d51c99387ceb41c3a8dee64d4f343a90d7809bec009",
+      "bytes": 438
+    },
+    {
+      "path": "pokemon/11.png",
+      "sha256": "8ca58378734561205016902f0c9eab2615024a8b20b15386ed7f20062c09a72b",
+      "bytes": 211
+    },
+    {
+      "path": "pokemon/110.png",
+      "sha256": "ba3add3895fbb4661a9a387e42aea0d279c40bc55b8fd7486f5357c105691ac8",
+      "bytes": 1268
+    },
+    {
+      "path": "pokemon/111.png",
+      "sha256": "dddebe1a460c023ef1a4d5b57f86c1c27f8e2860fe5a77fecfb04d9b01995963",
+      "bytes": 326
+    },
+    {
+      "path": "pokemon/112.png",
+      "sha256": "4b346c343373211c83e27780d993b863527da70d4fa497628cf6a233ca0b8db7",
+      "bytes": 691
+    },
+    {
+      "path": "pokemon/113.png",
+      "sha256": "7020b35f99a3ee14d03e41f2b6ca697a589b747d9fd6c8f2c0abf5ac0a76b6c5",
+      "bytes": 324
+    },
+    {
+      "path": "pokemon/114.png",
+      "sha256": "dfd2cf2c063f998b3cddb249678af363d1cdf3f87855199ad7a78756f364e784",
+      "bytes": 316
+    },
+    {
+      "path": "pokemon/115.png",
+      "sha256": "7c49ed534a3fe35b390bf66989b703cac33c7f2775d230ef0f4d5651e10b1bf4",
+      "bytes": 1019
+    },
+    {
+      "path": "pokemon/116.png",
+      "sha256": "1bd99b9aa8af82cb433664caccd87531480eacf0ba58e71f25c6d210e237d77f",
+      "bytes": 301
+    },
+    {
+      "path": "pokemon/117.png",
+      "sha256": "fd59dedc23b9b77306e68606a9843e843c9687d063cc1d580a4ea0ea4c8d5c38",
+      "bytes": 357
+    },
+    {
+      "path": "pokemon/118.png",
+      "sha256": "630c9a51e0f524e73470a561403279a7cfaeeb0757226c26bb652ba1ab4c3ab4",
+      "bytes": 367
+    },
+    {
+      "path": "pokemon/119.png",
+      "sha256": "648b1638f4ae2df1c91c55ec19ae50dcbf2a0362ad0bf61c7f55e8168e9bf3b0",
+      "bytes": 645
+    },
+    {
+      "path": "pokemon/12.png",
+      "sha256": "918ee6a34ebec562e45a6daff0573835f1bf4f1c00dc1c6f94002d818c6bd848",
+      "bytes": 1078
+    },
+    {
+      "path": "pokemon/120.png",
+      "sha256": "cc316a8aa26750aa5ea92bc4c61f9ce976eed451fbb565c8014d822bfdb0b670",
+      "bytes": 297
+    },
+    {
+      "path": "pokemon/121.png",
+      "sha256": "be6766bed2ffefe0da26fd13125c4527f4146203afd8f22b34dac2f4be2de771",
+      "bytes": 963
+    },
+    {
+      "path": "pokemon/122.png",
+      "sha256": "9edc0fe4e275e99b82ef098681ca5614ef9f6bdd84cc871e53310e8fba1ba9af",
+      "bytes": 1156
+    },
+    {
+      "path": "pokemon/123.png",
+      "sha256": "1a22434a5beb711ee1f2c6f02414c086e582ec60e78999e4612d4bcc0c3e4ef2",
+      "bytes": 1069
+    },
+    {
+      "path": "pokemon/124.png",
+      "sha256": "1eaf21e369e02b1504e96fa2cccd828d3cecbe7c6a1962bf7316d001bfe4539e",
+      "bytes": 1325
+    },
+    {
+      "path": "pokemon/125.png",
+      "sha256": "16ef431a73ce4439eb4775989253625bd7a5ea502edecae674df8a8cf18684e7",
+      "bytes": 1047
+    },
+    {
+      "path": "pokemon/126.png",
+      "sha256": "35bc0012f8ae5c5187e154542f6f3154290e518c99c24734e6d831986de4d5f4",
+      "bytes": 1059
+    },
+    {
+      "path": "pokemon/127.png",
+      "sha256": "70b1a1e8fe3f55dbc3f61cf3f3d24ae9cc15c35044558290fa13750baf0135e8",
+      "bytes": 1082
+    },
+    {
+      "path": "pokemon/128.png",
+      "sha256": "7e1604fa1477f83159533383fc4affc3d1c9ccad58bd17cd0cea48c656ada28b",
+      "bytes": 1096
+    },
+    {
+      "path": "pokemon/129.png",
+      "sha256": "9be6948be00d3d7ae06a59282b99cc9c9bf1e3b281f12025026b1b151e2a59e0",
+      "bytes": 410
+    },
+    {
+      "path": "pokemon/13.png",
+      "sha256": "691015ceaa297928d22ef8a6d56ad275f5ac3b73c27e00009c5b1f4c9c304ee2",
+      "bytes": 270
+    },
+    {
+      "path": "pokemon/130.png",
+      "sha256": "858d452abb6a31662a53a2007e0c5fd5f445dadb2a0b1f7d7c3033eb65c22228",
+      "bytes": 798
+    },
+    {
+      "path": "pokemon/131.png",
+      "sha256": "8d5452a6e1b4dbff73c975600232bc9b0f743e589086b54133a2ff77db3bfa86",
+      "bytes": 630
+    },
+    {
+      "path": "pokemon/132.png",
+      "sha256": "fb387c3529be4f392c17dacecbbc85b13b981b7dc905b696dc7267d1b2f98ac7",
+      "bytes": 227
+    },
+    {
+      "path": "pokemon/133.png",
+      "sha256": "c9f60c40232d326c47306dec3c403ae3024ac6a0b93a06c417c47becf7278d23",
+      "bytes": 327
+    },
+    {
+      "path": "pokemon/134.png",
+      "sha256": "b8b372d4fbd7ec9eb565a164a62fe3934772ab654cd873c96134afe648647300",
+      "bytes": 874
+    },
+    {
+      "path": "pokemon/135.png",
+      "sha256": "021ab8306d60694bda44895d51c9fcc26eb100e691156cc70ed240a7622bbb9e",
+      "bytes": 823
+    },
+    {
+      "path": "pokemon/136.png",
+      "sha256": "9fd48f8c45cff500beca3aa300e0e53a691c420a71a605bfcefcf914d01f7ad8",
+      "bytes": 825
+    },
+    {
+      "path": "pokemon/137.png",
+      "sha256": "542d9e3df64c162b4859eaed044d10354d8a87ff5000abe6d884cb4667212a11",
+      "bytes": 333
+    },
+    {
+      "path": "pokemon/138.png",
+      "sha256": "3b5a86873b49c5d8a83fa2a3f8893b4e42fa30a65ab650c374f9997d8f8c5b31",
+      "bytes": 294
+    },
+    {
+      "path": "pokemon/139.png",
+      "sha256": "9631869623543b9ad22fc5d6a0d58fab4619b68eaf5f1eaf6b13fe33685a645d",
+      "bytes": 1020
+    },
+    {
+      "path": "pokemon/14.png",
+      "sha256": "53b371d624b0d767f0a7cdbc267477adfb4a6c87f5ce58cccf550c277e350c0f",
+      "bytes": 241
+    },
+    {
+      "path": "pokemon/140.png",
+      "sha256": "71171026f1a70c8e16d3169c4c9a8fe7720a759e10f59f7e4165f59fd0935b87",
+      "bytes": 252
+    },
+    {
+      "path": "pokemon/141.png",
+      "sha256": "37a783eeecfb326dcd745afc1476e9d56c4313141217abe3b6feb10f2a06461d",
+      "bytes": 873
+    },
+    {
+      "path": "pokemon/142.png",
+      "sha256": "4dd980cad6f90a3a893578f2a08a8a6a518156b2594dd9cdea2bdad6d43ab174",
+      "bytes": 921
+    },
+    {
+      "path": "pokemon/143.png",
+      "sha256": "a3a69c0b5f11dfbe401cdb3a9c1ecc9f2544b7d43db89642525db8113c83765b",
+      "bytes": 682
+    },
+    {
+      "path": "pokemon/144.png",
+      "sha256": "6d1f2eb48b38ba6bea374118f90c21d22207ea9d263d37c56d3096e251c7284a",
+      "bytes": 1180
+    },
+    {
+      "path": "pokemon/145.png",
+      "sha256": "1770827b4b274a4b3ad1611faa2ed900b1c32a9cdf8baddee81fa9067c8e5088",
+      "bytes": 1054
+    },
+    {
+      "path": "pokemon/146.png",
+      "sha256": "10788de43636b3cb4674c7674b596c4b9136542ef44dfff3bbbd870c2252109b",
+      "bytes": 1231
+    },
+    {
+      "path": "pokemon/147.png",
+      "sha256": "84a2ba8e3fe9b11314e64ec3e61e3e2cd25e0897201c2fb2851efa6fe175e6c2",
+      "bytes": 296
+    },
+    {
+      "path": "pokemon/148.png",
+      "sha256": "1803e854e20db19fab7338d641bcfd9f8dab3fc797dd138813e53b90b3ac8122",
+      "bytes": 374
+    },
+    {
+      "path": "pokemon/149.png",
+      "sha256": "8fce19e24f223570f4a5d01e990b9c361a2e4cd358ee1bed046072739c2d6b2d",
+      "bytes": 691
+    },
+    {
+      "path": "pokemon/15.png",
+      "sha256": "d7309a18360f0519c71d058bcc1bd9581b2df18a09da92dd9220466b95dbf749",
+      "bytes": 377
+    },
+    {
+      "path": "pokemon/150.png",
+      "sha256": "def15565bbba25d4d9062405244770bbe7596325d779689b85a8c4f2a8b81694",
+      "bytes": 737
+    },
+    {
+      "path": "pokemon/151.png",
+      "sha256": "167f615afd36a63f4be4df127184d7262125b03c6a7c4971809afd5a30c5c00d",
+      "bytes": 333
+    },
+    {
+      "path": "pokemon/152.png",
+      "sha256": "ba29d90bdd2ae888fb55e061226b71ec7216abe465964f51ad8d409556dd78b7",
+      "bytes": 312
+    },
+    {
+      "path": "pokemon/153.png",
+      "sha256": "8ba99235f4e824f1474c37c16885377813f6cceedffe921a33c8693ca3d77a26",
+      "bytes": 377
+    },
+    {
+      "path": "pokemon/154.png",
+      "sha256": "76afb7b7965696f7043bf008b51d87c2b1c270f54840a8f3b427344383e4d862",
+      "bytes": 451
+    },
+    {
+      "path": "pokemon/155.png",
+      "sha256": "5eef489c8000ff7bfb81982c21ca735b03bcdcb83e1f4a56f3490fff939fc308",
+      "bytes": 333
+    },
+    {
+      "path": "pokemon/156.png",
+      "sha256": "d0345e3e0491571dd50459df5d537f827f3dde8e007685db1285401e6a898069",
+      "bytes": 380
+    },
+    {
+      "path": "pokemon/157.png",
+      "sha256": "5594c00e010fb9942aa15e342d49709acf406f180da2df2098bc4f2fb8a85062",
+      "bytes": 417
+    },
+    {
+      "path": "pokemon/158.png",
+      "sha256": "caba8daf6f0780fb6905b137823786ba0bd8c22611f3b80830c876d818110ed0",
+      "bytes": 329
+    },
+    {
+      "path": "pokemon/159.png",
+      "sha256": "fad076b5732b15972a42d7b148a0ad8113db17a384f8a1e94185261d1d5149f8",
+      "bytes": 387
+    },
+    {
+      "path": "pokemon/16.png",
+      "sha256": "76085ac9d001075a906ddbf36ba50b23ca5d8d6c68be75ae7a47c2bedad46d6e",
+      "bytes": 324
+    },
+    {
+      "path": "pokemon/160.png",
+      "sha256": "63fcf56c136d250f7addd62ee1e5470f992db8cd0405b61aa95f3ded704b0627",
+      "bytes": 502
+    },
+    {
+      "path": "pokemon/161.png",
+      "sha256": "cd0a1a98fac768fdc6412d30a17bdb279f64dedc53de1a74f61d1e1d9c18be6c",
+      "bytes": 332
+    },
+    {
+      "path": "pokemon/162.png",
+      "sha256": "010cc0e7cb2981cc1975d1dd13eea8b9f3e5fb1b26bee910bbe7dbcd772d70b8",
+      "bytes": 364
+    },
+    {
+      "path": "pokemon/163.png",
+      "sha256": "bf01c15ef7864d7d50e487fd509854f7b4c8e5f79d63b9bf112ea8a54bd1bd99",
+      "bytes": 299
+    },
+    {
+      "path": "pokemon/164.png",
+      "sha256": "cd8965ca50f3855a7b23a330e80346acc2bca142c0749a505c949e9fdfc01b72",
+      "bytes": 923
+    },
+    {
+      "path": "pokemon/165.png",
+      "sha256": "f0641e77e10e424f700c4f82c1b8039eb0a784a61f01f1bc1ddcfcda332fd793",
+      "bytes": 313
+    },
+    {
+      "path": "pokemon/166.png",
+      "sha256": "a39d428d37520594335e937e13c81b385d351b459c696b1546adb1801b9f2f63",
+      "bytes": 363
+    },
+    {
+      "path": "pokemon/167.png",
+      "sha256": "2c342654623b60cc949f6a415cdca76239238a9832c5b26d5c26396b680bacc5",
+      "bytes": 316
+    },
+    {
+      "path": "pokemon/168.png",
+      "sha256": "d6e4610c00176828d2a3091312919e7f77cd6b82fc886450074f5962bce46b25",
+      "bytes": 408
+    },
+    {
+      "path": "pokemon/169.png",
+      "sha256": "cb030213ef97cd581e0a5cb22fb0e851e829ed23979da9016359ada66fce35f8",
+      "bytes": 827
+    },
+    {
+      "path": "pokemon/17.png",
+      "sha256": "2643f87e92a7834cacce9357c86c1290dd86dc17d5ec9bc2a19a66b24a23ba89",
+      "bytes": 366
+    },
+    {
+      "path": "pokemon/170.png",
+      "sha256": "fb2023ae4fe9d3d96a8b25cec40d84ebe8397654db0ac35c8cf472fc5403380a",
+      "bytes": 307
+    },
+    {
+      "path": "pokemon/171.png",
+      "sha256": "4633b14e6d97c8ef07e8e966d5308a2d7f879282049cd6c52b5ea7b7bc00e7a7",
+      "bytes": 761
+    },
+    {
+      "path": "pokemon/172.png",
+      "sha256": "b4cc3554ceafb891d086d362956e8d2ca1ffd992d9edb2384857121d68d57017",
+      "bytes": 282
+    },
+    {
+      "path": "pokemon/173.png",
+      "sha256": "de2b838788c673b4dcd3a845e2c742f5737440a3c57698990bc1edc281de1b41",
+      "bytes": 281
+    },
+    {
+      "path": "pokemon/174.png",
+      "sha256": "d5336448aa43df133b6fe80ff031e4564f8e3f2c953bd01c5de66aa5f60cc745",
+      "bytes": 291
+    },
+    {
+      "path": "pokemon/175.png",
+      "sha256": "86663e1e0c48305bf1e27bed7154711a696e4704984374fd7f8feae125e8864f",
+      "bytes": 329
+    },
+    {
+      "path": "pokemon/176.png",
+      "sha256": "5f24120df94481833613a218d7f8f768d77bd764ad4e0ee4301bad1c8bd7a947",
+      "bytes": 325
+    },
+    {
+      "path": "pokemon/177.png",
+      "sha256": "ab6865caea72f09c205775e998aaa13eb9d54919c0f4bd43dc41efa46f200715",
+      "bytes": 293
+    },
+    {
+      "path": "pokemon/178.png",
+      "sha256": "f4ab598a1df98428e385bc08ed01b3492f37e597b269d535c9a72748cdb08ae0",
+      "bytes": 781
+    },
+    {
+      "path": "pokemon/179.png",
+      "sha256": "9871ba3fcff5daf0d940240965356e5615c6aae069e99dcc1d9a984d9d7fdb8d",
+      "bytes": 393
+    },
+    {
+      "path": "pokemon/18.png",
+      "sha256": "a5706b4f6342db3ca65c9b8ee2163eb58582ff6952a599c3444702859f0138ab",
+      "bytes": 594
+    },
+    {
+      "path": "pokemon/180.png",
+      "sha256": "0e4acdc7b5126f9f3a863c8d0f6ee6506e056948961e48272757728ed93e935d",
+      "bytes": 375
+    },
+    {
+      "path": "pokemon/181.png",
+      "sha256": "b608bffc3694a2f79f949598f0560de12c266171f17c444490243b1426162c27",
+      "bytes": 367
+    },
+    {
+      "path": "pokemon/182.png",
+      "sha256": "ddaf582876d843e9d4347c5c7fdd76cc93555c39fb309e765484049eb18be70d",
+      "bytes": 834
+    },
+    {
+      "path": "pokemon/183.png",
+      "sha256": "feb9097bc986fbe2bf7d6ec7989aaa3ce9fabe001e59a9ae9833edc1b25021e3",
+      "bytes": 342
+    },
+    {
+      "path": "pokemon/184.png",
+      "sha256": "453927e5753e2689288eb197599890900e0ab08b8603d4f7590677d44e40c880",
+      "bytes": 694
+    },
+    {
+      "path": "pokemon/185.png",
+      "sha256": "f55e2d25ae1830177d36bb3d5b2aaafb59c37a336902768236a644212c42547e",
+      "bytes": 797
+    },
+    {
+      "path": "pokemon/186.png",
+      "sha256": "70da79eebd8fab25e33d508422c755e59f8b880f6b13c83631a50a33e239fbac",
+      "bytes": 837
+    },
+    {
+      "path": "pokemon/187.png",
+      "sha256": "ebd39a9078acbc61139943fda37b3c3b9c174a5fbab64f61200143908b383ab3",
+      "bytes": 348
+    },
+    {
+      "path": "pokemon/188.png",
+      "sha256": "deb6f1b0121b82cbd90eaa4a27560318b33c9b06a2a965d7e222f21eb62d9796",
+      "bytes": 323
+    },
+    {
+      "path": "pokemon/189.png",
+      "sha256": "ee9894393bf32f3645756917145994dbbb0e234caa595d5b4c842e64418e6481",
+      "bytes": 366
+    },
+    {
+      "path": "pokemon/19.png",
+      "sha256": "1995899e00f7a94429397e9af4287d3a18365a9e066d91688c97f47a11b3da3e",
+      "bytes": 330
+    },
+    {
+      "path": "pokemon/190.png",
+      "sha256": "96e318542d1ea90542e47a9f18af4edd8ea80c12b04c30ce9af5c8b8ac076cc8",
+      "bytes": 383
+    },
+    {
+      "path": "pokemon/191.png",
+      "sha256": "1f8f68849577e581ebdd6fd437a6bacd392411f9534603e7947eaff699d280cb",
+      "bytes": 312
+    },
+    {
+      "path": "pokemon/192.png",
+      "sha256": "0ca209d11aed076abee6d29b3a0693ab1d16d87ddce0dcd96265d8c3f05f1a6e",
+      "bytes": 415
+    },
+    {
+      "path": "pokemon/193.png",
+      "sha256": "a74815d562dd84b6e4573ae4793651e7f60e9b956773b9ed26c3a191418f7d1e",
+      "bytes": 387
+    },
+    {
+      "path": "pokemon/194.png",
+      "sha256": "fab7a0368723e194a8246cb9d1f4f19453d48af2ce0e9d782f56df0af1bf9af4",
+      "bytes": 312
+    },
+    {
+      "path": "pokemon/195.png",
+      "sha256": "cfe7cbe31412534bb5635f8cbdc5a12c849aa14c6c417bad1859990c7357b8b2",
+      "bytes": 647
+    },
+    {
+      "path": "pokemon/196.png",
+      "sha256": "511ac2cf1bf0806c7c76fc9152fbfcc5ab11c45ca619395617036240be5c2c60",
+      "bytes": 824
+    },
+    {
+      "path": "pokemon/197.png",
+      "sha256": "4b998be92bf20183211caa295b37b91a72e77b38d3e9a924e732eeedcd4be09f",
+      "bytes": 670
+    },
+    {
+      "path": "pokemon/198.png",
+      "sha256": "1b76c17ae6b8226d688b9a813fd0beed9383d26cfe6aef34b26712e999f11b79",
+      "bytes": 321
+    },
+    {
+      "path": "pokemon/199.png",
+      "sha256": "14bfbd69471ba3ec0489dcc2935aa0490f4c4204483cb31a62a00fc02fc48032",
+      "bytes": 1154
+    },
+    {
+      "path": "pokemon/2.png",
+      "sha256": "ccceb815ed9fe6efe49b785bac25113b4f1ec54e37f622d5b8f45978f0372286",
+      "bytes": 380
+    },
+    {
+      "path": "pokemon/20.png",
+      "sha256": "6e20926e711ab9f686248fb3363e8547bfa7b5e06c8a6ce78f8eb8c8b2bc6e5e",
+      "bytes": 421
+    },
+    {
+      "path": "pokemon/200.png",
+      "sha256": "33a3b53819613d92b6168e68aae193b31eaa27b930bf0b45d1794aa48d36f7f7",
+      "bytes": 352
+    },
+    {
+      "path": "pokemon/201.png",
+      "sha256": "15ec36d2cec3702c48b19a5fb98c24bd13b91552b57dfef4165787097a055da9",
+      "bytes": 197
+    },
+    {
+      "path": "pokemon/20101.png",
+      "sha256": "c761eea0ba8bb8ee1889e5c6238bad19ab013ffd20524c41c4e910d71cda4921",
+      "bytes": 213
+    },
+    {
+      "path": "pokemon/20102.png",
+      "sha256": "031ffed22148f3c0ee6d0a01ecd28c51cd6a1f388ba3e561c3f4fd08ce732223",
+      "bytes": 238
+    },
+    {
+      "path": "pokemon/20103.png",
+      "sha256": "4a12ec7105d6f4730676686eada9102769da8841e1838cbc5d2d7e3f1f5c66a6",
+      "bytes": 219
+    },
+    {
+      "path": "pokemon/20104.png",
+      "sha256": "0d2a6086dcf5871cce403246ed94aee011790b2ac88efd61b6e342a7e449c060",
+      "bytes": 207
+    },
+    {
+      "path": "pokemon/20105.png",
+      "sha256": "9150fd666ab83c3936610e05e6217d839dab7fbed3b363c371511ec43be461b4",
+      "bytes": 217
+    },
+    {
+      "path": "pokemon/20106.png",
+      "sha256": "e3dbefa9da48ed829ea333f017ecb912e0baaf7c63d4636e6175bb0b064361fa",
+      "bytes": 205
+    },
+    {
+      "path": "pokemon/20107.png",
+      "sha256": "8b9977456b1476a659f8065606db09f66e75fc25cbe2609cd95ef493c784bc55",
+      "bytes": 246
+    },
+    {
+      "path": "pokemon/20108.png",
+      "sha256": "3c7ae7bdc16d3cd27f7c9c5a4e4a65590274a3fd0781d158f5655098682945e4",
+      "bytes": 173
+    },
+    {
+      "path": "pokemon/20109.png",
+      "sha256": "3bef50a94379a3e8df252da4c07ff35eca6976e3e2749446e3e671e23b8d6ff4",
+      "bytes": 197
+    },
+    {
+      "path": "pokemon/20110.png",
+      "sha256": "ad213e4f8ed0b807148930e773110e39fa84c3b79610edb0016c1f029763abbe",
+      "bytes": 199
+    },
+    {
+      "path": "pokemon/20111.png",
+      "sha256": "784ae60e49d9145e631e5a1e90c736c3e86e1c3d576d55cc59715fa5b8fc7101",
+      "bytes": 197
+    },
+    {
+      "path": "pokemon/20112.png",
+      "sha256": "85c46fc48dda3a6dad20758837a7bf751c9993745c05977f1419a2e9f93677f8",
+      "bytes": 252
+    },
+    {
+      "path": "pokemon/20113.png",
+      "sha256": "87d563ba1fdfa9a26c733ee1c43cd490a95947395c11e5c084409060efbb514f",
+      "bytes": 220
+    },
+    {
+      "path": "pokemon/20114.png",
+      "sha256": "f87a73667a7e60322fecded92140cf0eb09bd57db651ab907dc74bc9fce99597",
+      "bytes": 242
+    },
+    {
+      "path": "pokemon/20115.png",
+      "sha256": "caa32b2e6a4e2448bc8cbf3e8862e642d4c29fc33ab3b73445f16364ffbe3458",
+      "bytes": 184
+    },
+    {
+      "path": "pokemon/20116.png",
+      "sha256": "8c4b9a65d81bbd61ad5e75cc908a7a1fa0859040f2f4a2be1968db3c6588a16b",
+      "bytes": 185
+    },
+    {
+      "path": "pokemon/20117.png",
+      "sha256": "809139375a327398c237a0f01bd6052f96affd516450d31933fd58fbfab04f35",
+      "bytes": 190
+    },
+    {
+      "path": "pokemon/20118.png",
+      "sha256": "82cd5a5175c0786ed81e86aaa256d1bdb26c71d0014cf30917ac5c99564aae24",
+      "bytes": 211
+    },
+    {
+      "path": "pokemon/20119.png",
+      "sha256": "6ba0d18f4264e85617f383c9a51bfa2ee2463fcc5199516107f515094dd18759",
+      "bytes": 198
+    },
+    {
+      "path": "pokemon/20120.png",
+      "sha256": "90abdcf9a11cf4e723826f72f00061ddc56e356ee8eea99a4a7383dba447b3d6",
+      "bytes": 227
+    },
+    {
+      "path": "pokemon/20121.png",
+      "sha256": "726d8351abb9d5b6feb52fdf53f746ec9936123920649a68195c77a6ea9db26c",
+      "bytes": 207
+    },
+    {
+      "path": "pokemon/20122.png",
+      "sha256": "b76faa9b96b7a3590cc5a0b6547b311c1c304dfa3d0a63a9f393aafb9178c58e",
+      "bytes": 211
+    },
+    {
+      "path": "pokemon/20123.png",
+      "sha256": "811216ec175c83f422b876895e5f810c27287ebb457f7ed3fa9d26f9f75746ce",
+      "bytes": 199
+    },
+    {
+      "path": "pokemon/20124.png",
+      "sha256": "ec9371750fdd42cad2cae4ecf864822e721df31a574b143225340df3783e5c4f",
+      "bytes": 199
+    },
+    {
+      "path": "pokemon/20125.png",
+      "sha256": "bdfe311e92a3d1174fd0172ce1552fb7bf0396198ac2d9cfbb045f7063b0f103",
+      "bytes": 192
+    },
+    {
+      "path": "pokemon/20126.png",
+      "sha256": "f724e8479361dce91929ca17f10f1d582da3c35e2f1f6c9b44c8f7b345c1b12b",
+      "bytes": 175
+    },
+    {
+      "path": "pokemon/20127.png",
+      "sha256": "20ff403c1d67ffc56e1e78384eb731d31f8d82e0cdc7f2bd1476328466a4fac3",
+      "bytes": 199
+    },
+    {
+      "path": "pokemon/202.png",
+      "sha256": "4de56676c1f6d96b3f04202e795f3cd1222f8076e3989f68490403841ba8edce",
+      "bytes": 780
+    },
+    {
+      "path": "pokemon/203.png",
+      "sha256": "286daaa3a6eccc88430a593b993e4e20ac8779af1bc5ff47b5aa89c81fb22969",
+      "bytes": 397
+    },
+    {
+      "path": "pokemon/204.png",
+      "sha256": "8ff00123840aa266f268fa09aaec8f05f953303cb70de4f60e6cdb4bfa828f8e",
+      "bytes": 333
+    },
+    {
+      "path": "pokemon/205.png",
+      "sha256": "6e71e3d40160bd8197321b0e82c8879c18d8f9bef98ac662021e9a31e5aa6b72",
+      "bytes": 363
+    },
+    {
+      "path": "pokemon/206.png",
+      "sha256": "06de9925206a7c0f67df6e418b0cf07be3df76bd95246debb3a53e8c6efc174b",
+      "bytes": 711
+    },
+    {
+      "path": "pokemon/207.png",
+      "sha256": "1293247507c67321ad1e25c3e8fdcbfe0c240b0221feb1be21b1d2f0d550347d",
+      "bytes": 413
+    },
+    {
+      "path": "pokemon/208.png",
+      "sha256": "979664e96b21e12180ae9bb4c4bcddea703a47d1e940050d7061827fd0fe4af2",
+      "bytes": 1217
+    },
+    {
+      "path": "pokemon/209.png",
+      "sha256": "63bd5554e1e1cda0e8ac5b6735dbf51a02b5e6fc51e10e085fe02214da34ec61",
+      "bytes": 371
+    },
+    {
+      "path": "pokemon/21.png",
+      "sha256": "28a11057411cebe7bf8da43c8579875fbccf09e808764eeb5e425560a519251f",
+      "bytes": 316
+    },
+    {
+      "path": "pokemon/210.png",
+      "sha256": "9495286b0a1516a45cdbf9817cc9c968df9f018244ebdc8d6019e764527b889d",
+      "bytes": 365
+    },
+    {
+      "path": "pokemon/211.png",
+      "sha256": "47db7980f29af79e493ecff63a4c362e6ea5c1a021ee02bd9cfb7cbe620165a9",
+      "bytes": 749
+    },
+    {
+      "path": "pokemon/212.png",
+      "sha256": "2eac12e1774f0dc00f4c15c30171e0300cadc53ef7b400b39ff0d5e23436874d",
+      "bytes": 876
+    },
+    {
+      "path": "pokemon/213.png",
+      "sha256": "b74ca07a5945cbdc707d248750800e11f9697b60668e1528175319dcf591bd63",
+      "bytes": 629
+    },
+    {
+      "path": "pokemon/214.png",
+      "sha256": "0be0d4758b285d89853657346da903c458617dec8ad75de499617a240d490bca",
+      "bytes": 923
+    },
+    {
+      "path": "pokemon/215.png",
+      "sha256": "b644895a50f86a4f61e75892ec8db6cd42f854edc1779ff32cd1946a59cc04ce",
+      "bytes": 366
+    },
+    {
+      "path": "pokemon/216.png",
+      "sha256": "b6a1511be0efa808bea7c1c9d902ad021091ed38722a85698304d4ca7d3d7782",
+      "bytes": 321
+    },
+    {
+      "path": "pokemon/217.png",
+      "sha256": "5853c86ce70eb2e58e0c61ec120a0989009a31ab000156c0d38648200547513b",
+      "bytes": 372
+    },
+    {
+      "path": "pokemon/218.png",
+      "sha256": "e29007894eeb53edb720303a7efdf48e8ac534d6c3cda1b096b67229eaabd0cc",
+      "bytes": 327
+    },
+    {
+      "path": "pokemon/219.png",
+      "sha256": "bd678e507cfe98e4c5bcbff923975d2cd81f59529e1e8a88bc3c8746f44ba83a",
+      "bytes": 398
+    },
+    {
+      "path": "pokemon/22.png",
+      "sha256": "70ccb089cfa7a49d57964d0a7863a454f19808c8db23e9d297d7d62658c1d7a8",
+      "bytes": 442
+    },
+    {
+      "path": "pokemon/220.png",
+      "sha256": "4e53f6527b9fd6901dd17b02dc14e83e80342056fddc92c9dba9f52c5079225a",
+      "bytes": 250
+    },
+    {
+      "path": "pokemon/221.png",
+      "sha256": "7aee71df6f341d4cae540e92cd11dcd879f2c6bdac433e0095e1126e0b57c3cd",
+      "bytes": 340
+    },
+    {
+      "path": "pokemon/222.png",
+      "sha256": "05bccc933152f66f5019a36eca00fe7d88a47698c55f7ae5bb98b426eeafa51d",
+      "bytes": 360
+    },
+    {
+      "path": "pokemon/223.png",
+      "sha256": "7b6be3b82c006323b928d0806093808263986569156afe5910ba7e6cc363778d",
+      "bytes": 257
+    },
+    {
+      "path": "pokemon/224.png",
+      "sha256": "0c054946b7305d1291b68552330d844d9b4c20daa9bbb29e4555a99c7203c40b",
+      "bytes": 696
+    },
+    {
+      "path": "pokemon/225.png",
+      "sha256": "528c3cd6960921733256d0a5a813ac3cc54b2396ba3cf2e0d767c46d9461ea7e",
+      "bytes": 767
+    },
+    {
+      "path": "pokemon/226.png",
+      "sha256": "bb5e70ce83cf9e9ac11d117d2b546af3d3018feaca72723b2d018483eec7e4ae",
+      "bytes": 837
+    },
+    {
+      "path": "pokemon/227.png",
+      "sha256": "4ddaf46eea0f8a695f46c450a77bef29dd15c62c0bbab80a34d4f0b473af9af6",
+      "bytes": 874
+    },
+    {
+      "path": "pokemon/228.png",
+      "sha256": "623168c6bb15357ae6ec342be62e410c4966641696f4bfe46a982250fce9048a",
+      "bytes": 326
+    },
+    {
+      "path": "pokemon/229.png",
+      "sha256": "b5f41e22656e91f0a891401ae9b8495afb11d44044f7b096c7150d488113abab",
+      "bytes": 348
+    },
+    {
+      "path": "pokemon/23.png",
+      "sha256": "8fbe1ca6d640941135498c651bdad9b79a851b904d675c7ccdd8ea06a4f5daca",
+      "bytes": 346
+    },
+    {
+      "path": "pokemon/230.png",
+      "sha256": "c57cd57420f53c921ba7ed1f88ef0963e69ffca205f8aa89bfb5524e4cca85ed",
+      "bytes": 786
+    },
+    {
+      "path": "pokemon/231.png",
+      "sha256": "b330b0ab6b9cb4dacc0b80cb49424a0ec8c8f815c7736c0e7c3b9276e1328acd",
+      "bytes": 290
+    },
+    {
+      "path": "pokemon/232.png",
+      "sha256": "82b904a7880373ae01e8b3e2250740f48c1e3ab88b84b5e447c72c6318e242b6",
+      "bytes": 430
+    },
+    {
+      "path": "pokemon/233.png",
+      "sha256": "130c5564b948a770779d730be398f6052d64db4eabea9962cce3165746fa0ddb",
+      "bytes": 702
+    },
+    {
+      "path": "pokemon/234.png",
+      "sha256": "a56be2dd7e25fa6ce79d680eb13da1e50e9706ed91b3a118269ccec817ed374f",
+      "bytes": 411
+    },
+    {
+      "path": "pokemon/235.png",
+      "sha256": "07e422194657a95f27d8c306d7f241d31e709246829a6a36b7150bf5f5ec48ec",
+      "bytes": 396
+    },
+    {
+      "path": "pokemon/236.png",
+      "sha256": "b09b4b56ea3dbe95aeda7af31330fac4d5cda4cee2e5bb04ef01d42fef4d19f8",
+      "bytes": 312
+    },
+    {
+      "path": "pokemon/237.png",
+      "sha256": "05f3511d0bc9921dec71ce40165f20919b6e361b869a79b91b4e4c7cab8bf1bb",
+      "bytes": 885
+    },
+    {
+      "path": "pokemon/238.png",
+      "sha256": "2b1fce4bfae8c8563f6884e497c01be3fce123723ac4504d633528d9a56eec6b",
+      "bytes": 321
+    },
+    {
+      "path": "pokemon/239.png",
+      "sha256": "e5dd16a9c780f815e573616198c26e88a1c313f29c86aefbff2c1e5da1d7adb0",
+      "bytes": 339
+    },
+    {
+      "path": "pokemon/24.png",
+      "sha256": "e1e6013ecbc9f958b49207e41f317a91d6015e1b5f914a0484505b6225d87644",
+      "bytes": 460
+    },
+    {
+      "path": "pokemon/240.png",
+      "sha256": "f42063facd77bc21bbc04d29d6337d68118bb7903359f5c1b5b7381b6a4182fa",
+      "bytes": 321
+    },
+    {
+      "path": "pokemon/241.png",
+      "sha256": "adaf40b617616cb1fdea128e36e4416a1dce7ae6ec2e681daeec5dd10de927bb",
+      "bytes": 928
+    },
+    {
+      "path": "pokemon/242.png",
+      "sha256": "c6bb04aab108b97391ab2881b8eb0b192d201ac7bdbcf683d719396bd0c65a1c",
+      "bytes": 970
+    },
+    {
+      "path": "pokemon/243.png",
+      "sha256": "9a39c46eb7bae75084809cd1c6e34e6b6c544c3153b1f40081e6f21c41082f00",
+      "bytes": 1313
+    },
+    {
+      "path": "pokemon/244.png",
+      "sha256": "4ef19ff06fc1efe2e1a1219534c01bd96d3b8bbf0f124a4ddbab593b99fa7945",
+      "bytes": 1168
+    },
+    {
+      "path": "pokemon/245.png",
+      "sha256": "553766642bcb4efa4db8d4b6cab7edb54c3742e181c4887df07532ebf44093e4",
+      "bytes": 1247
+    },
+    {
+      "path": "pokemon/246.png",
+      "sha256": "4955adcd469a5cae83c9bd8171b740f8fca03b0c7b6d9b9b1e8b4e15eee42607",
+      "bytes": 304
+    },
+    {
+      "path": "pokemon/247.png",
+      "sha256": "359a7b2c572d8d0fc310565368432822b4f11d77a94c3599ecd58b1c23d74eaa",
+      "bytes": 308
+    },
+    {
+      "path": "pokemon/248.png",
+      "sha256": "8ecaeb59a1cc463c46e2d74339943a983a13c3dab0d0dd86ef6bf7cd2c357ea5",
+      "bytes": 1026
+    },
+    {
+      "path": "pokemon/249.png",
+      "sha256": "678c0ad22fd40969811ca8dd6d02275a3720b7758cb09cd8fb3168a233332029",
+      "bytes": 931
+    },
+    {
+      "path": "pokemon/25.png",
+      "sha256": "9d715313833c46690f9932dd45b59da7e21630d35bcf4818992378362a3b898a",
+      "bytes": 372
+    },
+    {
+      "path": "pokemon/250.png",
+      "sha256": "fb8028bf35b3c5fe08c73104fad29145ca87e2abcea2b2e45266ad15ff9dd2b0",
+      "bytes": 1440
+    },
+    {
+      "path": "pokemon/251.png",
+      "sha256": "2aa47d779a428e346af6696685247751467012a7bba54740c3a1319dccd88758",
+      "bytes": 315
+    },
+    {
+      "path": "pokemon/252.png",
+      "sha256": "86ee7379316c43f4f3d565d127772d07059148cfcc1b6e4379851480fe69dfd8",
+      "bytes": 377
+    },
+    {
+      "path": "pokemon/253.png",
+      "sha256": "caa402554370a062ef990c7cb9f65a3c74dda25a061383b57cb5763cc4ee466e",
+      "bytes": 397
+    },
+    {
+      "path": "pokemon/254.png",
+      "sha256": "400f073be6c9faf8bd7e216e500f84fddd8ec9d4dd01db61c427e14b88289f44",
+      "bytes": 831
+    },
+    {
+      "path": "pokemon/255.png",
+      "sha256": "85fff5d59be27976f490a29500700a237c7521ffe2d86de3e9771e884fa5305c",
+      "bytes": 285
+    },
+    {
+      "path": "pokemon/256.png",
+      "sha256": "8c6c5d478593381043c0a2ee9478dd12a261b37d083402aae7f886e8858266f0",
+      "bytes": 391
+    },
+    {
+      "path": "pokemon/257.png",
+      "sha256": "704cf542729b477fcef511f162918af89f5b3e4ed4c27260b1dd8d75ddab62bf",
+      "bytes": 1010
+    },
+    {
+      "path": "pokemon/258.png",
+      "sha256": "61ca97f68330e2a6915aa2619d21e45ff737e20a9175a4f6834a546b8ad64593",
+      "bytes": 330
+    },
+    {
+      "path": "pokemon/259.png",
+      "sha256": "67f4771a2e619e05f5da7bc2f51121411f0d9c0955b425fadf00d9bb43219959",
+      "bytes": 376
+    },
+    {
+      "path": "pokemon/26.png",
+      "sha256": "bdc7c0925b86da42bcb3b054307452cebb9d92628b58de6ccf0ecd5019be3fcb",
+      "bytes": 1046
+    },
+    {
+      "path": "pokemon/260.png",
+      "sha256": "aa7916b92958db814923881dc1a62fe9e407bc9768aee2726381be989c2f2317",
+      "bytes": 1089
+    },
+    {
+      "path": "pokemon/261.png",
+      "sha256": "37cd8ba51efc0bf6392cc5f2cd6be8c07c65719cd59314a1449c1ffa1168b922",
+      "bytes": 326
+    },
+    {
+      "path": "pokemon/262.png",
+      "sha256": "bae19ea7e6784a9aa8e47ce334f658e1562d4afbc50ed3471647555fe5c3aa54",
+      "bytes": 373
+    },
+    {
+      "path": "pokemon/263.png",
+      "sha256": "b9a72863d20666d955c88ce48c94cbc34738ffd9d70a1d5f4e6715f943b0947a",
+      "bytes": 327
+    },
+    {
+      "path": "pokemon/264.png",
+      "sha256": "a78a9a3c8b4fad80c601468ee9c69217986ecd48713702b916efe35f523fe892",
+      "bytes": 324
+    },
+    {
+      "path": "pokemon/265.png",
+      "sha256": "bac91a7ce8002112206f9be7d7aa9568fb6c9534918a46e763156f9f5d307e74",
+      "bytes": 318
+    },
+    {
+      "path": "pokemon/266.png",
+      "sha256": "dae0e91fb7353289a7e4ce8f300ce5019eb48e8cd6bc0d9682a0073703737eb2",
+      "bytes": 318
+    },
+    {
+      "path": "pokemon/267.png",
+      "sha256": "1b2e3cd96a6cf1f99bc7e70607b6cecb67cbcdec272f309cfd7bd3e7e7fae33d",
+      "bytes": 405
+    },
+    {
+      "path": "pokemon/268.png",
+      "sha256": "e62409ba648c9d11be773d36dec799635d0de4e211a8e308dbf17aa502209c67",
+      "bytes": 327
+    },
+    {
+      "path": "pokemon/269.png",
+      "sha256": "812a8feb018bfe09e2bf9df13283bba64113fb54db63c47c96da829fab9c9940",
+      "bytes": 402
+    },
+    {
+      "path": "pokemon/27.png",
+      "sha256": "de313204aa8baa1e93a81b415fabc3106f13bfe1d82c27dd655eabc1e023f9f9",
+      "bytes": 338
+    },
+    {
+      "path": "pokemon/270.png",
+      "sha256": "b7fad0527f52bc5abe13f2a2e1515c77cea05efd1f93fe4590ff8d7837240564",
+      "bytes": 295
+    },
+    {
+      "path": "pokemon/271.png",
+      "sha256": "fe0770b42f923eccdc37089c41583ee49e19eacdafd5d70325ee23aa63b406f0",
+      "bytes": 386
+    },
+    {
+      "path": "pokemon/272.png",
+      "sha256": "d5cbd950adc76061bbe66d95f616baf355d2c83f01248051727687d18c102215",
+      "bytes": 1383
+    },
+    {
+      "path": "pokemon/273.png",
+      "sha256": "daf1c21229ebccf9e43d057e548cbc7483e519f54398a83fa3bada915e0e7430",
+      "bytes": 295
+    },
+    {
+      "path": "pokemon/274.png",
+      "sha256": "02bed9074d1b0f44eb4c93bc49beea34b690d9702ab991a43059bc646f59142a",
+      "bytes": 349
+    },
+    {
+      "path": "pokemon/275.png",
+      "sha256": "3fd86c17a89c752b48f1715db83238af5465f6a91347b8aa2dbadb95e012866b",
+      "bytes": 1047
+    },
+    {
+      "path": "pokemon/276.png",
+      "sha256": "5ff35fc1cc6710d1a3970af92427d551551a6d9ee860da5741a9c397a06b39c5",
+      "bytes": 275
+    },
+    {
+      "path": "pokemon/277.png",
+      "sha256": "d33a0df37fd3cf604a376eec7759217b5aabad0a347fab9b25f27982d8768e59",
+      "bytes": 365
+    },
+    {
+      "path": "pokemon/278.png",
+      "sha256": "52dcbbc97fa328c022c174215d7d6c8ba4a26b55dddf32ec914607137fe81ceb",
+      "bytes": 289
+    },
+    {
+      "path": "pokemon/279.png",
+      "sha256": "692a17da8e041ea6d4277106405223ce47c7d7aeb8f7f635ab3c012fa84ad2c9",
+      "bytes": 639
+    },
+    {
+      "path": "pokemon/28.png",
+      "sha256": "6e1d17c8f953981274ebe1d29e2d353d3c9f0eb420b3a1d8e4e284dcd4bd3cd0",
+      "bytes": 913
+    },
+    {
+      "path": "pokemon/280.png",
+      "sha256": "ff4e05415f7d8994a6775061a810ae2981ac87f2a36ebd383a019f6406506a71",
+      "bytes": 285
+    },
+    {
+      "path": "pokemon/281.png",
+      "sha256": "0c800458475d56a0dd3b4a8743c2bd27d7a32701c2355257275643f3580d8326",
+      "bytes": 374
+    },
+    {
+      "path": "pokemon/282.png",
+      "sha256": "38490d567a4cba21ec7462e1bed9cb24c774e4b0e9c3da00353f96371c30549e",
+      "bytes": 915
+    },
+    {
+      "path": "pokemon/283.png",
+      "sha256": "89e7f9e00ea81fe606189f7c6f7b95392e1b2374a3b7daabb77f4d8781371919",
+      "bytes": 283
+    },
+    {
+      "path": "pokemon/284.png",
+      "sha256": "edc9410d1f6674a0afc76692d94e88491c59ce131b1f3fda775b410ea3449154",
+      "bytes": 385
+    },
+    {
+      "path": "pokemon/285.png",
+      "sha256": "ae47c40191a308b2f7b28843e7f386b9f38d01030759905641e682ad43a47a35",
+      "bytes": 294
+    },
+    {
+      "path": "pokemon/286.png",
+      "sha256": "6a7425b05968a0a7af1819862fb745ba8ddd8894449142c98709bb74fdff2f97",
+      "bytes": 452
+    },
+    {
+      "path": "pokemon/287.png",
+      "sha256": "de57c1ceef4999e4d03b2e8b76bf1c38075b56b08e96432b2c7851b4a542f53e",
+      "bytes": 345
+    },
+    {
+      "path": "pokemon/288.png",
+      "sha256": "9ab7dc6cbd1fa7d8426a990eca3f4b00ae14bf71bc4777880868e7d82fb2c7d2",
+      "bytes": 415
+    },
+    {
+      "path": "pokemon/289.png",
+      "sha256": "5053a150440a10e4c5fa127cf4403de995d897babb25625748408d1ff3032d5d",
+      "bytes": 517
+    },
+    {
+      "path": "pokemon/29.png",
+      "sha256": "a9a56737a7f072d022d3956c53d6b3da5925dde753baa5a7b9da2f030bf0e7f2",
+      "bytes": 313
+    },
+    {
+      "path": "pokemon/290.png",
+      "sha256": "4120ad1c76a74749187ce81bf76174f1c8913d1c39451098eadf235b931dd27c",
+      "bytes": 315
+    },
+    {
+      "path": "pokemon/291.png",
+      "sha256": "60065550e30716aa2663e611421da42653e804bf35d7d2495d7b80d77bc24ffc",
+      "bytes": 858
+    },
+    {
+      "path": "pokemon/292.png",
+      "sha256": "999c21a4bfcaac8da38aad00f882ad25625568e4988a762462165c94e44c9902",
+      "bytes": 746
+    },
+    {
+      "path": "pokemon/293.png",
+      "sha256": "561830f578cee168728de5748164a82f613d09868a10d5b091eb057dd017715f",
+      "bytes": 294
+    },
+    {
+      "path": "pokemon/294.png",
+      "sha256": "0ff4ac15ce8d273ba83f381862a9aa877e03d35ba4467b18960ab5fdf3dc5f38",
+      "bytes": 424
+    },
+    {
+      "path": "pokemon/295.png",
+      "sha256": "ff046286d0360687338121e9884179d7c682d45c913a24c74f173d69b6462a36",
+      "bytes": 1265
+    },
+    {
+      "path": "pokemon/296.png",
+      "sha256": "dea773dbc60011217a2845b3f8811b82f69a3c8ba7cea032f3a144bc5a6a2ea7",
+      "bytes": 317
+    },
+    {
+      "path": "pokemon/297.png",
+      "sha256": "00e4c7e21cc533b2e8cfaa84b4cc5475076180b6aa1cc251935341ce3d245bc3",
+      "bytes": 403
+    },
+    {
+      "path": "pokemon/298.png",
+      "sha256": "1c3b59d49b84c74d1490ece3fc458ce2bdaeb6c8fab3c34e4cb42d336d4cd825",
+      "bytes": 298
+    },
+    {
+      "path": "pokemon/299.png",
+      "sha256": "618c878126e9e75a00e9f8862ca35777bbc48aaaf54b9f7130e5d0685e242700",
+      "bytes": 300
+    },
+    {
+      "path": "pokemon/3.png",
+      "sha256": "b72a2fdfba2100718711e1a1ea6ba0513345074b871fe30850a1e867cc4e014b",
+      "bytes": 1538
+    },
+    {
+      "path": "pokemon/30.png",
+      "sha256": "9c14033ef1cd057151550926372c67830cea95c404c0bf4f571ec02da9b8024f",
+      "bytes": 375
+    },
+    {
+      "path": "pokemon/300.png",
+      "sha256": "5f8012e3e05619a21ff2b2bd4c76e28f1de985081635f230dee5e39f1ad16664",
+      "bytes": 334
+    },
+    {
+      "path": "pokemon/301.png",
+      "sha256": "c8c2c71e578635a2082ee641ee4a1d0faa94f8478b7a5c9da0831d430341a64a",
+      "bytes": 389
+    },
+    {
+      "path": "pokemon/302.png",
+      "sha256": "8b3cb744c216d800e31fcce00d83e5a7f768f87f59b493df6a323733b79962b9",
+      "bytes": 808
+    },
+    {
+      "path": "pokemon/303.png",
+      "sha256": "e839581d549cb61ac3859d6e30f33c752538fc940bad6bace401e63b22893366",
+      "bytes": 839
+    },
+    {
+      "path": "pokemon/304.png",
+      "sha256": "4e724ec098e7c7377d5f0518bc821400e2fe2e62a5ae02a68e4d983ce43578aa",
+      "bytes": 241
+    },
+    {
+      "path": "pokemon/305.png",
+      "sha256": "e96c3f8268869ce1a36f5558ec3ffa739c8c7bb9aebf40749f87f6c975f43aa6",
+      "bytes": 345
+    },
+    {
+      "path": "pokemon/306.png",
+      "sha256": "f62f7341016975c23c00c17b3e15fda474319dc52eb441d11d10ea8f08434e2d",
+      "bytes": 957
+    },
+    {
+      "path": "pokemon/307.png",
+      "sha256": "6492ebf1405e7d7994defd18968337e6417d23b2885c1dfb5cae1494b3ee91a7",
+      "bytes": 326
+    },
+    {
+      "path": "pokemon/308.png",
+      "sha256": "96f126cd4dabe9bcd353c5625ae61324189a18fbfe4660cda2e2d55995b84c73",
+      "bytes": 348
+    },
+    {
+      "path": "pokemon/309.png",
+      "sha256": "42dee14f3a2de49bc9821771c8eadcf725ff917207c5d100b475b71d3c04be6a",
+      "bytes": 295
+    },
+    {
+      "path": "pokemon/31.png",
+      "sha256": "6cd558202f07752f1bad177a34691f1328ca53663fd54a235c6cc93bab4374d5",
+      "bytes": 754
+    },
+    {
+      "path": "pokemon/310.png",
+      "sha256": "890b3dc3ed67474bed28365981006a1558025532e66e06c4f15907b8773e6f54",
+      "bytes": 847
+    },
+    {
+      "path": "pokemon/311.png",
+      "sha256": "0480044d6a06a13794701eabd5636bf2e02dd6cf644aced7fa5ab56d68700a17",
+      "bytes": 299
+    },
+    {
+      "path": "pokemon/312.png",
+      "sha256": "bbcc30b4210690ab92f1aafc5b9125a21be8be6a7b5e035dc06b9f2e9a5c81eb",
+      "bytes": 282
+    },
+    {
+      "path": "pokemon/313.png",
+      "sha256": "a822b358922e0306fed0d154f647513210a90cc2313b96b90bcd8a7a09fa9fa1",
+      "bytes": 346
+    },
+    {
+      "path": "pokemon/314.png",
+      "sha256": "ce5221390ab216e38f4693480b4e917d83d6c2c5ff8feef47b71b5c7098cf6d5",
+      "bytes": 349
+    },
+    {
+      "path": "pokemon/315.png",
+      "sha256": "f563c5754d87b6b3718c5b06e961ea11b76914f96681bff4a77a6ae6a8c7c535",
+      "bytes": 395
+    },
+    {
+      "path": "pokemon/316.png",
+      "sha256": "50801869b48db2c19d4033f434336ac41076bcb616bd2e3c250c7084f718317e",
+      "bytes": 241
+    },
+    {
+      "path": "pokemon/317.png",
+      "sha256": "d107ebd8f85a20f42a5232408e4f09d6478eb26cb097ec6a0281048dbff8b8e7",
+      "bytes": 274
+    },
+    {
+      "path": "pokemon/318.png",
+      "sha256": "88381d2ef77d6e5a7c69a3972ae37eedb9a6c02121092b1af9b398b24a56219b",
+      "bytes": 338
+    },
+    {
+      "path": "pokemon/319.png",
+      "sha256": "f2f40463ae07d0f7c59406809d97e9c1b58f352c6a21a76eeaf8152283f6e1c9",
+      "bytes": 784
+    },
+    {
+      "path": "pokemon/32.png",
+      "sha256": "ff8d7c95501de556ba110cd7a8598372207be9f684755e2b2c9e79b05898cf32",
+      "bytes": 331
+    },
+    {
+      "path": "pokemon/320.png",
+      "sha256": "76c9ce3632e0cd6798f3e43ae8920e982a5815f1e9737db3cc82305e8ec69e70",
+      "bytes": 641
+    },
+    {
+      "path": "pokemon/321.png",
+      "sha256": "4496981c97693d0a2d5397b805eddad71ecf02a34d253386a481dc6581cd5787",
+      "bytes": 852
+    },
+    {
+      "path": "pokemon/322.png",
+      "sha256": "a9d917816c362409afb8d9c3aeb40587f1d08b2b88064ac02a940644b7a6d86f",
+      "bytes": 339
+    },
+    {
+      "path": "pokemon/323.png",
+      "sha256": "1c9fed9512410d6fe351d3f572ab80978e11025719064f12b0752f4f473a20d2",
+      "bytes": 421
+    },
+    {
+      "path": "pokemon/324.png",
+      "sha256": "f39c168221c64b438e4cd19af72014748e349a9d2df54ac27746e50cd9d1de56",
+      "bytes": 847
+    },
+    {
+      "path": "pokemon/325.png",
+      "sha256": "ecde2f6eb0bd347723c921d33ba78833546a88434fbb7f17d4ae2ee932012981",
+      "bytes": 258
+    },
+    {
+      "path": "pokemon/326.png",
+      "sha256": "534950bb0224e3996dab5b0a3ddd19b9d444475bc265ea665fb435586f05d623",
+      "bytes": 342
+    },
+    {
+      "path": "pokemon/327.png",
+      "sha256": "ef45408d1aad35fc5499808139b3542557c110da11b9adac8602470980f2d0b3",
+      "bytes": 340
+    },
+    {
+      "path": "pokemon/328.png",
+      "sha256": "bf26cae4cdeca5ac8745ea6aaa501c9b2f28dcf161def2726e592ede79a7cd44",
+      "bytes": 277
+    },
+    {
+      "path": "pokemon/329.png",
+      "sha256": "152ca85bfb03e352525800e8e3d53341c8489d1742692f5ef2921f1af567418d",
+      "bytes": 333
+    },
+    {
+      "path": "pokemon/33.png",
+      "sha256": "16e5e98349beddc801b6db96944768d34f80ada205982273511c8e3405d5404b",
+      "bytes": 362
+    },
+    {
+      "path": "pokemon/330.png",
+      "sha256": "89a708b346f956be4352c1ee9065491e47b2664c527b67f1dad4f7f49f95658c",
+      "bytes": 957
+    },
+    {
+      "path": "pokemon/331.png",
+      "sha256": "1cae2d19c1ab1fcd8bcc9a480c8ebb0412c0f4338a1d715791d6382711f5bb4d",
+      "bytes": 344
+    },
+    {
+      "path": "pokemon/332.png",
+      "sha256": "bf4b554e5bf158930c267c9a9d9c16c3389cb0f9aaed3706e00f1d0730d45935",
+      "bytes": 346
+    },
+    {
+      "path": "pokemon/333.png",
+      "sha256": "faf362478ef2c1f88d03e30043a7bde2e1b2d135d09bc24079199a018949b8b7",
+      "bytes": 282
+    },
+    {
+      "path": "pokemon/334.png",
+      "sha256": "83afe7faf99205f2adb0cdd5ca355a0361f57558109fbc9e15b836972cfce265",
+      "bytes": 763
+    },
+    {
+      "path": "pokemon/335.png",
+      "sha256": "5f52f5c0b6a46272f9b995fcbdd3db91816e697da0a253138242494815ba6825",
+      "bytes": 373
+    },
+    {
+      "path": "pokemon/336.png",
+      "sha256": "1af0850a634e5845d58e438f186b0374c5e4ca3ec4d0242a51f81effbb474c6e",
+      "bytes": 387
+    },
+    {
+      "path": "pokemon/337.png",
+      "sha256": "c6720d1d4d7b475509db50cd699c679fad0b8e36a8f5d492689d3205c005005e",
+      "bytes": 482
+    },
+    {
+      "path": "pokemon/338.png",
+      "sha256": "65314ae07179944ad5db463fd90254456829156d4dc86d732478e005edcd85ac",
+      "bytes": 794
+    },
+    {
+      "path": "pokemon/339.png",
+      "sha256": "3e5695ab7997dee16ff9da8aaf96c4b4e32711447f36cc9b18a5e7a087379a62",
+      "bytes": 267
+    },
+    {
+      "path": "pokemon/34.png",
+      "sha256": "f1d3eab40f6006685284a353d228dce98a247be8d2232d6965bb3a7131ad7054",
+      "bytes": 1210
+    },
+    {
+      "path": "pokemon/340.png",
+      "sha256": "d8bcbe241c47a9c7cb0237ff3a7b4235add2fd71a322372b5419411041559c05",
+      "bytes": 832
+    },
+    {
+      "path": "pokemon/341.png",
+      "sha256": "366f10bfe0ffbf9ea0389b10d5aee438ae8bbe4ea2cd5cd4e418c9b5d16ea5f3",
+      "bytes": 337
+    },
+    {
+      "path": "pokemon/342.png",
+      "sha256": "a0da7a94148cd8c116c677851101ae68d0c2f9de04840af538d36b21bf77b591",
+      "bytes": 856
+    },
+    {
+      "path": "pokemon/343.png",
+      "sha256": "aeff0a8a9abf479782449b840ed92d05c01b75489e67920e56d941b157ba17a8",
+      "bytes": 319
+    },
+    {
+      "path": "pokemon/344.png",
+      "sha256": "6493ada78fb1bc79da12444b5143b681f3c88c61399f49ac45faf8ff72020335",
+      "bytes": 771
+    },
+    {
+      "path": "pokemon/345.png",
+      "sha256": "ee358e7ecde0b0e68fec8b5a345aff3e2253d2cf5c4254f0641ce7700af80a79",
+      "bytes": 343
+    },
+    {
+      "path": "pokemon/346.png",
+      "sha256": "fb50800dafeea3b8d6f3252d8d217b755f1cb9e1b3dfbab3c38e825539386e86",
+      "bytes": 459
+    },
+    {
+      "path": "pokemon/347.png",
+      "sha256": "5c2529e97fea0e09eb3b11af49162e5a154be412be96f9a1e862c7b86fa542de",
+      "bytes": 372
+    },
+    {
+      "path": "pokemon/348.png",
+      "sha256": "84a8e0357699432f193dfd69969f1844ea9dcf86fe13a62cf7adbacfccfc373a",
+      "bytes": 942
+    },
+    {
+      "path": "pokemon/349.png",
+      "sha256": "0a5767695d9b50ddc68720980bf678dbd031a8f0695623cbadbbf89cc4a40ea6",
+      "bytes": 356
+    },
+    {
+      "path": "pokemon/35.png",
+      "sha256": "4cb74da38f8ee28096326bc80b434328bc8b13922d0a2e2304c4fe2a1cd9ddb7",
+      "bytes": 305
+    },
+    {
+      "path": "pokemon/350.png",
+      "sha256": "49d8bfc601c5e76f375aacc0a8c82f0fb026d93613da9f5b949910e100010aa6",
+      "bytes": 1145
+    },
+    {
+      "path": "pokemon/351.png",
+      "sha256": "5f4781a70a018a61afd19c6422ab158c9128ae31125b7584bb02375100fa8431",
+      "bytes": 247
+    },
+    {
+      "path": "pokemon/35101.png",
+      "sha256": "9d18aff2f351ba897a30491c32c8e167de2f08445f3e9f03551a069d07abdc20",
+      "bytes": 313
+    },
+    {
+      "path": "pokemon/35102.png",
+      "sha256": "1ad83f0e18fcbf9f4d48b751e277c51fd48a808f7a730ba54bff75375d4be01e",
+      "bytes": 308
+    },
+    {
+      "path": "pokemon/35103.png",
+      "sha256": "adf0e69a23915dfac4e1598820670527cbeab83e19408455d5acf383a6c7dc84",
+      "bytes": 348
+    },
+    {
+      "path": "pokemon/352.png",
+      "sha256": "da07f42695b5baac7776a11ef3235f2d8b9e3756eb37a18122161970773dc1f2",
+      "bytes": 340
+    },
+    {
+      "path": "pokemon/353.png",
+      "sha256": "e2920ba7a8f0e6f620abfc6d2b7b67981ff6acecf28c890de09ce02b482f39fc",
+      "bytes": 266
+    },
+    {
+      "path": "pokemon/354.png",
+      "sha256": "71670dc98ae01da9ce279b15e1dff0a0cf94ed0f6fb523a73a8419c9854f90e7",
+      "bytes": 345
+    },
+    {
+      "path": "pokemon/355.png",
+      "sha256": "9b4d62b304b846e0cf0911533606f41881bab89328b9af3a40a426a44c302df4",
+      "bytes": 307
+    },
+    {
+      "path": "pokemon/356.png",
+      "sha256": "48a26df59cc416c9beaad9b3a8e0f1d146cebad731c15219c62c313ae2d09f5b",
+      "bytes": 404
+    },
+    {
+      "path": "pokemon/357.png",
+      "sha256": "cf182e82d0de57f77e3c42e138318cc76f1b9db5e669402b89a28eae4e59493f",
+      "bytes": 465
+    },
+    {
+      "path": "pokemon/358.png",
+      "sha256": "693bc10babb29716a51c5dc6d99a7f821b5bec53feec4f17c1d5ef7590b2effd",
+      "bytes": 280
+    },
+    {
+      "path": "pokemon/359.png",
+      "sha256": "256b19d94f15f31ea959f31e8fd21753d9d13b56a18736e412e1b32b6960e1c0",
+      "bytes": 763
+    },
+    {
+      "path": "pokemon/36.png",
+      "sha256": "f3ee698930afc626fe053567e5db76401695415c4cd021cfffa1f366971ee7ee",
+      "bytes": 620
+    },
+    {
+      "path": "pokemon/360.png",
+      "sha256": "4a0b8382055bf72895a4d29d34849c04e0905be0b5b19e2cff0fd6bf560eaabd",
+      "bytes": 326
+    },
+    {
+      "path": "pokemon/361.png",
+      "sha256": "1570302e3aa03e054baca503eae6e57ca7e575eb03fef898cc125638dcdaab04",
+      "bytes": 246
+    },
+    {
+      "path": "pokemon/362.png",
+      "sha256": "eb86395a37cf22af7a84aceeda1adf7146181e243a30064c3ebc34ee4648b88a",
+      "bytes": 770
+    },
+    {
+      "path": "pokemon/363.png",
+      "sha256": "32f901813dd306d78edeedf57e16f6d040b654ec2415562bdd34825b00111f8f",
+      "bytes": 304
+    },
+    {
+      "path": "pokemon/364.png",
+      "sha256": "b74bc71372075a57318bb3130908c376a6231165f42b6e68e8284255caaa1139",
+      "bytes": 347
+    },
+    {
+      "path": "pokemon/365.png",
+      "sha256": "b82d03bb4ef287b881872f9cf28db1d0d1cb987fd14ce0dcdc40da877438613c",
+      "bytes": 986
+    },
+    {
+      "path": "pokemon/366.png",
+      "sha256": "2776a140e71c7e654686437b231df825b954465ceb484fc8eb8b9580e7592480",
+      "bytes": 348
+    },
+    {
+      "path": "pokemon/367.png",
+      "sha256": "3343cf5139ba453e21b6ac3b840213a25ee05692c14dcfab805c50f27d4f606d",
+      "bytes": 427
+    },
+    {
+      "path": "pokemon/368.png",
+      "sha256": "3f3238ce0c300e8576af2b900bce81b113dd40c75a55089a979db0dbbaffd6d7",
+      "bytes": 316
+    },
+    {
+      "path": "pokemon/369.png",
+      "sha256": "645320f95084df177e3de921234542047a70ab48ba811bb9bbdc9355a86fbd45",
+      "bytes": 739
+    },
+    {
+      "path": "pokemon/37.png",
+      "sha256": "55f27f6315cd0ac2ff28f8a78d69f64c7851f5581bb1875455a6f38c0b181dfb",
+      "bytes": 346
+    },
+    {
+      "path": "pokemon/370.png",
+      "sha256": "b8c4086c8fcf19a680cd0a4dd88b1fadde106166262c7d6321721a337f53e940",
+      "bytes": 247
+    },
+    {
+      "path": "pokemon/371.png",
+      "sha256": "0bb5942475f0cb56634454747a781d5ee51e1eae60dc49572b05c9c58c57a889",
+      "bytes": 304
+    },
+    {
+      "path": "pokemon/372.png",
+      "sha256": "0153afa9d29574f8fb96e6f883dddf468540a5b31b6cf214983a27030704e1e6",
+      "bytes": 344
+    },
+    {
+      "path": "pokemon/373.png",
+      "sha256": "12853945ae6d0a6720c1a802b69f7236ccff4cd65161ca1dfef81ca8f369fcd1",
+      "bytes": 1014
+    },
+    {
+      "path": "pokemon/374.png",
+      "sha256": "81d410280d710c352d2aa2d640dba58056dd6e52c265f48254893ad26e608a37",
+      "bytes": 291
+    },
+    {
+      "path": "pokemon/375.png",
+      "sha256": "871fe43032e76fbe4f6a88df75fdd3d07d0a7d040c2489137f646b4b3c8b22a1",
+      "bytes": 418
+    },
+    {
+      "path": "pokemon/376.png",
+      "sha256": "221e3f6756760fcb5f53ede117888ab07b8cf865294dd042af08afb07233a535",
+      "bytes": 1178
+    },
+    {
+      "path": "pokemon/377.png",
+      "sha256": "cd0279f187e953aca2ba0e3efdf856dff13852f36a88d3ea039fbc29a28f5fc8",
+      "bytes": 1131
+    },
+    {
+      "path": "pokemon/378.png",
+      "sha256": "3ed75347f55cb449033412f1a095eaee583cdf367ee417d68e2ba1399222e9bf",
+      "bytes": 1096
+    },
+    {
+      "path": "pokemon/379.png",
+      "sha256": "fac28adb76d6ff45fad79aaf0b402672ebfceb98bf75bf489e847c3a145d59f9",
+      "bytes": 987
+    },
+    {
+      "path": "pokemon/38.png",
+      "sha256": "cfe49ede596e05abff16ef9ecfece5b711a5094fd7287e3d94d674233cf9b0af",
+      "bytes": 1101
+    },
+    {
+      "path": "pokemon/380.png",
+      "sha256": "cc6ae2e4a36b7d9696a3d4c1ad94b54ca53802468e0f403c0b4a8765cdd78385",
+      "bytes": 879
+    },
+    {
+      "path": "pokemon/381.png",
+      "sha256": "57897fed26877b5d0b8fff2afc314f652e823885d6d5a71ab369179dee05d325",
+      "bytes": 1029
+    },
+    {
+      "path": "pokemon/382.png",
+      "sha256": "e4105343c510c9a6bdff2ef59024e044a3fe1d58c211bb62174b716d3e0a8fcd",
+      "bytes": 1055
+    },
+    {
+      "path": "pokemon/383.png",
+      "sha256": "caeb20e6f86970d4da5047615676d78f975d4a520105f03db72d3e5c6421f024",
+      "bytes": 1192
+    },
+    {
+      "path": "pokemon/384.png",
+      "sha256": "09c26a9c09e21d9f8429a2ae9a0866b44d900afaff9e3e91e891609740dfa751",
+      "bytes": 1575
+    },
+    {
+      "path": "pokemon/385.png",
+      "sha256": "bc4600ab24122abdb72c0922fe175b648f5282e87ddcea55611f1222de3068c7",
+      "bytes": 343
+    },
+    {
+      "path": "pokemon/386.png",
+      "sha256": "6fec61cd052f52e337c5bc61c58f95bd7178a30620467432b432c76288bea098",
+      "bytes": 404
+    },
+    {
+      "path": "pokemon/38601.png",
+      "sha256": "8b5513e37c1cd635976c5f190f6c543ae900b4fd2d8216c001696748cf5f98f2",
+      "bytes": 442
+    },
+    {
+      "path": "pokemon/38602.png",
+      "sha256": "8b4ca9cad8894ec11bf37f562bc5bbf718049cb822e3ae0072ef5dfa759a8a8e",
+      "bytes": 426
+    },
+    {
+      "path": "pokemon/38603.png",
+      "sha256": "5646714ef3552d0eeb2d71a7294d6722d6d2e4794dc66ba42c87cb25b6f68c69",
+      "bytes": 410
+    },
+    {
+      "path": "pokemon/39.png",
+      "sha256": "8fd42ea797ca4e17b15f454e26f81bcc1d7deb9601f0a563459117b7465ff57f",
+      "bytes": 311
+    },
+    {
+      "path": "pokemon/4.png",
+      "sha256": "beb7e8bf9b24fcf74a1dcdc1b03ee2a85997235a5919544966c827ec8fe27f77",
+      "bytes": 322
+    },
+    {
+      "path": "pokemon/40.png",
+      "sha256": "3dadb98b81c0fd6b4e09743d321e26b92629fbd206b34fc97c971de458b1f179",
+      "bytes": 826
+    },
+    {
+      "path": "pokemon/41.png",
+      "sha256": "8907dbdc250a86cdf9e3fe81f7ee3f125520840999f6e0bb4478fafedde0b41a",
+      "bytes": 302
+    },
+    {
+      "path": "pokemon/42.png",
+      "sha256": "8b30a71303d92c88984639487e29140cd2cf98a3e07eeecd23f02be2dfc1e9a4",
+      "bytes": 556
+    },
+    {
+      "path": "pokemon/43.png",
+      "sha256": "9cff69d44118048e2a463c7f9894a1607c9629b8e30736f9d4489d5f5c09b70e",
+      "bytes": 310
+    },
+    {
+      "path": "pokemon/44.png",
+      "sha256": "6af321e68344232a5274dba33e215e36f373c3cae3d5f328765ddc61bac1dc1f",
+      "bytes": 381
+    },
+    {
+      "path": "pokemon/45.png",
+      "sha256": "539acc443d993e5e51d6ae985e7f92efc8a5c05feda8fe04f87be01e13b18e71",
+      "bytes": 633
+    },
+    {
+      "path": "pokemon/46.png",
+      "sha256": "551906c68bd2b43a176842722cc0e52502121101199156712f37500bd2514d4d",
+      "bytes": 374
+    },
+    {
+      "path": "pokemon/47.png",
+      "sha256": "5dde3a52b3dde0fcc7e37b8e22fef102aec67fee0ee3b76301ee558390432126",
+      "bytes": 382
+    },
+    {
+      "path": "pokemon/48.png",
+      "sha256": "b409a1165d6b1199497e970892e6751ce39348ab5f788eb4f4f1c5cf0a69590a",
+      "bytes": 358
+    },
+    {
+      "path": "pokemon/49.png",
+      "sha256": "fbb2683c43e4610e812115d6d05aef2d19ed60402c32c814b728ea7c5940ea58",
+      "bytes": 604
+    },
+    {
+      "path": "pokemon/5.png",
+      "sha256": "9a2f815a65b0dfc3bea1c507e6f1e582492e6ae64190eb9d61c325a82e03415f",
+      "bytes": 374
+    },
+    {
+      "path": "pokemon/50.png",
+      "sha256": "b21904ecee585cca4eed678b67bfb888bf6a3d3ae812c450d3465fdd77964bd2",
+      "bytes": 266
+    },
+    {
+      "path": "pokemon/51.png",
+      "sha256": "e4beb0d158f12410067b744d97495ccbc07e22d5705c21f10f24da59cc474c64",
+      "bytes": 914
+    },
+    {
+      "path": "pokemon/52.png",
+      "sha256": "1801a7fa36c2927a0384dc72dbf895afedf413ddc41aca06cd9abda5b5baecfc",
+      "bytes": 366
+    },
+    {
+      "path": "pokemon/53.png",
+      "sha256": "db2f5ac5243d891b871c1be8d12eb62669ed5cee55bd04fb2c47bbd334176858",
+      "bytes": 838
+    },
+    {
+      "path": "pokemon/54.png",
+      "sha256": "28864d0fa0d8b9c66d270cd1a0c21c38b7119559ceb324cb4a42c263b9df500a",
+      "bytes": 330
+    },
+    {
+      "path": "pokemon/55.png",
+      "sha256": "46dd34746aac388631151d2574d7e6114d2ee86f2aa156746aefb7411e9894de",
+      "bytes": 988
+    },
+    {
+      "path": "pokemon/56.png",
+      "sha256": "2a406fc310a2f8e54d9ce6d96856b2390f754103e2ddb37f506b09aaa8c5240c",
+      "bytes": 395
+    },
+    {
+      "path": "pokemon/57.png",
+      "sha256": "d5b0b24456dda76e8ed12f699e33613717053ff9aa87e452a9d132d3eab1dfbf",
+      "bytes": 440
+    },
+    {
+      "path": "pokemon/58.png",
+      "sha256": "1d14fe0eba1eee042088055adab744fc8f5eeaca5610d6b7d2141de08799e5c1",
+      "bytes": 366
+    },
+    {
+      "path": "pokemon/59.png",
+      "sha256": "8b09323f34d452a587fa086ef252720790e09669551ae109e01ae58b44fd47a1",
+      "bytes": 652
+    },
+    {
+      "path": "pokemon/6.png",
+      "sha256": "8f240d20cf6ea209e82870cb052c244fcc51136d0d1278021253770654285af4",
+      "bytes": 776
+    },
+    {
+      "path": "pokemon/60.png",
+      "sha256": "a2c8d2565a56965d99fe80cf9a0c2528d513a836729ba2e0120bc63dfb73e33b",
+      "bytes": 309
+    },
+    {
+      "path": "pokemon/61.png",
+      "sha256": "5373412955fc0635bd077116d2a8f23c903de41bebc15c899e1512e62d4c1ba6",
+      "bytes": 330
+    },
+    {
+      "path": "pokemon/62.png",
+      "sha256": "d992494263487dfd8325a13ad55435354c1a761248101cb37d704c09cfaaf8ea",
+      "bytes": 1010
+    },
+    {
+      "path": "pokemon/63.png",
+      "sha256": "d3ec00cb1952b93d08ca3a6250e77187e86ed4fbb598e3a0c71746cdd6775ebb",
+      "bytes": 342
+    },
+    {
+      "path": "pokemon/64.png",
+      "sha256": "dffcea7e5613f3580789d1372bfdd661efd31321604746b266b63457ae0cc359",
+      "bytes": 732
+    },
+    {
+      "path": "pokemon/65.png",
+      "sha256": "c2e4765e82e58075779982ee1f12e4f6e6dbd05f3b63c45af14adda043888b41",
+      "bytes": 1141
+    },
+    {
+      "path": "pokemon/66.png",
+      "sha256": "3dc29ca60092dcbe6a8ab9577ecd177b8ae189d9ac2fb6d45ee953a56c024a6d",
+      "bytes": 306
+    },
+    {
+      "path": "pokemon/67.png",
+      "sha256": "bc44c2ceea4d6448d0c1bd9db39acae50725b2e56fb2bf6575162fcd53772b07",
+      "bytes": 396
+    },
+    {
+      "path": "pokemon/68.png",
+      "sha256": "7dfafbc23a0c9528d39d007259aad6fd4e280f4270631fc9716bb2dbb5ee95f0",
+      "bytes": 793
+    },
+    {
+      "path": "pokemon/69.png",
+      "sha256": "098a090e3ede1a7961d4185a41a7ffe51620dabacfbc1d150321436261988aa4",
+      "bytes": 253
+    },
+    {
+      "path": "pokemon/7.png",
+      "sha256": "b86d6f10fcdef1a54d02647e92d8a28db221f7087076a89c0200b3bffe4100ea",
+      "bytes": 346
+    },
+    {
+      "path": "pokemon/70.png",
+      "sha256": "9b23bc8be80b09d10bb1ef2424e5f4731a8c91abc8e14f79eff5cab9939cf6f0",
+      "bytes": 344
+    },
+    {
+      "path": "pokemon/71.png",
+      "sha256": "09b3a34558944eaa62c4f2cf27ffe42598e00033e920d945eb4b7b6575a4fa6c",
+      "bytes": 591
+    },
+    {
+      "path": "pokemon/72.png",
+      "sha256": "f49c24fc14b461592b3a0db1bb62138f4acaee3aec3ea7547b32e612a1afa1f4",
+      "bytes": 358
+    },
+    {
+      "path": "pokemon/73.png",
+      "sha256": "00c58085214f8e6aa9de989e4c2aef4be98695761d9eb56d4f80915b65a8fdd8",
+      "bytes": 1181
+    },
+    {
+      "path": "pokemon/74.png",
+      "sha256": "3b375b7140c9d9d202cf75edd38c383238d45d3e8419964ff81c09ec5ecc96e2",
+      "bytes": 305
+    },
+    {
+      "path": "pokemon/75.png",
+      "sha256": "9eba453309df936ed5d23a0f76a7f5b634005d06439ce4e009ab27ade64d15a9",
+      "bytes": 408
+    },
+    {
+      "path": "pokemon/76.png",
+      "sha256": "f3bde683085dd15acb618ca095d4642ac22311ce13b62ebb0d2ff8433d7b054c",
+      "bytes": 626
+    },
+    {
+      "path": "pokemon/77.png",
+      "sha256": "b442df3cc68d0f23a8713e0db602fc9601f11ebf3bad81ec66a32d281cb3fe4c",
+      "bytes": 426
+    },
+    {
+      "path": "pokemon/78.png",
+      "sha256": "8c56dafddcaeec97480aa5a44fd070533b1d447d6f973f90d3fbca7b11b43bca",
+      "bytes": 721
+    },
+    {
+      "path": "pokemon/79.png",
+      "sha256": "75b8b1611a12bde63375d7fa1147f20cbf5e239412ca661f116bb4cce728cf3d",
+      "bytes": 317
+    },
+    {
+      "path": "pokemon/8.png",
+      "sha256": "1aa5e6ac6310bbcbc700f9fef7bc51090a9aa4bca325949bad2f3225187504b4",
+      "bytes": 416
+    },
+    {
+      "path": "pokemon/80.png",
+      "sha256": "502b62a1c6020840ac480f53e264b3c0ddcb5a5a01d13433f78f1119f3a9f0cf",
+      "bytes": 1207
+    },
+    {
+      "path": "pokemon/81.png",
+      "sha256": "75c62a536ee6737de484d3ffc8ab7e8ac65d04fec268a0279e93e619a919ace8",
+      "bytes": 297
+    },
+    {
+      "path": "pokemon/82.png",
+      "sha256": "53a06eb0bb353c6a2471bf32ecdaf9af05db17a0492ad4d0029cda681f098d4a",
+      "bytes": 1184
+    },
+    {
+      "path": "pokemon/83.png",
+      "sha256": "df6340a493c083877cafe4b108d8186d721b2266d2f911af4d1487db6b0d2320",
+      "bytes": 391
+    },
+    {
+      "path": "pokemon/84.png",
+      "sha256": "d152c547ffa33c61d3e70646d92582b9bdde161337bccd1a1a21be85fb9430e4",
+      "bytes": 311
+    },
+    {
+      "path": "pokemon/85.png",
+      "sha256": "a4897f5ef89af1d0689363deab575361c3666f97f39f80558e1c19f7bf21da8e",
+      "bytes": 599
+    },
+    {
+      "path": "pokemon/86.png",
+      "sha256": "5455e45e4dedaf88fd01631a3ffeaae9e158c9db3c7060e475960c553faef1ad",
+      "bytes": 371
+    },
+    {
+      "path": "pokemon/87.png",
+      "sha256": "ae624646d12fbb3f40a9437881a09720828298776b6b60511ff94a758d9e9768",
+      "bytes": 540
+    },
+    {
+      "path": "pokemon/88.png",
+      "sha256": "3dd9da35c632ff5075fbfed6fc3271f464529c78dbcbd579614eec45162c1c9b",
+      "bytes": 329
+    },
+    {
+      "path": "pokemon/89.png",
+      "sha256": "7ac1da72f7fb509caeaa8691b0e7058e247b4cd18f16f0530dd8b73c7ffcfb82",
+      "bytes": 420
+    },
+    {
+      "path": "pokemon/9.png",
+      "sha256": "fd60b68fc65b2317f92d7a77f262ce643d27a2237e09a667fea8765d1c598617",
+      "bytes": 668
+    },
+    {
+      "path": "pokemon/90.png",
+      "sha256": "b0af8f9edc3069c18a8f98ad3d2ad576ac5e1d5191dbf6460c63f0764e92879d",
+      "bytes": 335
+    },
+    {
+      "path": "pokemon/90025.png",
+      "sha256": "c74004d2eb7247717a716a0329a232ff8007f488c319f1af09afb4ac997fef38",
+      "bytes": 463
+    },
+    {
+      "path": "pokemon/91.png",
+      "sha256": "057cd367f8a0aac2c3f9bf66faa956bf737a52bea9f58106cb7c73ef292bbf12",
+      "bytes": 645
+    },
+    {
+      "path": "pokemon/92.png",
+      "sha256": "52e03260b043d713b8497d3ded52d5b6c38964ba9873cc39c2e7ebbc7c3e4f93",
+      "bytes": 348
+    },
+    {
+      "path": "pokemon/93.png",
+      "sha256": "ec8b0345a7d23deee79013e1c28b0354a68aee1edc961af53474b4d0f122650d",
+      "bytes": 407
+    },
+    {
+      "path": "pokemon/94.png",
+      "sha256": "6a35c89b381b06fa109326adf5497c1b7154381e22e7a74641036d85f4000c97",
+      "bytes": 602
+    },
+    {
+      "path": "pokemon/95.png",
+      "sha256": "6f269f868afb16be581ccda6bdb722679a0c5aa053e1b1a6a0631b5cb0fce9ff",
+      "bytes": 604
+    },
+    {
+      "path": "pokemon/96.png",
+      "sha256": "8824521d933ea2d1309fcb7071c161c798d73e342040aee798deab9f27cb9f9d",
+      "bytes": 356
+    },
+    {
+      "path": "pokemon/97.png",
+      "sha256": "77e3ec8a533d01c150ddb0dfc15024522d44bc72ce92638e3ed4cdf9513ed023",
+      "bytes": 555
+    },
+    {
+      "path": "pokemon/98.png",
+      "sha256": "2d5f71c61d311786d32edc9522ecda87c3316a7e59dec439f30cd5f593a84fd5",
+      "bytes": 396
+    },
+    {
+      "path": "pokemon/99.png",
+      "sha256": "b5f8b4bf0740663d013022b7ec2c17090c15eedb53d3d9a8318df38321235c8c",
+      "bytes": 746
+    },
+    {
+      "path": "items/auroraticket.png",
+      "sha256": "872c93acb4885fda270783886b41e27b7c6e61f5589eb529efc20b8255176a3a",
+      "bytes": 262
+    },
+    {
+      "path": "items/claw-fossil.png",
+      "sha256": "c059ad7fcac8cafcf7298d5db506bd404531dec2a7dd491f337d78876097689a",
+      "bytes": 370
+    },
+    {
+      "path": "items/contest-pass.png",
+      "sha256": "f419a1236b91289871a5c2d12f036e1a66dd5484330609e0d16411dbf5b6f98a",
+      "bytes": 442
+    },
+    {
+      "path": "items/deep-sea-scale.png",
+      "sha256": "86a9ff4322e2e8b68ec70152b955cbfbe69f5bd77607cfeee20304d001ffde63",
+      "bytes": 235
+    },
+    {
+      "path": "items/deep-sea-tooth.png",
+      "sha256": "c502a02f97a71667edf07a1f9d1631e9384e38041cb0332b2551c658ad35bb26",
+      "bytes": 274
+    },
+    {
+      "path": "items/dome-fossil.png",
+      "sha256": "fa5e5bb26d2cfa7a0487d143117de6d0186d645beacbd464852c20f37a8b4243",
+      "bytes": 366
+    },
+    {
+      "path": "items/dragon-scale.png",
+      "sha256": "5df87e270a5633d8bc11c26dd82865f7da317e0a98fc689c4467a10f4b329710",
+      "bytes": 233
+    },
+    {
+      "path": "items/enigma-berry.png",
+      "sha256": "4345e1917c62fa5a079a6e6cf1e2eb9065825a05003c5c2aa24a25cbf8970ab0",
+      "bytes": 295
+    },
+    {
+      "path": "items/event-shard.png",
+      "sha256": "3d127f63067921483cf47f1007b2baf28c0e77f8a37e413c034eb32e7832f759",
+      "bytes": 241
+    },
+    {
+      "path": "items/exp-candy-big.png",
+      "sha256": "36b7513c730785511d2ecd8b8ddc5108e31429819e611fe9cafe6c956b023b47",
+      "bytes": 509
+    },
+    {
+      "path": "items/exp-candy-m.png",
+      "sha256": "b1f1508b56f1591228f971f7b790699f14af3185cef0b6237db38ad7f6f88dd2",
+      "bytes": 510
+    },
+    {
+      "path": "items/exp-candy-s.png",
+      "sha256": "046accbf42180b4277c007430b20c4f7599ba011e65597dc78e3ef8f7948259f",
+      "bytes": 502
+    },
+    {
+      "path": "items/exp-candy-xl.png",
+      "sha256": "bc03a1cb913e8fe71b49726fe7871fecee3b57b22306ae6af8c3eb9649bf30b4",
+      "bytes": 499
+    },
+    {
+      "path": "items/fire-stone.png",
+      "sha256": "7867af0840e246fc753ccbf8980d7e7efcd6ff8fccbb6bf6be601da05fcb7070",
+      "bytes": 347
+    },
+    {
+      "path": "items/friend-ball.png",
+      "sha256": "7d03fa4e1fa53160be2a659213a49cd959a8dd8740d8caeb3f2e877258fb993e",
+      "bytes": 288
+    },
+    {
+      "path": "items/golden-razz-berry.png",
+      "sha256": "094c61a3827b1b29a96136af4a336caca9f77d39b754b79020072954f2c5e894",
+      "bytes": 618
+    },
+    {
+      "path": "items/great-ball.png",
+      "sha256": "7a4e84e7b071fa0b47a0c8ab1820c14b761ba556ee725e14cb1749ce5767a40e",
+      "bytes": 317
+    },
+    {
+      "path": "items/helix-fossil.png",
+      "sha256": "daee0c962ae27dbd1e3a744d10bb5e9f22a79036983267788ce2ef57439d978e",
+      "bytes": 378
+    },
+    {
+      "path": "items/kings-rock.png",
+      "sha256": "1f0ec7f73298ff1e6124e9a75d8d48a679b164d6d5b55b42188f11f6c22ff094",
+      "bytes": 367
+    },
+    {
+      "path": "items/lansat-berry.png",
+      "sha256": "7d523bb2e32e494b2234da467bd5642f348d08565ccad6ee2ab0eafa94ca32b0",
+      "bytes": 322
+    },
+    {
+      "path": "items/leaf-stone.png",
+      "sha256": "2ace6d175979d40d035d9e11a0bfe3d3ed4fd3ee7c9ecfb0811513e507463837",
+      "bytes": 364
+    },
+    {
+      "path": "items/love-ball.png",
+      "sha256": "13001dce5053f17d0ab2472ee69e0a265db125b09f72c79b23a84b69d44d6ff8",
+      "bytes": 291
+    },
+    {
+      "path": "items/love-sweet.png",
+      "sha256": "fb60c2aed76f04fb515cd2086958d3901081d613e74979aee4d099a87e96cccb",
+      "bytes": 413
+    },
+    {
+      "path": "items/master-ball.png",
+      "sha256": "58c2d6ca9c485d22db42b9ca007ee4b56e012b7b60df7ac3e6b37d744356be99",
+      "bytes": 312
+    },
+    {
+      "path": "items/metal-coat.png",
+      "sha256": "0e050618c06c31109fcd5150f62964248d3de120689779a5b326457d5849609e",
+      "bytes": 233
+    },
+    {
+      "path": "items/moon-stone.png",
+      "sha256": "d9f2ed368e27760a30858188fcb2450a8303fb0cf6c2109fcc8a87a4ddd3a19b",
+      "bytes": 324
+    },
+    {
+      "path": "items/mystery-egg.png",
+      "sha256": "5097934399ede0a0f98605d002798770510155344f4fd719937fedca27a04f38",
+      "bytes": 252
+    },
+    {
+      "path": "items/nanab-berry.png",
+      "sha256": "14f05547bbab26af1c54b05b3e0f3f8a1e2a57d8c38d252a697e2f9df1d03ca7",
+      "bytes": 318
+    },
+    {
+      "path": "items/nature-capsule.png",
+      "sha256": "b11bf6319eea90f9186493dccc70860c1f807d7ea4289b8608c5652de4b0b9f7",
+      "bytes": 257
+    },
+    {
+      "path": "items/old-amber.png",
+      "sha256": "1d24d520e63bb33aa320ece17f13df2bddde06dc5e065b2ee22a03cada93620e",
+      "bytes": 331
+    },
+    {
+      "path": "items/pinap-berry.png",
+      "sha256": "4e55bb73348e75aca10a2a56af553c152e4b3dbab8b64e8265b3164b1be186f2",
+      "bytes": 704
+    },
+    {
+      "path": "items/point-card.png",
+      "sha256": "fed703c108d534ba4066cc07ab111dd4fa98de08d107166f113342ef93e847e1",
+      "bytes": 229
+    },
+    {
+      "path": "items/poke-ball.png",
+      "sha256": "0c8b33402bf845b69e93b750cce37c509a1de4c00a9e6b8924f945bb9593111e",
+      "bytes": 258
+    },
+    {
+      "path": "items/premier-ball.png",
+      "sha256": "c21860a35d1e264db7d135c70c6f618f9880014b4bf36bf1337ee90c0da6341c",
+      "bytes": 237
+    },
+    {
+      "path": "items/prism-scale.png",
+      "sha256": "8287b52d6969004a5696a85b4f90c331dffcc22872e0ada2f37fa9df541507d4",
+      "bytes": 199
+    },
+    {
+      "path": "items/rare-candy.png",
+      "sha256": "d50db5505693fe4ba9584c07b1cea95dc11456694f3643a6e10c92b04ca324bb",
+      "bytes": 300
+    },
+    {
+      "path": "items/razz-berry.png",
+      "sha256": "0d3250fdd7c00eee60eba967b582c571e550ea0aea23362410424b85fd8ce49f",
+      "bytes": 325
+    },
+    {
+      "path": "items/root-fossil.png",
+      "sha256": "7b45c34ed481420b29c3ba010e6b7645f665d08528356dd3f925f4087011cce3",
+      "bytes": 405
+    },
+    {
+      "path": "items/silph-scope.png",
+      "sha256": "d632133ac77d392ef9478cda8ae79b1ed1bda9088fbdd2b5544085fac45b213d",
+      "bytes": 741
+    },
+    {
+      "path": "items/soothe-bell.png",
+      "sha256": "7082760589026fc0d37bba9dba20702848fcd0519b7d5fab5ba77c5343660ce8",
+      "bytes": 296
+    },
+    {
+      "path": "items/starf-berry.png",
+      "sha256": "4578681fbc1f9a61df4cc78e558167d6cad6d1a24cedc392f4c74cd9cf1c1b57",
+      "bytes": 320
+    },
+    {
+      "path": "items/storage.png",
+      "sha256": "a275ce0e10ac827ee9e6671886dac7a056fc2e70803f56b648d0a88c05b15f11",
+      "bytes": 507
+    },
+    {
+      "path": "items/sun-stone.png",
+      "sha256": "17dc442cda648a4e541c30893f9afc63331ba7b1b72ff04aacdd614d5df1c84e",
+      "bytes": 368
+    },
+    {
+      "path": "items/thunder-stone.png",
+      "sha256": "5f00b192d3bb3048ebc11ab3cff693b1293a58ec734c900296dd0bc3a06f02ac",
+      "bytes": 306
+    },
+    {
+      "path": "items/trace-144.png",
+      "sha256": "aeb3a9c48b15fab887c42a912b143e292bbfa5a1b7c2f0dd113595e4c804fa1b",
+      "bytes": 239
+    },
+    {
+      "path": "items/trace-145.png",
+      "sha256": "a0ed34e38db54821cfcddd0a3cfa630015ff457f0d42099db3699fb085a31d06",
+      "bytes": 229
+    },
+    {
+      "path": "items/trace-146.png",
+      "sha256": "f7f97131d02d91fbfabba54d8a6b4608c7067d2e781d243c038b554f816dea69",
+      "bytes": 240
+    },
+    {
+      "path": "items/trace-150.png",
+      "sha256": "3b1a1832df8156a3d07c2e13197afee45f8c2ab7a4036d9ae7920cf353ce1605",
+      "bytes": 238
+    },
+    {
+      "path": "items/trace-243.png",
+      "sha256": "39e554f113dcc119fa450df672d07c2e4661644007c463947890b61bceee09ed",
+      "bytes": 154
+    },
+    {
+      "path": "items/trace-244.png",
+      "sha256": "7aa163c75de0635fb3fd910730ecc6b33f6a7e25a84bb24c948d64005aa973e3",
+      "bytes": 157
+    },
+    {
+      "path": "items/trace-245.png",
+      "sha256": "b249ff1fb32a45c306998bc61ce11327b60895ba864764fa43b9598f66afa731",
+      "bytes": 155
+    },
+    {
+      "path": "items/trace-249.png",
+      "sha256": "2e2309acea88998703692676ee79cf44f21d616786361b9190d73415838e0d19",
+      "bytes": 245
+    },
+    {
+      "path": "items/trace-250.png",
+      "sha256": "ea66886bfee0cbf6082442fba65446cf853130e3093f70c205c1d370373837b8",
+      "bytes": 255
+    },
+    {
+      "path": "items/trace-251.png",
+      "sha256": "96436ccbd9042ebbdd6728c8560f2ac0a2da1f3dd2ef2adad84dc0cc3b9eec7a",
+      "bytes": 245
+    },
+    {
+      "path": "items/ultra-ball.png",
+      "sha256": "91888a9889a3d49e65f2361a32ce0ae6d848a0bf9bc4e295e110b02c63d42c84",
+      "bytes": 312
+    },
+    {
+      "path": "items/unknown.png",
+      "sha256": "161a428aa2c8dd45477bd2118d78666f568a46fb51355aad98230b7e704edb7d",
+      "bytes": 159
+    },
+    {
+      "path": "items/up-grade.png",
+      "sha256": "6f24d9af0aa4b0e86ca8db806d2fd241d9e182954a573a25074dc4d9af407c38",
+      "bytes": 303
+    },
+    {
+      "path": "items/water-stone.png",
+      "sha256": "d3939dba3f258e0f2be36089b0c74b77ed8c817ee706074609b4564f55424f20",
+      "bytes": 306
+    },
+    {
+      "path": "badges/frlg-1.png",
+      "sha256": "262559252ac37b5b4efeb870233c1bc0604743ad8d4969eee0282887aadc488c",
+      "bytes": 550
+    },
+    {
+      "path": "badges/frlg-2.png",
+      "sha256": "3be8046a9b4e50cb684d40c642c1db47d45f214fdec83c719bd774e1a6bbab38",
+      "bytes": 550
+    },
+    {
+      "path": "badges/frlg-3.png",
+      "sha256": "bfdaab90c07e8bbdf984ec46c8c2a54d0c7f0efc90804c5761ca2363e1745458",
+      "bytes": 550
+    },
+    {
+      "path": "badges/frlg-4.png",
+      "sha256": "09ea8bc13868989cf1a2074cc7e13cb80ce710541ec2f191e5967285d7a416ed",
+      "bytes": 550
+    },
+    {
+      "path": "badges/frlg-5.png",
+      "sha256": "61741663d88b358b54e35b1f955d0d47b0bfb838819bca5fec438ce84b8a942f",
+      "bytes": 550
+    },
+    {
+      "path": "badges/frlg-6.png",
+      "sha256": "a725312aaff253f6061fe16b9e1c4f7d79e5d0d4a8429513f1ffca4623fc5d32",
+      "bytes": 550
+    },
+    {
+      "path": "badges/frlg-7.png",
+      "sha256": "799596065b38a25cae45be3b041e19cf9645d4fada309ef734268d5107e8695b",
+      "bytes": 550
+    },
+    {
+      "path": "badges/frlg-8.png",
+      "sha256": "b4698af6e767dd418a8213b36565c54afddc13ed779457771a23b52992329dd2",
+      "bytes": 550
+    },
+    {
+      "path": "badges/gsc.png",
+      "sha256": "b44f41a77ce5919c1e04d515b97b2a930d118f9c0d5119e01cdea806c2690e2e",
+      "bytes": 1075
+    },
+    {
+      "path": "badges/kanto-frlg.png",
+      "sha256": "262559252ac37b5b4efeb870233c1bc0604743ad8d4969eee0282887aadc488c",
+      "bytes": 550
+    },
+    {
+      "path": "badges/rse.png",
+      "sha256": "15a5088c77bae4be14a04b09526aefaa9d236f78a74f5a340bf45422cc300e24",
+      "bytes": 1206
+    },
+    {
+      "path": "ui/berry-leppa.png",
+      "sha256": "ae9f51409cf7ed901cfec5650a83a4c1817a66da1ce6a995f03c1b607751a43a",
+      "bytes": 287
+    },
+    {
+      "path": "ui/berry-oran.png",
+      "sha256": "8081b7e07dc97076220ca08ff89dc7d11dd165891d7583f691a6761490cb6668",
+      "bytes": 296
+    },
+    {
+      "path": "ui/berry-pecha.png",
+      "sha256": "b1618e7c41a7b9f0414e1c0695c31aa974cc5a250ba6438ed0968303f4b9dddd",
+      "bytes": 280
+    },
+    {
+      "path": "ui/berry-sitrus.png",
+      "sha256": "0eb1b5a8e62099759979e00efd21fd5ee5ea8f57f554299f44025f3b87934b55",
+      "bytes": 303
+    },
+    {
+      "path": "ui/box-link.png",
+      "sha256": "a275ce0e10ac827ee9e6671886dac7a056fc2e70803f56b648d0a88c05b15f11",
+      "bytes": 507
+    },
+    {
+      "path": "ui/calcium.png",
+      "sha256": "60b482de4e2ad3aa9776256449ea619d00456ebd3fca5d3365f3a616f0411e17",
+      "bytes": 295
+    },
+    {
+      "path": "ui/coin-case.png",
+      "sha256": "317bbdbf4f47569db03b53747843c437595a57be3c5e7d4ce5a8758b82100067",
+      "bytes": 245
+    },
+    {
+      "path": "ui/coin-spin-frames.png",
+      "sha256": "6ec062b6a0089007526b74deed6314e90008685b4ae0f38c2d2956f5c5f1d9ea",
+      "bytes": 5917
+    },
+    {
+      "path": "ui/exp-share.png",
+      "sha256": "53c64d4c44f368f207f90e9e330dbf3878c25885b68ea101454f3b497921bc5a",
+      "bytes": 380
+    },
+    {
+      "path": "ui/link-cable.svg",
+      "sha256": "40ee49dfb7374a400db584c4290de73b8c24cb234cd6eed2698ef6c6a199bbbd",
+      "bytes": 781
+    },
+    {
+      "path": "ui/medal-bronze.png",
+      "sha256": "ff628f3f7b15d2e18181aad8dd60d35a31dbc19c12df47a4cf6a84ca4db269a0",
+      "bytes": 250
+    },
+    {
+      "path": "ui/medal-gold.png",
+      "sha256": "218f6d2a88a440174c3d475bb11fb1a22cd3dd68764422bdb33fde966fcff3ed",
+      "bytes": 250
+    },
+    {
+      "path": "ui/medal-silver.png",
+      "sha256": "18d18d44e379109c116bb6823386debfda51a157a526b6ceeddd4802b5557275",
+      "bytes": 251
+    },
+    {
+      "path": "ui/nugget.png",
+      "sha256": "2ea43003172e7bca98b805b4d3d89e1cf175fd7b455a5b9193a01efcf15f9b69",
+      "bytes": 220
+    },
+    {
+      "path": "ui/orange-mail.png",
+      "sha256": "0e1d8cb02db6ef9c0895597d930379f282a1a410493bbf71da4b8baeb89764b2",
+      "bytes": 303
+    },
+    {
+      "path": "ui/padlock.svg",
+      "sha256": "6ce8f75e5b2335b4f34d3dd27d7e69e434404ec25b28c8e501cd7ce1b6990b1d",
+      "bytes": 5615
+    },
+    {
+      "path": "ui/pokecenter.png",
+      "sha256": "78d483d9497b089589538d05e736440a1d8b226e389287b4f2af31358be9df7d",
+      "bytes": 475
+    },
+    {
+      "path": "ui/pokedex-red.png",
+      "sha256": "5e890cbffea34f9b865bf1cb6634d4dd9078313fa74508fb89ec659d829ec568",
+      "bytes": 493
+    },
+    {
+      "path": "ui/pokedex.svg",
+      "sha256": "d112b092fed7ae4c64eb0edbc60938d9610ab41f3f9e101a50f8b4dc7da8a27e",
+      "bytes": 803
+    },
+    {
+      "path": "ui/pokemart.png",
+      "sha256": "d02c1e63e39460bef760f125afc66a0929f5a5d79721902f629a28ca4d775c0a",
+      "bytes": 468
+    },
+    {
+      "path": "ui/potion.png",
+      "sha256": "f5e2572da58f825619cc3c4f026d9ad19d26b35db4c183e4fbbec91b265eb916",
+      "bytes": 305
+    },
+    {
+      "path": "ui/relic-gold.png",
+      "sha256": "c42e4e2252e181cb703d701697c46a26428a1f0cb2c19749ece772355b78281e",
+      "bytes": 178
+    },
+    {
+      "path": "ui/rocket.svg",
+      "sha256": "b93e43cc237d4401ebf30c278da0aac1f50ad6b778af45e657f649468e4eb1d6",
+      "bytes": 7832
+    },
+    {
+      "path": "ui/shadow.svg",
+      "sha256": "85ede9b1a0a2db5f82c6a493855943bdf5e35396d5a14126748f3afdbf376474",
+      "bytes": 353
+    },
+    {
+      "path": "ui/shiny-charm.png",
+      "sha256": "536bbe5cd149ae71d4f2c8a1ea4cd3664703b954d8a52f446a45ea750f11a756",
+      "bytes": 270
+    },
+    {
+      "path": "ui/shiny.svg",
+      "sha256": "803b467545f3a261109b77cf00fbe48215d85ce7d563fe51bf7889b49a55f3b6",
+      "bytes": 389
+    },
+    {
+      "path": "ui/sparkle.svg",
+      "sha256": "2e3cafa815c69dcfd4f95309637b3b21d4c9e21e0e8f80260b52dd59faffb2c4",
+      "bytes": 1029
+    },
+    {
+      "path": "ui/ss-anne.png",
+      "sha256": "7ed629cc536891bb3c85c86b7451db36979a4fab2347d9248618f1418262c4b4",
+      "bytes": 1995
+    },
+    {
+      "path": "ui/stripes-tile.svg",
+      "sha256": "cf36912f2b963a364942f3604613c83580fc9c640024122a19f00e6ab790b394",
+      "bytes": 320
+    },
+    {
+      "path": "ui/tallgrass-frlg.png",
+      "sha256": "6273183298ed0037801430695c718018c14058a25ccd27b7a7318519dbb45c51",
+      "bytes": 371
+    },
+    {
+      "path": "ui/tallgrass-icon.png",
+      "sha256": "7ab7ec2337cf1960d6eae2fce3fa803937023f04761da6261f7501dd212cb3b8",
+      "bytes": 598
+    },
+    {
+      "path": "ui/town-map.png",
+      "sha256": "8978ff2f95be57cb6b5d115df95b05225a6561597f3ca3686b02b2ef8f69f604",
+      "bytes": 746
+    },
+    {
+      "path": "ui/versus.png",
+      "sha256": "40ba0a7886438bbd0c5680132be9a51f760636a4b2722acdbb6450089f35541f",
+      "bytes": 498
+    },
+    {
+      "path": "ui/vs-recorder.png",
+      "sha256": "fb144b400aa4dd40322cde5eff829bb2933742a961ee989187935d091660617c",
+      "bytes": 312
+    },
+    {
+      "path": "ui/vs-seeker.png",
+      "sha256": "8112f5471f5efeb52be365513906099f09866101d19905c3d8182c411c1eb92d",
+      "bytes": 286
+    },
+    {
+      "path": "trainers/still/acetrainer-f.png",
+      "sha256": "b4bf4b1fbc8e952403d1037d01e8c0a268262c15de96fe5c5d6794000862e251",
+      "bytes": 2040
+    },
+    {
+      "path": "trainers/still/acetrainer.png",
+      "sha256": "a48b496c7fc76c815f66ef8f3c620b03ff2b5d22036d99bc412226bec3a59e6c",
+      "bytes": 1529
+    },
+    {
+      "path": "trainers/still/agatha.png",
+      "sha256": "6181dcd9b51efc86a4570ced6d3c76af4f61d053271780ab44de0d7164b85975",
+      "bytes": 1486
+    },
+    {
+      "path": "trainers/still/anabel.png",
+      "sha256": "83d08979ffb8e1df358dec8c29cbb11ebf54e5fc61e424234d45072849feafdc",
+      "bytes": 1948
+    },
+    {
+      "path": "trainers/still/aquaadmin.png",
+      "sha256": "a4dcf7ff06133d1fd8080f972b4050054944db7371b06a3f942c20f8c5a949b7",
+      "bytes": 2711
+    },
+    {
+      "path": "trainers/still/aquagrunt-f.png",
+      "sha256": "149e327bf6b5ffff24adafa89a2a5ac261d295d771ea52f9fc4361863d779923",
+      "bytes": 1858
+    },
+    {
+      "path": "trainers/still/aquagrunt.png",
+      "sha256": "29d4085efcbe5c6dc8173189c2c56b649270dc88ab4323cf6efd33c30ab090db",
+      "bytes": 1769
+    },
+    {
+      "path": "trainers/still/archer.png",
+      "sha256": "e0abba8772be920e87a003bacf2eec21eaed7417255e431d6e31dbac0d480ca8",
+      "bytes": 1590
+    },
+    {
+      "path": "trainers/still/archie-rse.png",
+      "sha256": "1b615c706a8fb22324fa0f7d85806f9e58d04061dd6c2520de3fd71e29b7bdec",
+      "bytes": 1322
+    },
+    {
+      "path": "trainers/still/archie.png",
+      "sha256": "a4492fbbd71923b6d52bef5c96cdb379503b704d013abd46c5044a2c4a76e96f",
+      "bytes": 2620
+    },
+    {
+      "path": "trainers/still/battlegirl.png",
+      "sha256": "8f797a2c9172b1dc4c01a7162647c16c1242c8aa7632712e539c3f53f495c834",
+      "bytes": 1616
+    },
+    {
+      "path": "trainers/still/beauty.png",
+      "sha256": "10a054603bcb9b3945fda103e1e333016b7934c43953b5bad96112e55d511f45",
+      "bytes": 1312
+    },
+    {
+      "path": "trainers/still/biker.png",
+      "sha256": "497485f59664b394d075bfdbd58e35c31ffe12dba63077fc49cdd3237056bc68",
+      "bytes": 2968
+    },
+    {
+      "path": "trainers/still/birch-rse.png",
+      "sha256": "c9e10308b47db21721972d0817ff1e978c292b6084702e22cb996293c5520268",
+      "bytes": 1818
+    },
+    {
+      "path": "trainers/still/birch.png",
+      "sha256": "cc59096b4aaf4b1319342831795c3b6c7d01b35ec08682e7cd91664e04404b6e",
+      "bytes": 1960
+    },
+    {
+      "path": "trainers/still/birdkeeper.png",
+      "sha256": "a677358a3102e8af0d04dcd0aae2d30e8a6b6900a61295823a72b3d82210317b",
+      "bytes": 1815
+    },
+    {
+      "path": "trainers/still/blackbelt-hgss.png",
+      "sha256": "847e4421f9e30174c34f2ec021f5dddd834cea74c6edc5ba9291dec1be6ed75b",
+      "bytes": 2364
+    },
+    {
+      "path": "trainers/still/blackbelt-rse.png",
+      "sha256": "b97cfe52fc2a119d2001f97f07740bd26b820f09b3556cbb409b7b70e3c2abb0",
+      "bytes": 1910
+    },
+    {
+      "path": "trainers/still/blackbelt.png",
+      "sha256": "97889b2eb78b6a4fc7aa56577f56567c1b3c41177490b391460e50e55a8df690",
+      "bytes": 2075
+    },
+    {
+      "path": "trainers/still/blaine.png",
+      "sha256": "02e0f826be30f06db355d5827a3694b8849ae0a04d9e5516b7a34ccc0c49109a",
+      "bytes": 1806
+    },
+    {
+      "path": "trainers/still/blue.png",
+      "sha256": "964a4393e2393fac2b098b3b5d25bc400cf82eb2569a557da5c49adcf53f5d52",
+      "bytes": 1828
+    },
+    {
+      "path": "trainers/still/boarder.png",
+      "sha256": "2d1edc0f1c20505103f0e6ffd1858b1d07d84045d2f6fc845147d18e43ee3c8b",
+      "bytes": 1972
+    },
+    {
+      "path": "trainers/still/brandon.png",
+      "sha256": "9f652e3575f2abc539886fec61a14b6536b4603cdba13ea01ae8feceb89270c1",
+      "bytes": 1678
+    },
+    {
+      "path": "trainers/still/brawly.png",
+      "sha256": "99c6be1a9550af187257b16b65c107b3b73bd22bcfcc3386918dbb1e216affb6",
+      "bytes": 1814
+    },
+    {
+      "path": "trainers/still/brendan-rse.png",
+      "sha256": "8c46b0a8affca8374d3a63e6f3c074a47acc9af038dd74209328fc944be232f6",
+      "bytes": 2001
+    },
+    {
+      "path": "trainers/still/brock.png",
+      "sha256": "740544f79cabb9625153a01a0e88c211c0fb6ae595493324e1d392f3aa063bb5",
+      "bytes": 1383
+    },
+    {
+      "path": "trainers/still/bruno-hgss.png",
+      "sha256": "4d10a7fcad6f7c76be88eb92beba126d128de9d977d2a70f014d85d06a429730",
+      "bytes": 2265
+    },
+    {
+      "path": "trainers/still/bruno.png",
+      "sha256": "4d10a7fcad6f7c76be88eb92beba126d128de9d977d2a70f014d85d06a429730",
+      "bytes": 2265
+    },
+    {
+      "path": "trainers/still/bugcatcher.png",
+      "sha256": "985a55c62460f7da5d6f8825cc7cc8fe50ca5e603b1f4273dd318a8b3e08d49e",
+      "bytes": 1568
+    },
+    {
+      "path": "trainers/still/bugsy.png",
+      "sha256": "751bde3e4d88a4894980bb9cb752a5e225bcc2d6abe02e21440409a36f7220d5",
+      "bytes": 2177
+    },
+    {
+      "path": "trainers/still/burglar.png",
+      "sha256": "d91812ffc98d8602d4f3dcd70367535d0f7da8afcf735d5c230e25aa3a0bf75c",
+      "bytes": 1851
+    },
+    {
+      "path": "trainers/still/camper.png",
+      "sha256": "12f10e707bf4e90417a33fa390a3b82e0b5dd13cc6e5947863640a8ea5de3ba6",
+      "bytes": 1365
+    },
+    {
+      "path": "trainers/still/channeler.png",
+      "sha256": "bc321bf4731b1152678c26dce84fba661480970928412656921e8dc8123e5eb1",
+      "bytes": 1948
+    },
+    {
+      "path": "trainers/still/chuck.png",
+      "sha256": "1b93f8865279bef424247d84e2c63d0d737029907a94d21ef444993c28a1b824",
+      "bytes": 2487
+    },
+    {
+      "path": "trainers/still/clair.png",
+      "sha256": "a742fe09178dd6c137158f287bc84340da755af655bf17c35b49ebacaf01dd78",
+      "bytes": 2222
+    },
+    {
+      "path": "trainers/still/collector.png",
+      "sha256": "b1ab4369db1834a4192c0b2cce4f7d5a65b4cf67ad9d3f1001289f3d95ab071a",
+      "bytes": 2169
+    },
+    {
+      "path": "trainers/still/drake.png",
+      "sha256": "2acbbb054ea24b9f2409499b86ab6c3b2fdb3af3d5dc81da20e9bdf0040ed344",
+      "bytes": 2081
+    },
+    {
+      "path": "trainers/still/elm.png",
+      "sha256": "e3bd98c0c3d90f4f6447559b4e0577ef9f0c338af12b0909df41e9bd44a4a72a",
+      "bytes": 1968
+    },
+    {
+      "path": "trainers/still/erika.png",
+      "sha256": "ba3931cc76f473aecb568bcb5ac49d5c1393b92573d7e46b8e8ac613e5ecd51a",
+      "bytes": 1748
+    },
+    {
+      "path": "trainers/still/ethan.png",
+      "sha256": "46f6bf12bf6434faf8f06205f73233e1dd3a322f1d8967ece904440b4e7b4b94",
+      "bytes": 1694
+    },
+    {
+      "path": "trainers/still/falkner.png",
+      "sha256": "b1dd210ff84cb1f434eed75bb306ab47284ddff1bfab0daa254bc2466aceb5f3",
+      "bytes": 1966
+    },
+    {
+      "path": "trainers/still/firebreather.png",
+      "sha256": "5dc49c3f47b91ea5ee7a660eaf4e78f683d7f522588be8e4723edeed5d002ea6",
+      "bytes": 2737
+    },
+    {
+      "path": "trainers/still/fisherman-hgss.png",
+      "sha256": "dfded3d1649ddfe49cc298c0abaadb245d5b2dcdc42186841b78fa278bee3509",
+      "bytes": 2127
+    },
+    {
+      "path": "trainers/still/fisherman-rse.png",
+      "sha256": "d82fe1962c5425496c3e9f03125308c8d44cab7d89d8e4b5ca2c42def62b76fa",
+      "bytes": 1671
+    },
+    {
+      "path": "trainers/still/fisherman.png",
+      "sha256": "7d3dadadbd07707383c8a760e680d43c5645593a4caceffef46797761b0819ca",
+      "bytes": 2591
+    },
+    {
+      "path": "trainers/still/flannery.png",
+      "sha256": "502b7bdc683d728b6cf4f49831c80ae23671f118e6293430668ff8c2d23c040b",
+      "bytes": 2032
+    },
+    {
+      "path": "trainers/still/gentleman-hgss.png",
+      "sha256": "0f6a97262ecc6413cd653c27f85f96fa198a5c328908fdf170d981844dba00b6",
+      "bytes": 1974
+    },
+    {
+      "path": "trainers/still/gentleman-rse.png",
+      "sha256": "5ee0eddecf0cb5e1dcdba9931d132e9c0ba3121f9cccbb114c72cf7c87b13c53",
+      "bytes": 1425
+    },
+    {
+      "path": "trainers/still/gentleman.png",
+      "sha256": "71f2a2377bc574ff8ef8d7ac8c127badc482fa464f379c2f8221219a9c8c6dca",
+      "bytes": 1454
+    },
+    {
+      "path": "trainers/still/giovanni.png",
+      "sha256": "76c8392367c9f89ffe9638f33521f90d2f9ba4b67036485496857d208971307b",
+      "bytes": 1594
+    },
+    {
+      "path": "trainers/still/glacia.png",
+      "sha256": "7968a7ae9b005b78d72fad294ce1abce483f85b0a4314484ab1f2533e97a414b",
+      "bytes": 1807
+    },
+    {
+      "path": "trainers/still/greta.png",
+      "sha256": "0bb7177d03a4228ec1c8a3e4bc6bcc7deae559627da9f76528abaf7a1feb4911",
+      "bytes": 2025
+    },
+    {
+      "path": "trainers/still/guitarist.png",
+      "sha256": "1ad75081f2fb238bb4745c00dd80bca7bc92bc650d0a9b1a1a785a7d5642d178",
+      "bytes": 2320
+    },
+    {
+      "path": "trainers/still/hiker.png",
+      "sha256": "8a2ba5a3043c53d263b65bdaec69178c02f1bf5dfb383fb53cd93db16f664374",
+      "bytes": 2644
+    },
+    {
+      "path": "trainers/still/jasmine.png",
+      "sha256": "e735b6da2fc551d7d98220c638fd2a7649f5e65a4affbcfb1d9f3e87e78f65ca",
+      "bytes": 1767
+    },
+    {
+      "path": "trainers/still/juan.png",
+      "sha256": "5a178df3ab2063d4216c4f46951e3f1a9dc515b5838f6a6e3a3491a26dc2bf87",
+      "bytes": 1690
+    },
+    {
+      "path": "trainers/still/juggler.png",
+      "sha256": "6241082fc261fd3293d9f056616b2c816d63df24a5b24e352088fd269791e154",
+      "bytes": 2323
+    },
+    {
+      "path": "trainers/still/karen.png",
+      "sha256": "e48985feb0024b48f37998e9c0165f494ef9ade9f2a309ba05ecb42975d73e14",
+      "bytes": 1535
+    },
+    {
+      "path": "trainers/still/kimonogirl-hgss.png",
+      "sha256": "62b8dacd8fd3bd08b1a702dbd0b9bf4e8cf2852bc7cefc0355257dabbd6acb31",
+      "bytes": 2129
+    },
+    {
+      "path": "trainers/still/kimonogirl.png",
+      "sha256": "b884f763b70142e78f47133977b86621aecc0281a809f9c7bb6e81c24694fc28",
+      "bytes": 2099
+    },
+    {
+      "path": "trainers/still/koga-hgss.png",
+      "sha256": "fe7603aa9290666a71bebaf869142f24d5ce6e79747e8d0b9a9586335f6b3d43",
+      "bytes": 2036
+    },
+    {
+      "path": "trainers/still/koga.png",
+      "sha256": "fe7603aa9290666a71bebaf869142f24d5ce6e79747e8d0b9a9586335f6b3d43",
+      "bytes": 2036
+    },
+    {
+      "path": "trainers/still/lady.png",
+      "sha256": "2f889deec49afd37532012669230c34e5afa6d41bdf0f3fda7cc869ec434c039",
+      "bytes": 2040
+    },
+    {
+      "path": "trainers/still/lance-hgss.png",
+      "sha256": "894f1d8b3112f6c69c04512f911b1a42b641e05ac86c05ea577188f2f79ba760",
+      "bytes": 2484
+    },
+    {
+      "path": "trainers/still/lance.png",
+      "sha256": "3792524fc8b3bf2668bba3abe8bf1097252903b7f535dacfa11cb9aa1e6547aa",
+      "bytes": 2587
+    },
+    {
+      "path": "trainers/still/lass.png",
+      "sha256": "7830b1c00e7ca6429de33e0b6d3cc1c758bc6dd14fb0db0cf3b9a2ef2798a232",
+      "bytes": 1891
+    },
+    {
+      "path": "trainers/still/leaf.png",
+      "sha256": "59fffc82d05f68a5475a37aacf1cb6d6a5e4363fb18f4732685d04d7876f59f3",
+      "bytes": 2183
+    },
+    {
+      "path": "trainers/still/lorelei.png",
+      "sha256": "cb302f830486afc7ed56af4bf5f5ef6175f2c904e8596d4da10a0dc09e359e0c",
+      "bytes": 1487
+    },
+    {
+      "path": "trainers/still/ltsurge.png",
+      "sha256": "18f69259fda367fddf74773e56685f8251952cfac411f6652d1e08987e8487ce",
+      "bytes": 2248
+    },
+    {
+      "path": "trainers/still/lucy.png",
+      "sha256": "128f09b198aec30ebc2de490791a14bae7005e5129f0191cf8ce335adca70eb7",
+      "bytes": 1678
+    },
+    {
+      "path": "trainers/still/lyra.png",
+      "sha256": "7b717303b6d391e7e64cc37a728122abfcabf36f35fbe5790b07b77c57d06894",
+      "bytes": 1748
+    },
+    {
+      "path": "trainers/still/magmaadmin.png",
+      "sha256": "d27eabfb0378e67d3641d23bd68449e15d65d7419c8f589e757b94168c85397d",
+      "bytes": 2348
+    },
+    {
+      "path": "trainers/still/magmagrunt-f.png",
+      "sha256": "10fc9fd9131d2434945598d68226642526da2ccd849d40ad0e4f227f16219892",
+      "bytes": 2057
+    },
+    {
+      "path": "trainers/still/magmagrunt.png",
+      "sha256": "3ee2c34db4e2e3447c8a008be2790b56c15699fd863f96f9f3684a5644f09b30",
+      "bytes": 2156
+    },
+    {
+      "path": "trainers/still/maxie-rse.png",
+      "sha256": "77fe0defd3c25264e260df6a4cda6f676fa9d050242f274f598a33f6c0d83db4",
+      "bytes": 1460
+    },
+    {
+      "path": "trainers/still/maxie.png",
+      "sha256": "e9c39bde2af2d4e929dac76cfb1a4bf00499ce364225ed6e37593212c7270361",
+      "bytes": 1781
+    },
+    {
+      "path": "trainers/still/may-rse.png",
+      "sha256": "b8421049563c767aa04b781839f3b01be9a6752e65099b902dbbd465c1ce70f6",
+      "bytes": 1832
+    },
+    {
+      "path": "trainers/still/medium.png",
+      "sha256": "4c01dc7c40f71d6ffbad2708e502cd8fe819b8ed43668724e12807abdc7c7145",
+      "bytes": 2378
+    },
+    {
+      "path": "trainers/still/misty.png",
+      "sha256": "07c6d3fb798972b2e26418f09d7ec9ffd56be027c4bc44de73e4f02bd0c16f3f",
+      "bytes": 1428
+    },
+    {
+      "path": "trainers/still/morty.png",
+      "sha256": "e28b5c5468273244222d34c339dcea132d0b4da968b160dda4a0f579297d4442",
+      "bytes": 1725
+    },
+    {
+      "path": "trainers/still/ninjaboy.png",
+      "sha256": "26285001babb05667523230ffbbe664bc629a69a5cc3f7b89de7467e997d364c",
+      "bytes": 1332
+    },
+    {
+      "path": "trainers/still/noland.png",
+      "sha256": "5ef9e17e18fb38df3d39d1548cd01fb0f225a1187a11c6e2f303637b0666afbb",
+      "bytes": 1805
+    },
+    {
+      "path": "trainers/still/norman.png",
+      "sha256": "782b8b5f17b0032968e26e789033e9851852a39de0cb150ded8b8e38ce2564c0",
+      "bytes": 1962
+    },
+    {
+      "path": "trainers/still/oak.png",
+      "sha256": "73af682cd17f37dec04d211b9771c3fbc14342b4de641f9e07c58826addee56a",
+      "bytes": 1872
+    },
+    {
+      "path": "trainers/still/parasollady-rse.png",
+      "sha256": "79927fa75e30ade2941b36a7e948450fcbafa975fcf1f6c20acc56712afe6593",
+      "bytes": 1492
+    },
+    {
+      "path": "trainers/still/phoebe.png",
+      "sha256": "0c813523b75bff422da6326943d9c123005d909223dfbc9de9017ac94ffa39e9",
+      "bytes": 2408
+    },
+    {
+      "path": "trainers/still/picnicker.png",
+      "sha256": "2aefc4dcee472d3f2bc56f76265975a6de8308717f984f4c30bf53562aa6f046",
+      "bytes": 1275
+    },
+    {
+      "path": "trainers/still/pokefan-f-hgss.png",
+      "sha256": "f229db86783d2d1c46141277feddb1c16aa4f2cc6e7a26e07f960eac0cd56809",
+      "bytes": 1885
+    },
+    {
+      "path": "trainers/still/pokefan-f-rse.png",
+      "sha256": "a6cf4f6e501b398b898a18111b20539cc776b14e621ccca7e75f732f5c2d26e4",
+      "bytes": 2133
+    },
+    {
+      "path": "trainers/still/pokefan-f.png",
+      "sha256": "380830e2b163020081214faab07859d3763e6bc9b045aa2eda0c69897e539c6d",
+      "bytes": 1959
+    },
+    {
+      "path": "trainers/still/pokefan.png",
+      "sha256": "70e3306f125d70f5c5dffe5f84786b8dba347abaa40e6050d004619988beced1",
+      "bytes": 2453
+    },
+    {
+      "path": "trainers/still/pokemaniac-hgss.png",
+      "sha256": "def7764e65ef7c22ea7d8c8ed64d505e27f95d9e706ccc71011b1a74b0fed841",
+      "bytes": 1019
+    },
+    {
+      "path": "trainers/still/pokemaniac-rse.png",
+      "sha256": "b655d2af936d79670acf900d13d38d78dbd2909bbe7bfd678642d9265a3aad0c",
+      "bytes": 1851
+    },
+    {
+      "path": "trainers/still/pokemaniac.png",
+      "sha256": "6cb8eb373aaa44c68de45d3797378a08de0c71c108211e91d8b17c9caa48212a",
+      "bytes": 2532
+    },
+    {
+      "path": "trainers/still/pokemonranger-f.png",
+      "sha256": "57f84e0db5dc178c1babd3a7378acd63a12ce24b687df659d4b7a238e0d845c7",
+      "bytes": 1941
+    },
+    {
+      "path": "trainers/still/policeman.png",
+      "sha256": "fa05fff347ae7112f3c343c165683cc15e519964e3d1ad82b7bb72e6197dfb25",
+      "bytes": 2835
+    },
+    {
+      "path": "trainers/still/pryce.png",
+      "sha256": "21520ee192486f5c59ffa40b094784a17658aa8a9444116942bd667a2b58e538",
+      "bytes": 1721
+    },
+    {
+      "path": "trainers/still/psychic-f.png",
+      "sha256": "60cd6fc36237af49efdd1e2b63cffe89dc4e1b0ecfd1d42f9ce9982c5680cd14",
+      "bytes": 2019
+    },
+    {
+      "path": "trainers/still/psychic.png",
+      "sha256": "71d11097ad3530f14e6090990afe576493736b26a0aed0a55862be1df804a547",
+      "bytes": 1681
+    },
+    {
+      "path": "trainers/still/red.png",
+      "sha256": "c9f2c2bd5eccc729a394e1c823104d71ee088ae96fe08ef02bfb3afbf3d1aead",
+      "bytes": 1710
+    },
+    {
+      "path": "trainers/still/richboy.png",
+      "sha256": "020c3733c652c941cf8514d1536769f4cbde775ee6032c3896e36852713a54d4",
+      "bytes": 1463
+    },
+    {
+      "path": "trainers/still/rocketgrunt-f.png",
+      "sha256": "0124aed3be6234075e2a76af8ddc304e863bc487b79837c52dc193acca982a36",
+      "bytes": 1516
+    },
+    {
+      "path": "trainers/still/rocketgrunt-hgss.png",
+      "sha256": "c3bc00679a008b877b18162a14c52f7db6ed637823dfa58fef81283bf96010b1",
+      "bytes": 1677
+    },
+    {
+      "path": "trainers/still/rocketgrunt.png",
+      "sha256": "3895d96aec9c5d881ecf1455068248dc3498265387bfe5fee02109c08a7572b4",
+      "bytes": 1483
+    },
+    {
+      "path": "trainers/still/roxanne.png",
+      "sha256": "230ef41491c012817d832accba595d6e506fa5258034553d391644b9aa248b2a",
+      "bytes": 1880
+    },
+    {
+      "path": "trainers/still/ruinmaniac-rse.png",
+      "sha256": "19b793204d7b91910c36c0173e82029a01802945cd1c359f8aee89d6219e906b",
+      "bytes": 1873
+    },
+    {
+      "path": "trainers/still/sabrina.png",
+      "sha256": "e465e6e4fe57360022f3513e02106d977f436c5d86948c268d5287e313d158bc",
+      "bytes": 1879
+    },
+    {
+      "path": "trainers/still/sage.png",
+      "sha256": "fc6d5f13eafbfefe154403a38213728f7ad945e85ce5a2d457d35f1866b30e8c",
+      "bytes": 2565
+    },
+    {
+      "path": "trainers/still/sailor.png",
+      "sha256": "f066285fd634511d6219080bf26c42ae4b87fcd359b548f3c72de787e8b10304",
+      "bytes": 1400
+    },
+    {
+      "path": "trainers/still/schoolkid.png",
+      "sha256": "d04a10dc809d517614489624cb3d35f2f3544776bf63bef8a2c7fd0ec6293afb",
+      "bytes": 1416
+    },
+    {
+      "path": "trainers/still/scientist-hgss.png",
+      "sha256": "34d5991bba136cb151aab22d27d0f0e9942e2c588614a1e62af46ab16f6a4286",
+      "bytes": 2240
+    },
+    {
+      "path": "trainers/still/scientist-rse.png",
+      "sha256": "bb1cf2124c4272cce16a810d1c570f87c66482fefad6912cfd144076a75467c4",
+      "bytes": 1882
+    },
+    {
+      "path": "trainers/still/scientist.png",
+      "sha256": "d56bbe1bd33777f95e83de3ae9b60d0f868ac4dfc48bce43dba1915013e8c632",
+      "bytes": 1729
+    },
+    {
+      "path": "trainers/still/sidney.png",
+      "sha256": "6d1f5213715588c5f646aa8fcc84a81b881a80bae7d6f5e965c0d1ac68b3a0e4",
+      "bytes": 1758
+    },
+    {
+      "path": "trainers/still/silver.png",
+      "sha256": "64256ccc9305beb5865e15c940b867d26baa494aecfb64a9b9c14e0d006647da",
+      "bytes": 1618
+    },
+    {
+      "path": "trainers/still/sisandbro.png",
+      "sha256": "9f874f3f56045b9ca9943241b7cf47d80f6d61fda37dcf5e726ed4d14792ec8d",
+      "bytes": 2379
+    },
+    {
+      "path": "trainers/still/skier.png",
+      "sha256": "bc5caabb9d199c70280452ebdb1dac7eaa8952df31423e4cffd595d1782e2609",
+      "bytes": 1959
+    },
+    {
+      "path": "trainers/still/spenser.png",
+      "sha256": "b82ceded553857acfb1306e2d9d687d490888fd191e7850d78990785b4abcf4c",
+      "bytes": 2172
+    },
+    {
+      "path": "trainers/still/steven-rse.png",
+      "sha256": "5fa2583d7f238f211e9fe27a4f7c610cda639eb7015b82d99cf705d28146c84f",
+      "bytes": 2188
+    },
+    {
+      "path": "trainers/still/steven.png",
+      "sha256": "9d66166e3a7cc78b0dbbba0ebbc756144d5bd0f3473e9a3fa05834ac40b27272",
+      "bytes": 1852
+    },
+    {
+      "path": "trainers/still/supernerd.png",
+      "sha256": "9bbb9c698c585f457bd6fdbfac5b680b8ddab14bef36f8d83e2019c58dd40f79",
+      "bytes": 1352
+    },
+    {
+      "path": "trainers/still/swimmer-f.png",
+      "sha256": "c9c241856a4daa7981d6e3652e6ab76fd162bba33f5dc4f7dd2e21842256c71c",
+      "bytes": 1629
+    },
+    {
+      "path": "trainers/still/swimmer.png",
+      "sha256": "090cbfc02dfdac7fa482c11682fdd29e392944056142e82be765e516b33d38f8",
+      "bytes": 1454
+    },
+    {
+      "path": "trainers/still/tateliza.png",
+      "sha256": "444de706820393b50e643a184e898c72097e94d27b245edbd66972505caece57",
+      "bytes": 2876
+    },
+    {
+      "path": "trainers/still/teacher.png",
+      "sha256": "ce816854d1fa810e6fcc7dde890771cecce18db83a92bbe2a56b2a3d995df466",
+      "bytes": 1850
+    },
+    {
+      "path": "trainers/still/tucker.png",
+      "sha256": "77407c3e8102f1aaad00af33a5826cdc72ac3b998f03ad05adc08391806ce492",
+      "bytes": 2644
+    },
+    {
+      "path": "trainers/still/twins.png",
+      "sha256": "af085524e6e44d6d79b540cd119c65a7b1d5a6097ce1de4c8a6831e18c1bb8f1",
+      "bytes": 1684
+    },
+    {
+      "path": "trainers/still/wally-rse.png",
+      "sha256": "9e5978e2d9c36326ee4723a2f966f349f2f8fb01fac1c94cb2011ea53ea7eb07",
+      "bytes": 1343
+    },
+    {
+      "path": "trainers/still/wally.png",
+      "sha256": "0fa70e86d0ba1c2639139c85d188c980d1c10c3befc952098252222e5c507f79",
+      "bytes": 1693
+    },
+    {
+      "path": "trainers/still/wattson.png",
+      "sha256": "be5cfb2f6ab7405e32c31b8bad4d179b716115bf06d2916a67b5c79999369cec",
+      "bytes": 1851
+    },
+    {
+      "path": "trainers/still/whitney.png",
+      "sha256": "8be804e4908538f8a226ac67152decf168a8cf53323a67b57b5bc9523162a3e7",
+      "bytes": 1721
+    },
+    {
+      "path": "trainers/still/will.png",
+      "sha256": "3d5684d0322cb2791b382603844b4f87d8f54dc2a05ab2b4753cf448db47aebd",
+      "bytes": 1884
+    },
+    {
+      "path": "trainers/still/winona.png",
+      "sha256": "32b694a78751e6f229aca0e64f2864177a00617fe1644d2b0981d42bc61bfab0",
+      "bytes": 1705
+    },
+    {
+      "path": "trainers/still/youngcouple.png",
+      "sha256": "b38f65948e956c9b83c2d06e9ea4855ae663797c1da42b1cfba78469961e015e",
+      "bytes": 2509
+    },
+    {
+      "path": "trainers/still/youngster.png",
+      "sha256": "900f00c57c0ea9d0138ae2bfba14ec9e416ffb831edbfbd52f2ac89dbc16b6ec",
+      "bytes": 1632
+    }
+  ]
+}

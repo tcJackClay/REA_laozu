@@ -1,0 +1,32 @@
+{
+  "checks": 25,
+  "labels": [
+    "first free 1",
+    "rotation and placement 1",
+    "real damage and victory 1",
+    "reward blocks continue 1",
+    "refresh idempotence 1",
+    "new move participates 1",
+    "collection and next paid draw 1",
+    "first free 4",
+    "rotation and placement 4",
+    "real damage and victory 4",
+    "reward blocks continue 4",
+    "refresh idempotence 4",
+    "new move participates 4",
+    "collection and next paid draw 4",
+    "first free 7",
+    "rotation and placement 7",
+    "real damage and victory 7",
+    "reward blocks continue 7",
+    "refresh idempotence 7",
+    "new move participates 7",
+    "collection and next paid draw 7",
+    "failure and rescue cannot double-credit",
+    "held band changes actual damage",
+    "berry heals once each battle",
+    "withdraw last move prevents battle"
+  ],
+  "species": 420,
+  "moves": 472
+}

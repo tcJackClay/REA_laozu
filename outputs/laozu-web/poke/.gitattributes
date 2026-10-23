@@ -1,0 +1,2 @@
+# Keep original packed SVG bytes stable across Windows checkouts and SHA checks.
+**/*.svg -text

@@ -1,0 +1,18 @@
+[
+  {
+    "url": "https://pokecatch-online.netlify.app/assets/bg/scenes/39-bourg-palette-710x400.webp",
+    "path": "39-bourg-palette-710x400.webp",
+    "bytes": 41118,
+    "sha256": "fd91178bacd3fb5f863e5a5d400fc90795b674a871805a2b042e838d426a9fa8",
+    "etag": "\"ddcfbe45d871bf94f2b5c59f12f0f959\"",
+    "provenance": "path from fixed app.f5605635e3.js; bytes fetched 2026-10-23, not part of original five packs"
+  },
+  {
+    "url": "https://pokecatch-online.netlify.app/assets/bg/scenes/02-chemin-boise-lisiere-710x400.webp",
+    "path": "02-chemin-boise-lisiere-710x400.webp",
+    "bytes": 41002,
+    "sha256": "13d7ddb7ce38a17702e4bda86f6e23b3a8d799dcb783771bb332b66d8cb73ef5",
+    "etag": "\"522eeadc851ef2a95be4fe4d27ccaffd\"",
+    "provenance": "path from fixed app.f5605635e3.js; bytes fetched 2026-10-23, not part of original five packs"
+  }
+]
