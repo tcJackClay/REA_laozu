@@ -1,0 +1,370 @@
+{
+  "checks": 1010,
+  "templates": 53,
+  "sprites": 239,
+  "manifest": {
+    "source": {
+      "bundles": {
+        "assets/data/198x37n.bin": {
+          "origin": "patch",
+          "sha256": "4813332c6813984d4b3c96e8ac06c7b60984fc2af5965336d2ff2b6ef2941c60"
+        },
+        "assets/data/1m4ng14.bin": {
+          "origin": "web-patch",
+          "sha256": "46e36ae2dac31fee3b62f0b090d45f3a29aa15ac7ce9123cf51f42f92e7bdad0"
+        },
+        "assets/data/1muaak5.bin": {
+          "origin": "apk",
+          "sha256": "b5f0c7cac5680ef6504eda6111b2ebbfab8dce34cf4e53e2f2b5effad47ce8e7"
+        },
+        "assets/data/1s5c35f.bin": {
+          "origin": "patch",
+          "sha256": "c5121ad1b57ae060f501678363e0f48a636dc77f09a299d5c506727a9a84ff7c"
+        },
+        "assets/data/3myx52u.bin": {
+          "origin": "apk",
+          "sha256": "81ecc7a329e5d00a9300a0930f20968c1f7bc98b5bc00a0c2ca75efb4e6116a3"
+        },
+        "assets/data/3sfdrnc.bin": {
+          "origin": "patch",
+          "sha256": "57baff3ca2850445d717e43296945a4aaa44db06cee8bd16dbc983cf74d8baba"
+        },
+        "assets/data/3uk2kxy.bin": {
+          "origin": "apk",
+          "sha256": "8e99f3549af681edcae7ab7c02b9ab4872997531cc5529a5752282357915d4f7"
+        },
+        "assets/data/2mda00y.bin@patch": {
+          "origin": "patch",
+          "sha256": "046c1cda1e5bf282817dedf79cb7f9e172097de4dcc71a8555ae4b7a671fb6a6"
+        },
+        "assets/data/2mda00y.bin": {
+          "origin": "patch",
+          "sha256": "046c1cda1e5bf282817dedf79cb7f9e172097de4dcc71a8555ae4b7a671fb6a6"
+        }
+      },
+      "avatarConfigSHA256": "0afb1f472383eebb3d33d776fe80a76705056ee9ec03ff9a02cbe50a8bef6831",
+      "priority": [
+        "patch",
+        "web-patch",
+        "apk"
+      ]
+    },
+    "files": {
+      "assets/ui_tx_06.png": "371f662f8e151065f74331f8a8ae290f1d8ca0f5c79b31a4f4b81734868f83f4",
+      "assets/ui_tx_08.png": "438b0d15e39a33481994b2e1accbd76b8eddb2a5c3dc7e1e861232867a219c3b",
+      "assets/ui_empty_01.png": "fe4dbb19c3f9d88cae0dd9d512fd81f80d814dbe228a04fcabbad62bc27fdb03",
+      "assets/ui_ch_01.png": "a8a2faf68508d919bb8cc3d6d48105cc7ea6cb7ed2f567b7745b64bc4310e422",
+      "assets/home-v26/ui_ch_02__-1545633642801726988.png": "8409072961dbcf78dae1338f0eefa96314e53ff2466f79709d0bab26ac56270a",
+      "assets/ui_tx_02.png": "6341d67a6e187f534258402590cd747124ab1d75df2cbe5573f6080c4129673d",
+      "assets/home-v26/ui_tx_02__8670235005301047307.png": "7a5de667de05a0c6c09f3f8677bed4f10a824c96fa0de52f0dc14f49a92247dc",
+      "assets/home-profile-v68/banner__3424073223780588913.png": "852d86132672f13192c8a1bf5326889b441985940d93ac47ffe5999fe83535b1",
+      "assets/home-profile-v68/ui_ch_modi__-1667177579728724079.png": "14d8acac6505a10cf6ef53922808dc73651a5a3f3c09af51f441d7bba31d7846",
+      "assets/home-profile-v68/ui_xm_qzbhdi__-2989918027240914309.png": "532313413a2214aa617f88be5d06545847ff40861f7989c6eeded3e6e8029f69",
+      "assets/home-profile-v68/ya__1888564886704400932.png": "d4db86d1f72059e2ff782b916920b9ad09ae12bd37421f902bc30aae3c23665e",
+      "assets/home-profile-v68/ui_xz__1401556165093691150.png": "94af05f45b12ce6f8b17e70cd01857470ca4062b262c594b82adeff9dd4598c1",
+      "assets/home-profile-v68/xzch__2453104225565591740.png": "5bc978e399b42daa5248b1707b21fc48ca16cf49cee236720a1169c8778b71d8",
+      "assets/home-profile-v68/ui_yishiyong__8237797657455250551.png": "0a39b3daa706a8462fc2f5ded0a5e76e0b9406dc97e7ed7b225e1fd0859ada81",
+      "assets/home-profile-v68/frame_005__-9031118306768012812.png": "98b8a966fdd454958f59f12d065c1b349d12c83668a6caecfd762b8bd2e34f42",
+      "assets/home-profile-v68/frame_011__-1990058605458884095.png": "6fff848f54c47a4ea6bd7c7a546e2b4fbd8675e78c5a803029c7b8e6a90a1e21",
+      "assets/home-profile-v68/frame_010__6418767339501424451.png": "4b869df6b676a6ce9e7c558ae028deabc5e4bd5b5013652707bbfbc32e2a7a3c",
+      "assets/home-profile-v68/frame_009__6728930694503175432.png": "7dee4d6ef79410c04dceb6aaca2053ee6812b5a3bbea5e65f9434823c60c2983",
+      "assets/home-profile-v68/frame_008__6118405421833124737.png": "835b5d07190a0f9739bb1f5c22a17942b64289d20f2c9ef604ed73b4e1caf500",
+      "assets/home-profile-v68/frame_007__-4320412563225149662.png": "ea892f1ffb7e105436dde1000803d94788ae6c97f09905248cb590b28fdf74b4",
+      "assets/home-profile-v68/frame_006__1250502778471840430.png": "65eb773cd326cb94893752fdb9c64c2b2dac532cf1dc80c59eb78243e0a5db24",
+      "assets/home-profile-v68/frame_004__4108079213813638760.png": "5339a7b5df69c473bfdf23b3850f4d96342f5a0a6d6c9b03748f0d6cd40a296d",
+      "assets/home-profile-v68/frame_003__-7690365807586648138.png": "03166c4203e99be02e58f766a622b5619c2db0ff78a8e5ae7a7bda80298602d9",
+      "assets/home-profile-v68/frame_002__5562462971069460638.png": "8cd58a23bb897212ace032ca8a213a11740d51a1fb0645cac532fa7be0e27740",
+      "assets/home-profile-v68/frame_001__-5965238952022515683.png": "a1eca28e8ebe30c05351a57317831e56d414491537249165cb0c226ac398b04b",
+      "assets/rwd.png": "716f7db2475118ef83e780762923c5d65b4db839e9c3807c41d9e201ceb7f9b8",
+      "assets/dddddd.png": "b9a0b948bde0edad999aad8cd5b533e7f2b85d524de8b5ba53f8b9dcbc8b076c",
+      "assets/fgx.png": "c4c9f3a1101d924d78b8d0eec736d5758bfe0defed688de289a1f3631a1f93cb",
+      "assets/chd.png": "b9a25e585632db6b52d65182ab8e797afd5523b9e7da26cebc12ad0936d953df",
+      "assets/qz.png": "f5a8da0f4121a786239aea6de8fd44149c4ba0739f5a00b7d202c8c2049d459c",
+      "assets/wrm.png": "ba4d60b56a601159f06c3fae5aa5763a7e73fb9b777a8dd35af0ee9f26cfd806",
+      "assets/btn_wjxx_qiehuan.png": "978f647bd3140b254f9ce1a3bbeae567f8449648be46c1fd581afde7da474d71",
+      "assets/alignment/ty_baidijiantou_1_1__7176054348828516032.png": "fdeb1ced9e8645e32ca0d524158055cd40d721fb27785b77de93a9403a9bc16c",
+      "assets/home-profile-v68/ui_syz__-4503063447182911575.png": "feaa4988e503350558149a8d911061458b56bd41a1ed08567a3ac32c804f6485",
+      "assets/home-profile-v68/chd__-1059067777618830315.png": "36df1a7736dc70b8931962c6b89537822bb21554e1dd2f13f456fa705cfe0b8b",
+      "assets/home-profile-v68/icon_wjxx_qizi__3874803324613093727.png": "0c6629b2c4f0ddc1be234ef4c3d1ca54aeb1bae5e1af8853727324c440a485a2",
+      "assets/home-profile-v68/wjxx_qiehuan__2970015265629507450.png": "c169a079d178628de13a59a65871765155fa5d69c4cee9c272f95df25e2fd706",
+      "assets/home-profile-v68/xm_xg_拷贝__-3909571444028075748.png": "d39374d576d0899ffad52e942fbc2de8bbb9c22cb936f1f94c939a5897128722",
+      "assets/home-profile-v68/ui_wjxx_baidi__1440252410534887123.png": "f1b55f84bf3fca39a222698535a5138c617f08551864ee0181dd7f45776545e9",
+      "assets/home-profile-v68/floor_qiandi__8641919880968275998.png": "c78d011dc364a37cc4bb7750cd960815bffba445e4db65c0f6e3b2061dbf1730",
+      "assets/alignment/qiandi2__5462402221176465531.png": "144d64af6f38360bbdac8d0d98c8bc8923c7e309c3a14ae180bc10a8a4e8cca1",
+      "assets/alignment/pinzhi_huidi__-1921020971322373594.png": "5fbb3c2d862491f9beec0f4617dc512701043f9fcca47e3e8b8aaed9c8033e30",
+      "assets/alignment/dj_k01__2807221046052117019.png": "6a61fd87ea63dc04f1d8353994d63f642f72cb7986d2b61e404acf113e6c889a",
+      "assets/alignment/dj_k02__-8035489513215244963.png": "698c714183482c6d23a9c07c7b1404b6ca8922f03a5fe6139f344ef68df05dd8",
+      "assets/alignment/dj_k03__8435948573787039827.png": "f730e75990bfe1a170fdeaa1d9c87a970504d4be1633bcfb036edea563935696",
+      "assets/alignment/dj_k04__-1831316688974554009.png": "68e0c4d66fe7d3c2e66b5b62d3ea86435e05232c8e2397e313bfdb90cb201c6d",
+      "assets/alignment/dj_k05__-917816744721349891.png": "d838b43f3b9178193863c0a607ab407f77f40b00b2c0a38d9955f07e4314869d",
+      "assets/alignment/dj_k06__-8540146885665940809.png": "61b0297ad28c6bfcb133e2a5ea48b752f6f69fbb945fc2d0e8b1d5d33c285cb5",
+      "assets/alignment/zhezhao_1__7000191406440217487.png": "f4b76262fb6f0505e78ec9c2481558666d035fd2574e63092d5652fbda6797a6",
+      "assets/alignment/guang_1__3638280470734820899.png": "6b9d8927fb847c5621ebd804b08836e50908916a7c7f88f010dd87fdc4fba679",
+      "assets/alignment/gou__-9010795853918946059.png": "63a60d1927f7a7584b97f69a3dd9f7ba5ac8381405b654e65ee7fbb7a66d0233",
+      "assets/alignment/prop_jin__1513608070956009486.png": "881d8bf951d4d53e5daddef6f88c59c74c5cb3275c19f3e5b2f5ec449cde8a78",
+      "assets/alignment/prop_mu__7036322270523616693.png": "5d72c3d1ab937112f56ea331ceb8cb3d1d649465fd19629a095c8715ead6c8a5",
+      "assets/alignment/prop_shui__-3313480479529087989.png": "e09fe66eaee1f7d4765ee52a214e2bea8287c25b5b51ebd3e8f82e20b25501d9",
+      "assets/alignment/prop_huo__5655885742609530456.png": "b22570044d18b3a6a404a74de3dd90caf403fd05f10c6cf11cd5c6adec6c6c40",
+      "assets/alignment/prop_tu__-3367129282791910068.png": "44716682e8c9209fd635150736b8515ec76a6af31a78977e526557bce7e89618",
+      "assets/alignment/prop_lei__-1770102155639782143.png": "8c8e2ba6b07796a640a651a0852049d0cbbe29811b27abe16324d4d0c8ba19ee",
+      "assets/alignment/prop_xie__3378976135558345426.png": "4e90029f4063b186faf69ad001557a0ac69155ea15abf0522149d6bf2c407486",
+      "assets/alignment/prop_ti__-1028579167634076110.png": "dfada2f29c728ddc269ce59f76b314c409c8ece44e5417df7d2db02aef2846e3",
+      "assets/alignment/shensedi__5819930581761087018.png": "05d7fcf69681251b75b95d594362d0d61400964761b223938ea4dd406a46c10a",
+      "assets/alignment/ty_huang__-5604565915999561553.png": "261381be296f0e217cd996395fd7203cccd952d62097f682db6fdf2f103cde98",
+      "assets/alignment/fanhui__-1535949255747685749.png": "859ce105992470ad9ced7b87c109055a22d46663d2159ec7ee091f8edd0bf7a1",
+      "assets/alignment/ty_baidij__8595319343502304677.png": "ab3dc7a96e2545051232e1067a923c2a508ede01c1237c817fc7ee3a2b4a6467",
+      "assets/alignment/gou_1__-5204806021643596154.png": "17a9efdfae2fc0f00337304b4d30140b782efcb2e469925ddcf68bee7ebd3daf",
+      "assets/alignment/jia__-102054115118226194.png": "95296d273ddf0f1b5139d0cb38e5f9ee6067fefcf894ee27bbc8232a486b3c79",
+      "assets/alignment/ty_xiangqing__8355275897292362843.png": "0d728aa27e73446fae5994ae4e7d57070561123040f789ba44fe7b6b5d9e0f88",
+      "assets/disciples-v24/guanbi__-709126205923977080.png": "2ef59cf9c11ffcb055fa879e4998aa8b9a26ec078a549ab3f2331e96ba0c7263",
+      "assets/alignment/huidi01__7980009987154515811.png": "c54fcdf88d22cedccdd1a573b57ff6c51012d193123f0caa1957b4dd2dd0006b",
+      "assets/home-profile-v68/tx_modi__-8394081595128115820.png": "d1d912f5c8feced26cf7af352f3dd1e09d76b99b7f5e441d9ccec81781a04481",
+      "assets/alignment/diyuan__6884107320621036676.png": "80c789ed52934951855c3ffb29fa87d45f625472376b8e2cf13a8aa8294a92ca",
+      "assets/alignment/word_zhanli__-8106619144114777713.png": "66d50773d915b4a06985449d39d3508642ccfc8ee8fd930b0087d2117543dfee",
+      "assets/tools-v16/ty_tcfy02_1__4658744396333446175.png": "4bae988e303e033e6a782a9b8ca02c54687e2c1bcb84f99d928787b8cfc33325",
+      "assets/tools-v16/ty_tcfy01_1__-1669429021693770651.png": "39a53a5e9eb7e6fda931069752cec248c2ad37f10613abc38e60c4d17f377f98",
+      "assets/alignment/ty_kaiqisuo__-1675495353635150128.png": "5d9614adb043e651948b30ba387e1b7b94e5aeab9fc41151819b43b6a8d81648",
+      "assets/xuanzhong2.png": "3cc941a339ed9de74eece5f365724f85a1b8041624e63a333df092b9b16ede78",
+      "assets/ui_ch_02.png": "615f11f9718c9338c319af04c7e3c0c4ede75dad760f71b72e88559a8102ce8c",
+      "assets/alignment/touxiang__-8485205283106610504.png": "1b194cc1ebc84de21677248f563278c0e6ddd07a30bec43a24e41fa2b3bb70fa",
+      "assets/alignment/changdi__-6103117688135159648.png": "4dc8056f9d72210c2dcc31cd9b837fd9e201d9bba479e91a90d26c06d998af74",
+      "assets/alignment/xuanzhong__5257266831211387044.png": "79c4b54db18f0372951ff981d592b5cb63c1b99f9f08ab1ab4ba2bac7bc09bb5",
+      "assets/home-profile-v68/floor_qiandi__7052290830775746337.png": "a7c8eaf062947ccb8973e561817b403a2e268ee937d5a93903fa8d146482b28d",
+      "assets/floor_ty_andi_1_1.png": "5f1c82daf4a971dd98d1e0583a92201c41f15f6c715b3d002344aa7cab6f6999",
+      "assets/ui_gh_ta01.png": "56014ed0fbeeea90c80d2a861f7421dad6cf056de4798438f823472c7c44449a",
+      "assets/ui_gh_ta02.png": "1673f211b06956aa87de377264a017ef94c89becec72ddb5fba5472d22b1b8c1",
+      "assets/ui_gh_ta03.png": "784026b42a26a38d2dc5e2c9df4a9ce890083cc7aab83f546d9c954d34154119",
+      "assets/ui_gh_ta04.png": "8db1a8521c3e56de2a3c6341e0b61f9d717fc0d0f6b51aaf7d0b47aa89e0d3ae",
+      "assets/ui_gh_ta05.png": "8d431b2d79162bccd6f235eea4f564763543c5376c45bcf79ccdd5f2dfb3c311",
+      "assets/pet-info-v42/ty_he__-987810489407834944.png": "6fe2b1ea772c36f87098ddac71f137ed9789020bc61c7a469afbf3c5e78321fa",
+      "assets/zhezhao.png": "80865032544604188e1d4a00a5ed742e93a65ed97aebbc4ffe5df551d650ee67",
+      "assets/home-v26/Monster_1010_txyuan_beifeng__-6375178255891291231.png": "c52266d6e5c494806c0dbefff3d97b95496727719e41a3c242c2ef3baa28ac36",
+      "assets/home-v26/Monster_1002_txyuan_gongjianiaogui__-4576474949229672644.png": "b6c81abea78c0848aca250201e910dd8791fbe74619b9cd521faf4700eec9f7c",
+      "assets/home-v26/Monster_1006_txyuan_jiutong__-2855240566332465814.png": "1e1e24f275906db3538dfc788c25d7247b7fe612cdcd0e72d8177e99f1a48c48",
+      "assets/home-v26/Monster_1009_txyuan_hongzhong__-72619964340055932.png": "e7bdcd31a89983717900edc1670c140551680ce73108db212d35ca28f1b972ec",
+      "assets/home-v26/Monster_1008_txyuan_sitong__638578426861337225.png": "19a5f179e1565b05d46c3a764579fb6a9aa3d8e997926153c9bc8cfa1d9ccb1c",
+      "assets/home-v26/Monster_1004_txyuan_minniao__1882166699230476320.png": "8921ead4280efab4461f9e6afd985d93185693416b0617e7e9dc7b210ad69583",
+      "assets/home-v26/Monster_1007_txyuan_facai__2003288606296388296.png": "a805efa9e02103ba994630a2cd1ee63f1519e7fc6bfceb4e1c1f3f4be1c6ca03",
+      "assets/home-v26/Monster_1003_txyuan_xunshanxiaogui__6755647736348932412.png": "d718eb4a27b4f1b5b5f2a93da8f9a3d6c7ce270f8fd2d9bfb1305bc99ef717ad",
+      "assets/home-v26/Monster_1005_txyuan_wanhoubing__7956659341679266486.png": "84db6e007f37d370fb1b2834bd72cadd5b60702ccfbc000e691602526b7079ed",
+      "assets/home-v26/Monster_1001_txyuan_changmaoxiaogui__8485908916232827592.png": "8db47dc1707f8292fe2291c4cdd129fcc2c32eda6d3b3d66bc3d651dd72f5c73",
+      "assets/Teacher_icon_Soil_Orange_1.png": "dcba5c7ad17df11c8439f6f9fc958893191ea66479784ed23331297c7be77a50",
+      "assets/Teacher_icon_Soil_Blue_1.png": "2d80596a5ba8a98b417f988336f46c4728add81059303da32121423053e0114a",
+      "assets/Teacher_icon_Wood_Purple_1.png": "171f9842003cb757092cd1769a7e9826e010b9d517264d0850d6f69f0cf9f4c7",
+      "assets/Teacher_icon_Heretical_Blue_1.png": "73a7e33aaf6fa5837945f9089dd8668c87a56a5ef0aa5d8930295e3217c28e86",
+      "assets/Teacher_icon_Thunder_Blue_1.png": "428b6eaba11f6cd670e574d9f8a629b7652ebde9fd665b495d339595dd90180b",
+      "assets/Teacher_icon_Heretical_Purple_3.png": "75faafbda1a15606f73fd83362ecdaa516460bec46b79bd2a440bea4508a85bf",
+      "assets/Teacher_icon_Fire_Purple_3.png": "c215a61bc09b83e34bbf03358dc5ad77fe82e892508faf3b2bb1349696f79991",
+      "assets/Teacher_icon_Thunder_Purple_2.png": "6581aadbb09d93816d3fce2ff73eff3498e1cd4ccd5bc48d7fcae6ecdced1205",
+      "assets/Teacher_icon_Water_Orange_2.png": "243eaa8f0e6d0c078b3c60b39773e3c858e4ff60036fbd4df857032b97e81d11",
+      "assets/Teacher_icon_Thunder_Orange_2.png": "e61491c922448feee60c96eaa976a953f4f08be8fbc3d5fc8ce56db0121fb3e0",
+      "assets/Teacher_icon_Thunder_Purple_1.png": "57794fae9b60a8c05b407dd3758f7b7de1e9197d6ea82e0c353b7251567996d4",
+      "assets/Teacher_icon_Wood_Orange_2.png": "3bc64e39aded2f69aa056c83b2c35391bad54053f274350d597ac621ac73196f",
+      "assets/Teacher_icon_Gold_Purple_1.png": "ab3f10f748366d57dedaffa86f484649b599527e8741d9aa1e8494742667d278",
+      "assets/Teacher_icon_Soil_Blue_2.png": "dab9216262465107b3cda09f20225caabd320a93b0928d57699d0ff88656d761",
+      "assets/Teacher_icon_Heretical_Orange_1.png": "d3fe12fcede0686f16d3d9cb782d7671cffaeced690c225d9075cab36a67142e",
+      "assets/Teacher_icon_Wood_Orange_3.png": "66323d785a35bcca83339069c9cbaf9261a6d53960557e3ffe50a67c22885c3b",
+      "assets/Teacher_icon_Heretical_Blue_2.png": "ab8b666c6ce9ada91be7f19ea265fc2cb9bfd2119a1f13391603549d260f185d",
+      "assets/Teacher_icon_Thunder_Orange_1.png": "6d5441f60c3cdbfffc0888fcfc0a579a6261223bfc948b0866bf5fd1efb2e147",
+      "assets/Teacher_icon_Water_Orange_3.png": "1b117c687668cc2bffd6057a116fedac584b13bf266632195e91f2e4d1d3534c",
+      "assets/Teacher_icon_Wood_Orange_1.png": "3a4f7f6d03af409b62cb9341186e2689dacd41f9214bb2d1f0eefc01bcdeb120",
+      "assets/Teacher_icon_Heretical_Purple_1.png": "306e2e1301fa9d1ef78c1b3a3fae2acf0cf6759ff50d7c5d908d308a8b5d8591",
+      "assets/Teacher_icon_Gold_Purple_3.png": "3d9756b4a15fb14c9761249a9eba1ef932efc0fcc7846d1127f7d18893e1a362",
+      "assets/Teacher_icon_Soil_Orange_2.png": "16efa27a37c00cfa4ceaddd034028c0016023a631c9d32a1d1bde6c8fb32fa62",
+      "assets/Teacher_icon_Wood_Purple_2.png": "3a7198722e4647e963dc40f5454d75b23c17c06adfcdec755ca7fc1280cdc623",
+      "assets/Teacher_icon_Aespect_Orange_2.png": "2e27d230d56bf5c69d1983e0248cc67198b9fe0c2eb2d92bfff028c29fdf0466",
+      "assets/Teacher_icon_Water_Blue_1.png": "9cf105aa84fe55483c515bcf29826930fd5342a6c6e4245c70cb0b5b6697648a",
+      "assets/Teacher_icon_Wood_Blue_1.png": "0a52b049547ac8bda43cd7b4b5859eb999360ac90de9f073ede2c7e725f13e18",
+      "assets/Teacher_icon_Heretical_Purple_2.png": "43a74a8dedd4ee4d0b621757c10d7a35ceef0576b27239f7821b6ac2e3bc66a5",
+      "assets/Teacher_icon_Gold_Orange_2.png": "0acfe128c3fcb2c641609a1252b4904d4304a7fc289f5925897c9c79b6d21038",
+      "assets/Teacher_icon_Gold_Orange_3.png": "d7a91f77c264b330227e203541aa7f742a503cfab579476d885f5636ff508556",
+      "assets/Teacher_icon_Gold_Blue_2.png": "f9dbe591f50070f37d1fdea48a30ecd68f7c9718b586ef4202fdfaae99938c89",
+      "assets/Teacher_icon_Water_Purple_2.png": "1f9d10b9f5630b7f802fc49a72d0414c5364a93e1407f142937344a6841acbcc",
+      "assets/Teacher_icon_Gold_Orange_1.png": "a7ddb42e9697b6e4ab41f8282aca2738c628db302783a8a1c2020cdd80db345e",
+      "assets/Teacher_icon_Fire_Blue_2.png": "4e79f425dc7524c84ffe143b10f13f136440071795ade698c57028a524bad4a7",
+      "assets/Teacher_icon_Fire_Orange_3.png": "6e411a9b609cb408b302116181610c9fe3b496b4d81f1542290a4480253dd4f2",
+      "assets/Teacher_icon_Soil_Purple_1.png": "a9d141442c93e1eea064d4e5dff307ec7cac89c96dd216e8982f33eba904e9d8",
+      "assets/Teacher_icon_Gold_Blue_1.png": "1aa26d2a93c69cf6a21825019fde72107cc925a07b1ad8d8ecf612e893b34e15",
+      "assets/Teacher_icon_Water_Purple_3.png": "0d3aac531d5e2d89676f7e1cc7fe1f438787872da239e77a39881ec8242a02d1",
+      "assets/Teacher_icon_Aespect_Blue_1.png": "b53180f12eed734c1b489f0422bd42f98431e8f82038aab0612e3ce6335f0bd7",
+      "assets/Teacher_icon_Aespect_Orange_3.png": "6075bd4e45f6bac5d8a3b8d82b1db6fd54b67e2b7d563b90e5f1578c775f5380",
+      "assets/Teacher_icon_Thunder_Orange_3.png": "1a38d4129806d9bf9d154103aafe03842a992d5539c7680edf7e33862dd2ef71",
+      "assets/Teacher_icon_Fire_Orange_1.png": "3f2e9fd36d2aad29cecfe4b206e5c20b7253feb7a44906404575813eadf31572",
+      "assets/Teacher_icon_Water_Blue_2.png": "cf883052730a9af943a8582c3a770bf24cc94f7b0698ea29b109bb5830ab2c54",
+      "assets/Teacher_icon_Fire_Orange_2.png": "4319e1f238a92e8bd574a37b8d08d0cfa68a0739ad44f4a725c7d03fc1c8e660",
+      "assets/Teacher_icon_Wood_Purple_3.png": "d615dedb279c1b569317bcb410ab7f75e64b38c0df0d52da747ffd19cd686850",
+      "assets/home-v26/Teacher_icon_Water_Orange_1__3869644621464322090.png": "44ddceabc56f308b7426bd9eca3600edfbe7fb0f24dd9bfa53e0411202ff41fc",
+      "assets/Teacher_icon_Soil_Orange_3.png": "62e273c7e9b71b65212883181cc362cc9f445e73e7bf6d09d2cd75341d284399",
+      "assets/Teacher_icon_Aespect_Orange_1.png": "853fe41482fde94b18875525b80a247b33727d133786de5dab48705419d207c6",
+      "assets/Teacher_icon_Gold_Purple_2.png": "f8aa3d6e1632cd5e4fdec39a0d383f6982fe549c541d2aa5abbc1f225e291043",
+      "assets/Teacher_icon_Fire_Purple_2.png": "0b75838cffd6a40e8b757c9238a0c27f882654458e072de46ce6923b6e5a92af",
+      "assets/Teacher_icon_Soil_Purple_3.png": "2b827a14d7e630f2291ec4d38e128aa45989993981cc5891de11da8c4fc07ca3",
+      "assets/Teacher_icon_Water_Purple_1.png": "fc1b6a459ad3af82d7451b043786919d02e466442a2b8f73f1054d9c8bd6065f",
+      "assets/Teacher_icon_Heretical_Orange_3.png": "5d0b62776cd5e53dbde996eaf3bfca3a9f80b6aa6d31af83f533b538139c9a7e",
+      "assets/Teacher_icon_Aespect_Purple_1.png": "efc1c5e612df9691eda18827ea117b2b828b629ec2b1e01c8c0fac0a5af23543",
+      "assets/Teacher_icon_Thunder_Purple_3.png": "b18868c86baaa24cd0e1e03a01e5f4616f9d13ede4b39ad5d459693dc91653b4",
+      "assets/Teacher_icon_Wood_Blue_2.png": "2edd588834194c858e17debf5e541c36b25b3cf78edf59de1b3f05f87cfd9fdb",
+      "assets/Teacher_icon_Aespect_Purple_3.png": "149ede3c9e6565ba72a848ad578f7f851b70c99505afcf026730889b44524acb",
+      "assets/Teacher_icon_Fire_Purple_1.png": "1a70878517f96e662b4b8402ea2a5b80a0efcd37f78aca16010e137d6b66e641",
+      "assets/Teacher_icon_Fire_Blue_1.png": "a6a9d143ae3c325142c3dd66cd0859ced4d0ed6ebcfe6fd0a827ea698fa33dd0",
+      "assets/Teacher_icon_Aespect_Blue_2.png": "2aee07032c214f99c29f968774e76b6c6de614a3948ced561eb73cecb462acf3",
+      "assets/Teacher_icon_Aespect_Purple_2.png": "2528a815c8a0d080f664b6ddfee3360494e65e6fbede4e6f5c69bfaee5eefe09",
+      "assets/home-v26/Teacher_icon_Soil_Purple_2__8541406355257263168.png": "f406a103bbf6757161f9e57eeadc8c27f51a85c4803285d07490cff054a7f270",
+      "assets/Teacher_icon_Thunder_Blue_2.png": "9665e0e282b286861da01487cae104ffd455391f71e49ef2721a116d00754f1e",
+      "assets/Teacher_icon_Heretical_Orange_2.png": "799a09e463d532bb3329bb0bbaea352568aa9dcf72ac1aee88370dbe8050ff31",
+      "assets/home-profile-v68/ui_tx_07__1168057413285747239.png": "a50a25dac52f31c1a723710a5433adbec313819ee0c9a385b088c00e6aab8da9",
+      "assets/home-profile-v68/ui_tx_09__-3397750573995150282.png": "8e801734d3c53519f7a002ce21084cc47ad803933e63240b3f0ed94295f7d0be",
+      "assets/home-profile-v68/ui_tx_10__-5953935054715264350.png": "437dabb6b4cb41d92e0a111ebd4ea4ae9b3e5628fee5334f29a775d05a516142",
+      "assets/home-profile-v68/ui_tx_11__-3660365212921190229.png": "16c7598aa8e8eb492f0a5784fc1c0d9f8aac84d25f21df74947c27172d6667cd",
+      "assets/home-profile-v68/ui_tx_12__-1974251450089284206.png": "26844c3e548e3870eb8133e108828792a3e42379c15c55ef40b2f0c0cc1787a4",
+      "assets/home-profile-v68/ui_tx_13__8518442658157402718.png": "3693e866dbf48dfbd2ea6206467192548802241be8aed60b3575f6531866b3d9",
+      "assets/home-profile-v68/ui_tx_04__5218308522308442033.png": "f055b92d0eacbfd44a2abc7703d04b4ca3b895c8bb79b5009fa588072e2ebb1b",
+      "assets/home-profile-v68/ui_ch_04__2465526779006119596.png": "9384314fb25a0b49a4b15be8ac5da1d374bc21d1f193f1b517c5939f7cecc4a1",
+      "assets/home-profile-v68/ui_ch_05__2789517147489312299.png": "c03e3193e6b726e4b60cc4d7b0728913cd5999a40a279344a974580f58b4a5ec",
+      "assets/home-profile-v68/ui_ch_06__6337651743448091598.png": "21107082cfe823820348651ce8d986c4b080741fb292fd89159339e0b536b1ab",
+      "assets/home-profile-v68/ui_ch_07__8464147768342162243.png": "0a5f3cc09ddb2cb79db3237f7acc53c8dbe5f1c1670fdaa0c60e832d32cf29da",
+      "assets/home-profile-v68/ui_ch_08__-3429699967156343701.png": "8c15d1f9c0d5cad9d8e6e2859962ff79abf15e127c5586b1ed422e20387c91f5",
+      "assets/home-profile-v68/ui_ch_09__-8364920529259136829.png": "dcbbf18a11fad12c2ccf5b79877065e12ed4e14b063f2f0c7b28fb452c288e81",
+      "assets/home-profile-v68/ui_ch_10__1051588093880267364.png": "8c20c16149eb2d9404e53350da7260cd03504cb69dad39e5b1f00668550b7d40",
+      "assets/home-profile-v68/ui_ch_11__1369800870306313016.png": "da62a34fd8112b947e48c067317066086c6494093d8f996dae4944db4bbbcca7",
+      "assets/home-v26/ui_ch_17__-1527383630168142422.png": "3e91aaddcb6a2af6d528fe0857a3e17cdde4ecfb90bc2ed0a1d920b40cd983d2",
+      "assets/home-v26/ui_ch_18__5471036925496310191.png": "7f39172ebbadb49cd2b69a8338035478a283ac66145977fdde193aec29b70a8d",
+      "assets/home-v26/ui_ch_19__3405424489659018708.png": "4ec9368adcba2c739d2ece14c9544744126d4c63dd3faae4438e69bfc998381e",
+      "assets/home-v26/ui_ch_20__-1639084375770472299.png": "8ff40981ef769d997b2107dbfae47cfb663888d013d57f585b6d916b87ee6a24",
+      "assets/home-v26/ui_ch_21__-6090577605295306530.png": "27bfb07915701887f58a835968abe406173fabb7ee78c0c3c6cae779f506ea9f",
+      "assets/home-v26/ui_ch_22__8800710976963635352.png": "f6518da9d9bff0bb29cd5ac941cedeee15035ff1048718d7f82ca36e9105ae60",
+      "assets/home-profile-v68/ui_ch_23__3843534026825765339.png": "4072fa0be020aff0203cf7066a7e4d0f89dc231cf8be9f3101cd129ba2831f66",
+      "assets/home-profile-v68/ui_ch_24__-4463293687654972712.png": "1364e2b2203c8b127ddc0323d980c714a6ebe2ddde9331ab0783ea00319485f3",
+      "assets/home-profile-v68/ui_ch_35__4253877547732942303.png": "b0b3c15389ba2cb931e7b3d027384e897d7bfe08f62a0b2d6dc9d9ba0541168e",
+      "assets/home-profile-v68/ui_ch_36__-2832636632379510487.png": "128b53f38275bb3b4e9ae615fe29235983d4cae227e08368aabdafc8b139e344",
+      "assets/home-profile-v68/ui_ch_37__-8547294544287217127.png": "498ce17ff42346670eb7284f7e769b3788cdd753cca2a222830647acff0317b9",
+      "assets/home-profile-v68/ui_ch_38__6947437073108983416.png": "3e0270a4e65b074007115ad3ffd861fbfe5e8e54e50e90594fbf84b452989ed5",
+      "assets/home-profile-v68/ui_ch_32__-7596658513645263888.png": "1d3ea63914f38737db4a2e01bfcd6b022adbafaa47aa1a89dd75b7dfdbabf7a9",
+      "assets/home-profile-v68/ui_tx_03__-4587214931952978592.png": "6227e36d34ca59dc347df0d78a52916a8e9527ac4aa7891f79f823529140c72e",
+      "assets/home-v26/ui_ch_34__-4464983434728219851.png": "4a142814e7f034e2b0e360d51d165303f84f6683c9f76e183a9d77b2520c48cb",
+      "assets/home-profile-v68/ui_ch_01__-3485762193389754028.png": "553ab7aecc0c219bcfd0ce1ec40e1b55ccbf3ae6d8a7e0133890458935b259d8",
+      "assets/home-profile-v68/ui_ch_29__-2465370454376519904.png": "24e0fc12f71dd9b3e72683412f11c6c01b44d166f0f15bc011ef5ac231e97713",
+      "assets/home-profile-v68/ui_ch_33__-342708473445099017.png": "9d3ad1d258d3691fef296354fdef214c58ffc4436fb820e64c198aa0672c2bc5",
+      "assets/home-profile-v68/ui_tx_02__-167887275376956758.png": "18846297139214cf1b1561bdccc9251b7e18f36e153549ed6f22ec6e9c594fae",
+      "assets/home-profile-v68/ui_tx_08__1129342627413456432.png": "050dbe398628cf20bd71dc0367e822280e1eab792effef1580c39b705d4f3bb0",
+      "assets/home-profile-v68/ui_ch_26__2095096477898468891.png": "590e4173a024974e6edf3e2ac2396b98599187b05b8c80a13c7d836ab0b84adf",
+      "assets/home-profile-v68/ui_ch_28__3326090415051490689.png": "4e8ec5586313e3c70f1bb8f42726e20a98b11d7ef323af9641dee08ef0e0335d",
+      "assets/home-profile-v68/ui_ch_27__4768298679134220555.png": "4f844ce1a674c83f8460922b481a888973067b08107c71f9ee5e5736a13b3520",
+      "assets/home-profile-v68/ui_ch_25__5272749831829267982.png": "a8a96345e3f83b852c1dc958d8dccc01fe92efd84160cc612be208562bc5c41f",
+      "assets/home-profile-v68/ui_ch_31__5436115339890777476.png": "20bb9be7ec9e3f493be8443d24ba05cd1bb15a8a88aa8c3b43aadcb85064753d",
+      "assets/home-profile-v68/ui_ch_02__5663403252042353482.png": "83e31acd2c0d18a8b53f3bd34e5b3c077304f6d2f506ff90ee8c36b1db2cc9f7",
+      "assets/home-v26/ui_tx_06__5906154281059636566.png": "22ca430fa1c5e09943e3964a29e295b60f768cfe9e8c6c1491766a74f5a57f6a",
+      "assets/home-profile-v68/ui_ch_30__6251503480749046310.png": "8e8f73757347cf9cbd5f8575a8253a842a6f313c72b6c94974934af84fbbd45c",
+      "assets/home-profile-v68/ui_ch_39__-3450992752693830135.png": "2e3ffa79a2d352aad8fad732f71fec41bc01cedc099d3fb64d17030c3bf463f5",
+      "assets/home-profile-v68/ui_tx_14__3493977060344321466.png": "c8814f6e9071be5a6132c79b25861f03a44ff013c649687fbc6a3d4e873b6ca0",
+      "assets/home-profile-v68/icon_tx_03__7308539234824194277.png": "9a379ef1245c4a5699f5fdc752ebdaa6776e5a18010cb2af5ba56ff889c5737e",
+      "assets/home-profile-v68/qz__hong__-1898274273910050736.png": "da36ed3ba3327b5c766363b4d651fc0efbd1632c034703f64ff7fca291c2b259",
+      "assets/home-profile-v68/qz__lv__5302535168126144490.png": "78585a0fe390d6630b4dbfbea59490eda1b23414bf9058f4969659eeac11bd85",
+      "assets/home-profile-v68/qz__huang__2597270105041854696.png": "4eb0fdebd74d5658cab5befaeb9f3df7910cfd6f39ca2261e7f7f70886925058",
+      "assets/home-profile-v68/qz__zi__-5757665667403169774.png": "1782a64b1ce71f30eb5657812c4ab0166d90207411951655d690c859a714ac08",
+      "assets/home-profile-v68/qz__lan__-8505503353436083151.png": "ec1cbcada1079917642dc3b67ffdbe436c646aced4f2d283af007f250a66971f",
+      "assets/ty_ding.png": "a5670123870d451db3db973f215e275aab59d4922ffdc01f13f2747262bdf1de",
+      "assets/mnjy_jg.png": "d97465a2b7b43fae0abbeeb3b5ae72f3a35534ae1f1096bffbd8ac3f2399920e",
+      "assets/ty_k02.png": "4fabdbfc8fbf7be24c8db1892bc1860b44a2c7b9f7e66c0f7b2a010390a39060",
+      "assets/ty_k01.png": "8e65c73d8b6a32064b524eb77d86cd0df7922a5aad9563a70753682ce373db6a",
+      "assets/alignment/default_sprite__-5143345350788569887.png": "29f7cfecca75c1fb12dace8e1a99b33f293a4d0cc7e8377edf0f7051291b8fa7",
+      "assets/alignment/RectMask__2729113781159753811.png": "c929730321ecb86b19c6cde21f15c41a8321967ae81bda1003fa7c54c60f10b0",
+      "assets/home-v26/ui_ch_25__2251448677833540977.png": "e6a7a2819e8b74f2b80f446758a20204fb8918b3333a2416105cad88b276507b",
+      "assets/home-v26/ui_ch_26__2651014633322782229.png": "e746bf55b8977d885913423cf037ffc65f46e39161800ef2d36ccb7ea9177333",
+      "assets/home-v26/ui_ch_27__4375482562480074257.png": "11f4113d1322eab83f77b5453ebfd87556f363a80d4792f6733899240ce40463",
+      "assets/home-v26/ui_ch_28__6139851597913954430.png": "79b295e196b7bdac4af6b2929e2e97709b4482fa0dc9e49f21c4ddd23516b160",
+      "assets/home-v26/ui_ch_29__-106812953836318507.png": "c05c1866d2e2ab4923ef70ca71b2e1a6841d1ab00e583aed12177131ad64cf91",
+      "assets/home-v26/ui_ch_30__-5622430197663692094.png": "36b87a77f9d69aee4824c0ab99671fde80c4d9bacb6a31c52a927e1486d18c2f",
+      "assets/home-v26/ui_ch_31__2942775164056448231.png": "4624a5a1a7c699984bb19e9282c330fc5b3ce17c530c2232fc4e941bbfeb2f1d",
+      "assets/home-v26/ui_ch_32__2185851033939482294.png": "6f9538340836477804f11c3e6bc4196eeab56ccbe9475b38b63dd74b7e5f708e",
+      "assets/home-v26/ui_ch_33__-8650788943956555121.png": "3949226d9caf398f4e41187f319c4b113079cb816f4c094a38d9d44dbb95ab8c",
+      "assets/home-v26/ui_ch_34__-8277138050447889514.png": "5a832e924bfa53021de9e5a1a2e724b3704ba16c1fdfdb453601d66b0ecd4897",
+      "assets/home-v26/floor_qpk_tongyong__-8634291629923316577.png": "74b91d4c793201248d173beb43156d9dd3f2d9a075dc3f8284f4113d927fbf27",
+      "assets/home-v26/floor_qpk_niantoutongda__-5343643938612626893.png": "2c9db759afc46e5095c76061446d61fe295772bd54683796c4611b933b9102e4",
+      "assets/home-v26/DingZhi_floor_qpk_dage1__-416942210924300229.png": "b0ad1b3d19086072de3751e5abc7319ce64849f920deddb5c9f74d0044208761",
+      "assets/home-v26/DingZhi_icon_tx_dage1__3750809218751215311.png": "24b829bd465ba0222705e706b4b264535149a154ca03c14610e411e78b32adb1",
+      "assets/home-profile-v68/floor_bt_zhanshidizi__-6262242733917458827.png": "ad74fc6e8a28210e1260966c4dadcf26845a271d39759d632c2cc8cef9b23a67",
+      "assets/home-profile-v68/fx_ui_jspj_zhanli_di__-2992193889159272062.png": "f418913d0c6442f986462e6f4ad1a61c3cc817f1b750b8a3b34455e63961f77f",
+      "assets/home-profile-v68/xm_xg__4313352329730679091.png": "a2cf2d16b24f7209f938ec88deb023f70dadd44d30df55237a785c3763debea1",
+      "assets/alignment/Background__1660267235368898380.png": "46e2a8c6759bf24681f9f3f6073973ca65ac95e8d1ed8b8e025137819857fb2d",
+      "assets/alignment/UIMask__-426171492875694260.png": "6b9a19efbdf70c33d05c0e1d927377a4bb032a87b2acd94aa9abaf4edb909969",
+      "assets/alignment/UISprite__5837791642106728268.png": "9e2b539b7c88fe4464525abc282c724b964852950a0b8aa1df13414014b5f33c"
+    },
+    "pending": [
+      {
+        "name": "efx_ui_arena_frame001",
+        "components": [
+          "Animator",
+          "ParticleSystem"
+        ]
+      },
+      {
+        "name": "efx_ui_arena_frame002",
+        "components": [
+          "Animator",
+          "ParticleSystem"
+        ]
+      },
+      {
+        "name": "efx_ui_player_title‌_025",
+        "components": [
+          "ParticleSystem"
+        ]
+      },
+      {
+        "name": "efx_ui_player_title‌_026",
+        "components": [
+          "ParticleSystem"
+        ]
+      },
+      {
+        "name": "efx_ui_player_title‌_027",
+        "components": [
+          "ParticleSystem"
+        ]
+      },
+      {
+        "name": "efx_ui_player_title‌_028",
+        "components": [
+          "ParticleSystem"
+        ]
+      },
+      {
+        "name": "efx_ui_player_title‌_029",
+        "components": [
+          "ParticleSystem"
+        ]
+      },
+      {
+        "name": "efx_ui_player_title‌_030",
+        "components": [
+          "ParticleSystem"
+        ]
+      },
+      {
+        "name": "efx_ui_player_title‌_031",
+        "components": [
+          "ParticleSystem"
+        ]
+      },
+      {
+        "name": "efx_ui_player_title‌_032",
+        "components": [
+          "ParticleSystem"
+        ]
+      },
+      {
+        "name": "efx_ui_player_title‌_034",
+        "components": [
+          "ParticleSystem"
+        ]
+      },
+      {
+        "name": "title024",
+        "components": [
+          "ParticleSystem"
+        ]
+      }
+    ]
+  }
+}

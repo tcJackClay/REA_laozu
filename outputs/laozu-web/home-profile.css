@@ -1,0 +1,12 @@
+.home-appearance-graphic{position:absolute;left:50%;top:50%;width:0;height:0;pointer-events:none;transform-origin:0 0}
+.home-circle-avatar>.unity-image{border-radius:50%;overflow:hidden}
+.home-profile-window .unity-text{white-space:normal}
+.home-appearance-scroll{overflow:auto!important;pointer-events:auto;overscroll-behavior:contain;scrollbar-width:none;touch-action:pan-y}
+.home-appearance-grid{display:grid;box-sizing:border-box;width:max-content;align-content:start}
+.home-appearance-tile{position:relative!important;flex-shrink:0;pointer-events:auto}
+.home-appearance-selected-tab>.unity-image{filter:brightness(1.12)}
+.home-profile-window [aria-disabled=true]{filter:grayscale(1)}
+
+.home-appearance-attributes{font:30px/1.25 KaiTi;color:#674d2f;white-space:pre-wrap}
+
+.home-appearance-attr-lines{display:flex;flex-direction:column;justify-content:center;gap:17px}.home-appearance-attr-line{display:flex;align-items:center;justify-content:center;gap:10px;height:53px;flex:none}.home-appearance-attr-cell{position:relative;height:43px;flex:none}.home-appearance-attr-cell>.unity-text{font:36px/43px KaiTi;color:#eccd76;text-align:left}

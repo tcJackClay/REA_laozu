@@ -9,7 +9,7 @@ const out='work/rea-pipeline/verification/home-v27';fs.mkdirSync(out,{recursive:
  const act=async a=>{const x=page.locator(`[data-home26="${a}"],[data-original-action="home26:${a}"]`).filter({visible:true});await (a==='close'?x.last():x.first()).click();await page.waitForFunction(()=>!window.SourceWindowMotion?.text().some(x=>x.phase!=='idle'));};
  let r=await runtime();ck('fresh profile reads game save',r.profile.name==='无名老祖'&&r.profile.level===1&&r.profile.resources[1].n===300&&r.profile.resources[2].n===40);
  await act('rename');await page.locator('#home-name').fill('山门测试');await act('rename-save');ck('rename commits', (await read()).homeV26.name==='山门测试');
- await act('avatar');await act('avatar-set:2');await act('close');ck('avatar commits',(await read()).homeV26.avatar===2);
+ await act('avatar');await act('appearance-open');await act('appearance-select:2');await act('appearance-use');await act('close');await act('close');ck('avatar commits',(await read()).homeV26.avatar===2);
  await act('seed');ck('seed gate blocks new player',(await runtime()).page==='home');await act('teacher');ck('teacher gate blocks below level 7',(await runtime()).page==='home');
  const seed=await page.evaluate(()=>CULTIVATION_DATA.seeds.find(x=>x.icon&&x.arrCost1?.length>2)),teacher=await page.evaluate(()=>TEACHER_DATA.teachers.find(x=>x.icon&&x.arrCost1?.length>2));
  let s=await read();s.cleared=1;s.wanderCompleted=1;s.sect=7;s.crystal=1000;s.gold=10000;s.seedUnlockedIds=[seed.iID];s.teacherUnlockedIds=[];s.seedStars={[seed.iID]:0};s.goods={[seed.arrCost1[0]]:1000,[teacher.arrCost1[0]]:1000};

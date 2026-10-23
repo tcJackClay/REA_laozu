@@ -6,7 +6,7 @@ const out='work/rea-pipeline/verification/details-v62';fs.mkdirSync(out,{recursi
  await p.goto('http://127.0.0.1:5173/');await p.waitForSelector('[data-original-action="home26:avatar"]');
  const act=async a=>{const n=p.locator(`[data-home26="${a}"],[data-original-action="home26:${a}"]`).filter({visible:true});await(a==='close'?n.last():n.first()).click();await p.waitForFunction(()=>!window.SourceWindowMotion?.text().some(x=>x.phase!=='idle'));};
  const rt=()=>p.evaluate(()=>JSON.parse(render_game_to_text()).source.home);
- await act('avatar');await act('avatar-set:1');await act('close');
+ await act('avatar');await act('appearance-open');await act('appearance-select:2');await act('appearance-use');await act('appearance-select:1');await act('appearance-use');await act('close');await act('close');
  const f=await p.evaluate(()=>{const s=JSON.parse(localStorage.getItem('laozu-web-v9')),seed=CULTIVATION_DATA.seeds.find(x=>x.arrAngerSkill.length>=8),teacher=TEACHER_DATA.teachers.find(x=>HOME_DETAIL_DATA.TeacherSkin.filter(y=>y.iTeacherID===x.iID).length>1&&x.arrStrategy?.length&&HOME_DETAIL_DATA.portraits[x.iDefaultSkin]);s.sect=7;s.wanderCompleted=1;s.seedUnlockedIds=[seed.iID];s.teacherUnlockedIds=[teacher.iID];s.seedStars={[seed.iID]:0};s.teacherStars={[teacher.iID]:0};localStorage.setItem('laozu-web-v9',JSON.stringify(s));return {seed,teacher};});
  await p.reload();await act('seed');await act('item:'+f.seed.iID);await act('skill');
  const scroll=p.locator('.home-skill-scroll');
