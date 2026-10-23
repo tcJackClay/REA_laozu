@@ -1,0 +1,11 @@
+{
+  "taps": 231,
+  "checks": [
+    "320: all 77 cells touch accurate, no bubble over any route",
+    "390: all 77 cells touch accurate, no bubble over any route",
+    "450: all 77 cells touch accurate, no bubble over any route",
+    "23 difficulty silhouettes exact union areas, no internal borders, bubbles clear"
+  ],
+  "errors": [],
+  "note": "Chromium touch emulation, not a physical phone"
+}
