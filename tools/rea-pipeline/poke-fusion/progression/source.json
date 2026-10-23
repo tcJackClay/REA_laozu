@@ -1,0 +1,521 @@
+{
+  "source": "PokeCatch STORY + gymTeam/aceOf; snapshot 2026-10-22",
+  "assets": [
+    {
+      "file": "26-arene-pierre-710x400.webp",
+      "sha256": "61d98621fe1cd12c3dcccd301749b8810fb717ea072592cada533726b57b86b9"
+    },
+    {
+      "file": "27-arene-ondine-710x400.webp",
+      "sha256": "6507cf8154f829cc486108857ba83dae9db6ab27efe0592a345ad4f5bbe3151b"
+    },
+    {
+      "file": "28-arene-major-bob-710x400.webp",
+      "sha256": "334b1ffae7222c6e4ff465fc913c8086575d55f7b54c7dcac26335bb8f38cdbc"
+    },
+    {
+      "file": "29-arene-erika-710x400.webp",
+      "sha256": "e2f09fe5b6bf46e34b2799e95847d55ba0fdaf5888692692fd5c81aecfb8f096"
+    },
+    {
+      "file": "30-arene-koga-710x400.webp",
+      "sha256": "5ad7d9b983ee59f7f9671d21eaf6534723f8511e5024a5bea6ca8225f7af26e3"
+    },
+    {
+      "file": "31-arene-morgane-710x400.webp",
+      "sha256": "7a29b7c009c46bfb0c8ac33b30eba2fc46d8ab079360f6c301d58c667d7d0e76"
+    },
+    {
+      "file": "32-arene-auguste-710x400.webp",
+      "sha256": "fda743df81a359190596a1631c10892400115d1552b1ac5e915c5c6e50cf2129"
+    },
+    {
+      "file": "33-arene-giovanni-710x400.webp",
+      "sha256": "53f7dfcba8e626d7c8087785ac2cf9401bb89dea38d9b0e30f8b5c76a650cc28"
+    }
+  ],
+  "data": {
+    "gyms": [
+      {
+        "kind": "gym",
+        "name": "深灰道馆",
+        "bg": "gym-rock",
+        "fallback": "mountain",
+        "leader": "小刚",
+        "sprite": "brock",
+        "type": "rock",
+        "badge": "Roche",
+        "color": "#9a8b6a",
+        "reward": 1386,
+        "power": 1.22,
+        "ace": 15,
+        "team": [
+          [
+            74,
+            14
+          ],
+          [
+            95,
+            15
+          ]
+        ],
+        "id": "gym-0",
+        "chapter": 0,
+        "city": "PEWTER_CITY",
+        "scene": "26-arene-pierre-710x400.webp",
+        "badgeImage": "frlg-1.png"
+      },
+      {
+        "kind": "gym",
+        "name": "华蓝道馆",
+        "bg": "gym-water",
+        "fallback": "lake",
+        "leader": "小霞",
+        "sprite": "misty",
+        "type": "water",
+        "badge": "Cascade",
+        "color": "#4aa3df",
+        "reward": 2079,
+        "power": 1.06,
+        "team": [
+          [
+            120,
+            21
+          ],
+          [
+            54,
+            22
+          ],
+          [
+            121,
+            24
+          ]
+        ],
+        "id": "gym-1",
+        "chapter": 1,
+        "city": "CERULEAN_CITY",
+        "scene": "27-arene-ondine-710x400.webp",
+        "badgeImage": "frlg-2.png"
+      },
+      {
+        "kind": "gym",
+        "name": "枯叶道馆",
+        "bg": "gym-electric",
+        "fallback": "town",
+        "leader": "马志士",
+        "sprite": "ltsurge",
+        "type": "electric",
+        "badge": "Foudre",
+        "color": "#f7d02c",
+        "reward": 2376,
+        "power": 1.15,
+        "team": [
+          [
+            100,
+            26
+          ],
+          [
+            25,
+            23
+          ],
+          [
+            82,
+            28
+          ],
+          [
+            26,
+            30
+          ]
+        ],
+        "id": "gym-2",
+        "chapter": 2,
+        "city": "VERMILION_CITY",
+        "scene": "28-arene-major-bob-710x400.webp",
+        "badgeImage": "frlg-3.png"
+      },
+      {
+        "kind": "gym",
+        "name": "玉虹道馆",
+        "bg": "gym-grass",
+        "fallback": "forest",
+        "leader": "莉佳",
+        "sprite": "erika",
+        "type": "grass",
+        "badge": "Prisme",
+        "color": "#7ac74c",
+        "reward": 2871,
+        "power": 1.1,
+        "team": [
+          [
+            114,
+            31
+          ],
+          [
+            47,
+            35
+          ],
+          [
+            103,
+            34
+          ],
+          [
+            71,
+            38
+          ],
+          [
+            45,
+            38
+          ]
+        ],
+        "id": "gym-3",
+        "chapter": 3,
+        "city": "CELADON_CITY",
+        "scene": "29-arene-erika-710x400.webp",
+        "badgeImage": "frlg-4.png"
+      },
+      {
+        "kind": "gym",
+        "name": "浅红道馆",
+        "bg": "gym-poison",
+        "fallback": "forest",
+        "leader": "阿桔",
+        "sprite": "koga",
+        "type": "poison",
+        "badge": "Âme",
+        "color": "#a33ea1",
+        "reward": 4257,
+        "power": 1.2,
+        "team": [
+          [
+            109,
+            40
+          ],
+          [
+            42,
+            41
+          ],
+          [
+            89,
+            42
+          ],
+          [
+            49,
+            41
+          ],
+          [
+            109,
+            40
+          ],
+          [
+            110,
+            46
+          ]
+        ],
+        "id": "gym-4",
+        "chapter": 4,
+        "city": "FUCHSIA_CITY",
+        "scene": "30-arene-koga-710x400.webp",
+        "badgeImage": "frlg-5.png"
+      },
+      {
+        "kind": "gym",
+        "name": "金黄道馆",
+        "bg": "gym-psychic",
+        "fallback": "town",
+        "leader": "娜姿",
+        "sprite": "sabrina",
+        "type": "psychic",
+        "badge": "Marais",
+        "color": "#f95587",
+        "reward": 4257,
+        "power": 0.79,
+        "team": [
+          [
+            64,
+            48
+          ],
+          [
+            122,
+            46
+          ],
+          [
+            97,
+            48
+          ],
+          [
+            121,
+            48
+          ],
+          [
+            49,
+            48
+          ],
+          [
+            65,
+            54
+          ]
+        ],
+        "id": "gym-5",
+        "chapter": 5,
+        "city": "SAFFRON_CITY",
+        "scene": "31-arene-morgane-710x400.webp",
+        "badgeImage": "frlg-6.png"
+      },
+      {
+        "kind": "gym",
+        "name": "红莲道馆",
+        "bg": "gym-fire",
+        "fallback": "beach",
+        "leader": "夏伯",
+        "sprite": "blaine",
+        "type": "fire",
+        "badge": "Volcan",
+        "color": "#ee8130",
+        "reward": 4653,
+        "power": 1.14,
+        "team": [
+          [
+            58,
+            55
+          ],
+          [
+            77,
+            53
+          ],
+          [
+            126,
+            57
+          ],
+          [
+            38,
+            55
+          ],
+          [
+            78,
+            55
+          ],
+          [
+            59,
+            62
+          ]
+        ],
+        "id": "gym-6",
+        "chapter": 6,
+        "city": "CINNABAR_ISLAND",
+        "scene": "32-arene-auguste-710x400.webp",
+        "badgeImage": "frlg-7.png"
+      },
+      {
+        "kind": "gym",
+        "name": "常青道馆",
+        "bg": "gym-ground",
+        "fallback": "town",
+        "leader": "坂木",
+        "sprite": "giovanni",
+        "type": "ground",
+        "badge": "Terre",
+        "color": "#e2bf65",
+        "reward": 4950,
+        "power": 1.27,
+        "team": [
+          [
+            111,
+            63
+          ],
+          [
+            51,
+            59
+          ],
+          [
+            53,
+            62
+          ],
+          [
+            31,
+            62
+          ],
+          [
+            34,
+            63
+          ],
+          [
+            112,
+            70
+          ]
+        ],
+        "id": "gym-7",
+        "chapter": 7,
+        "city": "VIRIDIAN_CITY",
+        "scene": "33-arene-giovanni-710x400.webp",
+        "badgeImage": "frlg-8.png"
+      }
+    ],
+    "cities": [
+      {
+        "id": "PALLET_TOWN",
+        "name": "真新镇",
+        "sourceName": "Bourg Palette",
+        "chapter": 7,
+        "sourceStep": 1,
+        "requiresRoute": "kanto-7-0",
+        "cells": [
+          [
+            4,
+            11
+          ]
+        ],
+        "gym": null
+      },
+      {
+        "id": "VIRIDIAN_CITY",
+        "name": "常青市",
+        "sourceName": "Jadielle",
+        "chapter": 0,
+        "sourceStep": 2,
+        "requiresRoute": "kanto-0-0",
+        "cells": [
+          [
+            4,
+            8
+          ]
+        ],
+        "gym": "gym-7"
+      },
+      {
+        "id": "PEWTER_CITY",
+        "name": "深灰市",
+        "sourceName": "Argenta",
+        "chapter": 0,
+        "sourceStep": 5,
+        "requiresRoute": "kanto-0-2",
+        "cells": [
+          [
+            4,
+            4
+          ]
+        ],
+        "gym": "gym-0"
+      },
+      {
+        "id": "CERULEAN_CITY",
+        "name": "华蓝市",
+        "sourceName": "Azuria",
+        "chapter": 1,
+        "sourceStep": 5,
+        "requiresRoute": "kanto-1-2",
+        "cells": [
+          [
+            14,
+            3
+          ]
+        ],
+        "gym": "gym-1"
+      },
+      {
+        "id": "VERMILION_CITY",
+        "name": "枯叶市",
+        "sourceName": "Carmin sur Mer",
+        "chapter": 2,
+        "sourceStep": 2,
+        "requiresRoute": "kanto-2-1",
+        "cells": [
+          [
+            14,
+            9
+          ]
+        ],
+        "gym": "gym-2"
+      },
+      {
+        "id": "LAVENDER_TOWN",
+        "name": "紫苑镇",
+        "sourceName": "Lavanville",
+        "chapter": 3,
+        "sourceStep": 3,
+        "requiresRoute": "kanto-3-1",
+        "cells": [
+          [
+            18,
+            6
+          ]
+        ],
+        "gym": null
+      },
+      {
+        "id": "CELADON_CITY",
+        "name": "玉虹市",
+        "sourceName": "Céladopole",
+        "chapter": 3,
+        "sourceStep": 6,
+        "requiresRoute": "kanto-3-4",
+        "cells": [
+          [
+            11,
+            6
+          ]
+        ],
+        "gym": "gym-3"
+      },
+      {
+        "id": "SAFFRON_CITY",
+        "name": "金黄市",
+        "sourceName": "Safrania",
+        "chapter": 5,
+        "sourceStep": 5,
+        "requiresRoute": "kanto-5-2",
+        "cells": [
+          [
+            14,
+            6
+          ]
+        ],
+        "gym": "gym-5"
+      },
+      {
+        "id": "FUCHSIA_CITY",
+        "name": "浅红市",
+        "sourceName": "Parmanie",
+        "chapter": 4,
+        "sourceStep": 6,
+        "requiresRoute": "kanto-4-2",
+        "cells": [
+          [
+            12,
+            12
+          ]
+        ],
+        "gym": "gym-4"
+      },
+      {
+        "id": "CINNABAR_ISLAND",
+        "name": "红莲镇",
+        "sourceName": "Cramois'Île",
+        "chapter": 6,
+        "sourceStep": 4,
+        "requiresRoute": "kanto-6-0",
+        "cells": [
+          [
+            4,
+            14
+          ]
+        ],
+        "gym": "gym-6"
+      },
+      {
+        "id": "INDIGO_PLATEAU",
+        "name": "石英高原",
+        "sourceName": "Plateau Indigo",
+        "chapter": 8,
+        "sourceStep": 0,
+        "requiresRoute": null,
+        "cells": [
+          [
+            2,
+            3
+          ]
+        ],
+        "gym": null
+      }
+    ]
+  }
+}

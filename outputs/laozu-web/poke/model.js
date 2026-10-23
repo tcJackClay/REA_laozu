@@ -8,6 +8,7 @@
   const ROUTES=typeof module==='object'&&module.exports?require('./routes.js'):globalThis.POKE_ROUTES;
   const EVOLUTIONS=typeof module==='object'&&module.exports?require('./evolutions.js'):globalThis.POKE_EVOLUTIONS;
   const GENETICS=typeof module==='object'&&module.exports?require('./genetics.js'):globalThis.POKE_GENETICS;
+  const PROGRESSION=typeof module==='object'&&module.exports?require('./progression.js'):globalThis.POKE_PROGRESSION;
   const KEY = 'poke-fusion-v1', COLS = 5, ROWS = 5;
   const NAMES=typeof module==='object'&&module.exports?require('./names-zh.js'):globalThis.POKE_NAMES_ZH;
   const MOVE_NAMES = {'vine-whip':'藤鞭',ember:'火花','water-gun':'水枪',tackle:'撞击',scratch:'抓','razor-leaf':'飞叶快刀','fire-fang':'火焰牙','water-pulse':'水之波动'};
@@ -25,12 +26,22 @@
     const need = (phase) => { if (!s.run || s.run.phase !== phase) throw Error('当前阶段不能执行此操作'); return s.run; };
     if(!Number.isFinite(s.geneTotal))s.geneTotal=Math.max(s.genePeak||0,s.points,(s.defeats||0)*2);
     const gainGenes=amount=>{s.points+=amount;s.geneTotal+=amount;};
+    s.progression ||= {routes:[],badges:[]};
+    const chapterOpen=n=>PROGRESSION.gyms.slice(0,n).every(g=>s.progression.badges.includes(g.id));
+    const chapterRoutes=n=>ROUTES.variants.filter(v=>v.chapter===n+1);
+    function routeUnlocked(id){const v=ROUTES.variants.find(v=>v.id===id);if(!v||!chapterOpen(v.chapter-1))return false;const list=chapterRoutes(v.chapter-1);return list.slice(0,list.indexOf(v)).every(v=>s.progression.routes.includes(v.id));}
+    function gymUnlocked(id){const g=PROGRESSION.gyms.find(g=>g.id===id);return !!g&&chapterOpen(g.chapter)&&chapterRoutes(g.chapter).every(v=>s.progression.routes.includes(v.id));}
+    function cityUnlocked(id){const c=PROGRESSION.cities.find(c=>c.id===id);if(!c)return false;if(c.id==='PALLET_TOWN')return true;if(!chapterOpen(c.chapter))return false;if(c.id==='INDIGO_PLATEAU')return s.progression.routes.includes('kanto-8-0');return c.requiresRoute?s.progression.routes.includes(c.requiresRoute):chapterOpen(c.chapter);}
+    function startGym(id,uid){if(s.run)throw Error('请先完成当前冒险');if(!gymUnlocked(id))throw Error('道馆尚未解锁');const mon=s.collection.find(m=>m.uid===uid);if(!mon)throw Error('请选择收藏中的宝可梦');const g=PROGRESSION.gyms.find(g=>g.id===id),runId=++s.sequence;
+      const items=mon.loadout?.length?JSON.parse(JSON.stringify(mon.loadout)):[{uid:'gym-move-'+runId,kind:'move',key:attackPool(mon.speciesId,mon.level).at(-1),w:2,h:1,x:0,y:0,rotation:0}];
+      s.run={id:runId,gymId:id,borrowedUid:uid,boardSize:'5x5',mon:JSON.parse(JSON.stringify(mon)),phase:'ready',stage:0,hp:mon.hp||90+mon.level*15,maxHp:mon.hp||90+mon.level*15,earned:0,elapsed:0,battle:null,items,pending:[],log:[g.name+' · '+g.leader],nextItem:items.length+1,outcome:null,totalBattles:g.team.length,route:{id:g.id,name:g.name,scene:g.scene,levels:g.team.map(t=>t[1]),wild:0}};return s.run;}
     const drawCost=(tier=0)=>{if(!Number.isInteger(tier)||!GENETICS.tiers[tier])throw Error('抽取档位无效');return GENETICS.tiers[tier].cost;};
     const tierUnlocked=(tier)=>s.geneTotal>=drawCost(tier);
     function attackPool(id,level){const pool=[...new Set((species(id).learn||[]).filter(([lv,key])=>lv<=level&&catalog.MOVES[key]?.power>0&&['phys','spec'].includes(catalog.MOVES[key].cat)).map(([,key])=>key))];return pool.length?pool:['tackle'];}
     function randomUnit(){const n=random();if(!(n>=0&&n<1))throw Error('抽取随机值无效');return n;}
     function draw(tier=0) {
       if(s.run)throw Error('请先完成当前探险');
+      if(s.selectedRoute&&!routeUnlocked(s.selectedRoute))throw Error('道路尚未解锁');
       const cost=drawCost(tier);if(!tierUnlocked(tier))throw Error('抽取档位未解锁');if(s.points<cost)throw Error('基因片段不足');
       const region='kanto',roll=randomUnit()*100;let edge=0,rarity;
       GENETICS.tiers[tier].rates.some((rate,i)=>{edge+=rate;if(roll<edge){rarity=GENETICS.rarities[i];return true;}return false;});
@@ -96,8 +107,9 @@
       const r=s.run;if(!r||!['ready','event'].includes(r.phase))throw Error('当前不能出发');
       if(!r.items.some(x=>x.kind==='move'))throw Error('至少携带一个招式');
       if(r.pending.length)throw Error('请先将待领取物品装入背包');
-      const level=r.route?Math.round(r.route.levels[0]+(r.route.levels[1]-r.route.levels[0])*r.stage/Math.max(1,r.totalBattles-1)):null;
-      let enemy=[10,19][r.stage];if(r.route){const pool=r.route.pool.filter(([id])=>species(id));let roll=random()*pool.reduce((n,p)=>n+p[1],0);enemy=pool[pool.length-1][0];for(const [id,weight] of pool){roll-=weight;if(roll<0){enemy=id;break;}}}
+      let level=r.route?Math.round(r.route.levels[0]+(r.route.levels[1]-r.route.levels[0])*r.stage/Math.max(1,r.totalBattles-1)):null;
+      let enemy=[10,19][r.stage];if(r.route&&!r.gymId){const pool=r.route.pool.filter(([id])=>species(id));let roll=random()*pool.reduce((n,p)=>n+p[1],0);enemy=pool[pool.length-1][0];for(const [id,weight] of pool){roll-=weight;if(roll<0){enemy=id;break;}}}
+      if(r.gymId){[enemy,level]=PROGRESSION.gyms.find(g=>g.id===r.gymId).team[r.stage];}
       const hp=r.route?24+level*3+r.stage*6:r.stage===0?34:65;
       r.battle={speciesId:enemy,level,trainer:!!r.route&&r.stage>=r.route.wild,hp,maxHp:hp,t:0,enemyAt:1800,skills:Object.fromEntries(r.items.filter(x=>x.kind==='move').map(x=>[x.uid,600])),berryUsed:false,events:[],lastHit:null};
       r.phase='battle';r.log.push('遭遇了'+name(r.battle.speciesId)+'！');
@@ -121,7 +133,7 @@
       {id:'trade',name:'旅行商人',icon:'items/storage.png',detail:'基因片段 −2 · 携带道具 ×2',kind:'held',cost:2},
       {id:'thicket',name:'深入密林',icon:'ui/tallgrass-icon.png',detail:'HP −10% · 招式与树果各 ×1',kind:'risk'}
     ];
-    function reward(){const r=s.run;r.phase='encounter';r.earned+=2;gainGenes(2);s.defeats++;r.mon.level+=2;r.pending=[];
+    function reward(){const r=s.run;if(r.gymId){r.log.push('击败'+name(r.battle.speciesId)+'！');if(r.stage+1<r.totalBattles){r.stage++;r.phase='ready';startBattle();}else{r.phase='settlement';r.outcome='graduated';}return;}r.phase='encounter';r.earned+=2;gainGenes(2);s.defeats++;r.mon.level+=2;r.pending=[];
       const deck=EVENTS.filter(e=>!e.cost||s.points>=e.cost).map(e=>({...e}));
       for(let i=deck.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]];}
       r.encounter={stage:r.stage,options:deck.slice(0,3)};
@@ -166,6 +178,7 @@
           }
         }
         if(r.phase!=='battle')break;
+        if(r.battle!==b)continue;
         if(b.t>=b.enemyAt){const amount=r.route?3+Math.floor(b.level/8):r.stage===0?5:8;r.hp=Math.max(0,r.hp-amount);b.enemyAt+=2200;const e={actor:'enemy',amount,time:b.t};b.events.push(e);b.lastHit=e;}
         if(r.hp>0&&r.hp<=r.maxHp*.55&&!b.berryUsed&&r.items.some(x=>x.key==='oran-berry')){const heal=Math.min(25,r.maxHp-r.hp);r.hp+=heal;b.berryUsed=true;b.events.push({actor:'heal',amount:heal,time:b.t});r.log.push('橙橙果恢复了'+heal+'点生命。');}
         if(r.hp<=0){r.phase='settlement';r.outcome='rescued';r.log.push('探险中止，宝可梦已被救援。');}
@@ -182,7 +195,7 @@
       if(!s.run||!['ready','reward','event'].includes(s.run.phase))throw Error('当前不能前进');
       if(!s.run.items.some(i=>i.kind==='move'))throw Error('至少携带一个招式');
       s.run.pending=[];
-      if(s.run?.phase==='ready'){if(offerEvolution('ready'))return;return startBattle();}
+      if(s.run?.phase==='ready'){if(!s.run.gymId&&offerEvolution('ready'))return;return startBattle();}
       if(s.run?.phase==='reward')completeReward();
       if(offerEvolution('event'))return;
       return proceed();
@@ -190,7 +203,9 @@
     function settle() {
       const r=need('settlement');
       if(s.settled.includes(r.id))throw Error('本次探险已结算');
-      const mon={...r.mon,uid:'mon-'+r.id,hp:r.maxHp,originRun:r.id,outcome:r.outcome};
+      if(r.gymId){if(r.outcome==='graduated'&&!s.progression.badges.includes(r.gymId))s.progression.badges.push(r.gymId);s.settled.push(r.id);s.run=null;return {gymId:r.gymId,outcome:r.outcome};}
+      if(r.outcome==='graduated'&&r.route?.id&&!s.progression.routes.includes(r.route.id))s.progression.routes.push(r.route.id);
+      const mon={...r.mon,loadout:JSON.parse(JSON.stringify(r.items)),routeId:r.route?.id,uid:'mon-'+r.id,hp:r.maxHp,originRun:r.id,outcome:r.outcome};
       s.collection.push(mon);s.settled.push(r.id);s.run=null;return mon;
     }
     function rescue(){throw Error('请使用免费抽取');}
@@ -198,7 +213,7 @@
       if(item.kind==='move'){const m=catalog.MOVES[item.key];return {name:moveName(item.key),type:m.type,detail:(m.cat==='spec'?'特殊':'物理')+' · 威力 '+m.power+' · 冷却 '+(item.w*item.h>=4?'2.6':'1.8')+'秒'};}
       return item.key==='oran-berry'?{name:'橙橙果',type:'grass',detail:'生命不高于55%时恢复25生命；每场战斗一次。'}:{name:'学习装置',type:'normal',detail:'携带时所有招式伤害 ×1.2；同类不叠加。'};
     }
-    return {s,species,name,moveName,drawCost,tierUnlocked,attackPool,draw,reveal,size,fits,place,move,rotate,withdraw,startBattle,tick,completeReward,proceed,forward,settle,rescue,itemInfo,damage,chooseEncounter,evolve,finishEvolution};
+    return {s,routeUnlocked,gymUnlocked,cityUnlocked,startGym,species,name,moveName,drawCost,tierUnlocked,attackPool,draw,reveal,size,fits,place,move,rotate,withdraw,startBattle,tick,completeReward,proceed,forward,settle,rescue,itemInfo,damage,chooseEncounter,evolve,finishEvolution};
   }
   return {KEY,COLS,ROWS,TYPES,create};
 });
