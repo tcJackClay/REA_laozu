@@ -26,7 +26,7 @@ const completed=create(D,null,()=>0);completed.draw();completed.reveal();complet
  ck('yellow source CTA',await p.locator('[data-action="draw"]').evaluate(el=>getComputedStyle(el).getPropertyValue('--bc').trim()==='#ffcb05'));
  const m=create(D,null,()=>0);m.draw();m.reveal();m.startBattle();m.tick(60000);
  await p.evaluate(([key,s])=>localStorage.setItem(key,JSON.stringify(s)),[KEY,m.s]);await p.reload();await p.locator('[data-action="nav:wander"]').last().click();
- ck('dark reward panel',await bg('.reward-pool')==='rgb(28, 32, 48)');ck('dark backpack grid',await bg('.board')==='rgb(16, 19, 31)');ck('dark item card',await bg('.item')==='rgb(37, 42, 61)');
+ ck('dark reward panel',await bg('.reward-pool')==='rgb(28, 32, 48)');ck('dark backpack grid',await bg('.board')==='rgb(16, 19, 31)');ck('attribute-colored move card',await bg('.item.move')==='rgb(122, 199, 76)');
  ck('original grass color',await p.locator('.type-grass').first().evaluate(el=>getComputedStyle(el).getPropertyValue('--type').trim().toLowerCase()==='#7ac74c'));
  await p.screenshot({path:out+'/reward.png'});
  for(const size of [{width:320,height:568},{width:360,height:800},{width:450,height:800}]){await p.setViewportSize(size);await p.waitForTimeout(80);const bounds=await p.locator('.board').boundingBox(),nav=await p.locator('.bottom-nav').boundingBox();ck('dark reward fits '+size.width,bounds.x>=0&&bounds.y+bounds.height<=nav.y+1&&bounds.x+bounds.width<=size.width+1);await p.screenshot({path:out+'/reward-'+size.width+'.png'});}

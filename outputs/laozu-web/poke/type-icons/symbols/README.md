@@ -1,0 +1,1 @@
+Derived from ../ original MIT partywhale SVGs. Only the outer background circle is removed; all symbol paths retained. Background color is applied by the skill tile. See ../LICENSE and ../manifest.json.
