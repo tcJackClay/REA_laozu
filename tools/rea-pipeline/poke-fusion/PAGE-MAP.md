@@ -50,3 +50,5 @@
 - 移除首页原建筑入口及介绍段落；底部导航保留。其他页面不在本轮修改范围。
 - 素材：pret/pokefirered @ ce6406d8c2eaf46d543c8a2606de0c3cb1951982，graphics/region_map 的 tileset、palette、kanto.bin；build-poke-kanto.py 可重建。SOURCE.json 记录哈希与原始美术权属边界。常青热点对应原图西侧2号道路/常青森林区域。
 - 验证：test-poke-home.cjs 13项（选择、难度、持久化、真实抽取、已有局继续、320/390/450布局），test-poke-browser.cjs 12项冒险闭环通过。截图见 home/。
+
+首页布局修正：左上角关都地区，常青路线高亮和名称/难度气泡，地图移除外框及原图左侧白条并横向贴边；冒险图标与文字合为圆形按钮。320/390/450截图及13项首页验证通过。

@@ -12,4 +12,4 @@ for i,v in enumerate(struct.unpack('<600H',(root/'kanto.bin').read_bytes())):
  if v&1024:rgb=rgb.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
  if v&2048:rgb=rgb.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
  out.paste(rgb,(i%30*8,i//30*8))
-out.crop((16,16,216,160)).save(root.parent/'kanto.png')
+out.crop((24,16,216,160)).save(root.parent/'kanto.png')
