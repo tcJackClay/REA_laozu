@@ -55,4 +55,4 @@ node tools/rea-pipeline/test-poke-theme.cjs
 - [ ] 云档、OAuth、好友、交易、排行榜及自有后端事务。
 
 ## 战斗与背包显示专项
-详见 [BATTLE-UI.md](BATTLE-UI.md)：HP/朝向、招式同行隐藏CD、道具图片与点击说明、原版路线样式均已检查。属性使用原站彩色文字徽标，未新增自绘图标。
+详见 [BATTLE-UI.md](BATTLE-UI.md)：HP/朝向、招式同行隐藏CD、道具图片与点击说明、原版路线样式均已检查。属性按用户确认改用 partywhale/pokemon-type-icons 的 MIT 圆形无文字 SVG，保留招式名称同行，未自绘。
