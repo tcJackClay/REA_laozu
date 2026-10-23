@@ -26,3 +26,6 @@
 - 原回归 model 27、events 642、routes 146（69局）、catalog 440。events/routes 使用全解锁测试夹具单独核对战斗；真实解锁链由上述 progression 套件检查。
 
 重建：python tools/rea-pipeline/build-poke-progression.py。原站场景资产仅在本地缺失时下载，保留原始文件，不绘制替代素材。
+
+## 道馆页视觉精简
+仅显示馆主与徽章，无标题、队伍、空状态、锁定文字或返回按钮；隐藏滚动条并保留滑动。点击可用馆主卡片挑战，沿用默认最近收藏伙伴与其毕业背包。18项流程回归通过，mobile-minimal.png 为390宽度截图。

@@ -298,8 +298,10 @@
 
 .route-cell.locked,.city-cell.locked{backdrop-filter:grayscale(1);background:rgba(85,88,95,.65);opacity:1;cursor:default}
 .city-zones{position:absolute;inset:0;pointer-events:none}.city-cell{position:absolute;padding:0;border:0;background:transparent;pointer-events:auto;border-radius:0}.city-cell:not(.locked){box-shadow:inset 0 0 0 1px #ffdc79}
-.gym-page{padding:12px 14px 80px}.gym-roster{display:flex;gap:8px;overflow-x:auto;padding:8px 0 12px}.gym-roster button{background:#1d2234;border:1px solid #464d64;border-radius:8px;color:#fff;min-width:88px;padding:6px}.gym-roster button[aria-pressed="true"]{border-color:#ffce45}.gym-roster .sprite{width:44px;height:44px;display:block;margin:auto}.gym-roster b,.gym-roster small{display:block;font-size:12px}
-.gym-track{display:flex;flex-direction:column-reverse;gap:16px;overflow-y:auto;max-height:calc(100dvh - 330px);min-height:280px;padding:4px}
-.gym-card{flex:none;background:#1d2234;border:2px solid var(--gym-color);border-radius:12px;padding:12px}.gym-card.locked{filter:grayscale(1);opacity:.55}.gym-heading{display:flex;align-items:center;gap:12px}.gym-heading h2{font-size:19px;margin:0 0 8px}.gym-heading span{font-size:13px}.leader{width:54px;height:64px;object-fit:contain;image-rendering:pixelated}.gym-badge{width:32px;height:32px;object-fit:contain;margin-left:auto;filter:grayscale(1);opacity:.4}.gym-badge.earned{filter:none;opacity:1}.gym-team{display:flex;justify-content:space-around;margin:12px 0}.gym-team .sprite{width:36px;height:36px;display:block}.gym-team small{font-size:11px}.gym-card>.btn{display:block;margin:auto}
-
-.gym-badge{display:block;flex:none;background-size:256px 32px;image-rendering:pixelated}
+ .gym-page{padding:12px 14px;overflow:hidden}
+.gym-track{display:flex;flex-direction:column-reverse;gap:16px;overflow-y:auto;height:calc(100dvh - 150px);padding:4px;scrollbar-width:none;-ms-overflow-style:none}
+.gym-track::-webkit-scrollbar{display:none}
+.gym-card{display:flex;align-items:center;justify-content:space-between;flex:none;min-height:112px;width:100%;background:#1d2234;border:2px solid var(--gym-color);border-radius:12px;padding:16px 28px;cursor:pointer}
+.gym-card.locked{filter:grayscale(1);opacity:.55}.gym-card:disabled{cursor:default}.gym-card:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.gym-card .leader{width:72px;height:80px;object-fit:contain;image-rendering:pixelated}
+.gym-badge{display:block;width:32px;height:32px;flex:none;background-size:256px 32px;image-rendering:pixelated;opacity:.6}.gym-badge.earned{opacity:1}

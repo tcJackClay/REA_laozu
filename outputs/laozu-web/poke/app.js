@@ -56,7 +56,7 @@
     bubble.classList.toggle('docked',!best);map.parentElement.style.paddingBottom=best?'':`${h+12}px`;
     bubble.style.left=(best?best.x:Math.max(5,(m.width-w)/2))+'px';bubble.style.top=(best?best.y:m.height+6)+'px';
   }
-  let selectedCity=null,gymMon=null;
+  let selectedCity=null;
   function home(){
     const route=POKE_ROUTES.variants.find(v=>v.id===M.s.selectedRoute&&M.routeUnlocked(v.id)),chosen=(!selectedCity&&!!route)||!!M.s.run;
     const active=route?POKE_ROUTES.regions.filter(g=>route.regions.includes(g.id)):[];
@@ -103,7 +103,8 @@
 
   function research(){return `<main class="list-page"><h1>伙伴研究所</h1>${tierPicker()}${btn('nav:wander',M.s.run?'继续冒险':'前往抽取','gold primary')}</main>`;}
 
-  function gym(){const uid=gymMon||M.s.collection.at(-1)?.uid;return `<main class="gym-page"><div class="page-title"><h1>关都道馆</h1></div><div class="gym-roster">${M.s.collection.map(mon=>`<button data-action="gym-mon:${mon.uid}" aria-pressed="${mon.uid===uid}">${img(mon.speciesId)}<b>${esc(text(mon.speciesId))}</b><small>Lv.${mon.level}</small></button>`).join('')||'<span>暂无宝可梦</span>'}</div><div class="gym-track">${POKE_PROGRESSION.gyms.map(g=>`<article class="gym-card ${M.gymUnlocked(g.id)?'':'locked'}" data-gym="${g.id}" style="--gym-color:${g.color}"><div class="gym-heading"><img class="leader" src="poke/trainers/still/${g.sprite}.png" alt="${g.leader}"><div><h2>${g.name}</h2><span>${g.leader} · ${TYPES[g.type]}</span></div><span class="gym-badge ${M.s.progression.badges.includes(g.id)?'earned':''}" role="img" aria-label="${M.s.progression.badges.includes(g.id)?'已获得徽章':'徽章'}" style="background-image:url(poke/badges/${g.badgeImage});background-position:${-32*g.chapter}px 0"></span></div><div class="gym-team">${g.team.map(([id,lv])=>`<div>${img(id)}<small>Lv.${lv}</small></div>`).join('')}</div>${btn('gym-start:'+g.id,M.s.progression.badges.includes(g.id)?'再次挑战':M.gymUnlocked(g.id)?'挑战':'未解锁','gold',!M.gymUnlocked(g.id)||!uid||!!M.s.run)}</article>`).join('')}</div>${btn('home','返回','text-button')}</main>`;}
+  function gym(){const uid=M.s.collection.at(-1)?.uid;return `<main class="gym-page" aria-label="道馆"><div class="gym-track">${POKE_PROGRESSION.gyms.map(g=>`<button class="gym-card ${M.gymUnlocked(g.id)?'':'locked'}" data-gym="${g.id}" data-action="gym-start:${g.id}" aria-label="${g.name} · ${g.leader}${M.gymUnlocked(g.id)?'，挑战':'，未解锁'}" style="--gym-color:${g.color}" ${!M.gymUnlocked(g.id)||!uid||M.s.run?'disabled':''}><img class="leader" src="poke/trainers/still/${g.sprite}.png" alt=""><span class="gym-badge ${M.s.progression.badges.includes(g.id)?'earned':''}" role="img" aria-label="${M.s.progression.badges.includes(g.id)?'已获得徽章':'徽章'}" style="background-image:url(poke/badges/${g.badgeImage});background-position:${-32*g.chapter}px 0"></span></button>`).join('')}</div></main>`;}
+
 
   function dex(){const owned=new Set(M.s.collection.map(x=>x.speciesId)),list=POKE_CATALOG.POKEDEX.filter(d=>matchesFilter('dex',d.id));return `<main class="list-page"><div class="page-title"><h1>宝可梦图鉴 <small>${list.length} / ${POKE_CATALOG.POKEDEX.length}</small></h1></div>${filterBar('dex')}<div class="dex-grid">${list.map(d=>`<article data-species="${d.id}" class="dex-card rarity-${POKE_GENETICS.species[d.id].rarity} ${owned.has(d.id)?'owned':''}"><small>#${String(d.id).padStart(3,'0')}</small>${img(d.id)}<b class="mon-name">${esc(text(d.id))}</b>${geneticsBadge(d.id)}<span>${owned.has(d.id)?'已收藏':d.types.map(t=>TYPES[t]||t).join(' / ')}</span></article>`).join('')||'<div class="empty-state">暂无宝可梦</div>'}</div></main>`;}
 
@@ -123,8 +124,7 @@
     else if(action==='home'){view='home';selected=null;}
     else if(action.startsWith('nav:')){view=action.slice(4);selected=null;}
     else if(action.startsWith('city:')){const id=action.slice(5);if(M.cityUnlocked(id))selectedCity=id;}
-    else if(action.startsWith('gym-mon:')){gymMon=action.slice(8);}
-    else if(action.startsWith('gym-start:')){M.startGym(action.slice(10),gymMon||M.s.collection.at(-1)?.uid);view='wander';save();}
+    else if(action.startsWith('gym-start:')){M.startGym(action.slice(10),M.s.collection.at(-1)?.uid);view='wander';save();}
     else if(action.startsWith('filter:')){const [,page,key,value]=action.split(':');if(catalogFilters[page]&&['region','rarity'].includes(key))catalogFilters[page][key]=value;}
     else if(action.startsWith('draw-tier:')){drawTier=Number(action.slice(10));}
     else if(action==='draw'){if(!M.s.selectedRoute||!M.routeUnlocked(M.s.selectedRoute))M.s.selectedRoute=POKE_ROUTES.variants.find(v=>M.routeUnlocked(v.id)).id;M.draw(drawTier);view='wander';M.s.run.awaitingEntrance=true;save();scheduleReveal();}
