@@ -9,25 +9,29 @@
   const EVOLUTIONS=typeof module==='object'&&module.exports?require('./evolutions.js'):globalThis.POKE_EVOLUTIONS;
   const GENETICS=typeof module==='object'&&module.exports?require('./genetics.js'):globalThis.POKE_GENETICS;
   const KEY = 'poke-fusion-v1', COLS = 5, ROWS = 5;
-  const NAMES = {1:'妙蛙种子',2:'妙蛙草',3:'妙蛙花',4:'小火龙',5:'火恐龙',6:'喷火龙',7:'杰尼龟',8:'卡咪龟',9:'水箭龟',10:'绿毛虫',16:'波波',19:'小拉达',25:'皮卡丘'};
+  const NAMES=typeof module==='object'&&module.exports?require('./names-zh.js'):globalThis.POKE_NAMES_ZH;
   const MOVE_NAMES = {'vine-whip':'藤鞭',ember:'火花','water-gun':'水枪',tackle:'撞击',scratch:'抓','razor-leaf':'飞叶快刀','fire-fang':'火焰牙','water-pulse':'水之波动'};
   const TYPES = {normal:'一般',fire:'火',water:'水',grass:'草',electric:'电',poison:'毒',flying:'飞行',bug:'虫',rock:'岩石',ground:'地面',ice:'冰',psychic:'超能',ghost:'幽灵',dragon:'龙',dark:'恶',steel:'钢',fairy:'妖精',fighting:'格斗'};
   function create(catalog, loaded, random = Math.random) {
     const s = loaded || {version:1,points:0,defeats:0,firstFree:true,sequence:0,collection:[],run:null,settled:[]};
     if (s.version !== 1 || !Array.isArray(s.collection) || !Number.isFinite(s.points) || s.points < 0) throw Error('存档格式不正确');
     const species = id => catalog.POKEDEX.find(x => x.id === id);
-    const name = id => NAMES[id] || species(id)?.name || String(id);
+    const name = id => {
+      const base=GENETICS.species[id]?.base||id;
+      const suffix=id>=20101&&id<=20127?'·'+('BCDEFGHIJKLMNOPQRSTUVWXYZ!?')[id-20101]:({90025:'·特殊形态',35101:'·太阳形态',35102:'·雨水形态',35103:'·雪云形态',38601:'·攻击形态',38602:'·防御形态',38603:'·速度形态'})[id]||'';
+      return (NAMES[base]||'未知宝可梦')+suffix;
+    };
     const moveName = id => MOVE_NAMES[id] || catalog.MOVES[id]?.name || id;
     const need = (phase) => { if (!s.run || s.run.phase !== phase) throw Error('当前阶段不能执行此操作'); return s.run; };
-    s.genePeak=Math.max(s.genePeak||0,s.points);
-    const syncPeak=()=>{s.genePeak=Math.max(s.genePeak,s.points);};
+    if(!Number.isFinite(s.geneTotal))s.geneTotal=Math.max(s.genePeak||0,s.points,(s.defeats||0)*2);
+    const gainGenes=amount=>{s.points+=amount;s.geneTotal+=amount;};
     const drawCost=(tier=0)=>{if(!Number.isInteger(tier)||!GENETICS.tiers[tier])throw Error('抽取档位无效');return GENETICS.tiers[tier].cost;};
-    const tierUnlocked=(tier)=>s.genePeak>=drawCost(tier);
+    const tierUnlocked=(tier)=>s.geneTotal>=drawCost(tier);
     function attackPool(id,level){const pool=[...new Set((species(id).learn||[]).filter(([lv,key])=>lv<=level&&catalog.MOVES[key]?.power>0&&['phys','spec'].includes(catalog.MOVES[key].cat)).map(([,key])=>key))];return pool.length?pool:['tackle'];}
     function randomUnit(){const n=random();if(!(n>=0&&n<1))throw Error('抽取随机值无效');return n;}
     function draw(tier=0) {
       if(s.run)throw Error('请先完成当前探险');
-      syncPeak();const cost=drawCost(tier);if(!tierUnlocked(tier))throw Error('抽取档位未解锁');if(s.points<cost)throw Error('基因片段不足');
+      const cost=drawCost(tier);if(!tierUnlocked(tier))throw Error('抽取档位未解锁');if(s.points<cost)throw Error('基因片段不足');
       const region='kanto',roll=randomUnit()*100;let edge=0,rarity;
       GENETICS.tiers[tier].rates.some((rate,i)=>{edge+=rate;if(roll<edge){rarity=GENETICS.rarities[i];return true;}return false;});
       const pool=GENETICS.pools[region][rarity],id=pool[Math.floor(randomUnit()*pool.length)],def=species(id);
@@ -117,7 +121,7 @@
       {id:'trade',name:'旅行商人',icon:'items/storage.png',detail:'基因片段 −2 · 携带道具 ×2',kind:'held',cost:2},
       {id:'thicket',name:'深入密林',icon:'ui/tallgrass-icon.png',detail:'HP −10% · 招式与树果各 ×1',kind:'risk'}
     ];
-    function reward(){const r=s.run;r.phase='encounter';r.earned+=2;s.points+=2;syncPeak();s.defeats++;r.mon.level+=2;r.pending=[];
+    function reward(){const r=s.run;r.phase='encounter';r.earned+=2;gainGenes(2);s.defeats++;r.mon.level+=2;r.pending=[];
       const deck=EVENTS.filter(e=>!e.cost||s.points>=e.cost).map(e=>({...e}));
       for(let i=deck.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]];}
       r.encounter={stage:r.stage,options:deck.slice(0,3)};
@@ -130,7 +134,7 @@
       if(option.kind==='held')r.pending=option.cost?[held(),held()]:[held()];
       if(option.kind==='berries')r.pending=[berry(),berry()];
       if(option.kind==='heal')r.hp=Math.min(r.maxHp,r.hp+Math.ceil(r.maxHp*.35));
-      if(option.kind==='points'){s.points+=3;syncPeak();r.earned+=3;}
+      if(option.kind==='points'){gainGenes(3);r.earned+=3;}
       if(option.kind==='risk'){r.hp=Math.max(1,r.hp-Math.ceil(r.maxHp*.1));r.pending=[move(),berry()];}
       r.log.push(option.name+'：'+option.detail);r.lastEncounter={...option,stage:r.stage};delete r.encounter;r.phase='reward';
     }
