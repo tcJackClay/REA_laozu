@@ -125,3 +125,18 @@
 
 .pack-footer{min-height:60px;padding:8px 0;gap:0}
 @media(max-height:650px){.pack-footer{min-height:49px;padding:5px 0}}
+
+/* Drag-only side drops at the same cell scale as the 5x5 backpack. */
+.board-wrap{display:flex;align-items:center;justify-content:center;gap:8px;--cell:35px}
+.board{flex:none;height:calc(var(--cell)*5);width:calc(var(--cell)*5)}
+.drop-shelf{width:calc(var(--cell)*2);flex:none;min-height:calc(var(--cell)*5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.drop-shelf .item{flex:none;touch-action:none}
+.item{touch-action:none;user-select:none}
+.cells>[data-cell]{border:1px solid #293245;background:linear-gradient(135deg,#080d1680,#1a223180);box-shadow:inset 1px 1px 2px #0009;border-radius:3px}
+.route{justify-content:center}.route .tl-rail{flex:0 1 auto;background:none;border:0;border-radius:0;gap:6px;padding:0;box-shadow:none}
+.route .tl-zone{display:none}.route .timeline{flex:0 1 auto;padding:3px 4px;overflow:visible}
+.route .tl-count{min-width:0;margin-left:2px;color:#fff;text-shadow:0 1px 3px #000}
+.combat-status{width:28%}.combat-status.own{left:11%}.combat-status.foe{right:9%}
+.combat-status .hp{height:10px;border-width:2px;width:60%}
+
+#drag-ghost{transform:none;padding:0}#drag-ghost .move-line{width:100%;height:100%}

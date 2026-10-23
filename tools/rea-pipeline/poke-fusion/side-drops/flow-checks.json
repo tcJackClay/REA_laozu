@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "new run ready",
+    "natural battle victory",
+    "refresh keeps saved run and returns home",
+    "no duplicated credit",
+    "reward move dragged in",
+    "unclaimed berry discarded",
+    "second victory",
+    "reward move participates",
+    "settlement without claiming final item",
+    "collection recorded once",
+    "paid redraw and fresh bag",
+    "no errors"
+  ],
+  "errors": []
+}

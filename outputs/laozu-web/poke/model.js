@@ -59,6 +59,14 @@
       if(r.pending.includes(item)){r.pending=r.pending.filter(x=>x!==item);r.items.push(item);}
       item.x=x;item.y=y;return item;
     }
+    function move(uid,x,y){
+      const r=editable(),a=r.items.find(i=>i.uid===uid);
+      if(!a||fits(a,x,y))return place(uid,x,y);
+      const [w,h]=size(a),hits=r.items.filter(i=>i!==a&&x<i.x+size(i)[0]&&x+w>i.x&&y<i.y+size(i)[1]&&y+h>i.y);
+      if(hits.length!==1)throw Error('位置不足');
+      const b=hits[0],old=[a.x,a.y,b.x,b.y];a.x=x;a.y=y;b.x=old[0];b.y=old[1];
+      if(!fits(a,a.x,a.y)||!fits(b,b.x,b.y)){[a.x,a.y,b.x,b.y]=old;throw Error('位置不足');}
+    }
     function rotate(uid) {
       const r=editable(),item=[...r.items,...r.pending].find(x=>x.uid===uid);if(!item)throw Error('请先选择物品');
       item.rotation=1-item.rotation;
@@ -120,7 +128,9 @@
       const r=need('event');if(r.stage===0){r.stage=1;startBattle();}else{r.phase='settlement';r.outcome='graduated';r.log.push('常青小径探险完成！');}
     }
     function forward(){
-      if(s.run?.pending.length)throw Error('请先将待领取物品装入背包');
+      if(!s.run||!['ready','reward','event'].includes(s.run.phase))throw Error('当前不能前进');
+      if(!s.run.items.some(i=>i.kind==='move'))throw Error('至少携带一个招式');
+      s.run.pending=[];
       if(s.run?.phase==='ready')return startBattle();
       if(s.run?.phase==='reward')completeReward();
       return proceed();
@@ -139,7 +149,7 @@
       if(item.kind==='move'){const m=catalog.MOVES[item.key];return {name:moveName(item.key),type:m.type,detail:(m.cat==='spec'?'特殊':'物理')+' · 威力 '+m.power+' · 冷却 '+(item.w*item.h>=4?'2.6':'1.8')+'秒'};}
       return item.key==='oran-berry'?{name:'橙橙果',type:'grass',detail:'生命不高于55%时恢复25生命；每场战斗一次。'}:{name:'学习装置',type:'normal',detail:'携带时所有招式伤害 ×1.2；同类不叠加。'};
     }
-    return {s,species,name,moveName,drawCost,draw,reveal,size,fits,place,rotate,withdraw,startBattle,tick,completeReward,proceed,forward,settle,rescue,itemInfo,damage};
+    return {s,species,name,moveName,drawCost,draw,reveal,size,fits,place,move,rotate,withdraw,startBattle,tick,completeReward,proceed,forward,settle,rescue,itemInfo,damage};
   }
   return {KEY,COST,COLS,ROWS,TYPES,create};
 });
