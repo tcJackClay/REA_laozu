@@ -1,45 +1,45 @@
 709841: 		private RectTransform tran_Normal;
-709842: 
+709842:
 709843: 		private TextMeshProUGUI text_LevelTitle;
-709844: 
+709844:
 709845: 		private TextMeshProUGUI text_GodTitle;
-709846: 
+709846:
 709847: 		private Image img_IndexRoot;
-709848: 
+709848:
 709849: 		private UISpriteSwitcher imgStateSwt_Index;
-709850: 
+709850:
 709851: 		private Button btn_Confirm;
-709852: 
+709852:
 709853: 		private TextMeshProUGUI text_Damage;
-709854: 
+709854:
 709855: 		private RectTransform tran_PillRoot;
-709856: 
+709856:
 709857: 		private CooldownButton cdBtn_Start;
-709858: 
+709858:
 709859: 		private RectTransform tran_PillSelect;
-709860: 
+709860:
 709861: 		private FlexItemManagerView flex_SelectList;
-709862: 
+709862:
 709863: 		private FlexItemManager flex_SelectListInst;
-709864: 
+709864:
 709865: 		private TextMeshProUGUI text_Eff;
-709866: 
+709866:
 709867: 		private Image img_DamageRoot;
-709868: 
+709868:
 709869: 		private TextMeshProUGUI text_DamageRange;
-709870: 
+709870:
 709871: 		private TextMeshProUGUI text_DamageRation;
-709872: 
+709872:
 709873: 		private RectTransform tran_Result;
-709874: 
+709874:
 709875: 		private RectTransform tran_Result_Fail;
-709876: 
+709876:
 709877: 		private RectTransform tran_Result_Success;
-709878: 
+709878:
 709879: 		private Button btn_ResultConfirm;
-709880: 
+709880:
 709881: 		private RectTransform tran_SucRoot;
-709882: 
+709882:
 709883: 		private TextMeshProUGUI text_LastLevelTitle;
-709884: 
+709884:
 709885: 		private TextMeshProUGUI text_NowLevelTitle;

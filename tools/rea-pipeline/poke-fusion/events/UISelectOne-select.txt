@@ -19,7 +19,7 @@
 601985: 			};
 601986: 			MessageBoxManager.Instance.ShowBox(MessageBoxShareData.Instance);
 601987: 		}
-601988: 
+601988:
 601989: 		protected override void OnBuildUIData()
 601990: 		{
 601991: 			((UIWindow)this).OnBuildUIData();
@@ -39,9 +39,9 @@
 602005: 				}
 602006: 			}
 602007: 		}
-602008: 
+602008:
 602009: 		protected override void OnUpdateUI()
 602010: 		{
 602011: 			flex_OptionsInst.SetData<SelectOneOptionData>(m_OptionDataList);
 602012: 		}
-602013: 
+602013:
