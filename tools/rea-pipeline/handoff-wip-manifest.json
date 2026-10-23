@@ -1,0 +1,235 @@
+{
+  "date": "2026-10-23",
+  "completedCodeBaseline": "77b4e64b5953aa27956f369ae989248d16a808e0",
+  "scope": "Excluded unverified pet hatch WIP; manifest only, not a backup",
+  "files": [
+    {
+      "path": "outputs/laozu-web/game.js",
+      "status": " M",
+      "bytes": 126416,
+      "sha256": "e53c319181c6e3e0724c591d85bd590f38ecf6f5f5802aa04e14fc59027ee281"
+    },
+    {
+      "path": "outputs/laozu-web/home-management.js",
+      "status": " M",
+      "bytes": 76360,
+      "sha256": "cf1784bd862e93100a2943e78ed309c420fb01d6f1a6fdeecbcaeb630c9e3772"
+    },
+    {
+      "path": "outputs/laozu-web/index.html",
+      "status": " M",
+      "bytes": 11078,
+      "sha256": "f19a2041917de73397a0f721dbc57f056d8b466823fa0a5811577ecc50a1a118"
+    },
+    {
+      "path": "outputs/laozu-web/pet-management-model.js",
+      "status": " M",
+      "bytes": 7273,
+      "sha256": "261d4ab1f3c3001ea88b52860524244b8e8b2f598630ae1cc4414b6e94a0cec5"
+    },
+    {
+      "path": "outputs/laozu-web/pet-management-page.js",
+      "status": " M",
+      "bytes": 17516,
+      "sha256": "151320d83da4133d744e031391ac92e18640a85247d954bf842e5b83203d82f9"
+    },
+    {
+      "path": "outputs/laozu-web/warehouse-model.js",
+      "status": " M",
+      "bytes": 6347,
+      "sha256": "637f916f03f2330491a0879512ee758bcc451e836982dd7a85fb24f0d4461f26"
+    },
+    {
+      "path": "outputs/laozu-web/warehouse-page.js",
+      "status": " M",
+      "bytes": 14149,
+      "sha256": "c3af90f49fd0192169c0faee0e8633524bf3598f4171dcc335ae9c916ce10093"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/bg_x_fuhuashi2__8373671775477271291.png",
+      "status": "??",
+      "bytes": 950444,
+      "sha256": "b4d6abbb57bdf3adff1db26a457bdaced23ce9353db0f2b4fe8a00ccca54ec16"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/dynamic_icon_cwd_huo.png",
+      "status": "??",
+      "bytes": 42800,
+      "sha256": "058728ff5f7d7c6756c5a0f4621d3b0373b3426f0da47051e8bc1b0b2af93b8c"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/dynamic_icon_cwd_jin.png",
+      "status": "??",
+      "bytes": 42972,
+      "sha256": "68fd5cc6df63602692f9f03b5cd82f7ecd1be1a285a6886538a7320f26cd2207"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/dynamic_icon_cwd_lei.png",
+      "status": "??",
+      "bytes": 42673,
+      "sha256": "2cbd26090b0d43aae3e588a596f3259467bc2264bc3bb3e438d815760aac24c4"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/dynamic_icon_cwd_mu.png",
+      "status": "??",
+      "bytes": 43723,
+      "sha256": "da602c9814c74dae26be37dacae6bd4ba0d9a64214eade10438c503bd6bbcaed"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/dynamic_icon_cwd_shui.png",
+      "status": "??",
+      "bytes": 43704,
+      "sha256": "48cbb95c630ee6e2ff5ff8103f260e63a2174bc7a7facefb505931a184962a5f"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/dynamic_icon_cwd_ti.png",
+      "status": "??",
+      "bytes": 42019,
+      "sha256": "f4f83d19ec55a93e68b305bba8eb03ab99a66e6b1f07364a6b89a16611867cae"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/dynamic_icon_cwd_tu.png",
+      "status": "??",
+      "bytes": 42571,
+      "sha256": "0288cec63cf632600a1443e11d40ebd8de39db0583f9a019133f0717ae6a1be4"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/dynamic_icon_cwd_xie.png",
+      "status": "??",
+      "bytes": 42499,
+      "sha256": "2afbb668adf358ed31690b1af16bf1910ee41b55f988b8c17420d2066d96ac12"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/floor_bt_fuhuashi__-8463658316551458552.png",
+      "status": "??",
+      "bytes": 64582,
+      "sha256": "ecfe93a224fb3d1c66d063624b9c3b296973afafa8c2b095daf2eaf9b65e5e0d"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/guanggao__3037703599388477027.png",
+      "status": "??",
+      "bytes": 9274,
+      "sha256": "4cbc40a06ea11dfe1dcb91861a25bda6730f7c3c75fe7257faa395c300863a2f"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/huo_拷贝__1613718452978987727.png",
+      "status": "??",
+      "bytes": 8609,
+      "sha256": "a0345112d59dea06affe65e2aaa633bfc275206af20497caef7e93bc37b7a44f"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/icon_lc_lcy__6739772356001906608.png",
+      "status": "??",
+      "bytes": 9358,
+      "sha256": "00bac2d8ac5d7538bf19b7fcd54c4ac8c83c0ff9b0e0058ae358b1d88041397a"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/iocn_lc_fenj__6781053643686585623.png",
+      "status": "??",
+      "bytes": 9826,
+      "sha256": "59a99405141f7517cded01d2d49f244f1b33a078351f757ff541c6127c640e18"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/iocn_lc_sz__3143214916795899974.png",
+      "status": "??",
+      "bytes": 8426,
+      "sha256": "b0c3a51c41418d4e02395738efa02dcad96c54e838457a642e1e433e4ab76737"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/jin__-3369849004571500176.png",
+      "status": "??",
+      "bytes": 8301,
+      "sha256": "30e36bf499d6a5906a5631219db0ffb56821f725b75cd743c1facb66166247c1"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/landan__-7733522685521082847.png",
+      "status": "??",
+      "bytes": 36951,
+      "sha256": "f5c94f44d750d6ee3363252e34f0b42603221499c19981f88e60ac8e4ea3e69a"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/ti__8883311854009668509.png",
+      "status": "??",
+      "bytes": 9122,
+      "sha256": "4003fb3f9346cb565755bb0b9616200b81e62a0f4ab6c868aa101ceff678eef1"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/ui_cw_tpd_1__2630143220222649110.png",
+      "status": "??",
+      "bytes": 5019,
+      "sha256": "8ae3513be446786e6332cd90ed1fd530049bf8fe5879d3d7e87015e8cf78914c"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/ui_fhs_modi_拷贝__952087382907644625.png",
+      "status": "??",
+      "bytes": 7283,
+      "sha256": "73985e6cf17a6c287f75bc5835a214ea9bf6a659304ff0d00ec980d2c6625df2"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/ui_mnjy_fhsfh__7340102688484787099.png",
+      "status": "??",
+      "bytes": 1850,
+      "sha256": "99fab59129fde754a87fe9382a9c32a0e94bad253f4a03729ea1193aeae81d70"
+    },
+    {
+      "path": "outputs/laozu-web/assets/pet-hatch-v64/xie__2688262060344269503.png",
+      "status": "??",
+      "bytes": 8592,
+      "sha256": "cf34f7e7d6c5e46dea5ea3bb1a221d28650bbedb2c3cf87a70d33a689b0ef2e3"
+    },
+    {
+      "path": "outputs/laozu-web/pet-hatch-data.js",
+      "status": "??",
+      "bytes": 9924,
+      "sha256": "0515b2da7bc1baf00e0adae8f017b4e207c69d4e74feb3e71f71aace956a6a17"
+    },
+    {
+      "path": "outputs/laozu-web/pet-hatch-icons.js",
+      "status": "??",
+      "bytes": 2840,
+      "sha256": "f6cb3de1fe20a59347efa28735d76af799214b1c2d09840b5460c415bd814d9b"
+    },
+    {
+      "path": "outputs/laozu-web/pet-hatch-layouts.js",
+      "status": "??",
+      "bytes": 448191,
+      "sha256": "07a77e084cf8b1a9d95b282aaeb925834029f7dcaa30e38117581db42a4859ac"
+    },
+    {
+      "path": "outputs/laozu-web/pet-hatch-model.js",
+      "status": "??",
+      "bytes": 3096,
+      "sha256": "06f6298c9bf709d9eea8dea460e185fbe40a31d845afc8c8c93df58f5051152b"
+    },
+    {
+      "path": "outputs/laozu-web/pet-hatch-page.js",
+      "status": "??",
+      "bytes": 10547,
+      "sha256": "3c2fcdbe1aa3cf20f8f813352c0c2e664bf9e9c2096f59b7f63437949faa6e6a"
+    },
+    {
+      "path": "outputs/laozu-web/pet-hatch.css",
+      "status": "??",
+      "bytes": 711,
+      "sha256": "a5d3fe5cf8eb7a90f11cbd64bbeafa9fc0141f1f23719bf078ea27891dde056d"
+    },
+    {
+      "path": "tools/rea-pipeline/build-pet-hatch-data.py",
+      "status": "??",
+      "bytes": 1827,
+      "sha256": "81a8b8116f3d03f28f4fa3e59bccfdd190b7eaaca2f56d7e357b800784f1a55f"
+    },
+    {
+      "path": "tools/rea-pipeline/build-pet-hatch-icons.py",
+      "status": "??",
+      "bytes": 2401,
+      "sha256": "2b845ceb06fc4cbca9043a54741e59a8e57f0b209cecdc3859ae78376b42d630"
+    },
+    {
+      "path": "tools/rea-pipeline/build-pet-hatch-layouts.py",
+      "status": "??",
+      "bytes": 6036,
+      "sha256": "9e035c4864e860c83f503db7daad438689e3cf8b2e5860092a636bcb31e5d15f"
+    }
+  ]
+}
