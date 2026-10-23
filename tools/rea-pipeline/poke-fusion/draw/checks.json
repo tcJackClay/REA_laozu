@@ -1,0 +1,18 @@
+{
+  "checks": [
+    "ball before map",
+    "reload preserves roll and free cost",
+    "result stays before map",
+    "enter visible 320",
+    "enter visible 390",
+    "enter visible 450",
+    "return preserves result",
+    "confirmed route map",
+    "collection recorded",
+    "second draw charges once",
+    "paid result persists",
+    "active run resumes without draw",
+    "no errors"
+  ],
+  "errors": []
+}
