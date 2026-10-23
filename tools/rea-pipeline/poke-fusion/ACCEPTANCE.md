@@ -67,3 +67,8 @@ node tools/rea-pipeline/test-poke-theme.cjs
 - [ ] 世界消息后端：目前空状态，不生成假消息，不宣称已联网。
 
 验证：test-poke-hud.cjs 18项；test-poke-side-drops.cjs 29项；test-poke-browser.cjs 12项通过，无运行错误。HUD测试使用加大生命的隔离存档核对真实时钟倍率，不修改游戏平衡。截图与结果见 hud/；本轮未修改首页背景或查看封面。
+
+## 消息区去标题修正（2026-10-23）
+- 删除可见频道标题、频道标签按钮、暂无消息和占位破折号；仅两侧箭头与横向滑动切换，辅助名称保留在 aria-label。
+- 参考 https://github.com/smogon/pokemon-showdown-client/blob/master/play.pokemonshowdown.com/src/battle-log.ts 的 battle-history / strong / small 层级：真实动作独立一行，招式加粗，伤害和恢复结果缩进为次级行，倒下单独记录。当前为实时冷却战斗，不虚构回合编号、敌方招式或未计算的效果。
+- 世界消息未联网时保持空白。验证22项，包含左右按钮、CDP触屏横向滑动、无标题文字及实际日志输出；桌面浏览器触屏模拟不等于真机验收。

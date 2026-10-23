@@ -6,6 +6,8 @@
     "real battle clock speed changes",
     "actual events feed",
     "log between scene and bag",
+    "no channel headings or placeholder copy",
+    "Showdown style action and effect",
     "world has no fabricated messages",
     "horizontal swipe switches feed",
     "settings real dialog",
@@ -17,12 +19,14 @@
     "bag above navigation 320",
     "single row header 450",
     "bag above navigation 450",
+    "mobile horizontal swipe switches channel",
+    "left arrow returns to battle",
     "no runtime errors"
   ],
   "errors": [],
   "clock": {
-    "d1": 733.3000000000001,
-    "d4": 2800
+    "d1": 716.7,
+    "d4": 2933.2000000000007
   },
   "fixture": "Long HP local fixture only for timing and visual checks; not gameplay balance."
 }
