@@ -1,0 +1,18 @@
+{
+  "checks": [
+    "shared header",
+    "no introductory copy",
+    "select route before launch",
+    "route selected",
+    "difficulty visible",
+    "selection persists",
+    "layout within screen 320",
+    "layout within screen 390",
+    "layout within screen 450",
+    "launch enters real draw and ready state",
+    "resume label",
+    "resume does not draw again",
+    "no runtime errors"
+  ],
+  "errors": []
+}

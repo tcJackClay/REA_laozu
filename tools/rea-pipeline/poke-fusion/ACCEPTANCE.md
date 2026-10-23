@@ -72,3 +72,11 @@ node tools/rea-pipeline/test-poke-theme.cjs
 - 删除可见频道标题、频道标签按钮、暂无消息和占位破折号；仅两侧箭头与横向滑动切换，辅助名称保留在 aria-label。
 - 参考 https://github.com/smogon/pokemon-showdown-client/blob/master/play.pokemonshowdown.com/src/battle-log.ts 的 battle-history / strong / small 层级：真实动作独立一行，招式加粗，伤害和恢复结果缩进为次级行，倒下单独记录。当前为实时冷却战斗，不虚构回合编号、敌方招式或未计算的效果。
 - 世界消息未联网时保持空白。验证22项，包含左右按钮、CDP触屏横向滑动、无标题文字及实际日志输出；桌面浏览器触屏模拟不等于真机验收。
+
+## 首页地区地图（2026-10-23）
+- 已确认：关都地区，仅接入现有常青路线；点击即选择，显示难度等级；圆形精灵球图标下保留“开始冒险”。
+- 完成：共享顶部数值栏、地图原图、常青路线点击区域、选择持久化、难度 Lv.1、实际抽取与已有冒险继续。其余道路仅是地图背景，不伪装成可玩内容。
+- 难度 Lv.1 是当前两战常青玩法的入门标记，不是原作地图数据；本轮未新增平衡或道路玩法。
+- 移除首页原建筑入口及介绍段落；底部导航保留。其他页面不在本轮修改范围。
+- 素材：pret/pokefirered @ ce6406d8c2eaf46d543c8a2606de0c3cb1951982，graphics/region_map 的 tileset、palette、kanto.bin；build-poke-kanto.py 可重建。SOURCE.json 记录哈希与原始美术权属边界。常青热点对应原图西侧2号道路/常青森林区域。
+- 验证：test-poke-home.cjs 13项（选择、难度、持久化、真实抽取、已有局继续、320/390/450布局），test-poke-browser.cjs 12项冒险闭环通过。截图见 home/。

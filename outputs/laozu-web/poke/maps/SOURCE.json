@@ -1,0 +1,13 @@
+{
+  "repository": "https://github.com/pret/pokefirered",
+  "commit": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+  "upstreamDirectory": "graphics/region_map",
+  "method": "GBA 8x8 tilemap decode with palette banks and flip flags; crop original 240x160 image to (16,16,216,160). No redrawn artwork.",
+  "rights": "Original Pokemon FireRed game graphics, published in pret decompilation. Public availability is not a new license to the underlying Pokemon artwork.",
+  "files": {
+    "kanto.png": "b41c285c2cc63525553a7c066e2a967c2d75a9c009e8f2a9f1fbcefe3ce65c66",
+    "source\\kanto.bin": "c9f38c5d52099958c18efe737a45ba04ce8101b0eb349e9d2243bf8324d82b49",
+    "source\\region_map.pal": "35fc49a8f807f4d934381dfecd4440b1e5de24f7bab86bcb15859cc6adfcc83e",
+    "source\\region_map.png": "7c402c5461d5547191cbfefb279727964e19c6dd60d33f5b0bb052ea20545184"
+  }
+}
