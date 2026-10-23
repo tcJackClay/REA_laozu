@@ -1,0 +1,96 @@
+/* Layout adapters for source PokeCatch dark tokens and source pixel controls. */
+:root{font-family:var(--font),"Microsoft YaHei","PingFang SC",sans-serif;color:var(--text);background:var(--bg);color-scheme:dark}
+body{background:var(--bg);background-image:var(--ball-pattern);font-weight:400}
+#app{background-color:var(--bg);background-image:var(--ball-pattern);box-shadow:0 0 70px #0008}
+button{color:var(--text);font-family:inherit}
+button:focus-visible{outline-color:var(--yellow)}
+.topbar{background:var(--panel);border-color:var(--line)}
+.trainer b{color:var(--text)}.trainer small{color:var(--muted)}
+.wallet{background:var(--sunken);border-color:var(--line);border-radius:8px}
+.wallet b{color:var(--text)}.wallet span{color:var(--muted)}
+.bottom-nav{background:var(--sunken);border-color:var(--line)}
+.bottom-nav button{color:var(--muted);font-weight:400}
+.bottom-nav button.active{--bc:var(--red);color:var(--text);background:none;box-shadow:none}
+.bottom-nav button:not(.active):hover{color:var(--text);background:var(--panel-2)}
+.home-page{background:var(--bg)}
+.home-heading{background:#1c2030ed;border:1px solid var(--line);box-shadow:var(--shadow-pop);border-radius:10px}
+.home-heading small,.page-title>small,.draw-page>small:first-of-type,.settlement>small{color:var(--muted);font-family:var(--font-title);font-size:15px;letter-spacing:1.5px}
+.home-heading h1,.page-title h1{color:var(--text);font-family:var(--font-title),"Microsoft YaHei",sans-serif;letter-spacing:2px}
+.home-heading p{color:var(--text-2)}
+.building button{background:#1c2030f5;border-color:var(--line);box-shadow:0 4px 0 #0006;border-radius:8px;color:var(--text)}
+.building small{color:var(--muted)}
+.home-quest{background:linear-gradient(90deg,#1c2030f5,#1c2030e8,transparent);color:var(--text)}
+.quest-seal{background:var(--panel-2);border-color:var(--line);color:var(--yellow);border-radius:6px}
+.home-quest small{color:var(--text-2)}
+.home-caption{background:#10131fe8;color:var(--text-2);font-size:12px}
+.home-portal{bottom:5%}
+.round-start{width:158px;height:102px;min-height:102px;gap:3px;padding:7px 16px}
+.round-start b{font-size:22px;letter-spacing:1px}.round-start small{font-size:12px}
+.gold{border-radius:0;letter-spacing:0}.soft,.mini{border-radius:0}
+.btn{position:relative;font-weight:400}
+.btn.gold{--bc:var(--yellow)}
+.btn.ghost{--bc:var(--panel-2)}
+.btn.mini{--u:1px;min-height:22px;font-size:12px;padding:2px 8px;line-height:16px}
+.btn.text-button{background:none}
+.draw-page{background:var(--sunken);background-image:var(--ball-pattern);color:var(--text)}
+.draw-page h1{color:var(--text);font-family:var(--font-title),"Microsoft YaHei",sans-serif}
+.draw-page>p,.draw-page>small:last-of-type{color:var(--muted)}
+.draw-offer{border-color:var(--line)}.draw-offer>b{color:var(--yellow)}.draw-offer p{color:var(--muted);font-size:12px}
+.text-button{color:var(--text-2)}
+.explore-page{background:var(--bg)}
+.route-back{background:#1c2030e8;border-color:var(--line);color:var(--text)}
+.route-node{background:var(--panel);border-color:var(--line);color:var(--muted)}
+.route-node.current{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+.route-node.done{background:var(--green-dark);border-color:var(--green);color:var(--text)}
+.route i{background:var(--line)}.route>b{background:#1c2030ed;color:var(--text)}
+.combat-status{background:#1c2030ed;border-color:var(--line);color:var(--text);box-shadow:0 2px 0 #0006}
+.hp-track{background:var(--panel-3)}.hp-track i{background:var(--xp)}
+.scene-caption{color:var(--text);background:#10131fdd;padding:2px 5px;border-radius:3px}
+.stat-strip{background:var(--panel);border-color:var(--line);color:var(--text-2)}
+.stat-strip>b{color:var(--text)}
+.type{background:var(--type);color:#fff;box-shadow:inset 0 -2px #0003;text-shadow:1px 1px #0006;border-radius:4px}
+.workspace{background:var(--bg);background-image:var(--ball-pattern);color:var(--text)}
+.phase-note{background:var(--panel);border-color:var(--line);color:var(--text-2);border-radius:7px}
+.phase-note>b{color:var(--yellow)}
+.reward-pool{background:var(--panel);border-color:var(--line);color:var(--text);border-radius:7px}
+.reward-pool small{color:var(--muted)}.all-packed{color:var(--green)}
+.pack-tools>b{color:var(--text-2)}.pack-tools small,.battle-label{color:var(--muted)}
+.board{background-color:var(--sunken);background-image:var(--ball-pattern);border:2px solid var(--line);box-shadow:none;border-radius:5px;overflow:visible}
+.cells button{background:#ffffff02;border-color:#333a5277}
+.cells button:hover{background:#3b6fe044}
+.item,.item.held{border:1px solid var(--line);background-color:var(--panel-2);background-image:var(--mon-frame);background-size:auto,80% auto;background-repeat:repeat,no-repeat;background-position:center;color:var(--text);border-radius:6px;box-shadow:inset 0 0 0 1px #ffffff08}
+.item.move{border-top:3px solid var(--type)}
+.item.held{border-top:3px solid var(--yellow)}
+.item.selected{outline:2px solid var(--yellow);outline-offset:1px;box-shadow:0 0 8px #ffcb0555}
+.item-symbol{font-size:13px;color:var(--type,var(--text));text-shadow:1px 1px #0008}
+.item b{color:var(--text);font-weight:400;font-size:11px}
+.item small{color:var(--text-2);font-size:10px}
+.reward-items .item{background-color:var(--panel-2)}
+.pack-footer>p{color:var(--text-2);font-size:11px;line-height:1.4}
+.pack-footer .gold{padding:8px 12px;font-size:15px;min-height:38px}
+.fighting-dot{color:var(--yellow);font-size:14px}
+.settlement{background:var(--panel);color:var(--text)}
+.settlement h2{color:var(--text);letter-spacing:2px;font-family:var(--font-title),"Microsoft YaHei",sans-serif}
+.graduate b{color:var(--text)}.graduate p{color:var(--text-2)}
+.settlement dl{border-color:var(--line)}.settlement dt{color:var(--text-2)}.settlement dd{color:var(--yellow)}.settlement>p{color:var(--muted)}
+.list-page{background-color:var(--bg);background-image:var(--ball-pattern)}
+.page-title p{color:var(--muted)}
+.mon-card{background-color:var(--panel);background-image:var(--mon-frame);border-color:var(--line);border-radius:12px}
+.mon-card b{color:var(--text)}.mon-card p{color:var(--text-2)}.mon-card small{color:var(--muted)}
+.empty-state{background:var(--sunken);border-color:var(--line)}.empty-state h2{color:var(--text)}.empty-state p{color:var(--muted)}
+.research-starters article{background-color:var(--panel);background-image:var(--mon-frame);border-color:var(--line);border-radius:12px}
+.research-starters b{color:var(--text)}.research-starters small{color:var(--muted);font-size:11px}
+.paper{background:var(--panel);border-color:var(--line)}.paper h2{color:var(--text)}.paper p{color:var(--text-2)}
+.six-stats>span{background:var(--panel-2);color:var(--muted);border-radius:7px}.six-stats b{color:var(--text)}
+.scope-note{color:var(--muted)}
+.dex-card{background-color:var(--panel);background-image:var(--mon-frame);border-color:var(--line);border-radius:12px}
+.dex-card>small,.dex-card>span{color:var(--muted)}.dex-card>b{color:var(--text)}
+.dex-card.owned{background-color:var(--panel-2);border-color:var(--yellow)}.dex-card.owned>span{color:var(--yellow)}
+#toast{background:var(--panel-2);border-color:var(--line);color:var(--text);box-shadow:var(--shadow-pop)}
+#drag-ghost{background:var(--panel-2);border-color:var(--yellow);color:var(--text)}
+@media(max-height:650px){
+ .round-start{width:140px;height:88px;min-height:88px}.round-start b{font-size:19px}
+ .pack-footer>p{font-size:9px}.pack-footer .gold{min-height:33px;font-size:13px;padding:6px 9px}
+ .item-symbol{font-size:10px}.item b{font-size:9px;line-height:11px}.item small{font-size:9px;line-height:9px}
+ .home-heading small{font-size:12px}.home-caption{font-size:10px}.home-quest small{font-size:9px}
+}

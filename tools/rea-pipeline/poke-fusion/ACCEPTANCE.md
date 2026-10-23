@@ -17,6 +17,7 @@
 - [x] P11 触屏选取入包；鼠标真实拖拽；全部六导航有明确目的页。
 - [x] P12 图像来自原包/原站；没有自绘SVG图标、建筑、风景或CSS精灵球。
 - [x] P13 无新增脚本错误、资源4xx；model/app语法检查、官方技能冒烟及截图检查完成。
+- [x] P14 全部现有页面采用原黑色主题；源字体、底纹、像素按钮及18属性色已提取，33项主题检查通过，保持竖屏结构。
 
 结果：25项模型和30项浏览器检查通过。截图及结果见[本轮验证记录](VERIFICATION.md)。
 
@@ -35,6 +36,7 @@ node outputs/laozu-web/server.cjs
 ```powershell
 node tools/rea-pipeline/test-poke-model.cjs
 node tools/rea-pipeline/test-poke-browser.cjs
+node tools/rea-pipeline/test-poke-theme.cjs
 ```
 
 浏览器脚本需要Playwright；本机使用Codex内置绝对路径，其他机器通过环境变量PLAYWRIGHT_MODULE指向安装目录；POKE_URL可覆盖测试服务地址。

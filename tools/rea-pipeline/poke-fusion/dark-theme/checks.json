@@ -1,0 +1,65 @@
+{
+  "checks": [
+    "dark source tokens",
+    "source font loaded",
+    "header source dark panel",
+    "navigation source sunken",
+    "source ball texture",
+    "light text home",
+    "source images only home",
+    "light text collection",
+    "source images only collection",
+    "dark content collection",
+    "light text research",
+    "source images only research",
+    "dark content research",
+    "light text gym",
+    "source images only gym",
+    "dark content gym",
+    "light text dex",
+    "source images only dex",
+    "dark content dex",
+    "light text wander",
+    "source images only wander",
+    "dark content wander",
+    "pixel CTA source mask",
+    "yellow source CTA",
+    "dark reward panel",
+    "dark backpack grid",
+    "dark item card",
+    "original grass color",
+    "dark reward fits 320",
+    "dark reward fits 360",
+    "dark reward fits 450",
+    "no graphical svg generated in UI",
+    "no console or image errors"
+  ],
+  "errors": [],
+  "styles": {
+    "home": {
+      "background": "rgb(20, 24, 38)",
+      "color": "rgb(238, 241, 248)"
+    },
+    "collection": {
+      "background": "rgb(20, 24, 38)",
+      "color": "rgb(238, 241, 248)"
+    },
+    "research": {
+      "background": "rgb(20, 24, 38)",
+      "color": "rgb(238, 241, 248)"
+    },
+    "gym": {
+      "background": "rgb(20, 24, 38)",
+      "color": "rgb(238, 241, 248)"
+    },
+    "dex": {
+      "background": "rgb(20, 24, 38)",
+      "color": "rgb(238, 241, 248)"
+    },
+    "wander": {
+      "background": "rgb(16, 19, 31)",
+      "color": "rgb(238, 241, 248)"
+    }
+  },
+  "fixture": "Completed local model run for collection/gym; reward fixture for geometry. Not original-site runtime evidence."
+}

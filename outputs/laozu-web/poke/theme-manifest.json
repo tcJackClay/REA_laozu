@@ -1,0 +1,221 @@
+{
+  "input": "evidence/source/bundle/app.4cbef38437.css",
+  "sha256": "4cbef384377661d4034ac6bd3878042fcf7d5cf4de35a24aa7b036f6efbaa729",
+  "typesInput": "evidence/runtime-data/TYPES.json",
+  "typesSha256": "5f7db42658e8b93a0e8bcab3d996145c581748d880a8d640cd319c0a3b35d80e",
+  "rules": [
+    {
+      "selector": "@font-face",
+      "start": 0,
+      "end": 5429
+    },
+    {
+      "selector": "@font-face",
+      "start": 5429,
+      "end": 12612
+    },
+    {
+      "selector": "@font-face",
+      "start": 12612,
+      "end": 18373
+    },
+    {
+      "selector": "@font-face",
+      "start": 18373,
+      "end": 26224
+    },
+    {
+      "selector": ":root",
+      "start": 26224,
+      "end": 26554
+    },
+    {
+      "selector": ".btn",
+      "start": 28668,
+      "end": 28856
+    },
+    {
+      "selector": ".btn.ghost",
+      "start": 29081,
+      "end": 29118
+    },
+    {
+      "selector": ".btn.gold",
+      "start": 29118,
+      "end": 29167
+    },
+    {
+      "selector": ":root",
+      "start": 142677,
+      "end": 144158
+    },
+    {
+      "selector": ".btn",
+      "start": 149851,
+      "end": 149910
+    },
+    {
+      "selector": ":root",
+      "start": 165157,
+      "end": 165236
+    },
+    {
+      "selector": ".btn.ghost",
+      "start": 200704,
+      "end": 200886
+    },
+    {
+      "selector": ".btn",
+      "start": 209403,
+      "end": 209426
+    },
+    {
+      "selector": ".btn.primary,.btn.danger,.mp-go",
+      "start": 209426,
+      "end": 209475
+    },
+    {
+      "selector": ".btn.gold",
+      "start": 209475,
+      "end": 209505
+    },
+    {
+      "selector": ":root",
+      "start": 349249,
+      "end": 349272
+    },
+    {
+      "selector": ":root",
+      "start": 353181,
+      "end": 353218
+    },
+    {
+      "selector": ".px",
+      "start": 400313,
+      "end": 430551
+    },
+    {
+      "selector": ".px",
+      "start": 430551,
+      "end": 430736
+    },
+    {
+      "selector": ".px :is(.btn,.mp-go,.side-don,.side-disc,.side-bug,.fx-skip,.dc-candy,:where(.seg:not(.sh-buy .seg)>button.on),:where(.side-nav>button.active,.side-nav .nav-grp-h.active)):not(#_)",
+      "start": 430736,
+      "end": 431414
+    },
+    {
+      "selector": ":where(.px) :where(.btn,.mp-go,.side-don,.side-disc,.side-bug,.fx-skip,.dc-candy,:where(.seg:not(.sh-buy .seg)>button.on),:where(.side-nav>button.active,.side-nav .nav-grp-h.active))",
+      "start": 431414,
+      "end": 431615
+    },
+    {
+      "selector": ".px .btn.small:not(#_)",
+      "start": 432995,
+      "end": 433171
+    },
+    {
+      "selector": ".px .btn.gold:not(#_)",
+      "start": 433397,
+      "end": 433453
+    },
+    {
+      "selector": ".px .btn.ti-discord:not(#_)",
+      "start": 433453,
+      "end": 433502
+    },
+    {
+      "selector": ".px .btn.ti-google:not(#_)",
+      "start": 433502,
+      "end": 433644
+    },
+    {
+      "selector": ".px :is(.btn.ghost,.btn.outline,.mp-go.ghost):not(#_)",
+      "start": 433644,
+      "end": 433896
+    },
+    {
+      "selector": ".px .btn.outline:not(#_)",
+      "start": 433896,
+      "end": 433940
+    },
+    {
+      "selector": ".px :is(.btn.big,.btn.lg,.mp-go):not(#_)",
+      "start": 433940,
+      "end": 433997
+    },
+    {
+      "selector": ".px :is(.btn,.mp-go,.side-don,.side-disc,.side-bug,.fx-skip,.dc-candy,:where(.seg:not(.sh-buy .seg)>button.on),:where(.side-nav>button.active,.side-nav .nav-grp-h.active)):not(#_):before",
+      "start": 433997,
+      "end": 434433
+    },
+    {
+      "selector": ".px :is(.btn,.mp-go,.side-don,.side-disc,.side-bug,.fx-skip,.dc-candy,:where(.seg:not(.sh-buy .seg)>button.on),:where(.side-nav>button.active,.side-nav .nav-grp-h.active)):not(#_):after",
+      "start": 434433,
+      "end": 434728
+    },
+    {
+      "selector": ".px :is(.btn,.mp-go,.side-don,.side-disc,.side-bug,.fx-skip,.dc-candy,:where(.seg:not(.sh-buy .seg)>button.on),:where(.side-nav>button.active,.side-nav .nav-grp-h.active)):not(#_):hover:not(:disabled,[disabled])",
+      "start": 434728,
+      "end": 435028
+    },
+    {
+      "selector": ".px :is(.btn,.mp-go,.side-don,.side-disc,.side-bug,.fx-skip,.dc-candy,:where(.seg:not(.sh-buy .seg)>button.on),:where(.side-nav>button.active,.side-nav .nav-grp-h.active)):not(#_):active:not(:disabled,[disabled])",
+      "start": 435028,
+      "end": 435277
+    },
+    {
+      "selector": ".px :is(.btn,.mp-go,.side-don,.side-disc,.side-bug,.fx-skip,.dc-candy,:where(.seg:not(.sh-buy .seg)>button.on),:where(.side-nav>button.active,.side-nav .nav-grp-h.active)):not(#_):active:not(:disabled,[disabled]):after",
+      "start": 435277,
+      "end": 435519
+    },
+    {
+      "selector": ".px :is(.btn,.mp-go,.side-don,.side-disc,.side-bug,.fx-skip,.dc-candy,:where(.seg:not(.sh-buy .seg)>button.on),:where(.side-nav>button.active,.side-nav .nav-grp-h.active)):not(#_):is(:disabled,[disabled])",
+      "start": 435519,
+      "end": 435768
+    },
+    {
+      "selector": ".px :is(.btn,.mp-go,.side-don,.side-disc,.side-bug,.fx-skip,.dc-candy,:where(.seg:not(.sh-buy .seg)>button.on),:where(.side-nav>button.active,.side-nav .nav-grp-h.active)):not(#_):is(:disabled,[disabled]):before",
+      "start": 435768,
+      "end": 435993
+    },
+    {
+      "selector": ".px :is(.btn,.mp-go,.side-don,.side-disc,.side-bug,.fx-skip,.dc-candy,:where(.seg:not(.sh-buy .seg)>button.on),:where(.side-nav>button.active,.side-nav .nav-grp-h.active)):not(#_)",
+      "start": 436764,
+      "end": 442919
+    },
+    {
+      "selector": ".px :is(.btn.big,.btn.lg,.mp-go):not(#_)",
+      "start": 442919,
+      "end": 443057
+    },
+    {
+      "selector": "body",
+      "start": 51168,
+      "end": 51649
+    }
+  ],
+  "rangeUnit": "Python Unicode code points in UTF-8-sig decoded CSS; not original JS UTF-16 evidence index",
+  "fontFaces": 4,
+  "typeColors": {
+    "normal": "#A8A77A",
+    "fire": "#EE8130",
+    "water": "#6390F0",
+    "grass": "#7AC74C",
+    "electric": "#F7D02C",
+    "ice": "#96D9D6",
+    "fighting": "#C22E28",
+    "poison": "#A33EA1",
+    "ground": "#E2BF65",
+    "flying": "#A98FF3",
+    "psychic": "#F95587",
+    "bug": "#A6B91A",
+    "rock": "#B6A136",
+    "ghost": "#735797",
+    "dragon": "#6F35FC",
+    "dark": "#705746",
+    "steel": "#B7B7CE",
+    "fairy": "#D685AD"
+  },
+  "outputSha256LF": "20663e97e344d084b62d5abf2a56d934e1a5253de60d42ae3696d38b51ba4b00"
+}
