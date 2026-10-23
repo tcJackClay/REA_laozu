@@ -1,5 +1,5 @@
 """Export source UI trees without flattening RectTransform ancestry."""
-import json, pathlib, zipfile, sys, re, hashlib, os
+import json, pathlib, zipfile, sys, re, hashlib, os, subprocess
 import UnityPy
 sys.stdout.reconfigure(encoding='utf8')
 root=pathlib.Path('work/home-profile-v68'); out=pathlib.Path('outputs/laozu-web')
@@ -102,11 +102,12 @@ for sprite in sprites.values():
 (root/'tree-raw.json').write_text(json.dumps({'layouts':layouts},ensure_ascii=False,default=str),encoding='utf8')
 # Reuse previously exported exact source sprites; do not repeatedly decode large atlases.
 known={}
+tracked=set(subprocess.check_output(['git','ls-files','-z']).decode('utf8').split('\0'))
 for q in out.glob('*layouts.js'):
  try:
   txt=q.read_text(encoding='utf8');obj=json.loads(txt[txt.index('=')+1:].strip().rstrip(';'))
   for k,v in obj.get('sprites',{}).items():
-   if v.get('file') and (out/v['file']).exists():known[str(k)]=v
+   if v.get('file') and (out/v['file']).exists() and ((out/v['file']).as_posix() in tracked or v['file'].startswith('assets/home-profile-v68/')):known[str(k)]=v
  except (ValueError,KeyError):pass
 manifest=[]
 for b in sorted({k[0] for k in refs}):
@@ -145,14 +146,15 @@ import hashlib
 web=pathlib.Path('outputs/laozu-web').resolve();target=(web/'assets/home-profile-v68').resolve()
 existing={}
 for path in (web/'assets').rglob('*.png'):
- if not path.is_relative_to(target):existing.setdefault(hashlib.sha256(path.read_bytes()).hexdigest(),path)
+ if not path.is_relative_to(target) and path.relative_to(pathlib.Path.cwd()).as_posix() in tracked:existing.setdefault(hashlib.sha256(path.read_bytes()).hexdigest(),path)
 replaced=0
 for row in data['sprites'].values():
  path=(web/row['file']).resolve()
  if not path.is_relative_to(target):continue
  digest=hashlib.sha256(path.read_bytes()).hexdigest()
  if digest in existing:
-  row['file']=existing[digest].relative_to(web).as_posix();path.unlink();replaced+=1
+  row['file']=existing[digest].relative_to(web).as_posix()
+  if existing[digest]!=path:path.unlink();replaced+=1
  else:existing[digest]=path
 (out/'home-profile-layouts.js').write_text('window.HOME_PROFILE_LAYOUTS='+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf8')
 

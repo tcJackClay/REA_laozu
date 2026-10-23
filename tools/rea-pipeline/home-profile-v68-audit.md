@@ -27,3 +27,5 @@ EffList_HeadFramesItem/TitleItem（637149–637280）用cfg.iIcon加载缩略图
 本轮原版模拟器仍是启动校验页，没有取得新山门同尺寸对照；本目录均为隔离网页角色截图，不是原APK截图。源码坐标证明和浏览器边界检查不替代原机逐像素验收，山门总目标保持未完成。
 
 复现：UnityPy环境执行build-runtime-cab-index.py（APK CAB底表沿build-unity-cab-index.py）→build-home-profile-layouts.py；需要时PROFILE_REEXPORT=1强制重新解码。再执行test-home-profile-source-v68.cjs及test-home-profile-v68.cjs。清单四列分别见visual-inventory.csv。
+
+提交依赖核对另发现2张复用原图位于本地忽略目录，已逐字节复制到本轮受跟踪资源目录并更新引用。导出器缓存与去重仅复用已跟踪的其他资源或本轮自有资源，避免新机器拉取缺图。
