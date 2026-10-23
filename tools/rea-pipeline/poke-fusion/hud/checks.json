@@ -1,0 +1,28 @@
+{
+  "checks": [
+    "numeric topbar without explanatory copy",
+    "right side settings button",
+    "map name visible",
+    "real battle clock speed changes",
+    "actual events feed",
+    "log between scene and bag",
+    "world has no fabricated messages",
+    "horizontal swipe switches feed",
+    "settings real dialog",
+    "settings pauses battle",
+    "reduce motion applied",
+    "Escape closes settings",
+    "speed persisted",
+    "single row header 320",
+    "bag above navigation 320",
+    "single row header 450",
+    "bag above navigation 450",
+    "no runtime errors"
+  ],
+  "errors": [],
+  "clock": {
+    "d1": 733.3000000000001,
+    "d4": 2800
+  },
+  "fixture": "Long HP local fixture only for timing and visual checks; not gameplay balance."
+}
