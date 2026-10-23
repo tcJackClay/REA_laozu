@@ -86,6 +86,7 @@
     if(r.phase==='evolution-result')return `<div class="adventure-choice" role="dialog" aria-modal="true" aria-label="进化完成"><section class="evolution-choice evolution-result">${img(r.mon.speciesId,'evolved-partner')}<h2>${text(r.mon.speciesId)}</h2><p>Lv.${r.mon.level} ${M.species(r.mon.speciesId).types.map(badge).join('')}</p><p class="evolution-learned">${badge(POKE_CATALOG.MOVES[r.evolution.learned]?.type||'normal')} ${esc(M.moveName(r.evolution.learned))}</p>${btn('evolution-done','继续','gold primary')}</section></div>`;
     return '';
   }
+  function gymParty(r){return r.gymTeam?`<div class="gym-party" aria-label="出战队伍">${r.gymTeam.map((m,i)=>{const value=i===r.activeMember?r.hp:m.hp,ratio=Math.max(0,Math.min(1,value/m.maxHp));return `<button data-action="gym-switch:${i}" aria-label="${esc(text(m.mon.speciesId))}，HP ${Math.ceil(value)}/${m.maxHp}" aria-pressed="${i===r.activeMember}" class="${value<=0?'fainted':''}" ${r.phase!=='battle'||value<=0?'disabled':''}>${img(m.mon.speciesId)}<span class="party-hp"><i style="width:${ratio*100}%;background:${ratio>.5?'#76ca51':ratio>.2?'#f2c94c':'#ee647d'}"></i></span></button>`;}).join('')}</div>`:'';}
   function explore(){const r=M.s.run;if(!r||r.phase==='draw'||r.awaitingEntrance)return drawScreen();
     const b=r.battle,phase=r.phase,editing=['ready','reward','event'].includes(phase),pick=[...r.items,...r.pending].find(i=>i.uid===selected);
     let lower='';
@@ -94,7 +95,7 @@
     }else{
       lower=`<section class="workspace">${board(r)}<div class="pack-footer">${editing?btn('forward','前进','gold'):phase==='battle'?'<span class="fighting-dot">战斗进行中</span>':''}</div></section>`;
     }
-    return `<main class="explore-page phase-${phase}"><h1 class="sr-only">常青小径探险</h1><section class="battle-scene scene"><canvas id="scene" aria-label="常青小径探险战斗场景"></canvas><div class="map-heading"><span>${esc(r.route?.name||'常青小径')}</span>${route(r)}${speedControl()}</div>${combatInfo('own',r.mon,r.hp,r.maxHp)}${phase==='battle'?combatInfo('foe',b,b.hp,b.maxHp):''}<div class="scene-caption">${phase==='battle'?'属性克制 · 招式自动释放':phase==='reward'?'遭遇胜利 · 整理战利品':phase==='settlement'?'本次旅途已记录':'一人一包，继续前行'}</div></section>${messageFeed(r)}${lower}${adventureChoice(r)}</main>`;
+    return `<main class="explore-page phase-${phase}"><h1 class="sr-only">常青小径探险</h1><section class="battle-scene scene ${r.gymTeam?'gym-battle':''}"><canvas id="scene" aria-label="常青小径探险战斗场景"></canvas><div class="map-heading"><span>${esc(r.route?.name||'常青小径')}</span>${route(r)}${speedControl()}</div>${gymParty(r)}${combatInfo('own',r.mon,r.hp,r.maxHp)}${phase==='battle'?combatInfo('foe',b,b.hp,b.maxHp):''}<div class="scene-caption">${phase==='battle'?'属性克制 · 招式自动释放':phase==='reward'?'遭遇胜利 · 整理战利品':phase==='settlement'?'本次旅途已记录':'一人一包，继续前行'}</div></section>${messageFeed(r)}${lower}${adventureChoice(r)}</main>`;
   }
   const catalogFilters={collection:{region:'all',rarity:'all'},dex:{region:'all',rarity:'all'}};
   function filterBar(page){const f=catalogFilters[page];return `<div class="catalog-filters">${[['region',['all','kanto','johto','hoenn']],['rarity',['all',...POKE_GENETICS.rarities]]].map(([key,values])=>`<div class="filter-row" role="group" aria-label="${key==='region'?'地区':'稀有度'}">${values.map(value=>`<button data-action="filter:${page}:${key}:${value}" class="${key==='rarity'?value:''}" aria-pressed="${f[key]===value}">${value==='all'?'全部':POKE_GENETICS.labels[value]}</button>`).join('')}</div>`).join('')}</div>`;}
@@ -126,6 +127,7 @@
     else if(action.startsWith('nav:')){view=action.slice(4);selected=null;}
     else if(action.startsWith('city:')){const id=action.slice(5);if(M.cityUnlocked(id))selectedCity=id;}
     else if(action.startsWith('gym-start:')){const id=action.slice(10);if(M.gymUnlocked(id)&&!M.s.run)gymSelection={id,uids:[]};}
+    else if(action.startsWith('gym-switch:')){M.switchGymMember(Number(action.slice(11)));tip=null;selected=null;save();}
     else if(action==='gym-cancel'){gymSelection=null;}
     else if(action.startsWith('gym-pick:')&&gymSelection){const uid=action.slice(9),i=gymSelection.uids.indexOf(uid);if(i>=0)gymSelection.uids.splice(i,1);else if(gymSelection.uids.length<3&&M.s.collection.some(m=>m.uid===uid))gymSelection.uids.push(uid);}
     else if(action.startsWith('gym-unpick:')&&gymSelection){gymSelection.uids.splice(Number(action.slice(11)),1);}
@@ -169,9 +171,9 @@
       const spriteScale=id=>{const b=imageBounds(id);return Math.min(k,h*.29/b.h,w*.20/b.w);};
       const ownSize=spriteScale(r.mon.speciesId),enemySize=r.battle?spriteScale(r.battle.speciesId):k;
       for(const [cls,id,scale,baseline] of [['own',r.mon.speciesId,ownSize,.82],['foe',r.battle?.speciesId,enemySize,.78]]){const hud=app.querySelector('.combat-status.'+cls);if(hud&&id){hud.style.setProperty('--hp-width',13*k+'px');hud.style.top=(h*baseline-imageBounds(id).h*scale-hud.offsetHeight-4)+'px';const identity=app.querySelector('.combat-identity.'+cls);if(identity)identity.style.top=(h*baseline+3)+'px';}}
-      drawMon(r.mon.speciesId,w*.25,h*.82,ownSize,true,recent&&hit.actor==='player');
+      drawMon(r.mon.speciesId,w*(r.gymTeam?.35:.25),h*.82,ownSize,true,recent&&hit.actor==='player');
       if(r.phase==='battle'){drawMon(r.battle.speciesId,w*.77,h*.78,enemySize,false,recent&&hit.actor==='enemy');}
-      if(recent&&r.phase==='battle'){const x=hit.actor==='player'?w*.77:w*.25,y=hit.actor==='player'?h*.42:h*.57;c.font='bold 22px system-ui';c.textAlign='center';c.strokeStyle='#443a30';c.lineWidth=3;c.fillStyle=hit.actor==='heal'?'#b5ec9d':'#fff1bc';c.strokeText((hit.actor==='heal'?'+':'−')+hit.amount,x,y);c.fillText((hit.actor==='heal'?'+':'−')+hit.amount,x,y);}
+      if(recent&&r.phase==='battle'){const x=hit.actor==='player'?w*.77:w*(r.gymTeam?.35:.25),y=hit.actor==='player'?h*.42:h*.57;c.font='bold 22px system-ui';c.textAlign='center';c.strokeStyle='#443a30';c.lineWidth=3;c.fillStyle=hit.actor==='heal'?'#b5ec9d':'#fff1bc';c.strokeText((hit.actor==='heal'?'+':'−')+hit.amount,x,y);c.fillText((hit.actor==='heal'?'+':'−')+hit.amount,x,y);}
     }
   }
   window.render_game_to_text=()=>JSON.stringify({view,scene:view==='wander'?adventureScene():null,speed:M.s.preferences.speed,feed,settingsOpen,coordinateSystem:'board origin top-left; x right 0..4, y down 0..4',points:M.s.points,geneTotal:M.s.geneTotal,drawTier,catalogFilters,defeats:M.s.defeats,firstFree:M.s.firstFree,collection:M.s.collection,progression:M.s.progression,gymSelection,run:M.s.run,selected});

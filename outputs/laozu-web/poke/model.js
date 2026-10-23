@@ -41,7 +41,12 @@
       s.sequence=runId;const first=team[0];
       s.run={id:runId,gymId:id,gymTeam:team,activeMember:0,boardSize:'5x5',mon:first.mon,phase:'ready',stage:0,hp:first.hp,maxHp:first.maxHp,earned:0,elapsed:0,battle:null,items:first.items,pending:[],log:[g.name+' · '+g.leader],nextItem:100,outcome:null,totalBattles:g.team.length,route:{id:g.id,name:g.name,scene:g.scene,levels:g.team.map(t=>t[1]),wild:0}};return s.run;
     }
-    function replaceFainted(){const r=s.run;if(!r.gymTeam)return false;const old=r.gymTeam[r.activeMember];old.hp=0;old.items=r.items;r.log.push(name(r.mon.speciesId)+'倒下了！');const next=r.activeMember+1;if(next>=r.gymTeam.length)return false;const member=r.gymTeam[next];r.activeMember=next;r.mon=member.mon;r.hp=member.hp;r.maxHp=member.maxHp;r.items=member.items;r.battle.skills=Object.fromEntries(r.items.filter(i=>i.kind==='move').map(i=>[i.uid,r.battle.t+600]));r.battle.berryUsed=false;r.log.push(name(r.mon.speciesId)+'接替出战！');return true;}
+    function switchGymMember(index){const r=s.run;if(!r?.gymTeam||r.phase!=='battle')throw Error('当前不能换人');if(!Number.isInteger(index)||!r.gymTeam[index]||r.gymTeam[index].hp<=0)throw Error('该伙伴不能出战');if(index===r.activeMember)return;
+      const b=r.battle,old=r.gymTeam[r.activeMember];old.hp=r.hp;old.items=r.items;old.cooldowns=Object.fromEntries(Object.entries(b.skills).map(([uid,at])=>[uid,Math.max(0,at-b.t)]));old.berryUsed=b.berryUsed;
+      const member=r.gymTeam[index];r.activeMember=index;r.mon=member.mon;r.hp=member.hp;r.maxHp=member.maxHp;r.items=member.items;b.skills=Object.fromEntries(r.items.filter(i=>i.kind==='move').map(i=>[i.uid,b.t+(member.cooldowns?.[i.uid]??600)]));b.berryUsed=!!member.berryUsed;b.lastHit=null;r.log.push(name(r.mon.speciesId)+'出战！');
+    }
+    function replaceFainted(){const r=s.run;if(!r.gymTeam)return false;r.gymTeam[r.activeMember].hp=0;r.log.push(name(r.mon.speciesId)+'倒下了！');const next=r.gymTeam.findIndex((m,i)=>i!==r.activeMember&&m.hp>0);if(next<0)return false;switchGymMember(next);return true;}
+
     const drawCost=(tier=0)=>{if(!Number.isInteger(tier)||!GENETICS.tiers[tier])throw Error('抽取档位无效');return GENETICS.tiers[tier].cost;};
     const tierUnlocked=(tier)=>s.geneTotal>=drawCost(tier);
     function attackPool(id,level){const pool=[...new Set((species(id).learn||[]).filter(([lv,key])=>lv<=level&&catalog.MOVES[key]?.power>0&&['phys','spec'].includes(catalog.MOVES[key].cat)).map(([,key])=>key))];return pool.length?pool:['tackle'];}
@@ -118,6 +123,7 @@
       let enemy=[10,19][r.stage];if(r.route&&!r.gymId){const pool=r.route.pool.filter(([id])=>species(id));let roll=random()*pool.reduce((n,p)=>n+p[1],0);enemy=pool[pool.length-1][0];for(const [id,weight] of pool){roll-=weight;if(roll<0){enemy=id;break;}}}
       if(r.gymId){[enemy,level]=PROGRESSION.gyms.find(g=>g.id===r.gymId).team[r.stage];}
       const hp=r.route?24+level*3+r.stage*6:r.stage===0?34:65;
+      if(r.gymTeam)for(const member of r.gymTeam){delete member.cooldowns;member.berryUsed=false;}
       r.battle={speciesId:enemy,level,trainer:!!r.route&&r.stage>=r.route.wild,hp,maxHp:hp,t:0,enemyAt:1800,skills:Object.fromEntries(r.items.filter(x=>x.kind==='move').map(x=>[x.uid,600])),berryUsed:false,events:[],lastHit:null};
       r.phase='battle';r.log.push('遭遇了'+name(r.battle.speciesId)+'！');
     }
@@ -222,7 +228,7 @@
       if(item.kind==='move'){const m=catalog.MOVES[item.key];return {name:moveName(item.key),type:m.type,detail:(m.cat==='spec'?'特殊':'物理')+' · 威力 '+m.power+' · 冷却 '+(item.w*item.h>=4?'2.6':'1.8')+'秒'};}
       return item.key==='oran-berry'?{name:'橙橙果',type:'grass',detail:'生命不高于55%时恢复25生命；每场战斗一次。'}:{name:'学习装置',type:'normal',detail:'携带时所有招式伤害 ×1.2；同类不叠加。'};
     }
-    return {s,routeUnlocked,gymUnlocked,cityUnlocked,startGym,species,name,moveName,drawCost,tierUnlocked,attackPool,draw,reveal,size,fits,place,move,rotate,withdraw,startBattle,tick,completeReward,proceed,forward,settle,rescue,itemInfo,damage,chooseEncounter,evolve,finishEvolution};
+    return {s,routeUnlocked,gymUnlocked,cityUnlocked,startGym,switchGymMember,species,name,moveName,drawCost,tierUnlocked,attackPool,draw,reveal,size,fits,place,move,rotate,withdraw,startBattle,tick,completeReward,proceed,forward,settle,rescue,itemInfo,damage,chooseEncounter,evolve,finishEvolution};
   }
   return {KEY,COLS,ROWS,TYPES,create};
 });
