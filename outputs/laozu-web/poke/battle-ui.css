@@ -276,3 +276,14 @@
 
 .encounter-options.evolution-options{display:grid;grid-template-columns:minmax(0,1fr);justify-content:stretch;gap:14px}.evolution-options .event-option{flex-direction:row;justify-content:flex-start;min-width:0;min-height:96px;border:2px solid #414965;padding:20px 16px;border-radius:12px}.evolution-options .event-option:hover{border-color:#ffcb05}.evolution-options .event-option>.pokemon{width:48px;height:48px;display:inline-block}.evolution-options .event-option>span:not(.pokemon){display:grid;gap:8px;text-align:left}.evolution-options .event-option small{color:#c4cbdf}.evolution-learned{color:#ffcb05;font-size:16px}
 @media(max-height:650px){.evolution-options .event-option{min-height:78px;padding:12px}}
+
+/* Genetics draw: retain the portrait black-theme shell. */
+.encounter-draw.choosing{display:block;padding:18px 14px;min-height:0}
+.gene-picker{width:100%;max-width:450px;margin:auto;text-align:center}
+.gene-picker h1{font-size:24px;margin:12px 0 20px}
+.gene-tiers{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
+.gene-tier{background:#1d2234;border:2px solid #3d435a;border-radius:12px;padding:14px 8px;color:#fff;min-height:155px;text-align:left}
+.gene-tier.selected{border-color:#ffce45;box-shadow:0 0 0 1px #ffce45 inset}
+.gene-tier:disabled{opacity:.5}.gene-tier strong,.gene-tier>span{display:block;margin-bottom:8px}.gene-tier>span{font-size:12px;color:#b6bace}
+.gene-tier>div{display:grid;grid-template-columns:1fr 1fr;gap:9px 4px}.gene-tier small{font-size:12px;white-space:nowrap}
+.genetics-badge{display:block;margin:6px 0;font-size:12px}.common{color:#ccd1dc}.rare{color:#72bfff}.epic{color:#d493ff}.legendary{color:#ffcf65}

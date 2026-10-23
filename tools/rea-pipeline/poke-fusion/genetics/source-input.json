@@ -1,0 +1,2479 @@
+{
+  "commit": "e79fbcdb5bf74066c9c0cab4d872de89efd94ae6",
+  "records": {
+    "1": {
+      "starter": 1,
+      "tier": "common",
+      "cost": 3
+    },
+    "2": {
+      "starter": 1,
+      "tier": null,
+      "cost": null
+    },
+    "3": {
+      "starter": 1,
+      "tier": null,
+      "cost": null
+    },
+    "4": {
+      "starter": 4,
+      "tier": "common",
+      "cost": 3
+    },
+    "5": {
+      "starter": 4,
+      "tier": null,
+      "cost": null
+    },
+    "6": {
+      "starter": 4,
+      "tier": null,
+      "cost": null
+    },
+    "7": {
+      "starter": 7,
+      "tier": "common",
+      "cost": 3
+    },
+    "8": {
+      "starter": 7,
+      "tier": null,
+      "cost": null
+    },
+    "9": {
+      "starter": 7,
+      "tier": null,
+      "cost": null
+    },
+    "10": {
+      "starter": 10,
+      "tier": "common",
+      "cost": 2
+    },
+    "11": {
+      "starter": 10,
+      "tier": null,
+      "cost": null
+    },
+    "12": {
+      "starter": 10,
+      "tier": null,
+      "cost": null
+    },
+    "13": {
+      "starter": 13,
+      "tier": "common",
+      "cost": 1
+    },
+    "14": {
+      "starter": 13,
+      "tier": null,
+      "cost": null
+    },
+    "15": {
+      "starter": 13,
+      "tier": null,
+      "cost": null
+    },
+    "16": {
+      "starter": 16,
+      "tier": "common",
+      "cost": 2
+    },
+    "17": {
+      "starter": 16,
+      "tier": null,
+      "cost": null
+    },
+    "18": {
+      "starter": 16,
+      "tier": null,
+      "cost": null
+    },
+    "19": {
+      "starter": 19,
+      "tier": "common",
+      "cost": 1
+    },
+    "20": {
+      "starter": 19,
+      "tier": null,
+      "cost": null
+    },
+    "21": {
+      "starter": 21,
+      "tier": "common",
+      "cost": 1
+    },
+    "22": {
+      "starter": 21,
+      "tier": null,
+      "cost": null
+    },
+    "23": {
+      "starter": 23,
+      "tier": "common",
+      "cost": 2
+    },
+    "24": {
+      "starter": 23,
+      "tier": null,
+      "cost": null
+    },
+    "25": {
+      "starter": 172,
+      "tier": null,
+      "cost": 4
+    },
+    "26": {
+      "starter": 172,
+      "tier": null,
+      "cost": null
+    },
+    "27": {
+      "starter": 27,
+      "tier": "common",
+      "cost": 2
+    },
+    "28": {
+      "starter": 27,
+      "tier": null,
+      "cost": null
+    },
+    "29": {
+      "starter": 29,
+      "tier": "common",
+      "cost": 3
+    },
+    "30": {
+      "starter": 29,
+      "tier": null,
+      "cost": null
+    },
+    "31": {
+      "starter": 29,
+      "tier": null,
+      "cost": null
+    },
+    "32": {
+      "starter": 32,
+      "tier": "common",
+      "cost": 3
+    },
+    "33": {
+      "starter": 32,
+      "tier": null,
+      "cost": null
+    },
+    "34": {
+      "starter": 32,
+      "tier": null,
+      "cost": null
+    },
+    "35": {
+      "starter": 173,
+      "tier": null,
+      "cost": null
+    },
+    "36": {
+      "starter": 173,
+      "tier": null,
+      "cost": null
+    },
+    "37": {
+      "starter": 37,
+      "tier": "common",
+      "cost": 3
+    },
+    "38": {
+      "starter": 37,
+      "tier": null,
+      "cost": null
+    },
+    "39": {
+      "starter": 174,
+      "tier": null,
+      "cost": null
+    },
+    "40": {
+      "starter": 174,
+      "tier": null,
+      "cost": null
+    },
+    "41": {
+      "starter": 41,
+      "tier": "common",
+      "cost": 3
+    },
+    "42": {
+      "starter": 41,
+      "tier": null,
+      "cost": null
+    },
+    "43": {
+      "starter": 43,
+      "tier": "common",
+      "cost": 3
+    },
+    "44": {
+      "starter": 43,
+      "tier": null,
+      "cost": null
+    },
+    "45": {
+      "starter": 43,
+      "tier": null,
+      "cost": null
+    },
+    "46": {
+      "starter": 46,
+      "tier": "common",
+      "cost": 2
+    },
+    "47": {
+      "starter": 46,
+      "tier": null,
+      "cost": null
+    },
+    "48": {
+      "starter": 48,
+      "tier": "common",
+      "cost": 2
+    },
+    "49": {
+      "starter": 48,
+      "tier": null,
+      "cost": null
+    },
+    "50": {
+      "starter": 50,
+      "tier": "common",
+      "cost": 2
+    },
+    "51": {
+      "starter": 50,
+      "tier": null,
+      "cost": null
+    },
+    "52": {
+      "starter": 52,
+      "tier": "common",
+      "cost": 3
+    },
+    "53": {
+      "starter": 52,
+      "tier": null,
+      "cost": null
+    },
+    "54": {
+      "starter": 54,
+      "tier": "common",
+      "cost": 2
+    },
+    "55": {
+      "starter": 54,
+      "tier": null,
+      "cost": null
+    },
+    "56": {
+      "starter": 56,
+      "tier": "rare",
+      "cost": 4
+    },
+    "57": {
+      "starter": 56,
+      "tier": null,
+      "cost": null
+    },
+    "58": {
+      "starter": 58,
+      "tier": "rare",
+      "cost": 3
+    },
+    "59": {
+      "starter": 58,
+      "tier": null,
+      "cost": null
+    },
+    "60": {
+      "starter": 60,
+      "tier": "common",
+      "cost": 2
+    },
+    "61": {
+      "starter": 60,
+      "tier": null,
+      "cost": null
+    },
+    "62": {
+      "starter": 60,
+      "tier": null,
+      "cost": null
+    },
+    "63": {
+      "starter": 63,
+      "tier": "rare",
+      "cost": 4
+    },
+    "64": {
+      "starter": 63,
+      "tier": null,
+      "cost": null
+    },
+    "65": {
+      "starter": 63,
+      "tier": null,
+      "cost": null
+    },
+    "66": {
+      "starter": 66,
+      "tier": "common",
+      "cost": 3
+    },
+    "67": {
+      "starter": 66,
+      "tier": null,
+      "cost": null
+    },
+    "68": {
+      "starter": 66,
+      "tier": null,
+      "cost": null
+    },
+    "69": {
+      "starter": 69,
+      "tier": "common",
+      "cost": 2
+    },
+    "70": {
+      "starter": 69,
+      "tier": null,
+      "cost": null
+    },
+    "71": {
+      "starter": 69,
+      "tier": null,
+      "cost": null
+    },
+    "72": {
+      "starter": 72,
+      "tier": "common",
+      "cost": 3
+    },
+    "73": {
+      "starter": 72,
+      "tier": null,
+      "cost": null
+    },
+    "74": {
+      "starter": 74,
+      "tier": "common",
+      "cost": 3
+    },
+    "75": {
+      "starter": 74,
+      "tier": null,
+      "cost": null
+    },
+    "76": {
+      "starter": 74,
+      "tier": null,
+      "cost": null
+    },
+    "77": {
+      "starter": 77,
+      "tier": "common",
+      "cost": 2
+    },
+    "78": {
+      "starter": 77,
+      "tier": null,
+      "cost": null
+    },
+    "79": {
+      "starter": 79,
+      "tier": "common",
+      "cost": 3
+    },
+    "80": {
+      "starter": 79,
+      "tier": null,
+      "cost": null
+    },
+    "81": {
+      "starter": 81,
+      "tier": "rare",
+      "cost": 4
+    },
+    "82": {
+      "starter": 81,
+      "tier": null,
+      "cost": null
+    },
+    "83": {
+      "starter": 83,
+      "tier": "rare",
+      "cost": 2
+    },
+    "84": {
+      "starter": 84,
+      "tier": "common",
+      "cost": 3
+    },
+    "85": {
+      "starter": 84,
+      "tier": null,
+      "cost": null
+    },
+    "86": {
+      "starter": 86,
+      "tier": "common",
+      "cost": 1
+    },
+    "87": {
+      "starter": 86,
+      "tier": null,
+      "cost": null
+    },
+    "88": {
+      "starter": 88,
+      "tier": "common",
+      "cost": 2
+    },
+    "89": {
+      "starter": 88,
+      "tier": null,
+      "cost": null
+    },
+    "90": {
+      "starter": 90,
+      "tier": "rare",
+      "cost": 5
+    },
+    "91": {
+      "starter": 90,
+      "tier": null,
+      "cost": null
+    },
+    "92": {
+      "starter": 92,
+      "tier": "rare",
+      "cost": 4
+    },
+    "93": {
+      "starter": 92,
+      "tier": null,
+      "cost": null
+    },
+    "94": {
+      "starter": 92,
+      "tier": null,
+      "cost": null
+    },
+    "95": {
+      "starter": 95,
+      "tier": "common",
+      "cost": 3
+    },
+    "96": {
+      "starter": 96,
+      "tier": "common",
+      "cost": 2
+    },
+    "97": {
+      "starter": 96,
+      "tier": null,
+      "cost": null
+    },
+    "98": {
+      "starter": 98,
+      "tier": "common",
+      "cost": 3
+    },
+    "99": {
+      "starter": 98,
+      "tier": null,
+      "cost": null
+    },
+    "100": {
+      "starter": 100,
+      "tier": "common",
+      "cost": 2
+    },
+    "101": {
+      "starter": 100,
+      "tier": null,
+      "cost": null
+    },
+    "102": {
+      "starter": 102,
+      "tier": "common",
+      "cost": 3
+    },
+    "103": {
+      "starter": 102,
+      "tier": null,
+      "cost": null
+    },
+    "104": {
+      "starter": 104,
+      "tier": "common",
+      "cost": 3
+    },
+    "105": {
+      "starter": 104,
+      "tier": null,
+      "cost": null
+    },
+    "106": {
+      "starter": 236,
+      "tier": null,
+      "cost": null
+    },
+    "107": {
+      "starter": 236,
+      "tier": null,
+      "cost": null
+    },
+    "108": {
+      "starter": 108,
+      "tier": "rare",
+      "cost": 3
+    },
+    "109": {
+      "starter": 109,
+      "tier": "common",
+      "cost": 2
+    },
+    "110": {
+      "starter": 109,
+      "tier": null,
+      "cost": null
+    },
+    "111": {
+      "starter": 111,
+      "tier": "rare",
+      "cost": 4
+    },
+    "112": {
+      "starter": 111,
+      "tier": null,
+      "cost": null
+    },
+    "113": {
+      "starter": 440,
+      "tier": null,
+      "cost": null
+    },
+    "114": {
+      "starter": 114,
+      "tier": "common",
+      "cost": 3
+    },
+    "115": {
+      "starter": 115,
+      "tier": "rare",
+      "cost": 4
+    },
+    "116": {
+      "starter": 116,
+      "tier": "common",
+      "cost": 3
+    },
+    "117": {
+      "starter": 116,
+      "tier": null,
+      "cost": null
+    },
+    "118": {
+      "starter": 118,
+      "tier": "common",
+      "cost": 2
+    },
+    "119": {
+      "starter": 118,
+      "tier": null,
+      "cost": null
+    },
+    "120": {
+      "starter": 120,
+      "tier": "common",
+      "cost": 3
+    },
+    "121": {
+      "starter": 120,
+      "tier": null,
+      "cost": null
+    },
+    "122": {
+      "starter": 439,
+      "tier": null,
+      "cost": null
+    },
+    "123": {
+      "starter": 123,
+      "tier": "rare",
+      "cost": 5
+    },
+    "124": {
+      "starter": 238,
+      "tier": null,
+      "cost": null
+    },
+    "125": {
+      "starter": 239,
+      "tier": null,
+      "cost": null
+    },
+    "126": {
+      "starter": 240,
+      "tier": null,
+      "cost": null
+    },
+    "127": {
+      "starter": 127,
+      "tier": "rare",
+      "cost": 4
+    },
+    "128": {
+      "starter": 128,
+      "tier": "rare",
+      "cost": 4
+    },
+    "129": {
+      "starter": 129,
+      "tier": "common",
+      "cost": 4
+    },
+    "130": {
+      "starter": 129,
+      "tier": null,
+      "cost": null
+    },
+    "131": {
+      "starter": 131,
+      "tier": "rare",
+      "cost": 4
+    },
+    "132": {
+      "starter": 132,
+      "tier": "common",
+      "cost": 2
+    },
+    "133": {
+      "starter": 133,
+      "tier": "common",
+      "cost": 3
+    },
+    "134": {
+      "starter": 133,
+      "tier": null,
+      "cost": null
+    },
+    "135": {
+      "starter": 133,
+      "tier": null,
+      "cost": null
+    },
+    "136": {
+      "starter": 133,
+      "tier": null,
+      "cost": null
+    },
+    "137": {
+      "starter": 137,
+      "tier": "rare",
+      "cost": 4
+    },
+    "138": {
+      "starter": 138,
+      "tier": "rare",
+      "cost": 3
+    },
+    "139": {
+      "starter": 138,
+      "tier": null,
+      "cost": null
+    },
+    "140": {
+      "starter": 140,
+      "tier": "rare",
+      "cost": 3
+    },
+    "141": {
+      "starter": 140,
+      "tier": null,
+      "cost": null
+    },
+    "142": {
+      "starter": 142,
+      "tier": "rare",
+      "cost": 5
+    },
+    "143": {
+      "starter": 446,
+      "tier": null,
+      "cost": null
+    },
+    "144": {
+      "starter": 144,
+      "tier": "epic",
+      "cost": 5
+    },
+    "145": {
+      "starter": 145,
+      "tier": "epic",
+      "cost": 6
+    },
+    "146": {
+      "starter": 146,
+      "tier": "epic",
+      "cost": 6
+    },
+    "147": {
+      "starter": 147,
+      "tier": "rare",
+      "cost": 4
+    },
+    "148": {
+      "starter": 147,
+      "tier": null,
+      "cost": null
+    },
+    "149": {
+      "starter": 147,
+      "tier": null,
+      "cost": null
+    },
+    "150": {
+      "starter": 150,
+      "tier": "legendary",
+      "cost": 8
+    },
+    "151": {
+      "starter": 151,
+      "tier": "epic",
+      "cost": 5
+    },
+    "152": {
+      "starter": 152,
+      "tier": "common",
+      "cost": 3
+    },
+    "153": {
+      "starter": 152,
+      "tier": null,
+      "cost": null
+    },
+    "154": {
+      "starter": 152,
+      "tier": null,
+      "cost": null
+    },
+    "155": {
+      "starter": 155,
+      "tier": "common",
+      "cost": 3
+    },
+    "156": {
+      "starter": 155,
+      "tier": null,
+      "cost": null
+    },
+    "157": {
+      "starter": 155,
+      "tier": null,
+      "cost": null
+    },
+    "158": {
+      "starter": 158,
+      "tier": "common",
+      "cost": 3
+    },
+    "159": {
+      "starter": 158,
+      "tier": null,
+      "cost": null
+    },
+    "160": {
+      "starter": 158,
+      "tier": null,
+      "cost": null
+    },
+    "161": {
+      "starter": 161,
+      "tier": "common",
+      "cost": 1
+    },
+    "162": {
+      "starter": 161,
+      "tier": null,
+      "cost": null
+    },
+    "163": {
+      "starter": 163,
+      "tier": "common",
+      "cost": 2
+    },
+    "164": {
+      "starter": 163,
+      "tier": null,
+      "cost": null
+    },
+    "165": {
+      "starter": 165,
+      "tier": "common",
+      "cost": 1
+    },
+    "166": {
+      "starter": 165,
+      "tier": null,
+      "cost": null
+    },
+    "167": {
+      "starter": 167,
+      "tier": "common",
+      "cost": 1
+    },
+    "168": {
+      "starter": 167,
+      "tier": null,
+      "cost": null
+    },
+    "169": {
+      "starter": 41,
+      "tier": null,
+      "cost": null
+    },
+    "170": {
+      "starter": 170,
+      "tier": "common",
+      "cost": 2
+    },
+    "171": {
+      "starter": 170,
+      "tier": null,
+      "cost": null
+    },
+    "172": {
+      "starter": 172,
+      "tier": "rare",
+      "cost": 4
+    },
+    "173": {
+      "starter": 173,
+      "tier": "common",
+      "cost": 2
+    },
+    "174": {
+      "starter": 174,
+      "tier": "common",
+      "cost": 1
+    },
+    "175": {
+      "starter": 175,
+      "tier": "common",
+      "cost": 3
+    },
+    "176": {
+      "starter": 175,
+      "tier": null,
+      "cost": null
+    },
+    "177": {
+      "starter": 177,
+      "tier": "common",
+      "cost": 2
+    },
+    "178": {
+      "starter": 177,
+      "tier": null,
+      "cost": null
+    },
+    "179": {
+      "starter": 179,
+      "tier": "common",
+      "cost": 2
+    },
+    "180": {
+      "starter": 179,
+      "tier": null,
+      "cost": null
+    },
+    "181": {
+      "starter": 179,
+      "tier": null,
+      "cost": null
+    },
+    "182": {
+      "starter": 43,
+      "tier": null,
+      "cost": null
+    },
+    "183": {
+      "starter": 298,
+      "tier": null,
+      "cost": null
+    },
+    "184": {
+      "starter": 298,
+      "tier": null,
+      "cost": null
+    },
+    "185": {
+      "starter": 438,
+      "tier": null,
+      "cost": null
+    },
+    "186": {
+      "starter": 60,
+      "tier": null,
+      "cost": null
+    },
+    "187": {
+      "starter": 187,
+      "tier": "common",
+      "cost": 2
+    },
+    "188": {
+      "starter": 187,
+      "tier": null,
+      "cost": null
+    },
+    "189": {
+      "starter": 187,
+      "tier": null,
+      "cost": null
+    },
+    "190": {
+      "starter": 190,
+      "tier": "common",
+      "cost": 2
+    },
+    "191": {
+      "starter": 191,
+      "tier": "common",
+      "cost": 1
+    },
+    "192": {
+      "starter": 191,
+      "tier": null,
+      "cost": null
+    },
+    "193": {
+      "starter": 193,
+      "tier": "common",
+      "cost": 3
+    },
+    "194": {
+      "starter": 194,
+      "tier": "common",
+      "cost": 2
+    },
+    "195": {
+      "starter": 194,
+      "tier": null,
+      "cost": null
+    },
+    "196": {
+      "starter": 133,
+      "tier": null,
+      "cost": null
+    },
+    "197": {
+      "starter": 133,
+      "tier": null,
+      "cost": null
+    },
+    "198": {
+      "starter": 198,
+      "tier": "common",
+      "cost": 3
+    },
+    "199": {
+      "starter": 79,
+      "tier": null,
+      "cost": null
+    },
+    "200": {
+      "starter": 200,
+      "tier": "common",
+      "cost": 3
+    },
+    "201": {
+      "starter": 201,
+      "tier": "common",
+      "cost": 1
+    },
+    "202": {
+      "starter": 360,
+      "tier": null,
+      "cost": null
+    },
+    "203": {
+      "starter": 203,
+      "tier": "common",
+      "cost": 3
+    },
+    "204": {
+      "starter": 204,
+      "tier": "common",
+      "cost": 2
+    },
+    "205": {
+      "starter": 204,
+      "tier": null,
+      "cost": null
+    },
+    "206": {
+      "starter": 206,
+      "tier": "common",
+      "cost": 3
+    },
+    "207": {
+      "starter": 207,
+      "tier": "common",
+      "cost": 4
+    },
+    "208": {
+      "starter": 95,
+      "tier": null,
+      "cost": null
+    },
+    "209": {
+      "starter": 209,
+      "tier": "common",
+      "cost": 2
+    },
+    "210": {
+      "starter": 209,
+      "tier": null,
+      "cost": null
+    },
+    "211": {
+      "starter": 211,
+      "tier": "common",
+      "cost": 3
+    },
+    "212": {
+      "starter": 123,
+      "tier": null,
+      "cost": null
+    },
+    "213": {
+      "starter": 213,
+      "tier": "common",
+      "cost": 3
+    },
+    "214": {
+      "starter": 214,
+      "tier": "rare",
+      "cost": 5
+    },
+    "215": {
+      "starter": 215,
+      "tier": "rare",
+      "cost": 4
+    },
+    "216": {
+      "starter": 216,
+      "tier": "rare",
+      "cost": 4
+    },
+    "217": {
+      "starter": 216,
+      "tier": null,
+      "cost": null
+    },
+    "218": {
+      "starter": 218,
+      "tier": "common",
+      "cost": 2
+    },
+    "219": {
+      "starter": 218,
+      "tier": null,
+      "cost": null
+    },
+    "220": {
+      "starter": 220,
+      "tier": "common",
+      "cost": 3
+    },
+    "221": {
+      "starter": 220,
+      "tier": null,
+      "cost": null
+    },
+    "222": {
+      "starter": 222,
+      "tier": "common",
+      "cost": 2
+    },
+    "223": {
+      "starter": 223,
+      "tier": "common",
+      "cost": 2
+    },
+    "224": {
+      "starter": 223,
+      "tier": null,
+      "cost": null
+    },
+    "225": {
+      "starter": 225,
+      "tier": "common",
+      "cost": 1
+    },
+    "226": {
+      "starter": 458,
+      "tier": null,
+      "cost": null
+    },
+    "227": {
+      "starter": 227,
+      "tier": "rare",
+      "cost": 4
+    },
+    "228": {
+      "starter": 228,
+      "tier": "common",
+      "cost": 3
+    },
+    "229": {
+      "starter": 228,
+      "tier": null,
+      "cost": null
+    },
+    "230": {
+      "starter": 116,
+      "tier": null,
+      "cost": null
+    },
+    "231": {
+      "starter": 231,
+      "tier": "common",
+      "cost": 3
+    },
+    "232": {
+      "starter": 231,
+      "tier": null,
+      "cost": null
+    },
+    "233": {
+      "starter": 137,
+      "tier": null,
+      "cost": null
+    },
+    "234": {
+      "starter": 234,
+      "tier": "common",
+      "cost": 3
+    },
+    "235": {
+      "starter": 235,
+      "tier": "common",
+      "cost": 1
+    },
+    "236": {
+      "starter": 236,
+      "tier": "common",
+      "cost": 3
+    },
+    "237": {
+      "starter": 236,
+      "tier": null,
+      "cost": null
+    },
+    "238": {
+      "starter": 238,
+      "tier": "common",
+      "cost": 3
+    },
+    "239": {
+      "starter": 239,
+      "tier": "common",
+      "cost": 3
+    },
+    "240": {
+      "starter": 240,
+      "tier": "common",
+      "cost": 3
+    },
+    "241": {
+      "starter": 241,
+      "tier": "rare",
+      "cost": 4
+    },
+    "242": {
+      "starter": 440,
+      "tier": null,
+      "cost": null
+    },
+    "243": {
+      "starter": 243,
+      "tier": "epic",
+      "cost": 6
+    },
+    "244": {
+      "starter": 244,
+      "tier": "epic",
+      "cost": 6
+    },
+    "245": {
+      "starter": 245,
+      "tier": "epic",
+      "cost": 6
+    },
+    "246": {
+      "starter": 246,
+      "tier": "rare",
+      "cost": 4
+    },
+    "247": {
+      "starter": 246,
+      "tier": null,
+      "cost": null
+    },
+    "248": {
+      "starter": 246,
+      "tier": null,
+      "cost": null
+    },
+    "249": {
+      "starter": 249,
+      "tier": "legendary",
+      "cost": 8
+    },
+    "250": {
+      "starter": 250,
+      "tier": "legendary",
+      "cost": 8
+    },
+    "251": {
+      "starter": 251,
+      "tier": "epic",
+      "cost": 5
+    },
+    "252": {
+      "starter": 252,
+      "tier": "common",
+      "cost": 3
+    },
+    "253": {
+      "starter": 252,
+      "tier": null,
+      "cost": null
+    },
+    "254": {
+      "starter": 252,
+      "tier": null,
+      "cost": null
+    },
+    "255": {
+      "starter": 255,
+      "tier": "common",
+      "cost": 4
+    },
+    "256": {
+      "starter": 255,
+      "tier": null,
+      "cost": null
+    },
+    "257": {
+      "starter": 255,
+      "tier": null,
+      "cost": null
+    },
+    "258": {
+      "starter": 258,
+      "tier": "common",
+      "cost": 3
+    },
+    "259": {
+      "starter": 258,
+      "tier": null,
+      "cost": null
+    },
+    "260": {
+      "starter": 258,
+      "tier": null,
+      "cost": null
+    },
+    "261": {
+      "starter": 261,
+      "tier": "common",
+      "cost": 2
+    },
+    "262": {
+      "starter": 261,
+      "tier": null,
+      "cost": null
+    },
+    "263": {
+      "starter": 263,
+      "tier": "common",
+      "cost": 2
+    },
+    "264": {
+      "starter": 263,
+      "tier": null,
+      "cost": null
+    },
+    "265": {
+      "starter": 265,
+      "tier": "common",
+      "cost": 1
+    },
+    "266": {
+      "starter": 265,
+      "tier": null,
+      "cost": null
+    },
+    "267": {
+      "starter": 265,
+      "tier": null,
+      "cost": null
+    },
+    "268": {
+      "starter": 265,
+      "tier": null,
+      "cost": null
+    },
+    "269": {
+      "starter": 265,
+      "tier": null,
+      "cost": null
+    },
+    "270": {
+      "starter": 270,
+      "tier": "common",
+      "cost": 3
+    },
+    "271": {
+      "starter": 270,
+      "tier": null,
+      "cost": null
+    },
+    "272": {
+      "starter": 270,
+      "tier": null,
+      "cost": null
+    },
+    "273": {
+      "starter": 273,
+      "tier": "common",
+      "cost": 2
+    },
+    "274": {
+      "starter": 273,
+      "tier": null,
+      "cost": null
+    },
+    "275": {
+      "starter": 273,
+      "tier": null,
+      "cost": null
+    },
+    "276": {
+      "starter": 276,
+      "tier": "common",
+      "cost": 3
+    },
+    "277": {
+      "starter": 276,
+      "tier": null,
+      "cost": null
+    },
+    "278": {
+      "starter": 278,
+      "tier": "common",
+      "cost": 2
+    },
+    "279": {
+      "starter": 278,
+      "tier": null,
+      "cost": null
+    },
+    "280": {
+      "starter": 280,
+      "tier": "rare",
+      "cost": 4
+    },
+    "281": {
+      "starter": 280,
+      "tier": null,
+      "cost": null
+    },
+    "282": {
+      "starter": 280,
+      "tier": null,
+      "cost": null
+    },
+    "283": {
+      "starter": 283,
+      "tier": "common",
+      "cost": 2
+    },
+    "284": {
+      "starter": 283,
+      "tier": null,
+      "cost": null
+    },
+    "285": {
+      "starter": 285,
+      "tier": "common",
+      "cost": 3
+    },
+    "286": {
+      "starter": 285,
+      "tier": null,
+      "cost": null
+    },
+    "287": {
+      "starter": 287,
+      "tier": "rare",
+      "cost": 4
+    },
+    "288": {
+      "starter": 287,
+      "tier": null,
+      "cost": null
+    },
+    "289": {
+      "starter": 287,
+      "tier": null,
+      "cost": null
+    },
+    "290": {
+      "starter": 290,
+      "tier": "rare",
+      "cost": 4
+    },
+    "291": {
+      "starter": 290,
+      "tier": null,
+      "cost": null
+    },
+    "292": {
+      "starter": 290,
+      "tier": null,
+      "cost": null
+    },
+    "293": {
+      "starter": 293,
+      "tier": "common",
+      "cost": 2
+    },
+    "294": {
+      "starter": 293,
+      "tier": null,
+      "cost": null
+    },
+    "295": {
+      "starter": 293,
+      "tier": null,
+      "cost": null
+    },
+    "296": {
+      "starter": 296,
+      "tier": "common",
+      "cost": 3
+    },
+    "297": {
+      "starter": 296,
+      "tier": null,
+      "cost": null
+    },
+    "298": {
+      "starter": 298,
+      "tier": "common",
+      "cost": 4
+    },
+    "299": {
+      "starter": 299,
+      "tier": "common",
+      "cost": 2
+    },
+    "300": {
+      "starter": 300,
+      "tier": "common",
+      "cost": 1
+    },
+    "301": {
+      "starter": 300,
+      "tier": null,
+      "cost": null
+    },
+    "302": {
+      "starter": 302,
+      "tier": "common",
+      "cost": 2
+    },
+    "303": {
+      "starter": 303,
+      "tier": "common",
+      "cost": 2
+    },
+    "304": {
+      "starter": 304,
+      "tier": "common",
+      "cost": 3
+    },
+    "305": {
+      "starter": 304,
+      "tier": null,
+      "cost": null
+    },
+    "306": {
+      "starter": 304,
+      "tier": null,
+      "cost": null
+    },
+    "307": {
+      "starter": 307,
+      "tier": "common",
+      "cost": 3
+    },
+    "308": {
+      "starter": 307,
+      "tier": null,
+      "cost": null
+    },
+    "309": {
+      "starter": 309,
+      "tier": "common",
+      "cost": 2
+    },
+    "310": {
+      "starter": 309,
+      "tier": null,
+      "cost": null
+    },
+    "311": {
+      "starter": 311,
+      "tier": "common",
+      "cost": 2
+    },
+    "312": {
+      "starter": 312,
+      "tier": "common",
+      "cost": 2
+    },
+    "313": {
+      "starter": 313,
+      "tier": "common",
+      "cost": 2
+    },
+    "314": {
+      "starter": 314,
+      "tier": "common",
+      "cost": 2
+    },
+    "315": {
+      "starter": 406,
+      "tier": null,
+      "cost": null
+    },
+    "316": {
+      "starter": 316,
+      "tier": "common",
+      "cost": 1
+    },
+    "317": {
+      "starter": 316,
+      "tier": null,
+      "cost": null
+    },
+    "318": {
+      "starter": 318,
+      "tier": "common",
+      "cost": 3
+    },
+    "319": {
+      "starter": 318,
+      "tier": null,
+      "cost": null
+    },
+    "320": {
+      "starter": 320,
+      "tier": "common",
+      "cost": 2
+    },
+    "321": {
+      "starter": 320,
+      "tier": null,
+      "cost": null
+    },
+    "322": {
+      "starter": 322,
+      "tier": "common",
+      "cost": 2
+    },
+    "323": {
+      "starter": 322,
+      "tier": null,
+      "cost": null
+    },
+    "324": {
+      "starter": 324,
+      "tier": "common",
+      "cost": 3
+    },
+    "325": {
+      "starter": 325,
+      "tier": "common",
+      "cost": 2
+    },
+    "326": {
+      "starter": 325,
+      "tier": null,
+      "cost": null
+    },
+    "327": {
+      "starter": 327,
+      "tier": "common",
+      "cost": 1
+    },
+    "328": {
+      "starter": 328,
+      "tier": "common",
+      "cost": 3
+    },
+    "329": {
+      "starter": 328,
+      "tier": null,
+      "cost": null
+    },
+    "330": {
+      "starter": 328,
+      "tier": null,
+      "cost": null
+    },
+    "331": {
+      "starter": 331,
+      "tier": "common",
+      "cost": 2
+    },
+    "332": {
+      "starter": 331,
+      "tier": null,
+      "cost": null
+    },
+    "333": {
+      "starter": 333,
+      "tier": "common",
+      "cost": 2
+    },
+    "334": {
+      "starter": 333,
+      "tier": null,
+      "cost": null
+    },
+    "335": {
+      "starter": 335,
+      "tier": "rare",
+      "cost": 4
+    },
+    "336": {
+      "starter": 336,
+      "tier": "rare",
+      "cost": 3
+    },
+    "337": {
+      "starter": 337,
+      "tier": "common",
+      "cost": 3
+    },
+    "338": {
+      "starter": 338,
+      "tier": "common",
+      "cost": 3
+    },
+    "339": {
+      "starter": 339,
+      "tier": "common",
+      "cost": 2
+    },
+    "340": {
+      "starter": 339,
+      "tier": null,
+      "cost": null
+    },
+    "341": {
+      "starter": 341,
+      "tier": "common",
+      "cost": 3
+    },
+    "342": {
+      "starter": 341,
+      "tier": null,
+      "cost": null
+    },
+    "343": {
+      "starter": 343,
+      "tier": "common",
+      "cost": 2
+    },
+    "344": {
+      "starter": 343,
+      "tier": null,
+      "cost": null
+    },
+    "345": {
+      "starter": 345,
+      "tier": "rare",
+      "cost": 3
+    },
+    "346": {
+      "starter": 345,
+      "tier": null,
+      "cost": null
+    },
+    "347": {
+      "starter": 347,
+      "tier": "rare",
+      "cost": 3
+    },
+    "348": {
+      "starter": 347,
+      "tier": null,
+      "cost": null
+    },
+    "349": {
+      "starter": 349,
+      "tier": "rare",
+      "cost": 4
+    },
+    "350": {
+      "starter": 349,
+      "tier": null,
+      "cost": null
+    },
+    "351": {
+      "starter": 351,
+      "tier": "common",
+      "cost": 1
+    },
+    "352": {
+      "starter": 352,
+      "tier": "common",
+      "cost": 2
+    },
+    "353": {
+      "starter": 353,
+      "tier": "common",
+      "cost": 2
+    },
+    "354": {
+      "starter": 353,
+      "tier": null,
+      "cost": null
+    },
+    "355": {
+      "starter": 355,
+      "tier": "common",
+      "cost": 3
+    },
+    "356": {
+      "starter": 355,
+      "tier": null,
+      "cost": null
+    },
+    "357": {
+      "starter": 357,
+      "tier": "common",
+      "cost": 3
+    },
+    "358": {
+      "starter": 433,
+      "tier": null,
+      "cost": null
+    },
+    "359": {
+      "starter": 359,
+      "tier": "rare",
+      "cost": 4
+    },
+    "360": {
+      "starter": 360,
+      "tier": "common",
+      "cost": 2
+    },
+    "361": {
+      "starter": 361,
+      "tier": "common",
+      "cost": 2
+    },
+    "362": {
+      "starter": 361,
+      "tier": null,
+      "cost": null
+    },
+    "363": {
+      "starter": 363,
+      "tier": "common",
+      "cost": 2
+    },
+    "364": {
+      "starter": 363,
+      "tier": null,
+      "cost": null
+    },
+    "365": {
+      "starter": 363,
+      "tier": null,
+      "cost": null
+    },
+    "366": {
+      "starter": 366,
+      "tier": "common",
+      "cost": 3
+    },
+    "367": {
+      "starter": 366,
+      "tier": null,
+      "cost": null
+    },
+    "368": {
+      "starter": 366,
+      "tier": null,
+      "cost": null
+    },
+    "369": {
+      "starter": 369,
+      "tier": "rare",
+      "cost": 3
+    },
+    "370": {
+      "starter": 370,
+      "tier": "common",
+      "cost": 1
+    },
+    "371": {
+      "starter": 371,
+      "tier": "rare",
+      "cost": 4
+    },
+    "372": {
+      "starter": 371,
+      "tier": null,
+      "cost": null
+    },
+    "373": {
+      "starter": 371,
+      "tier": null,
+      "cost": null
+    },
+    "374": {
+      "starter": 374,
+      "tier": "rare",
+      "cost": 4
+    },
+    "375": {
+      "starter": 374,
+      "tier": null,
+      "cost": null
+    },
+    "376": {
+      "starter": 374,
+      "tier": null,
+      "cost": null
+    },
+    "377": {
+      "starter": 377,
+      "tier": "epic",
+      "cost": 6
+    },
+    "378": {
+      "starter": 378,
+      "tier": "epic",
+      "cost": 5
+    },
+    "379": {
+      "starter": 379,
+      "tier": "epic",
+      "cost": 6
+    },
+    "380": {
+      "starter": 380,
+      "tier": "epic",
+      "cost": 7
+    },
+    "381": {
+      "starter": 381,
+      "tier": "epic",
+      "cost": 7
+    },
+    "382": {
+      "starter": 382,
+      "tier": "legendary",
+      "cost": 9
+    },
+    "383": {
+      "starter": 383,
+      "tier": "legendary",
+      "cost": 9
+    },
+    "384": {
+      "starter": 384,
+      "tier": "legendary",
+      "cost": 9
+    },
+    "385": {
+      "starter": 385,
+      "tier": "epic",
+      "cost": 6
+    },
+    "386": {
+      "starter": 386,
+      "tier": "epic",
+      "cost": 6
+    },
+    "387": {
+      "starter": 387,
+      "tier": "common",
+      "cost": 3
+    },
+    "388": {
+      "starter": 387,
+      "tier": null,
+      "cost": null
+    },
+    "389": {
+      "starter": 387,
+      "tier": null,
+      "cost": null
+    },
+    "390": {
+      "starter": 390,
+      "tier": "common",
+      "cost": 3
+    },
+    "391": {
+      "starter": 390,
+      "tier": null,
+      "cost": null
+    },
+    "392": {
+      "starter": 390,
+      "tier": null,
+      "cost": null
+    },
+    "393": {
+      "starter": 393,
+      "tier": "common",
+      "cost": 3
+    },
+    "394": {
+      "starter": 393,
+      "tier": null,
+      "cost": null
+    },
+    "395": {
+      "starter": 393,
+      "tier": null,
+      "cost": null
+    },
+    "396": {
+      "starter": 396,
+      "tier": "common",
+      "cost": 3
+    },
+    "397": {
+      "starter": 396,
+      "tier": null,
+      "cost": null
+    },
+    "398": {
+      "starter": 396,
+      "tier": null,
+      "cost": null
+    },
+    "399": {
+      "starter": 399,
+      "tier": "common",
+      "cost": 2
+    },
+    "400": {
+      "starter": 399,
+      "tier": null,
+      "cost": null
+    },
+    "401": {
+      "starter": 401,
+      "tier": "common",
+      "cost": 1
+    },
+    "402": {
+      "starter": 401,
+      "tier": null,
+      "cost": null
+    },
+    "403": {
+      "starter": 403,
+      "tier": "common",
+      "cost": 2
+    },
+    "404": {
+      "starter": 403,
+      "tier": null,
+      "cost": null
+    },
+    "405": {
+      "starter": 403,
+      "tier": null,
+      "cost": null
+    },
+    "406": {
+      "starter": 406,
+      "tier": "common",
+      "cost": 3
+    },
+    "407": {
+      "starter": 406,
+      "tier": null,
+      "cost": null
+    },
+    "408": {
+      "starter": 408,
+      "tier": "rare",
+      "cost": 2
+    },
+    "409": {
+      "starter": 408,
+      "tier": null,
+      "cost": null
+    },
+    "410": {
+      "starter": 410,
+      "tier": "rare",
+      "cost": 2
+    },
+    "411": {
+      "starter": 410,
+      "tier": null,
+      "cost": null
+    },
+    "412": {
+      "starter": 412,
+      "tier": "common",
+      "cost": 2
+    },
+    "413": {
+      "starter": 412,
+      "tier": null,
+      "cost": null
+    },
+    "414": {
+      "starter": 412,
+      "tier": null,
+      "cost": null
+    },
+    "415": {
+      "starter": 415,
+      "tier": "common",
+      "cost": 2
+    },
+    "416": {
+      "starter": 415,
+      "tier": null,
+      "cost": null
+    },
+    "417": {
+      "starter": 417,
+      "tier": "common",
+      "cost": 2
+    },
+    "418": {
+      "starter": 418,
+      "tier": "common",
+      "cost": 2
+    },
+    "419": {
+      "starter": 418,
+      "tier": null,
+      "cost": null
+    },
+    "420": {
+      "starter": 420,
+      "tier": "common",
+      "cost": 1
+    },
+    "421": {
+      "starter": 420,
+      "tier": null,
+      "cost": null
+    },
+    "422": {
+      "starter": 422,
+      "tier": "common",
+      "cost": 3
+    },
+    "423": {
+      "starter": 422,
+      "tier": null,
+      "cost": null
+    },
+    "424": {
+      "starter": 190,
+      "tier": null,
+      "cost": null
+    },
+    "425": {
+      "starter": 425,
+      "tier": "common",
+      "cost": 2
+    },
+    "426": {
+      "starter": 425,
+      "tier": null,
+      "cost": null
+    },
+    "427": {
+      "starter": 427,
+      "tier": "common",
+      "cost": 2
+    },
+    "428": {
+      "starter": 427,
+      "tier": null,
+      "cost": null
+    },
+    "429": {
+      "starter": 200,
+      "tier": null,
+      "cost": null
+    },
+    "430": {
+      "starter": 198,
+      "tier": null,
+      "cost": null
+    },
+    "431": {
+      "starter": 431,
+      "tier": "common",
+      "cost": 2
+    },
+    "432": {
+      "starter": 431,
+      "tier": null,
+      "cost": null
+    },
+    "433": {
+      "starter": 433,
+      "tier": "common",
+      "cost": 2
+    },
+    "434": {
+      "starter": 434,
+      "tier": "common",
+      "cost": 2
+    },
+    "435": {
+      "starter": 434,
+      "tier": null,
+      "cost": null
+    },
+    "436": {
+      "starter": 436,
+      "tier": "common",
+      "cost": 3
+    },
+    "437": {
+      "starter": 436,
+      "tier": null,
+      "cost": null
+    },
+    "438": {
+      "starter": 438,
+      "tier": "common",
+      "cost": 2
+    },
+    "439": {
+      "starter": 439,
+      "tier": "common",
+      "cost": 2
+    },
+    "440": {
+      "starter": 440,
+      "tier": "rare",
+      "cost": 2
+    },
+    "441": {
+      "starter": 441,
+      "tier": "common",
+      "cost": 2
+    },
+    "442": {
+      "starter": 442,
+      "tier": "rare",
+      "cost": 4
+    },
+    "443": {
+      "starter": 443,
+      "tier": "rare",
+      "cost": 4
+    },
+    "444": {
+      "starter": 443,
+      "tier": null,
+      "cost": null
+    },
+    "445": {
+      "starter": 443,
+      "tier": null,
+      "cost": null
+    },
+    "446": {
+      "starter": 446,
+      "tier": "rare",
+      "cost": 4
+    },
+    "447": {
+      "starter": 447,
+      "tier": "rare",
+      "cost": 3
+    },
+    "448": {
+      "starter": 447,
+      "tier": null,
+      "cost": null
+    },
+    "449": {
+      "starter": 449,
+      "tier": "common",
+      "cost": 3
+    },
+    "450": {
+      "starter": 449,
+      "tier": null,
+      "cost": null
+    },
+    "451": {
+      "starter": 451,
+      "tier": "common",
+      "cost": 3
+    },
+    "452": {
+      "starter": 451,
+      "tier": null,
+      "cost": null
+    },
+    "453": {
+      "starter": 453,
+      "tier": "common",
+      "cost": 2
+    },
+    "454": {
+      "starter": 453,
+      "tier": null,
+      "cost": null
+    },
+    "455": {
+      "starter": 455,
+      "tier": "common",
+      "cost": 2
+    },
+    "456": {
+      "starter": 456,
+      "tier": "common",
+      "cost": 1
+    },
+    "457": {
+      "starter": 456,
+      "tier": null,
+      "cost": null
+    },
+    "458": {
+      "starter": 458,
+      "tier": "common",
+      "cost": 2
+    },
+    "459": {
+      "starter": 459,
+      "tier": "common",
+      "cost": 2
+    },
+    "460": {
+      "starter": 459,
+      "tier": null,
+      "cost": null
+    },
+    "461": {
+      "starter": 215,
+      "tier": null,
+      "cost": null
+    },
+    "462": {
+      "starter": 81,
+      "tier": null,
+      "cost": null
+    },
+    "463": {
+      "starter": 108,
+      "tier": null,
+      "cost": null
+    },
+    "464": {
+      "starter": 111,
+      "tier": null,
+      "cost": null
+    },
+    "465": {
+      "starter": 114,
+      "tier": null,
+      "cost": null
+    },
+    "466": {
+      "starter": 239,
+      "tier": null,
+      "cost": null
+    },
+    "467": {
+      "starter": 240,
+      "tier": null,
+      "cost": null
+    },
+    "468": {
+      "starter": 175,
+      "tier": null,
+      "cost": null
+    },
+    "469": {
+      "starter": 193,
+      "tier": null,
+      "cost": null
+    },
+    "470": {
+      "starter": 133,
+      "tier": null,
+      "cost": null
+    },
+    "471": {
+      "starter": 133,
+      "tier": null,
+      "cost": null
+    },
+    "472": {
+      "starter": 207,
+      "tier": null,
+      "cost": null
+    },
+    "473": {
+      "starter": 220,
+      "tier": null,
+      "cost": null
+    },
+    "474": {
+      "starter": 137,
+      "tier": null,
+      "cost": null
+    },
+    "475": {
+      "starter": 280,
+      "tier": null,
+      "cost": null
+    },
+    "476": {
+      "starter": 299,
+      "tier": null,
+      "cost": null
+    },
+    "477": {
+      "starter": 355,
+      "tier": null,
+      "cost": null
+    },
+    "478": {
+      "starter": 361,
+      "tier": null,
+      "cost": null
+    },
+    "479": {
+      "starter": 479,
+      "tier": "rare",
+      "cost": 4
+    },
+    "480": {
+      "starter": 480,
+      "tier": "epic",
+      "cost": 5
+    },
+    "481": {
+      "starter": 481,
+      "tier": "epic",
+      "cost": 5
+    },
+    "482": {
+      "starter": 482,
+      "tier": "epic",
+      "cost": 6
+    },
+    "483": {
+      "starter": 483,
+      "tier": "legendary",
+      "cost": 8
+    },
+    "484": {
+      "starter": 484,
+      "tier": "legendary",
+      "cost": 8
+    },
+    "485": {
+      "starter": 485,
+      "tier": "epic",
+      "cost": 7
+    },
+    "486": {
+      "starter": 486,
+      "tier": "legendary",
+      "cost": 7
+    },
+    "487": {
+      "starter": 487,
+      "tier": "legendary",
+      "cost": 8
+    },
+    "488": {
+      "starter": 488,
+      "tier": "epic",
+      "cost": 6
+    },
+    "489": {
+      "starter": 489,
+      "tier": "epic",
+      "cost": 4
+    },
+    "490": {
+      "starter": 490,
+      "tier": "epic",
+      "cost": 6
+    },
+    "491": {
+      "starter": 491,
+      "tier": "epic",
+      "cost": 7
+    },
+    "492": {
+      "starter": 492,
+      "tier": "epic",
+      "cost": 6
+    },
+    "493": {
+      "starter": 493,
+      "tier": "legendary",
+      "cost": 9
+    }
+  },
+  "inputs": {
+    "generation-01.ts": "883cca67df531defd82083474318f23490fbc95c2bfab79f50834289c1210c97",
+    "generation-02.ts": "3f91b5ebc25fe6455425b66f4f23591e15d63ecd28d50d9336c0c939e1751396",
+    "generation-03.ts": "bf463f25eb7e04827cdbf641f1f40fb4f7ace3af1030934b021606ea51bf717d",
+    "generation-04.ts": "7ffcab16054f65e581479a75e7eb15a3183a1e7f7210d153b6e70441dee7ff33",
+    "species-data-registry.ts": "19f0a58142d27c531d0f5c9b8a81775d38c85e154e0ce37bea7ba710aae6feb0",
+    "species-id.ts": "8de32506ccc1efbdf701c5cb644ec9724ea740e3882184da4826c8c8f5aa38d1",
+    "starters.ts": "dfd86862103429183047e34dc0c10c3cc6c2499485da90101b606b2307d30e0d"
+  }
+}

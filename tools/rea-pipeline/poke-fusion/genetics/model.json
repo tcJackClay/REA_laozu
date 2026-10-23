@@ -1,0 +1,10 @@
+{
+  "checks": 452,
+  "completed": 79,
+  "pools": {
+    "common": 52,
+    "rare": 22,
+    "epic": 4,
+    "legendary": 1
+  }
+}
