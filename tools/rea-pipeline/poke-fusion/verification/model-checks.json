@@ -1,5 +1,5 @@
 {
-  "checks": 25,
+  "checks": 27,
   "labels": [
     "first free 1",
     "rotation and placement 1",
@@ -25,7 +25,9 @@
     "failure and rescue cannot double-credit",
     "held band changes actual damage",
     "berry heals once each battle",
-    "withdraw last move prevents battle"
+    "withdraw last move prevents battle",
+    "5x5 bounds and old save repack",
+    "forward refuses pending rewards without transitioning"
   ],
   "species": 420,
   "moves": 472

@@ -1,5 +1,11 @@
 {
   "checks": [
+    "no persistent instruction copy",
+    "advance centered",
+    "25 backpack cells",
+    "drops appear in scene",
+    "no reward heading or return event",
+    "centered forward button",
     "six source-art progress nodes",
     "reward progress is step three",
     "no cooldown printed on cards",

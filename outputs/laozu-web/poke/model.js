@@ -5,7 +5,7 @@
   else root.PokeFusion = api;
 })(globalThis, () => {
   'use strict';
-  const KEY = 'poke-fusion-v1', COST = 3, COLS = 7, ROWS = 6;
+  const KEY = 'poke-fusion-v1', COST = 3, COLS = 5, ROWS = 5;
   const NAMES = {1:'妙蛙种子',4:'小火龙',7:'杰尼龟',10:'绿毛虫',16:'波波',19:'小拉达',25:'皮卡丘'};
   const MOVE_NAMES = {'vine-whip':'藤鞭',ember:'火花','water-gun':'水枪',tackle:'撞击',scratch:'抓','razor-leaf':'飞叶快刀','fire-fang':'火焰牙','water-pulse':'水之波动'};
   const TYPES = {normal:'一般',fire:'火',water:'水',grass:'草',electric:'电',poison:'毒',flying:'飞行',bug:'虫',rock:'岩石',ground:'地面',ice:'冰',psychic:'超能',ghost:'幽灵',dragon:'龙',dark:'恶',steel:'钢',fairy:'妖精',fighting:'格斗'};
@@ -25,7 +25,7 @@
       const primary = {1:'vine-whip',4:'ember',7:'water-gun'}[id];
       const runId = ++s.sequence;
       s.points -= cost; s.firstFree = false;
-      s.run = {id:runId,mon:{uid:'run-'+runId,speciesId:id,level:5},phase:'draw',stage:0,hp:90,maxHp:90,earned:0,elapsed:0,battle:null,items:[{uid:'r'+runId+'-0',kind:'move',key:primary,w:2,h:1,x:0,y:0,rotation:0}],pending:[],log:[name(id)+'加入本次探险。'],nextItem:1,outcome:null};
+      s.run = {id:runId,boardSize:'5x5',mon:{uid:'run-'+runId,speciesId:id,level:5},phase:'draw',stage:0,hp:90,maxHp:90,earned:0,elapsed:0,battle:null,items:[{uid:'r'+runId+'-0',kind:'move',key:primary,w:2,h:1,x:0,y:0,rotation:0}],pending:[],log:[name(id)+'加入本次探险。'],nextItem:1,outcome:null};
       return def;
     }
     function reveal() { need('draw').phase = 'ready'; }
@@ -37,6 +37,20 @@
         if (other.uid === item.uid || other.x == null) return false;
         const [ow,oh] = size(other); return x<other.x+ow && x+w>other.x && y<other.y+oh && y+h>other.y;
       });
+    }
+    // Keep all owned items when restoring an older, wider backpack.
+    if(s.run && s.run.boardSize !== '5x5'){
+      const r=s.run,old=[...r.items];r.items=[];
+      for(const item of old){
+        if(!fits(item,item.x,item.y)){
+          let found=false;
+          for(let y=0;y<ROWS&&!found;y++)for(let x=0;x<COLS&&!found;x++)if(fits(item,x,y)){item.x=x;item.y=y;found=true;}
+          if(!found){item.x=null;item.y=null;r.pending.push(item);continue;}
+        }
+        r.items.push(item);
+      }
+      r.boardSize='5x5';
+      if(r.pending.length&&r.phase==='battle'){r.phase='ready';r.battle=null;}
     }
     const editable = () => { if (!s.run || !['ready','reward','event'].includes(s.run.phase)) throw Error('战斗中不能整理背包'); return s.run; };
     function place(uid, x, y) {
@@ -105,6 +119,12 @@
     function proceed() {
       const r=need('event');if(r.stage===0){r.stage=1;startBattle();}else{r.phase='settlement';r.outcome='graduated';r.log.push('常青小径探险完成！');}
     }
+    function forward(){
+      if(s.run?.pending.length)throw Error('请先将待领取物品装入背包');
+      if(s.run?.phase==='ready')return startBattle();
+      if(s.run?.phase==='reward')completeReward();
+      return proceed();
+    }
     function settle() {
       const r=need('settlement');
       if(s.settled.includes(r.id))throw Error('本次探险已结算');
@@ -119,7 +139,7 @@
       if(item.kind==='move'){const m=catalog.MOVES[item.key];return {name:moveName(item.key),type:m.type,detail:(m.cat==='spec'?'特殊':'物理')+' · 威力 '+m.power+' · 冷却 '+(item.w*item.h>=4?'2.6':'1.8')+'秒'};}
       return item.key==='oran-berry'?{name:'橙橙果',type:'grass',detail:'生命不高于55%时恢复25生命；每场战斗一次。'}:{name:'学习装置',type:'normal',detail:'携带时所有招式伤害 ×1.2；同类不叠加。'};
     }
-    return {s,species,name,moveName,drawCost,draw,reveal,size,fits,place,rotate,withdraw,startBattle,tick,completeReward,proceed,settle,rescue,itemInfo,damage};
+    return {s,species,name,moveName,drawCost,draw,reveal,size,fits,place,rotate,withdraw,startBattle,tick,completeReward,proceed,forward,settle,rescue,itemInfo,damage};
   }
   return {KEY,COST,COLS,ROWS,TYPES,create};
 });
