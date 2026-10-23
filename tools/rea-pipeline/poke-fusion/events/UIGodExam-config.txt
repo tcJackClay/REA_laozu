@@ -1,0 +1,41 @@
+710074: 			SetCurGodExamIndex(1);
+710075: 			m_DamageOriPos = ((TMP_Text)text_Damage).rectTransform.anchoredPosition;
+710076: 			DiscipleData discipleData = (m_discipleData = GameGlobalEx.Wander.GetWanderDiscipleData());
+710077: 			if (discipleData == null)
+710078: 			{
+710079: 				return;
+710080: 			}
+710081: 			LoadBirthIcon(discipleData);
+710082: 			nowExamTimes = discipleData.GetIntProp(2);
+710083: 			int intProp = discipleData.GetIntProp(33);
+710084: 			cfg_WanderGodExam cfg_WanderGodExam = GameGlobal.GameScheme.WanderGodExam_0(examId, intProp, nowExamTimes, 1);
+710085: 			if (cfg_WanderGodExam == null)
+710086: 			{
+710087: 				Debug.LogError((object)$"渡劫配置不存在：examId={examId}, quality={intProp}, state={nowExamTimes}");
+710088: 				return;
+710089: 			}
+710090: 			((TMP_Text)text_LevelTitle).text = "当前境界：<color=#d8c691>" + cfg_WanderGodExam.szDesc + "</color>";
+710091: 			cfg_WanderGodExamReward cfg_WanderGodExamReward = GameGlobal.GameScheme.WanderGodExamReward_0(cfg_WanderGodExam.iLevel);
+710092: 			((TMP_Text)text_GodTitle).text = "雷劫等级：<color=#d8c691>" + cfg_WanderGodExamReward.szThunderTitle + "</color>";
+710093: 			if (Singleton<GameIni>.Instance.enableDebug)
+710094: 			{
+710095: 				Debug.Log((object)$"渡劫测试日志： iExamID:{examId}, iQuality:{intProp}, iState:{nowExamTimes}, iThunderNum:{curGodExamIndex}");
+710096: 			}
+710097: 			InitPill();
+710098: 			UpdateIsSuccess();
+710099: 			curHpData = discipleData.HP.Value;
+710100: 			iniCurHpData = discipleData.HP.Value;
+710101: 			UpdateHp(isSmooth: false);
+710102: 			UpdateDamageInfo();
+710103: 			UpdateShowUI();
+710104: 			UpdateEffDexTxt();
+710105: 			m_isShowSelectPill = false;
+710106: 			int intProp2 = discipleData.GetIntProp(EnDiscipleProp.DISCIPLE_PROP_WANDER_DIFFICULTY);
+710107: 			int intProp3 = discipleData.GetIntProp(EnDiscipleProp.DISCIPLE_PROP_WANDER_MODE);
+710108: 			cfg_WanderDifficulty cfg_WanderDifficulty = GameGlobal.GameScheme.WanderDifficulty_0(intProp2, intProp3);
+710109: 			if (cfg_WanderDifficulty != null)
+710110: 			{
+710111: 				m_isShowSelectPill = cfg_WanderDifficulty.iShowGodPill > 0;
+710112: 			}
+710113: 			GameObjectExtension.BetterSetActive(((Component)tran_PillSelect).gameObject, m_isShowSelectPill, true);
+710114: 			GameObjectExtension.BetterSetActive(((Component)cdBtn_Start).gameObject, m_isShowSelectPill, true);

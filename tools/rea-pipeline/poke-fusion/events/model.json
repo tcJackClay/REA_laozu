@@ -1,0 +1,12 @@
+{
+  "checks": 648,
+  "branches": [
+    "points",
+    "thicket",
+    "cache",
+    "trade",
+    "training",
+    "berries",
+    "camp"
+  ]
+}

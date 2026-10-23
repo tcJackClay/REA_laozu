@@ -1,0 +1,14 @@
+{
+  "inputs": [
+    {
+      "path": "D:\\新建文件夹\\2026-10-19\\d\\work\\alignment-v13\\all.cs",
+      "sha256": "0b996477b79bc2c8ce01f5c5c6b733647dcb927e6935713d3bbdff732e83e23f"
+    },
+    {
+      "path": "D:\\新建文件夹\\2026-10-22\\poke-catch-https-pokecatch-online-netlify\\outputs\\pokecatch-reference\\evidence\\runtime-data\\EVOLUTIONS.json",
+      "sha256": "4a4fa3deba940b9b8bfe40374d7d5e5522bb239ddc68d1219020fe741d32917b"
+    }
+  ],
+  "evolutionData": "outputs/laozu-web/poke/evolutions.js",
+  "boundary": "APK UI flow evidence plus original PokeCatch level evolutions; fusion event rewards and HP scaling are local rules."
+}

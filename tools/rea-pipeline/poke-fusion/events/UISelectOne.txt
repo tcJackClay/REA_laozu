@@ -1,0 +1,15 @@
+601844: 		public int OptionCount
+601845: 		{
+601846: 			get
+601847: 			{
+601848: 				if (m_OptionCount == -1 && (Object)(object)m_DataSourceSelector != (Object)null)
+601849: 				{
+601850: 					m_OptionCount = m_DataSourceSelector.OptionCount;
+601851: 				}
+601852: 				if (m_OptionCount < 0)
+601853: 				{
+601854: 					m_OptionCount = 3;
+601855: 				}
+601856: 				return m_OptionCount;
+601857: 			}
+601858: 		}

@@ -1,0 +1,47 @@
+601967: 		private void OnFlexOptionsSelect(int idx)
+601968: 		{
+601969: 			//IL_0042: Unknown result type (might be due to invalid IL or missing references)
+601970: 			((MessageBoxData)MessageBoxShareData.Instance).Reset();
+601971: 			((MessageBoxData)MessageBoxShareData.Instance).title = "选择提示";
+601972: 			((MessageBoxData)MessageBoxShareData.Instance).content = "确定要选择这一个吗？";
+601973: 			((MessageBoxData)MessageBoxShareData.Instance).style = (MessageBoxStyle)1;
+601974: 			((MessageBoxData)MessageBoxShareData.Instance).callback = delegate(bool isOK, MessageBoxData data)
+601975: 			{
+601976: 				if (isOK)
+601977: 				{
+601978: 					SelectOneDataSourceSelector dataSourceSelector = m_DataSourceSelector;
+601979: 					object obj = m_SourcesDataList[idx];
+601980: 					OnSelectOneOptionFinishCallback finishCallback = m_FinishCallback;
+601981: 					((UIWindow)this).Close(true);
+601982: 					finishCallback?.Invoke(obj, idx);
+601983: 					((XGameEvent<object, int>)dataSourceSelector?.OnSelect).Invoke(obj, idx);
+601984: 				}
+601985: 			};
+601986: 			MessageBoxManager.Instance.ShowBox(MessageBoxShareData.Instance);
+601987: 		}
+601988: 
+601989: 		protected override void OnBuildUIData()
+601990: 		{
+601991: 			((UIWindow)this).OnBuildUIData();
+601992: 			m_OptionDataList.Clear();
+601993: 			if (!((UIWindow)this).IsFirstUpdate || m_IsPassDataList || DataSource == null)
+601994: 			{
+601995: 				return;
+601996: 			}
+601997: 			m_SourcesDataList.Clear();
+601998: 			DataSource.GetAvailableItems(m_SourcesDataList, OptionCount);
+601999: 			foreach (object sourcesData in m_SourcesDataList)
+602000: 			{
+602001: 				SelectOneOptionData selectOneOptionData = new SelectOneOptionData();
+602002: 				if (ConvertData(sourcesData, selectOneOptionData))
+602003: 				{
+602004: 					m_OptionDataList.Add(selectOneOptionData);
+602005: 				}
+602006: 			}
+602007: 		}
+602008: 
+602009: 		protected override void OnUpdateUI()
+602010: 		{
+602011: 			flex_OptionsInst.SetData<SelectOneOptionData>(m_OptionDataList);
+602012: 		}
+602013: 

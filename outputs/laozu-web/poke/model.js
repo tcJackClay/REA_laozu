@@ -6,8 +6,9 @@
 })(globalThis, () => {
   'use strict';
   const ROUTES=typeof module==='object'&&module.exports?require('./routes.js'):globalThis.POKE_ROUTES;
+  const EVOLUTIONS=typeof module==='object'&&module.exports?require('./evolutions.js'):globalThis.POKE_EVOLUTIONS;
   const KEY = 'poke-fusion-v1', COST = 3, COLS = 5, ROWS = 5;
-  const NAMES = {1:'妙蛙种子',4:'小火龙',7:'杰尼龟',10:'绿毛虫',16:'波波',19:'小拉达',25:'皮卡丘'};
+  const NAMES = {1:'妙蛙种子',2:'妙蛙草',3:'妙蛙花',4:'小火龙',5:'火恐龙',6:'喷火龙',7:'杰尼龟',8:'卡咪龟',9:'水箭龟',10:'绿毛虫',16:'波波',19:'小拉达',25:'皮卡丘'};
   const MOVE_NAMES = {'vine-whip':'藤鞭',ember:'火花','water-gun':'水枪',tackle:'撞击',scratch:'抓','razor-leaf':'飞叶快刀','fire-fang':'火焰牙','water-pulse':'水之波动'};
   const TYPES = {normal:'一般',fire:'火',water:'水',grass:'草',electric:'电',poison:'毒',flying:'飞行',bug:'虫',rock:'岩石',ground:'地面',ice:'冰',psychic:'超能',ghost:'幽灵',dragon:'龙',dark:'恶',steel:'钢',fairy:'妖精',fighting:'格斗'};
   function create(catalog, loaded, random = Math.random) {
@@ -97,14 +98,48 @@
       const held=s.run.items.some(x=>x.key==='exp-share')?1.2:1;
       return type===0?0:Math.max(1,Math.floor(((2*s.run.mon.level/5+2)*m.power*atk/guard/50+2)*stab*type*held));
     }
-    function reward() {
-      const r=s.run;r.phase='reward';r.earned+=2;s.points+=2;s.defeats++;
-      r.mon.level+=2;
-      const key={1:'razor-leaf',4:'fire-fang',7:'water-pulse'}[r.mon.speciesId];
-      const make=(kind,key,w,h)=>({uid:'r'+r.id+'-'+r.nextItem++,kind,key,w,h,x:null,y:null,rotation:0});
-      r.pending=r.stage===0?[make('move',key,2,2),make('held','oran-berry',1,1)]:[make('held','exp-share',2,1)];
+    function makeReward(kind,key,w,h){const r=s.run;return {uid:'r'+r.id+'-'+r.nextItem++,kind,key,w,h,x:null,y:null,rotation:0};}
+    function rewardMove(){const id=s.run.mon.speciesId;return id<=3?'razor-leaf':id<=6?'fire-fang':'water-pulse';}
+    const EVENTS=[
+      {id:'training',name:'招式特训',icon:'ui/exp-share.png',detail:'招式卡块 ×1',kind:'move'},
+      {id:'cache',name:'遗落行囊',icon:'items/storage.png',detail:'携带道具 ×1',kind:'held'},
+      {id:'berries',name:'树果采集',icon:'ui/tallgrass-icon.png',detail:'橙橙果 ×2',kind:'berries'},
+      {id:'camp',name:'林间休息',icon:'ui/pokecenter.png',detail:'恢复 35% HP',kind:'heal'},
+      {id:'points',name:'协助研究',icon:'items/point-card.png',detail:'抽取点 +3',kind:'points'},
+      {id:'trade',name:'旅行商人',icon:'items/storage.png',detail:'抽取点 −2 · 携带道具 ×2',kind:'held',cost:2},
+      {id:'thicket',name:'深入密林',icon:'ui/tallgrass-icon.png',detail:'HP −10% · 招式与树果各 ×1',kind:'risk'}
+    ];
+    function reward(){const r=s.run;r.phase='encounter';r.earned+=2;s.points+=2;s.defeats++;r.mon.level+=2;r.pending=[];
+      const deck=EVENTS.filter(e=>!e.cost||s.points>=e.cost).map(e=>({...e}));
+      for(let i=deck.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]];}
+      r.encounter={stage:r.stage,options:deck.slice(0,3)};
       r.log.push('击败'+name(r.battle.speciesId)+'，抽取点 +2，等级 +2。');
     }
+    function chooseEncounter(id){const r=need('encounter'),option=r.encounter?.options.find(e=>e.id===id);if(!option)throw Error('事件已失效');if(s.points<(option.cost||0))throw Error('抽取点不足');
+      s.points-=option.cost||0;
+      const move=()=>makeReward('move',rewardMove(),2,2),berry=()=>makeReward('held','oran-berry',1,1),held=()=>makeReward('held','exp-share',2,1);
+      if(option.kind==='move')r.pending=[move()];
+      if(option.kind==='held')r.pending=option.cost?[held(),held()]:[held()];
+      if(option.kind==='berries')r.pending=[berry(),berry()];
+      if(option.kind==='heal')r.hp=Math.min(r.maxHp,r.hp+Math.ceil(r.maxHp*.35));
+      if(option.kind==='points'){s.points+=3;r.earned+=3;}
+      if(option.kind==='risk'){r.hp=Math.max(1,r.hp-Math.ceil(r.maxHp*.1));r.pending=[move(),berry()];}
+      r.log.push(option.name+'：'+option.detail);r.lastEncounter={...option,stage:r.stage};delete r.encounter;r.phase='reward';
+    }
+    function offerEvolution(resume){const r=s.run;if(r.deferredEvolution===r.mon.speciesId+':'+r.stage)return false;const options=(EVOLUTIONS?.[r.mon.speciesId]||[]).filter(e=>e.level&&r.mon.level>=e.level&&species(e.to));if(!options.length)return false;
+      r.evolution={from:r.mon.speciesId,options:options.map(e=>({to:e.to,level:e.level})),resume};r.phase='evolution';return true;
+    }
+    function evolve(to){const r=need('evolution'),e=r.evolution.options.find(e=>e.to===Number(to));if(!e)throw Error('不可选择此进化');
+      const old=species(r.mon.speciesId),next=species(e.to),ratio=r.hp/r.maxHp;
+      const pool=[...new Set((next.learn||[]).filter(([level,key])=>level<=r.mon.level&&catalog.MOVES[key]?.power>0&&['phys','spec'].includes(catalog.MOVES[key].cat)).map(([,key])=>key))];
+      if(!pool.length)throw Error('当前形态没有可用攻击招式');
+      const key=pool[Math.floor(random()*pool.length)],learned=makeReward('move',key,2,1);
+      r.items=r.items.filter(i=>i.kind!=='move');r.pending=r.pending.filter(i=>i.kind!=='move');
+      let placed=false;for(let y=0;y<ROWS&&!placed;y++)for(let x=0;x<COLS&&!placed;x++)if(fits(learned,x,y)){learned.x=x;learned.y=y;r.items.push(learned);placed=true;}
+      if(!placed)r.pending.push(learned);
+      r.mon.speciesId=e.to;r.maxHp=Math.round(r.maxHp*next.stats.hp/old.stats.hp);r.hp=Math.max(1,Math.round(r.maxHp*ratio));r.evolution.to=e.to;r.evolution.learned=key;r.phase='evolution-result';r.log.push(name(r.evolution.from)+'进化为'+name(e.to)+'，遗忘原有招式，学会'+moveName(key)+'。');}
+
+    function finishEvolution(skip=false){const r=need(skip?'evolution':'evolution-result'),resume=r.evolution.resume;if(skip)r.deferredEvolution=r.mon.speciesId+':'+r.stage;delete r.evolution;r.phase=resume;if(!r.items.some(i=>i.kind==='move'))return;return forward();}
     function tick(ms) {
       if(!Number.isFinite(ms)||ms<0||ms>120000)throw Error('时间步长无效');
       const r=s.run;if(!r||r.phase!=='battle')return;
@@ -136,8 +171,9 @@
       if(!s.run||!['ready','reward','event'].includes(s.run.phase))throw Error('当前不能前进');
       if(!s.run.items.some(i=>i.kind==='move'))throw Error('至少携带一个招式');
       s.run.pending=[];
-      if(s.run?.phase==='ready')return startBattle();
+      if(s.run?.phase==='ready'){if(offerEvolution('ready'))return;return startBattle();}
       if(s.run?.phase==='reward')completeReward();
+      if(offerEvolution('event'))return;
       return proceed();
     }
     function settle() {
@@ -154,7 +190,7 @@
       if(item.kind==='move'){const m=catalog.MOVES[item.key];return {name:moveName(item.key),type:m.type,detail:(m.cat==='spec'?'特殊':'物理')+' · 威力 '+m.power+' · 冷却 '+(item.w*item.h>=4?'2.6':'1.8')+'秒'};}
       return item.key==='oran-berry'?{name:'橙橙果',type:'grass',detail:'生命不高于55%时恢复25生命；每场战斗一次。'}:{name:'学习装置',type:'normal',detail:'携带时所有招式伤害 ×1.2；同类不叠加。'};
     }
-    return {s,species,name,moveName,drawCost,draw,reveal,size,fits,place,move,rotate,withdraw,startBattle,tick,completeReward,proceed,forward,settle,rescue,itemInfo,damage};
+    return {s,species,name,moveName,drawCost,draw,reveal,size,fits,place,move,rotate,withdraw,startBattle,tick,completeReward,proceed,forward,settle,rescue,itemInfo,damage,chooseEncounter,evolve,finishEvolution};
   }
   return {KEY,COST,COLS,ROWS,TYPES,create};
 });

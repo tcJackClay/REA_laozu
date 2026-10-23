@@ -1,0 +1,22 @@
+{
+  "checks": [
+    "natural battle presents three events",
+    "reload no reroll",
+    "all cards fit 320",
+    "all cards fit 390",
+    "all cards fit 450",
+    "choice returns backpack",
+    "new loop settles",
+    "level evolution choice",
+    "two evolution cards fit 320",
+    "two evolution cards fit 390",
+    "two evolution cards fit 450",
+    "skip enters battle",
+    "evolution result updates species",
+    "one randomized move",
+    "result survives reload",
+    "evolved battle uses new identity",
+    "no errors"
+  ],
+  "errors": []
+}
